@@ -13,7 +13,7 @@ export default function TermsOfService() {
       <h2 className="text-2xl font-semibold mt-6 mb-2">Intellectual Property</h2>
       <p className="mb-4">All content on this site is the property of Vizco and may not be used without permission.</p>
       <h2 className="text-2xl font-semibold mt-6 mb-2">Disclaimer</h2>
-      <p className="mb-4">This site is provided "as is" without warranties of any kind. Vizco is not liable for any damages arising from use of the site.</p>
+      <p className="mb-4">This site is provided &quot;as is&quot; without warranties of any kind. Vizco is not liable for any damages arising from use of the site.</p>
       <h2 className="text-2xl font-semibold mt-6 mb-2">Contact</h2>
       <p>If you have any questions about these terms, please contact us at <a href="mailto:info@vizco.co" className="underline hover:text-purple-700">info@vizco.co</a>.</p>
     </div>
