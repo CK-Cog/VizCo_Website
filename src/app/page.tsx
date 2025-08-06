@@ -14,7 +14,7 @@ export default function Home() {
           priority
         />
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">Win in AI-Native Shopping</h1>
-        <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">Get found. Get chosen. Get bought—in AI-chat interfaces like ChatGPT</p>
+        <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">Improve your brand’s Discoverability and Transactability in AI-interfaces like ChatGPT.</p>
         <a href="https://calendly.com/chris-kelly-stanford/1-1" target="_blank" rel="noopener noreferrer" className="mt-2 px-10 py-4 bg-purple-800 text-white rounded-full font-bold shadow-lg hover:bg-purple-900 transition text-lg">Book a Demo</a>
       </header>
 
