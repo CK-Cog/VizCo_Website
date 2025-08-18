@@ -65,6 +65,8 @@ export default function Home() {
           <span className="hidden md:inline mx-2">|</span>
           <span>Email: <a href="mailto:info@vizco.co" className="underline hover:text-purple-700">info@vizco.co</a></span>
           <span className="hidden md:inline mx-2">|</span>
+          <a href="/careers" className="underline hover:text-purple-700">Careers</a>
+          <span className="hidden md:inline mx-2">|</span>
           <a href="/privacy-policy" className="underline hover:text-purple-700">Privacy Policy</a>
           <span className="hidden md:inline mx-2">|</span>
           <a href="/terms-of-service" className="underline hover:text-purple-700">Terms of Service</a>
