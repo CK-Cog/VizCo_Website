@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -18,60 +19,41 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const attachments: Array<{ filename: string; content: string }> = [];
+    const attachments: Array<{ filename: string; content: Buffer }> = [];
 
-    // Helper to convert File -> base64 string
-    const fileToBase64 = async (file: File) => {
-      const buffer = Buffer.from(await file.arrayBuffer());
-      return buffer.toString('base64');
-    };
+    const fileToBuffer = async (file: File) => Buffer.from(await file.arrayBuffer());
 
-    const resumeBase64 = await fileToBase64(resume);
-    attachments.push({ filename: resume.name || 'resume.pdf', content: resumeBase64 });
-
+    attachments.push({ filename: resume.name || 'resume.pdf', content: await fileToBuffer(resume) });
     if (coverLetterFile) {
-      const clBase64 = await fileToBase64(coverLetterFile);
-      attachments.push({ filename: coverLetterFile.name || 'cover-letter.txt', content: clBase64 });
+      attachments.push({ filename: coverLetterFile.name || 'cover-letter.txt', content: await fileToBuffer(coverLetterFile) });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.error('RESEND_API_KEY is not set');
+    const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+    const port = Number(process.env.SMTP_PORT || 587);
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    const fromAddress = process.env.SMTP_FROM || user || 'no-reply@vizco.co';
+
+    if (!user || !pass) {
+      console.error('SMTP_USER/SMTP_PASS not set');
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
     }
 
-    const fromAddress = process.env.RESEND_FROM || 'onboarding@resend.dev';
+    const transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure: port === 465,
+      auth: { user, pass },
+    });
 
-    const emailPayload = {
+    await transporter.sendMail({
       from: `Vizco Careers <${fromAddress}>`,
-      to: ['chris@vizco.co'],
-      reply_to: [email],
+      to: 'chris@vizco.co',
+      replyTo: email,
       subject: `New application: ${role} — ${name}`,
       text: `A new candidate applied.\n\nRole: ${role}\nName: ${name}\nEmail: ${email}\n\nCover Letter (text):\n${coverLetterText || '(none provided)'}\n`,
       attachments,
-    } satisfies {
-      from: string;
-      to: string[];
-      reply_to: string[];
-      subject: string;
-      text: string;
-      attachments: { filename: string; content: string }[];
-    };
-
-    const resp = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailPayload),
     });
-
-    if (!resp.ok) {
-      const err = await resp.text();
-      console.error('Resend error:', err);
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
-    }
 
     const url = new URL('/careers/thanks', request.url);
     return NextResponse.redirect(url, { status: 303 });
