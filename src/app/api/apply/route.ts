@@ -43,14 +43,16 @@ export async function POST(request: Request) {
     const fromAddress = process.env.RESEND_FROM || 'onboarding@resend.dev';
 
     const emailPayload = {
-      from: fromAddress,
+      from: `Vizco Careers <${fromAddress}>`,
       to: ['chris@vizco.co'],
+      reply_to: [email],
       subject: `New application: ${role} — ${name}`,
       text: `A new candidate applied.\n\nRole: ${role}\nName: ${name}\nEmail: ${email}\n\nCover Letter (text):\n${coverLetterText || '(none provided)'}\n`,
       attachments,
     } satisfies {
       from: string;
       to: string[];
+      reply_to: string[];
       subject: string;
       text: string;
       attachments: { filename: string; content: string }[];
