@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export async function POST(request: Request) {
   try {
@@ -39,8 +40,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
     }
 
+    const fromAddress = process.env.RESEND_FROM || 'onboarding@resend.dev';
+
     const emailPayload = {
-      from: 'applications@vizco.co', // verify this domain in Resend; for testing you can use onboarding@resend.dev
+      from: fromAddress,
       to: ['chris@vizco.co'],
       subject: `New application: ${role} — ${name}`,
       text: `A new candidate applied.\n\nRole: ${role}\nName: ${name}\nEmail: ${email}\n\nCover Letter (text):\n${coverLetterText || '(none provided)'}\n`,
