@@ -37,34 +37,29 @@ export default function CareersPage() {
             </ul>
 
             <h3 className="font-semibold text-lg mb-4 text-white">Apply</h3>
-            <form action="/api/apply" method="post" encType="multipart/form-data" className="space-y-4">
-              <input type="hidden" name="role" value="Founding Engineer (Full-Stack)" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm text-gray-300 mb-1">Name</label>
-                  <input name="name" required className="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white" />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-300 mb-1">Email</label>
-                  <input type="email" name="email" required className="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm text-gray-300 mb-1">Cover Letter (optional text)</label>
-                <textarea name="coverLetter" rows={5} className="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm text-gray-300 mb-1">Resume (PDF)</label>
-                  <input type="file" name="resume" accept="application/pdf,.pdf" required className="w-full text-gray-300" />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-300 mb-1">Cover Letter (file, optional)</label>
-                  <input type="file" name="coverLetterFile" accept="application/pdf,.pdf,.txt,.md" className="w-full text-gray-300" />
-                </div>
-              </div>
-              <button type="submit" className="px-6 py-3 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition">Submit Application</button>
-            </form>
+            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-black">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfg9CWkCq2wgZmlQKKuB4BqRz-JB_DNdddzN1XDuIBaheyF0A/viewform?usp=sharing&ouid=101790443576383442480&embedded=true"
+                width="100%"
+                height="1200"
+                frameBorder={0}
+                marginHeight={0}
+                marginWidth={0}
+              >
+                Loading…
+              </iframe>
+            </div>
+            <p className="text-gray-400 mt-4 text-sm text-center">If the form doesn’t load, use the button below.</p>
+            <div className="text-center mt-2">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfg9CWkCq2wgZmlQKKuB4BqRz-JB_DNdddzN1XDuIBaheyF0A/viewform?usp=sharing&ouid=101790443576383442480"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition"
+              >
+                Open Application Form
+              </a>
+            </div>
           </div>
         </div>
       </div>
