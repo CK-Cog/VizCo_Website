@@ -48,7 +48,13 @@ export async function POST(request: Request) {
       subject: `New application: ${role} — ${name}`,
       text: `A new candidate applied.\n\nRole: ${role}\nName: ${name}\nEmail: ${email}\n\nCover Letter (text):\n${coverLetterText || '(none provided)'}\n`,
       attachments,
-    } as any;
+    } satisfies {
+      from: string;
+      to: string[];
+      subject: string;
+      text: string;
+      attachments: { filename: string; content: string }[];
+    };
 
     const resp = await fetch('https://api.resend.com/emails', {
       method: 'POST',
