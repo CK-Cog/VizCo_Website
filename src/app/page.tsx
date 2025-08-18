@@ -18,12 +18,6 @@ export default function Home() {
         <a href="https://calendly.com/chris-kelly-stanford/1-1" target="_blank" rel="noopener noreferrer" className="mt-2 px-10 py-4 bg-purple-800 text-white rounded-full font-bold shadow-lg hover:bg-purple-900 transition text-lg">Book a Demo</a>
       </header>
 
-      {/* Contact CTA */}
-      <section id="contact" className="py-20 px-4 sm:px-8 bg-purple-800 text-white text-center border-t border-purple-900">
-        <h2 className="text-3xl font-bold mb-4">Get in touch</h2>
-        <div className="mt-6 text-white text-sm">Email: info@vizco.co<br/>Address: 501 Folsom St, San Francisco, CA 94105</div>
-      </section>
-
       {/* Footer */}
       <div className="flex flex-col items-center py-8 bg-black">
         <img src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First Logo" style={{ maxWidth: 240, width: '100%', height: 'auto' }} />
