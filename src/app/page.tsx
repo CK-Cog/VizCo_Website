@@ -20,9 +20,7 @@ export default function Home() {
 
       {/* Contact CTA */}
       <section id="contact" className="py-20 px-4 sm:px-8 bg-purple-800 text-white text-center border-t border-purple-900">
-        <h2 className="text-3xl font-bold mb-4">Ready to win in AI-Native Shopping?</h2>
-        <p className="mb-8 text-lg">Contact us today to get started or request a demo.</p>
-        <a href="https://calendly.com/chris-kelly-stanford/1-1" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-black text-purple-700 rounded-full font-bold shadow-lg hover:bg-gray-900 transition text-lg border border-purple-900">Book a Demo</a>
+        <h2 className="text-3xl font-bold mb-4">Get in touch</h2>
         <div className="mt-6 text-white text-sm">Email: info@vizco.co<br/>Address: 501 Folsom St, San Francisco, CA 94105</div>
       </section>
 
