@@ -37,27 +37,14 @@ export default function CareersPage() {
             </ul>
 
             <h3 className="font-semibold text-lg mb-4 text-white">Apply</h3>
-            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-black">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfg9CWkCq2wgZmlQKKuB4BqRz-JB_DNdddzN1XDuIBaheyF0A/viewform?usp=sharing&ouid=101790443576383442480&embedded=true"
-                width="100%"
-                height="1200"
-                frameBorder={0}
-                marginHeight={0}
-                marginWidth={0}
-              >
-                Loading…
-              </iframe>
-            </div>
-            <p className="text-gray-400 mt-4 text-sm text-center">If the form doesn’t load, use the button below.</p>
-            <div className="text-center mt-2">
+            <div className="text-center">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfg9CWkCq2wgZmlQKKuB4BqRz-JB_DNdddzN1XDuIBaheyF0A/viewform?usp=sharing&ouid=101790443576383442480"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition"
               >
-                Open Application Form
+                Apply via Google Form
               </a>
             </div>
           </div>
