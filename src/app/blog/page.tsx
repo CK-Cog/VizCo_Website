@@ -13,16 +13,25 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 gap-6">
           <article className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
             <h2 className="text-xl font-semibold mb-1">Legal Tech and AI</h2>
-            <div className="text-xs text-gray-500 mb-2">PDF</div>
-            <p className="text-gray-400 text-sm mb-4">A perspective on how firms can safely adopt AI with a unified governance layer.</p>
-            <a
-              href="/blog/Legal_Tech_and_AI-2.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 py-2 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition text-sm"
-            >
-              Read PDF
-            </a>
+            <div className="text-xs text-gray-500 mb-4">PDF</div>
+            <div className="rounded-lg overflow-hidden border border-gray-800 bg-black">
+              <iframe
+                src="/blog/Legal_Tech_and_AI-2.pdf#view=FitH"
+                title="Legal Tech and AI PDF Preview"
+                className="w-full"
+                style={{ height: "75vh" }}
+              />
+            </div>
+            <div className="mt-4">
+              <a
+                href="/blog/Legal_Tech_and_AI-2.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition text-sm"
+              >
+                Open in new tab
+              </a>
+            </div>
           </article>
         </div>
       </div>
