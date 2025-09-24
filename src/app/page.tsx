@@ -34,24 +34,24 @@ export default function Home() {
       {/* Value Props */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-16">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Stop Data Leakage</h3>
+          <h3 className="text-lg font-semibold mb-2">Privilege‑Safe by Default</h3>
           <p className="text-gray-400 text-sm">
-            Automatic redaction and granular access control before prompts or files reach
-            any model. Preserve privilege and confidentiality by default.
+            Automatic redaction, matter‑aware access control, and least‑privilege checks
+            before any prompt, file, or action reaches a model.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Approve Only Safe Actions</h3>
+          <h3 className="text-lg font-semibold mb-2">Policy‑Enforced Agents</h3>
           <p className="text-gray-400 text-sm">
-            Enforce allow‑listed actions with audit trails for agents—send, file, retrieve,
-            or update—fully policy‑aware and reviewable.
+            Allow‑listed actions with approvals and full audit trails. Stop unintended
+            sends, filings, or data pulls—no exceptions.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Plug Into Your Stack</h3>
+          <h3 className="text-lg font-semibold mb-2">Deploy Fast, Anywhere</h3>
           <p className="text-gray-400 text-sm">
-            Model‑agnostic and connector‑friendly (email, DMS, identity). Works across
-            ChatGPT, Claude, Gemini, and internal agents.
+            Model‑agnostic layer with out‑of‑the‑box connectors (email, DMS, identity).
+            Go live in days across ChatGPT, Claude, Gemini, and internal agents.
           </p>
         </div>
       </section>
