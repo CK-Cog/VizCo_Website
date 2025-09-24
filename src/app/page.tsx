@@ -3,24 +3,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
-      {/* Top Nav */}
-      <nav className="flex items-center justify-end px-4 sm:px-8 py-4 bg-black/60 border-b border-gray-800">
-        <div className="flex items-center gap-4 text-sm">
-          <a href="#learn-more" className="text-gray-300 hover:text-white">Learn more</a>
-          <a href="/team" className="text-gray-300 hover:text-white">Team</a>
-          <a href="/careers" className="text-gray-300 hover:text-white">Careers</a>
-          <a href="/blog" className="text-gray-300 hover:text-white">Blog</a>
-          <a
-            href="https://calendly.com/chris-kelly-stanford/1-1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition"
-          >
-            Book a Demo
-          </a>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
         <Image
