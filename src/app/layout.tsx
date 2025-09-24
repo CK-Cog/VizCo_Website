@@ -28,7 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Top Nav (shared) */}
-        <nav className="sticky top-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
           <div className="flex items-center gap-4 text-sm">
             <a href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</a>
             <a href="/team" className="text-gray-200 hover:text-white">Team</a>
@@ -44,6 +44,8 @@ export default function RootLayout({
             </a>
           </div>
         </nav>
+        {/* Spacer to offset fixed nav height */}
+        <div className="h-14" />
         {children}
       </body>
     </html>
