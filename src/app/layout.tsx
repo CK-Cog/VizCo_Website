@@ -28,12 +28,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Top Nav (shared) */}
-        <nav className="flex items-center justify-end px-4 sm:px-8 py-4 bg-black/60 border-b border-gray-800">
+        <nav className="sticky top-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
           <div className="flex items-center gap-4 text-sm">
-            <a href="/#learn-more" className="text-gray-300 hover:text-white">Learn more</a>
-            <a href="/team" className="text-gray-300 hover:text-white">Team</a>
-            <a href="/careers" className="text-gray-300 hover:text-white">Careers</a>
-            <a href="/blog" className="text-gray-300 hover:text-white">Blog</a>
+            <a href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</a>
+            <a href="/team" className="text-gray-200 hover:text-white">Team</a>
+            <a href="/careers" className="text-gray-200 hover:text-white">Careers</a>
+            <a href="/blog" className="text-gray-200 hover:text-white">Blog</a>
             <a
               href="https://calendly.com/chris-kelly-stanford/1-1"
               target="_blank"
