@@ -47,36 +47,42 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Company Snapshot */}
-      <section id="learn-more" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-10">
+      {/* Benefits */}
+      <section id="learn-more" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 sm:px-12 mb-10">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <div className="flex items-center gap-2 mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M12 2l2.39 4.84 5.34.78-3.86 3.76.91 5.31L12 14.77 6.22 16.69l.91-5.31L3.27 7.62l5.34-.78L12 2z" fill="currentColor"/></svg>
-            <h3 className="text-lg font-semibold">Unified Policy Engine</h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-purple-500"><path d="M4 4h16v4H4V4zm0 6h10v4H4v-4zm0 6h16v4H4v-4z"/></svg>
+            <h3 className="text-lg font-semibold">Prevent Data Exposure</h3>
           </div>
           <p className="text-gray-400 text-sm">
-            One control plane for content (redaction), access (matter‑aware permissions),
-            and actions (allow‑lists & approvals) across models and agents.
+            Redact sensitive content before prompts/files hit a model. Privilege‑safe by default.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <div className="flex items-center gap-2 mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.58L18 8l-7 8z" fill="currentColor"/></svg>
-            <h3 className="text-lg font-semibold">Provable Governance</h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-500"><path d="M12 17a2 2 0 100-4 2 2 0 000 4z" fill="currentColor"/><path d="M12 3l7 4v6c0 5-7 8-7 8s-7-3-7-8V7l7-4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <h3 className="text-lg font-semibold">Matter‑Aware Access</h3>
           </div>
           <p className="text-gray-400 text-sm">
-            Approvals, audit trails, and safeguards that prevent unintended sends, filings,
-            or data pulls—and prove compliance.
+            Enforce who can see what with case/matter‑level permissions across models and tools.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <div className="flex items-center gap-2 mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M2 12h4l3 7 4-14 3 7h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-500"><path d="M6 12h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 5l4 4m-4 10l4-4m-8 0l-4 4m4-10l-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <h3 className="text-lg font-semibold">Control Human & Agent Actions</h3>
+          </div>
+          <p className="text-gray-400 text-sm">
+            Allow‑listed actions, approvals, and guardrails stop unintended sends, filings, or updates.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-500"><path d="M3 12h4l3 7 4-14 3 7h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             <h3 className="text-lg font-semibold">Deploy Fast, Anywhere</h3>
           </div>
           <p className="text-gray-400 text-sm">
-            Model‑agnostic layer with connectors (email, DMS, identity). Go live across
-            ChatGPT, Claude, Gemini, and internal agents in days.
+            Model‑agnostic layer with email/DMS/identity connectors. Go live across ChatGPT, Claude, Gemini.
           </p>
         </div>
       </section>
