@@ -34,8 +34,8 @@ export default function Home() {
           The AI Governance Layer
         </h1>
         <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">
-          Enforce redaction, access, and safe actions—before data reaches any model—so
-          sensitive teams can adopt AI with confidence.
+          Enforce firm policies across content, access, and actions—before data reaches any
+          model—so sensitive teams can adopt AI with confidence.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
@@ -50,17 +50,17 @@ export default function Home() {
       {/* Company Snapshot */}
       <section id="learn-more" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-10">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Privilege‑Safe by Default</h3>
+          <h3 className="text-lg font-semibold mb-2">Unified Policy Engine</h3>
           <p className="text-gray-400 text-sm">
-            Automatic redaction and matter‑aware access control before any prompt, file,
-            or action reaches a model.
+            One control plane for content (redaction), access (matter‑aware permissions),
+            and actions (allow‑lists & approvals) across models and agents.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Policy‑Enforced Agents</h3>
+          <h3 className="text-lg font-semibold mb-2">Provable Governance</h3>
           <p className="text-gray-400 text-sm">
-            Allow‑listed actions with approvals and audit trails. Prevent unintended sends,
-            filings, or data pulls—no exceptions.
+            Approvals, audit trails, and safeguards that prevent unintended sends, filings,
+            or data pulls—and prove compliance.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
