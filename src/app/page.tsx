@@ -14,12 +14,12 @@ export default function Home() {
           priority
         />
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
-          The AI Governance Layer
+          AI Governance for Sensitive Work
         </h1>
         <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">
-          We make AI safe for sensitive work. Our layer enforces firm policies—like
-          redacting PII, limiting access, and controlling agent actions—before data
-          ever reaches a model. Starting with law firms.
+          Enforce data policies across LLMs and agents—redaction, access control, and safe
+          actions—so your teams can use AI with confidence. Model‑agnostic and plug‑and‑play
+          with tools firms already use.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
@@ -31,27 +31,27 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Company Snapshot */}
+      {/* Value Props */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-16">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">What we do</h3>
+          <h3 className="text-lg font-semibold mb-2">Stop Data Leakage</h3>
           <p className="text-gray-400 text-sm">
-            Real‑time policy enforcement for LLMs and agents: redaction, access control,
-            and allowed actions. Model‑agnostic, works with tools firms already use.
+            Automatic redaction and granular access control before prompts or files reach
+            any model. Preserve privilege and confidentiality by default.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Why it matters</h3>
+          <h3 className="text-lg font-semibold mb-2">Approve Only Safe Actions</h3>
           <p className="text-gray-400 text-sm">
-            Firms want frontier models but can’t risk privilege or compliance. We
-            make sensitive workflows safe without slowing people down.
+            Enforce allow‑listed actions with audit trails for agents—send, file, retrieve,
+            or update—fully policy‑aware and reviewable.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Stage</h3>
+          <h3 className="text-lg font-semibold mb-2">Plug Into Your Stack</h3>
           <p className="text-gray-400 text-sm">
-            Early. Design partners in legal. You’ll ship core systems, set standards,
-            and shape the product with customers.
+            Model‑agnostic and connector‑friendly (email, DMS, identity). Works across
+            ChatGPT, Claude, Gemini, and internal agents.
           </p>
         </div>
       </section>
