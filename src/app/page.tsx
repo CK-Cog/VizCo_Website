@@ -50,21 +50,30 @@ export default function Home() {
       {/* Company Snapshot */}
       <section id="learn-more" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-10">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Unified Policy Engine</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M12 2l2.39 4.84 5.34.78-3.86 3.76.91 5.31L12 14.77 6.22 16.69l.91-5.31L3.27 7.62l5.34-.78L12 2z" fill="currentColor"/></svg>
+            <h3 className="text-lg font-semibold">Unified Policy Engine</h3>
+          </div>
           <p className="text-gray-400 text-sm">
             One control plane for content (redaction), access (matter‑aware permissions),
             and actions (allow‑lists & approvals) across models and agents.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Provable Governance</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.58L18 8l-7 8z" fill="currentColor"/></svg>
+            <h3 className="text-lg font-semibold">Provable Governance</h3>
+          </div>
           <p className="text-gray-400 text-sm">
             Approvals, audit trails, and safeguards that prevent unintended sends, filings,
             or data pulls—and prove compliance.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Deploy Fast, Anywhere</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-500"><path d="M2 12h4l3 7 4-14 3 7h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <h3 className="text-lg font-semibold">Deploy Fast, Anywhere</h3>
+          </div>
           <p className="text-gray-400 text-sm">
             Model‑agnostic layer with connectors (email, DMS, identity). Go live across
             ChatGPT, Claude, Gemini, and internal agents in days.
