@@ -3,10 +3,30 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
+      {/* Top Nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
+        <div className="flex items-center gap-4 text-sm">
+          <a href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</a>
+          <a href="/team" className="text-gray-200 hover:text-white">Team</a>
+          <a href="/careers" className="text-gray-200 hover:text-white">Careers</a>
+          <a href="/blog" className="text-gray-200 hover:text-white">Blog</a>
+          <a
+            href="https://calendly.com/chris-kelly-stanford/1-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition"
+          >
+            Book a Demo
+          </a>
+        </div>
+      </nav>
+      {/* Spacer to offset fixed nav height */}
+      <div className="h-14" />
+
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
         <Image
-          src="/VizCo_LinkedIn_Profile_Black.png"
+          src="/VizCo_Logo_New.png"
           alt="Vizco Logo"
           width={180}
           height={180}
