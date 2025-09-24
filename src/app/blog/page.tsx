@@ -1,5 +1,7 @@
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-black text-white p-8">
