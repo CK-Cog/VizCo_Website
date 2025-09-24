@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function TeamPage() {
   return (
@@ -7,7 +8,7 @@ export default function TeamPage() {
         <h1 className="text-3xl font-bold text-center mb-14 text-white">Meet the Team</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div className="flex flex-col items-center bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8 shadow-lg">
-            <img src="/Chris.png" alt="Chris Kelly" className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-purple-900" />
+            <Image src="/Chris.png" alt="Chris Kelly" width={128} height={128} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-purple-900" />
             <h3 className="font-semibold text-lg mb-1 text-purple-700">Chris Kelly, Ph.D.</h3>
             <p className="text-gray-300 mb-2">Co-Founder & CEO</p>
             <p className="text-gray-500 text-sm">Prev: Stanford, MIT<br/>Email: <a href='mailto:chris@vizco.co' className='underline hover:text-purple-700'>chris@vizco.co</a><br/>
@@ -17,7 +18,7 @@ export default function TeamPage() {
             </p>
           </div>
           <div className="flex flex-col items-center bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8 shadow-lg">
-            <img src="/Daniel.png" alt="Daniel Kharitonov" className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-purple-900" />
+            <Image src="/Daniel.png" alt="Daniel Kharitonov" width={128} height={128} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-purple-900" />
             <h3 className="font-semibold text-lg mb-1 text-purple-700">Daniel Kharitonov, Ph.D.</h3>
             <p className="text-gray-300 mb-2">Co-Founder & CTO</p>
             <p className="text-gray-500 text-sm">Prev: Stanford, Interative<br/>Email: <a href='mailto:daniel@vizco.co' className='underline hover:text-purple-700'>daniel@vizco.co</a><br/>

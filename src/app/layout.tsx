@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,10 +31,10 @@ export default function RootLayout({
         {/* Top Nav (shared) */}
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
           <div className="flex items-center gap-4 text-sm">
-            <a href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</a>
-            <a href="/team" className="text-gray-200 hover:text-white">Team</a>
-            <a href="/careers" className="text-gray-200 hover:text-white">Careers</a>
-            <a href="/blog" className="text-gray-200 hover:text-white">Blog</a>
+            <Link href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</Link>
+            <Link href="/team" className="text-gray-200 hover:text-white">Team</Link>
+            <Link href="/careers" className="text-gray-200 hover:text-white">Careers</Link>
+            <Link href="/blog" className="text-gray-200 hover:text-white">Blog</Link>
             <a
               href="https://calendly.com/chris-kelly-stanford/1-1"
               target="_blank"
