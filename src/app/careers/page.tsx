@@ -1,43 +1,86 @@
-import React from 'react';
+import React from "react";
 
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-black text-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">Careers</h1>
-        <p className="text-gray-300 mb-10">Join Vizco to help brands win in AI-native shopping. We are hiring for our founding team.</p>
+      <div className="max-w-5xl mx-auto space-y-10">
+        {/* Hero / What We Do */}
+        <header className="space-y-3">
+          <h1 className="text-4xl font-bold">Careers</h1>
+          <p className="text-gray-300">
+            Join us to make AI safe for sensitive work. We’re building the governance
+            layer that enforces data‑sharing rules and action policies before anything
+            reaches an AI model or agent. We’re starting with law firms.
+          </p>
+        </header>
 
-        <div className="grid grid-cols-1 gap-8">
+        {/* Company Snapshot */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-5">
+            <h3 className="text-lg font-semibold mb-2">What we do</h3>
+            <p className="text-gray-400 text-sm">
+              Real‑time policy enforcement for LLMs and agents: redaction, access control,
+              and allowed actions. Model‑agnostic, works with tools firms already use.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-5">
+            <h3 className="text-lg font-semibold mb-2">Why it matters</h3>
+            <p className="text-gray-400 text-sm">
+              Firms want frontier models but can’t risk privilege or compliance. We
+              make sensitive workflows safe without slowing people down.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-5">
+            <h3 className="text-lg font-semibold mb-2">Stage</h3>
+            <p className="text-gray-400 text-sm">
+              Early. Design partners in legal. You’ll ship core systems, set standards,
+              and shape the product with customers.
+            </p>
+          </div>
+        </section>
+
+        {/* Open Roles */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white">Open Roles</h2>
+
           <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-2 text-purple-700">Founding Engineer (Full‑Stack)</h2>
-            <p className="text-gray-300 mb-4">You will be an owner from day one, building core product experiences, data pipelines, and integrations with AI-chat and commerce interfaces. You thrive in zero‑to‑one environments and care about quality, velocity, and impact.</p>
+            <h3 className="text-xl font-semibold mb-2 text-purple-700">Founding Engineer (Full‑Stack)</h3>
+            <p className="text-gray-300 mb-4">
+              Own big pieces of the stack from day one: core product, policy engine,
+              data pipelines, and integrations with AI providers and enterprise systems.
+            </p>
 
-            <h3 className="font-semibold text-lg mb-2 text-white">What you’ll do</h3>
-            <ul className="list-disc ml-6 text-gray-400 space-y-1 mb-4">
-              <li>Design, build, and ship end‑to‑end product features across frontend and backend.</li>
-              <li>Create clean, well‑tested, observable services and UIs.</li>
-              <li>Integrate with LLM providers and third‑party commerce/search APIs.</li>
-              <li>Set engineering standards, architecture, and developer tooling.</li>
-              <li>Work directly with founders and early customers; iterate quickly on feedback.</li>
-            </ul>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div>
+                <h4 className="font-semibold text-white mb-2">You’ll work on</h4>
+                <ul className="list-disc ml-5 text-gray-400 space-y-1 text-sm">
+                  <li>End‑to‑end product features across web and services</li>
+                  <li>Policy evaluation/redaction pipelines; audit trails</li>
+                  <li>LLM/agent integrations; DMS/email/identity connectors</li>
+                  <li>Architecture, testing, observability, reliability</li>
+                  <li>Fast customer‑driven iterations</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">What you bring</h4>
+                <ul className="list-disc ml-5 text-gray-400 space-y-1 text-sm">
+                  <li>3+ years shipping production software</li>
+                  <li>Strong TypeScript/JavaScript plus one backend language</li>
+                  <li>Databases, APIs, auth, cloud deployment</li>
+                  <li>Ownership, product sense, bias to action</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">Nice to have</h4>
+                <ul className="list-disc ml-5 text-gray-400 space-y-1 text-sm">
+                  <li>LLMs/AI tooling, vector search</li>
+                  <li>Security/compliance, role‑based access control</li>
+                  <li>Legal tech, DMS (iManage/NetDocuments), email systems</li>
+                </ul>
+              </div>
+            </div>
 
-            <h3 className="font-semibold text-lg mb-2 text-white">What we’re looking for</h3>
-            <ul className="list-disc ml-6 text-gray-400 space-y-1 mb-4">
-              <li>3+ years building production web software (startup or small team experience a plus).</li>
-              <li>Strong fundamentals in TypeScript/JavaScript and one backend language.</li>
-              <li>Comfortable with databases, APIs, auth, testing, and cloud deployment.</li>
-              <li>Bias to action, product sense, and ownership mindset.</li>
-            </ul>
-
-            <h3 className="font-semibold text-lg mb-2 text-white">Nice to have</h3>
-            <ul className="list-disc ml-6 text-gray-400 space-y-1 mb-4">
-              <li>Experience with LLMs/AI tooling and vector search.</li>
-              <li>Background with e‑commerce, SEO/SEM, or growth tooling.</li>
-              <li>Data pipelines/ETL, analytics, or experimentation platforms.</li>
-            </ul>
-
-            <h3 className="font-semibold text-lg mb-4 text-white">Apply</h3>
-            <div className="text-center">
+            <div className="mt-6 text-center">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfg9CWkCq2wgZmlQKKuB4BqRz-JB_DNdddzN1XDuIBaheyF0A/viewform?usp=header"
                 target="_blank"
@@ -48,7 +91,17 @@ export default function CareersPage() {
               </a>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* How we work */}
+        <section className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8">
+          <h3 className="text-xl font-semibold mb-3">How we work</h3>
+          <ul className="list-disc ml-6 text-gray-400 space-y-1 text-sm">
+            <li>Small team, high trust, fast shipping</li>
+            <li>Customer‑obsessed; quality without ceremony</li>
+            <li>Remote‑friendly with SF Bay Area time overlap</li>
+          </ul>
+        </section>
       </div>
     </div>
   );
