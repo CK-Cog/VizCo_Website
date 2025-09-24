@@ -13,22 +13,69 @@ export default function Home() {
           className="mb-6 drop-shadow-lg object-cover rounded-full"
           priority
         />
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">AI Governance Layer</h1>
-        <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">Enable LLMs to use email, docs, and other connectors securely — enforcing policies and protecting confidentiality so teams can adopt AI with confidence.</p>
-        <a href="https://calendly.com/chris-kelly-stanford/1-1" target="_blank" rel="noopener noreferrer" className="mt-2 px-10 py-4 bg-purple-800 text-white rounded-full font-bold shadow-lg hover:bg-purple-900 transition text-lg">Book a Demo</a>
+        <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
+          The AI Governance Layer
+        </h1>
+        <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">
+          We make AI safe for sensitive work. Our layer enforces firm policies—like
+          redacting PII, limiting access, and controlling agent actions—before data
+          ever reaches a model. Starting with law firms.
+        </p>
+        <a
+          href="https://calendly.com/chris-kelly-stanford/1-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 px-10 py-4 bg-purple-800 text-white rounded-full font-bold shadow-lg hover:bg-purple-900 transition text-lg"
+        >
+          Book a Demo
+        </a>
       </header>
+
+      {/* Value Props */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-16">
+        <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
+          <h3 className="text-lg font-semibold mb-2">Model‑Agnostic</h3>
+          <p className="text-gray-400 text-sm">
+            Works with any LLM or agent—ChatGPT, Claude, Gemini—and enforces your rules
+            consistently across them.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
+          <h3 className="text-lg font-semibold mb-2">Trusted Controls</h3>
+          <p className="text-gray-400 text-sm">
+            Redaction, access control, audit trails, and safe action policies modeled
+            after what firms already trust in DMS and email.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
+          <h3 className="text-lg font-semibold mb-2">Real Workflows</h3>
+          <p className="text-gray-400 text-sm">
+            Securely enable AI for daily tasks—drafting, summarizing, search, or agents
+            that run with confidence.
+          </p>
+        </div>
+      </section>
 
       {/* Footer */}
       <div className="flex flex-col items-center py-8 bg-black">
-        <img src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First Logo" style={{ maxWidth: 240, width: '100%', height: 'auto' }} />
-        <div className="mt-4 text-2xl font-bold text-white text-center">Backed by Entrepreneurs First</div>
+        <img
+          src="/entrepreneurs_first_logo.jpeg"
+          alt="Entrepreneurs First Logo"
+          style={{ maxWidth: 240, width: "100%", height: "auto" }}
+        />
+        <div className="mt-4 text-2xl font-bold text-white text-center">
+          Backed by Entrepreneurs First
+        </div>
       </div>
+
       <footer className="py-8 text-center text-gray-400 text-sm bg-black border-t border-gray-800 mt-auto">
         <div className="mb-2">&copy; {new Date().getFullYear()} Vizco. All rights reserved.</div>
         <div className="flex flex-col md:flex-row gap-2 justify-center items-center text-gray-400 text-sm">
           <span>Location: 501 Folsom St, San Francisco, CA 94105</span>
           <span className="hidden md:inline mx-2">|</span>
-          <span>Email: <a href="mailto:info@vizco.co" className="underline hover:text-purple-700">info@vizco.co</a></span>
+          <span>
+            Email: <a href="mailto:info@vizco.co" className="underline hover:text-purple-700">info@vizco.co</a>
+          </span>
           <span className="hidden md:inline mx-2">|</span>
           <a href="/careers" className="underline hover:text-purple-700">Careers</a>
           <span className="hidden md:inline mx-2">|</span>
