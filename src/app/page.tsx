@@ -9,6 +9,7 @@ export default function Home() {
           <a href="#learn-more" className="text-gray-300 hover:text-white">Learn more</a>
           <a href="/team" className="text-gray-300 hover:text-white">Team</a>
           <a href="/careers" className="text-gray-300 hover:text-white">Careers</a>
+          <a href="/blog" className="text-gray-300 hover:text-white">Blog</a>
           <a
             href="https://calendly.com/chris-kelly-stanford/1-1"
             target="_blank"
@@ -107,6 +108,8 @@ export default function Home() {
           <a href="/careers" className="underline hover:text-purple-700">Careers</a>
           <span className="hidden md:inline mx-2">|</span>
           <a href="/team" className="underline hover:text-purple-700">Team</a>
+          <span className="hidden md:inline mx-2">|</span>
+          <a href="/blog" className="underline hover:text-purple-700">Blog</a>
           <span className="hidden md:inline mx-2">|</span>
           <a href="/privacy-policy" className="underline hover:text-purple-700">Privacy Policy</a>
           <span className="hidden md:inline mx-2">|</span>
