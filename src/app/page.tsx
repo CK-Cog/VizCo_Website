@@ -3,6 +3,27 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
+      {/* Top Nav */}
+      <nav className="flex items-center justify-between px-4 sm:px-8 py-4 bg-black/60 border-b border-gray-800">
+        <div className="flex items-center gap-3">
+          <Image src="/VizCo_LinkedIn_Profile_Black.png" alt="Vizco" width={32} height={32} className="rounded-full" />
+          <span className="text-sm text-gray-300">Vizco</span>
+        </div>
+        <div className="flex items-center gap-4 text-sm">
+          <a href="#learn-more" className="text-gray-300 hover:text-white">Learn more</a>
+          <a href="/team" className="text-gray-300 hover:text-white">Team</a>
+          <a href="/careers" className="text-gray-300 hover:text-white">Careers</a>
+          <a
+            href="https://calendly.com/chris-kelly-stanford/1-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-purple-800 text-white rounded-full font-semibold border border-purple-900 hover:bg-purple-900 transition"
+          >
+            Book a Demo
+          </a>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
         <Image
@@ -14,12 +35,11 @@ export default function Home() {
           priority
         />
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
-          AI Governance for Sensitive Work
+          The AI Governance Layer
         </h1>
         <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">
-          Enforce data policies across LLMs and agents—redaction, access control, and safe
-          actions—so your teams can use AI with confidence. Model‑agnostic and plug‑and‑play
-          with tools firms already use.
+          Enforce redaction, access, and safe actions—before data reaches any model—so
+          sensitive teams can adopt AI with confidence.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
@@ -31,40 +51,36 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Value Props */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-16">
+      {/* Company Snapshot */}
+      <section id="learn-more" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-10">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <h3 className="text-lg font-semibold mb-2">Privilege‑Safe by Default</h3>
           <p className="text-gray-400 text-sm">
-            Automatic redaction, matter‑aware access control, and least‑privilege checks
-            before any prompt, file, or action reaches a model.
+            Automatic redaction and matter‑aware access control before any prompt, file,
+            or action reaches a model.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <h3 className="text-lg font-semibold mb-2">Policy‑Enforced Agents</h3>
           <p className="text-gray-400 text-sm">
-            Allow‑listed actions with approvals and full audit trails. Stop unintended
-            sends, filings, or data pulls—no exceptions.
+            Allow‑listed actions with approvals and audit trails. Prevent unintended sends,
+            filings, or data pulls—no exceptions.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <h3 className="text-lg font-semibold mb-2">Deploy Fast, Anywhere</h3>
           <p className="text-gray-400 text-sm">
-            Model‑agnostic layer with out‑of‑the‑box connectors (email, DMS, identity).
-            Go live in days across ChatGPT, Claude, Gemini, and internal agents.
+            Model‑agnostic layer with connectors (email, DMS, identity). Go live across
+            ChatGPT, Claude, Gemini, and internal agents in days.
           </p>
         </div>
       </section>
 
-      {/* Footer */}
-      <div className="flex flex-col items-center py-8 bg-black">
-        <img
-          src="/entrepreneurs_first_logo.jpeg"
-          alt="Entrepreneurs First Logo"
-          style={{ maxWidth: 240, width: "100%", height: "auto" }}
-        />
-        <div className="mt-4 text-2xl font-bold text-white text-center">
-          Backed by Entrepreneurs First
+      {/* EF Badge */}
+      <div className="py-6 px-6 sm:px-12">
+        <div className="flex items-center justify-center gap-3 text-gray-400 text-sm">
+          <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={120} height={36} className="rounded" />
+          <span>Backed by Entrepreneurs First</span>
         </div>
       </div>
 
