@@ -31,27 +31,27 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Value Props */}
+      {/* Company Snapshot */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 sm:px-12 mb-16">
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Model‑Agnostic</h3>
+          <h3 className="text-lg font-semibold mb-2">What we do</h3>
           <p className="text-gray-400 text-sm">
-            Works with any LLM or agent—ChatGPT, Claude, Gemini—and enforces your rules
-            consistently across them.
+            Real‑time policy enforcement for LLMs and agents: redaction, access control,
+            and allowed actions. Model‑agnostic, works with tools firms already use.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Trusted Controls</h3>
+          <h3 className="text-lg font-semibold mb-2">Why it matters</h3>
           <p className="text-gray-400 text-sm">
-            Redaction, access control, audit trails, and safe action policies modeled
-            after what firms already trust in DMS and email.
+            Firms want frontier models but can’t risk privilege or compliance. We
+            make sensitive workflows safe without slowing people down.
           </p>
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
-          <h3 className="text-lg font-semibold mb-2">Real Workflows</h3>
+          <h3 className="text-lg font-semibold mb-2">Stage</h3>
           <p className="text-gray-400 text-sm">
-            Securely enable AI for daily tasks—drafting, summarizing, search, or agents
-            that run with confidence.
+            Early. Design partners in legal. You’ll ship core systems, set standards,
+            and shape the product with customers.
           </p>
         </div>
       </section>
