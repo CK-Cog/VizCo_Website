@@ -4,11 +4,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       {/* Top Nav */}
-      <nav className="flex items-center justify-between px-4 sm:px-8 py-4 bg-black/60 border-b border-gray-800">
-        <div className="flex items-center gap-3">
-          <Image src="/VizCo_LinkedIn_Profile_Black.png" alt="Vizco" width={32} height={32} className="rounded-full" />
-          <span className="text-sm text-gray-300">Vizco</span>
-        </div>
+      <nav className="flex items-center justify-end px-4 sm:px-8 py-4 bg-black/60 border-b border-gray-800">
         <div className="flex items-center gap-4 text-sm">
           <a href="#learn-more" className="text-gray-300 hover:text-white">Learn more</a>
           <a href="/team" className="text-gray-300 hover:text-white">Team</a>
