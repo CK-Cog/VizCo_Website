@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
         <p className="text-xl sm:text-2xl text-center max-w-2xl mb-8 text-gray-200">
           Enforce firm policies across content, access, and actions—before data reaches any
-          model—so sensitive teams can adopt AI with confidence.
+          model—so your organization can adopt AI with confidence.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
