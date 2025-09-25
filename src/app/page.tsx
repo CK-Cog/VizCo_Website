@@ -72,7 +72,7 @@ export default function Home() {
         </div>
         <div className="rounded-2xl border border-gray-800 bg-gradient-to-b from-gray-900 to-black p-6">
           <div className="flex items-center gap-2 mb-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-500"><path d="M6 12h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 5l4 4m-4 10l4-4m-8 0l-4 4m4-10l-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-500"><path d="M6 12h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             <h3 className="text-lg font-semibold">Control Human & Agent Actions</h3>
           </div>
           <p className="text-gray-400 text-sm">
@@ -92,9 +92,9 @@ export default function Home() {
 
       {/* Backers Badges */}
       <div className="py-6 px-6 sm:px-12">
-        <div className="flex items-center justify-center gap-4 text-gray-400 text-sm">
-          <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={120} height={36} className="rounded" />
-          <Image src="/transposeplatform_logo.webp" alt="Transpose Platform" width={140} height={36} className="rounded" />
+        <div className="flex items-center justify-center gap-4 flex-wrap text-gray-400 text-sm">
+          <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={140} height={40} className="object-contain" />
+          <Image src="/transposeplatform_logo.webp" alt="Transpose Platform" width={160} height={40} className="object-contain" />
           <span>Backed by Entrepreneurs First and Transpose Platform</span>
         </div>
       </div>
