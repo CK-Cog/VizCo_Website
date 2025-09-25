@@ -8,9 +8,10 @@ export default function Home() {
         <Image
           src="/VizCo_Logo_New.png"
           alt="Vizco Logo"
-          width={180}
-          height={180}
-          className="mb-6 drop-shadow-lg object-cover rounded-full"
+          width={220}
+          height={80}
+          className="mb-6 drop-shadow-lg"
+          style={{ objectFit: "contain" }}
           priority
         />
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
@@ -72,9 +73,9 @@ export default function Home() {
 
       {/* Backers Badges */}
       <div className="py-6 px-6 sm:px-12">
-        <div className="flex items-center justify-center gap-4 flex-wrap text-gray-400 text-sm">
-          <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={140} height={40} className="object-contain" />
-          <Image src="/transposeplatform_logo.webp" alt="Transpose Platform" width={160} height={40} className="object-contain" />
+        <div className="flex items-center justify-center gap-6 flex-wrap text-gray-400 text-sm">
+          <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={160} height={40} style={{ objectFit: "contain" }} />
+          <Image src="/transposeplatform_logo.webp" alt="Transpose Platform" width={180} height={40} style={{ objectFit: "contain" }} />
           <span>Backed by Entrepreneurs First and Transpose Platform</span>
         </div>
       </div>
