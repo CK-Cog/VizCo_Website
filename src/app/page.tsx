@@ -90,11 +90,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EF Badge */}
+      {/* Backers Badges */}
       <div className="py-6 px-6 sm:px-12">
-        <div className="flex items-center justify-center gap-3 text-gray-400 text-sm">
+        <div className="flex items-center justify-center gap-4 text-gray-400 text-sm">
           <Image src="/entrepreneurs_first_logo.jpeg" alt="Entrepreneurs First" width={120} height={36} className="rounded" />
-          <span>Backed by Entrepreneurs First</span>
+          <Image src="/transposeplatform_logo.webp" alt="Transpose Platform" width={140} height={36} className="rounded" />
+          <span>Backed by Entrepreneurs First and Transpose Platform</span>
         </div>
       </div>
 
