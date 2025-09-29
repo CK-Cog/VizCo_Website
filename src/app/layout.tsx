@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +30,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Top Nav (shared) */}
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
+          <div className="flex items-center">
+            <Link href="/" aria-label="Home">
+              <Image src="/VizCo_Logo_New.png" alt="Vizco" width={120} height={40} style={{ objectFit: "contain" }} />
+            </Link>
+          </div>
           <div className="flex items-center gap-4 text-sm">
             <Link href="/#learn-more" className="text-gray-200 hover:text-white">Learn more</Link>
             <Link href="/team" className="text-gray-200 hover:text-white">Team</Link>

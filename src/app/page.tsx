@@ -5,16 +5,6 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-black text-white">
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
-        <div className="w-full max-w-6xl mx-auto mb-6">
-          <Image
-            src="/VizCo_Logo_New.png"
-            alt="Vizco Logo"
-            width={180}
-            height={60}
-            className="object-contain"
-            priority
-          />
-        </div>
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
           The AI Governance Layer
         </h1>
