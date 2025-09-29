@@ -30,10 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Top Nav (shared) */}
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-4 bg-black border-b border-gray-800">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3 bg-black border-b border-gray-800">
           <div className="flex items-center">
             <Link href="/" aria-label="Home">
-              <Image src="/VizCo_Logo_New.png" alt="Vizco" width={120} height={40} style={{ objectFit: "contain" }} />
+              <Image src="/VizCo_Logo_New.png" alt="Vizco" width={96} height={32} style={{ objectFit: "contain" }} />
             </Link>
           </div>
           <div className="flex items-center gap-4 text-sm">
@@ -52,7 +52,7 @@ export default function RootLayout({
           </div>
         </nav>
         {/* Spacer to offset fixed nav height */}
-        <div className="h-14" />
+        <div className="h-16" />
         {children}
       </body>
     </html>
