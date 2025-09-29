@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
         <Image
-          src="/VizCo_Logo_New.png"
+          src="/VizCo_Logo_New_transparent.png"
           alt="Vizco Logo"
           width={220}
           height={80}
