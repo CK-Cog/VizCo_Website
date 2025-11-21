@@ -91,145 +91,138 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Three Diverging Paths - Mediation Plot Style */}
-              <div className="flex-1 relative" style={{minHeight: '400px'}}>
+              {/* Mediation Plot - Proper Layout */}
+              <div className="flex-1 relative" style={{minHeight: '450px', paddingTop: '60px', paddingBottom: '60px'}}>
                 
-                {/* Path 1: Direct to Model (Bottom - straight line) - RED */}
-                <div className="absolute bottom-0 left-0 right-0 flex items-center">
-                  <div className="flex items-center w-full">
-                    {/* Straight red line */}
-                    <svg width="100%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
-                      <circle cx="50" cy="2" r="4" fill="#ef4444">
-                        <animate attributeName="cx" from="0" to="100" dur="2.5s" repeatCount="indefinite"/>
+                {/* Path 3 (Bottom): Direct - Straight Line - RED */}
+                <div className="absolute bottom-16 left-0 right-0">
+                  <div className="flex items-center justify-center gap-4">
+                    <svg width="90%" height="60" viewBox="0 0 900 60" preserveAspectRatio="xMidYMid meet" className="mx-auto">
+                      {/* Straight line */}
+                      <line x1="50" y1="30" x2="850" y2="30" stroke="#ef4444" strokeWidth="5"/>
+                      <polygon points="845,25 855,30 845,35" fill="#ef4444"/>
+                      {/* Animated dot */}
+                      <circle cx="100" cy="30" r="6" fill="#ef4444">
+                        <animate attributeName="cx" from="50" to="850" dur="3s" repeatCount="indefinite"/>
                       </circle>
+                      {/* Label */}
+                      <text x="450" y="55" fill="#ef4444" fontSize="14" fontWeight="bold" textAnchor="middle">
+                        ❌ Path 3: Direct (No Protection)
+                      </text>
                     </svg>
-                    
-                    {/* AI Model */}
-                    <div className="bg-gray-900 border-2 border-red-700 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
-                      <div className="text-center">
-                        <div className="text-3xl mb-1">🤖</div>
-                        <div className="text-white font-bold">AI Model</div>
-                        <div className="text-red-400 text-xs mt-1">Raw data exposed</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Label below */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-                    <span className="text-red-400 font-bold text-sm">❌ Path 1: Direct (No Protection)</span>
                   </div>
                 </div>
 
-                {/* Path 2: Via Third-Party API (Middle - mediator) - RED */}
-                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex items-center">
-                  <div className="flex items-center w-full">
-                    {/* Line to third party */}
-                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
-                      <circle cx="50" cy="2" r="4" fill="#ef4444">
-                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite"/>
+                {/* Path 2 (Middle): Via Vizco - GREEN */}
+                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0">
+                  <div className="flex items-center justify-center gap-2">
+                    {/* Line from data to Vizco */}
+                    <svg width="25%" height="60" viewBox="0 0 250 60" preserveAspectRatio="xMidYMid meet">
+                      <line x1="10" y1="30" x2="240" y2="30" stroke="#22c55e" strokeWidth="5"/>
+                      <circle cx="100" cy="30" r="6" fill="#22c55e">
+                        <animate attributeName="cx" from="10" to="240" dur="1.5s" repeatCount="indefinite"/>
                       </circle>
                     </svg>
                     
-                    <div className="px-2 py-1 bg-red-900 bg-opacity-50 border border-red-500 rounded animate-pulse mx-2">
-                      <span className="text-red-300 text-[10px] font-bold">LEAVES</span>
+                    <div className="px-2 py-1 bg-green-900 bg-opacity-50 border border-green-500 rounded">
+                      <span className="text-green-300 text-xs font-bold">✅ STAYS</span>
                     </div>
                     
-                    {/* Competitor Third-Party */}
-                    <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 shadow-2xl mx-3 relative" style={{width: '180px'}}>
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-2 py-1 border border-red-700 rounded-full">
-                        <span className="text-red-300 text-[10px] font-bold">MEDIATOR</span>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl mb-1">☁️</div>
-                        <div className="text-red-300 font-bold text-sm">Competitor API</div>
-                        <div className="text-red-400 text-xs">Policy enforcement</div>
-                        <div className="text-red-500 text-[10px]">in their cloud</div>
-                      </div>
-                    </div>
-                    
-                    {/* Line to AI */}
-                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
-                      <circle cx="50" cy="2" r="4" fill="#ef4444">
-                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="1.2s"/>
-                      </circle>
-                    </svg>
-                    
-                    {/* AI Model */}
-                    <div className="bg-gray-900 border-2 border-red-700 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
-                      <div className="text-center">
-                        <div className="text-3xl mb-1">🤖</div>
-                        <div className="text-white font-bold">AI Model</div>
-                        <div className="text-red-400 text-xs mt-1">Still exposed</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Label above */}
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-                    <span className="text-red-400 font-bold text-sm">❌ Path 2: Via Competitor (Data Leaves Your Environment)</span>
-                  </div>
-                </div>
-
-                {/* Path 3: Via Vizco in Client Environment (Top) - GREEN */}
-                <div className="absolute top-0 left-0 right-0 flex items-center">
-                  <div className="flex items-center w-full">
-                    {/* Line to Vizco */}
-                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="#22c55e" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
-                      <circle cx="50" cy="2" r="4" fill="#22c55e">
-                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="0.5s"/>
-                      </circle>
-                    </svg>
-                    
-                    <div className="px-2 py-1 bg-green-900 bg-opacity-50 border border-green-500 rounded mx-2">
-                      <span className="text-green-300 text-[10px] font-bold">STAYS</span>
-                    </div>
-                    
-                    {/* Vizco Layer in Client Environment */}
-                    <div className="relative mx-3" style={{width: '220px'}}>
-                      {/* Client Environment Box */}
+                    {/* Vizco in Client Environment */}
+                    <div className="relative" style={{width: '240px'}}>
                       <div className="border-2 border-dashed border-blue-600 rounded-xl p-2 bg-blue-950 bg-opacity-20">
-                        <div className="absolute -top-3 left-2 bg-black px-2 py-0.5 border border-blue-600 rounded-full">
+                        <div className="absolute -top-3 left-3 bg-black px-2 py-0.5 border border-blue-600 rounded-full z-10">
                           <span className="text-blue-400 text-[10px] font-bold">CLIENT ENVIRONMENT</span>
                         </div>
-                        
-                        {/* Vizco inside */}
-                        <div className="bg-purple-950 bg-opacity-70 border-2 border-purple-600 rounded-lg p-3 shadow-xl relative">
-                          <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-lg"></div>
-                          <div className="text-center relative z-10">
+                        <div className="bg-purple-950 bg-opacity-70 border-2 border-purple-600 rounded-lg p-3 shadow-xl">
+                          <div className="text-center">
                             <div className="text-2xl mb-1">🛡️</div>
-                            <div className="text-purple-300 font-bold text-sm">Vizco Layer</div>
-                            <div className="text-purple-400 text-xs">Policy enforcement</div>
-                            <div className="text-purple-400 text-[10px]">in YOUR cloud</div>
+                            <div className="text-purple-300 font-bold text-sm">Vizco</div>
+                            <div className="text-purple-400 text-xs">in YOUR cloud</div>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Line to AI (dashed - controlled) */}
-                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
-                      <line x1="0" y1="2" x2="100" y2="2" stroke="#22c55e" strokeWidth="4" strokeDasharray="8 4" vectorEffect="non-scaling-stroke"/>
-                      <circle cx="50" cy="2" r="4" fill="#22c55e">
-                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="1.7s"/>
+                    {/* Line from Vizco to AI (dashed) */}
+                    <svg width="25%" height="60" viewBox="0 0 250 60" preserveAspectRatio="xMidYMid meet">
+                      <line x1="10" y1="30" x2="240" y2="30" stroke="#22c55e" strokeWidth="5" strokeDasharray="10 5"/>
+                      <circle cx="100" cy="30" r="6" fill="#22c55e">
+                        <animate attributeName="cx" from="10" to="240" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
                       </circle>
                     </svg>
                     
-                    {/* AI Model */}
-                    <div className="bg-gray-900 border-2 border-green-600 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
-                      <div className="text-center">
-                        <div className="text-3xl mb-1">🤖</div>
-                        <div className="text-white font-bold">AI Model</div>
-                        <div className="text-green-400 text-xs mt-1">Redacted only</div>
-                      </div>
+                    {/* Label below */}
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                      <span className="text-green-400 font-bold text-sm">✅ Path 2: Via Vizco (Stays in Your Environment)</span>
                     </div>
                   </div>
-                  
-                  {/* Label above */}
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
-                    <span className="text-green-400 font-bold text-sm">✅ Path 3: Via Vizco (Stays in Your Environment)</span>
+                </div>
+
+                {/* Path 1 (Top): Via Competitor Mediator - RED with vertical arrows */}
+                <div className="absolute top-8 left-0 right-0">
+                  <div className="flex items-center justify-center gap-2 relative">
+                    {/* Upward arrow from data to mediator */}
+                    <svg width="25%" height="120" viewBox="0 0 250 120" preserveAspectRatio="xMidYMid meet">
+                      {/* Horizontal line */}
+                      <line x1="10" y1="110" x2="160" y2="110" stroke="#ef4444" strokeWidth="5"/>
+                      {/* Upward diagonal */}
+                      <line x1="160" y1="110" x2="240" y2="20" stroke="#ef4444" strokeWidth="5"/>
+                      <polygon points="235,25 245,15 240,30" fill="#ef4444"/>
+                      {/* Animated dot */}
+                      <circle cx="50" cy="110" r="6" fill="#ef4444">
+                        <animate attributeName="cx" from="10" to="160" dur="1s" repeatCount="indefinite"/>
+                        <animate attributeName="cy" values="110;110;20" keyTimes="0;0.6;1" dur="1s" repeatCount="indefinite"/>
+                      </circle>
+                    </svg>
+                    
+                    <div className="px-2 py-1 bg-red-900 bg-opacity-50 border border-red-500 rounded animate-pulse">
+                      <span className="text-red-300 text-xs font-bold">⚠️ LEAVES</span>
+                    </div>
+                    
+                    {/* Competitor Mediator - positioned above */}
+                    <div className="relative" style={{width: '200px'}}>
+                      <div className="bg-red-950 bg-opacity-70 border-2 border-red-800 rounded-xl p-3 shadow-2xl">
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-2 py-1 border border-red-700 rounded-full whitespace-nowrap">
+                          <span className="text-red-300 text-[10px] font-bold">MEDIATOR</span>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl mb-1">☁️</div>
+                          <div className="text-red-300 font-bold text-sm">Competitor</div>
+                          <div className="text-red-400 text-xs">Their cloud</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Downward arrow from mediator to AI */}
+                    <svg width="25%" height="120" viewBox="0 0 250 120" preserveAspectRatio="xMidYMid meet">
+                      {/* Downward diagonal */}
+                      <line x1="10" y1="20" x2="90" y2="110" stroke="#ef4444" strokeWidth="5"/>
+                      {/* Horizontal line */}
+                      <line x1="90" y1="110" x2="240" y2="110" stroke="#ef4444" strokeWidth="5"/>
+                      <polygon points="235,105 245,110 235,115" fill="#ef4444"/>
+                      {/* Animated dot */}
+                      <circle cx="50" cy="20" r="6" fill="#ef4444">
+                        <animate attributeName="cx" from="10" to="240" keyTimes="0;0.4;1" dur="1s" repeatCount="indefinite" begin="1s"/>
+                        <animate attributeName="cy" values="20;110;110" keyTimes="0;0.4;1" dur="1s" repeatCount="indefinite" begin="1s"/>
+                      </circle>
+                    </svg>
+                    
+                    {/* Label above */}
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                      <span className="text-red-400 font-bold text-sm">❌ Path 1: Via Competitor (Data Leaves Environment)</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* AI Model on the right */}
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 shadow-2xl" style={{width: '180px'}}>
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">🤖</div>
+                      <div className="text-white font-bold text-lg">AI Model</div>
+                      <div className="text-gray-400 text-xs mt-1">ChatGPT / Claude</div>
+                    </div>
                   </div>
                 </div>
 
