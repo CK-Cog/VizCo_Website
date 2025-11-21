@@ -74,7 +74,7 @@ export default function Home() {
                 
                 {/* Legend for red paths */}
                 <div className="absolute top-0 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
-                  ⚠️ Sensitive data exits your environment
+                  ⚠️ Sensitive data leaves your environment
                 </div>
                 
                 {/* Path 1: Direct (Bottom - Straight) */}
