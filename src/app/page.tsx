@@ -115,9 +115,6 @@ export default function Home() {
                       <polygon points="295,55 305,60 300,65" fill="#ef4444"/>
                     </svg>
                   </div>
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
-                    ❌ Third-Party
-                  </div>
                 </div>
                 
                 {/* Path 3: Via Vizco (Middle - Through Shield) */}
@@ -158,9 +155,6 @@ export default function Home() {
                       </circle>
                       <polygon points="295,25 305,30 295,35" fill="#22c55e"/>
                     </svg>
-                  </div>
-                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-green-400 text-sm font-semibold">
-                    ✅ Vizco
                   </div>
                 </div>
                 
