@@ -60,10 +60,10 @@ export default function Home() {
               </div>
               
               {/* Three Paths in Middle */}
-              <div className="flex-1 relative" style={{height: '400px'}}>
+              <div className="flex-1 relative" style={{height: '480px'}}>
                 
                 {/* Path 1: Direct (Bottom - Straight) */}
-                <div className="absolute bottom-1/4 left-0 right-0 flex items-center">
+                <div className="absolute bottom-12 left-0 right-0 flex items-center">
                   <div className="flex-1 relative h-12">
                     <svg width="100%" height="48" viewBox="0 0 800 48" preserveAspectRatio="none" className="absolute inset-0">
                       <line x1="0" y1="24" x2="800" y2="24" stroke="#ef4444" strokeWidth="3"/>
@@ -72,14 +72,14 @@ export default function Home() {
                       </circle>
                       <polygon points="795,19 805,24 795,29" fill="#ef4444"/>
                     </svg>
-                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
                       ❌ Direct
                     </div>
                   </div>
                 </div>
                 
                 {/* Path 2: Via Competitor (Top - Through Cloud) */}
-                <div className="absolute top-0 left-0 right-0 flex items-center">
+                <div className="absolute top-8 left-0 right-0 flex items-center">
                   <div className="flex-1 flex items-center gap-2">
                     {/* Arrow to competitor */}
                     <svg width="35%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none">
@@ -143,7 +143,8 @@ export default function Home() {
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
                             <div className="text-purple-300 font-bold text-sm mb-1">Vizco Shield</div>
-                            <div className="text-purple-400 text-xs">Redacts PII</div>
+                            <div className="text-purple-400 text-xs">Enforces policies</div>
+                            <div className="text-purple-500 text-xs">(e.g., PII redaction)</div>
                           </div>
                         </div>
                       </div>
@@ -185,8 +186,8 @@ export default function Home() {
                 <div className="text-red-300 font-bold text-sm mb-2">❌ Direct Path</div>
                 <div className="text-red-400 text-xs space-y-1">
                   <div>• Raw sensitive data sent</div>
-                  <div>• PII unredacted</div>
-                  <div>• No governance</div>
+                  <div>• No policy enforcement</div>
+                  <div>• PII exposed to AI</div>
                 </div>
               </div>
               
@@ -205,8 +206,8 @@ export default function Home() {
                 <div className="text-green-300 font-bold text-sm mb-2">✅ Vizco Path</div>
                 <div className="text-green-400 text-xs space-y-1">
                   <div>• Data stays in your cloud</div>
+                  <div>• Firm policies enforced</div>
                   <div>• PII automatically redacted</div>
-                  <div>• Policy enforcement</div>
                 </div>
               </div>
             </div>
