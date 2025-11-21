@@ -42,155 +42,179 @@ export default function Home() {
             Three paths—only one keeps sensitive data in your environment
           </p>
           
-          {/* Vertical Path Diagram - Top to Bottom */}
-          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 sm:p-12">
+          {/* Clean 3-Column Comparison */}
+          <div className="grid md:grid-cols-3 gap-8">
             
-            {/* Data Source at Top */}
-            <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-2xl p-6 shadow-2xl mb-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-white font-bold text-lg mb-2">Your Environment</div>
-                <div className="text-blue-400 text-sm mb-4">📧 Sensitive Data Lives Here</div>
-                <div className="flex justify-center gap-3 items-center">
-                  <span className="text-3xl">📧</span>
-                  <span className="text-3xl">☁️</span>
-                  <span className="text-3xl">📁</span>
+            {/* Column 1: Direct */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
+              <div className="text-center mb-6">
+                <div className="bg-red-900 bg-opacity-40 rounded-xl p-3 mb-4">
+                  <div className="text-red-300 font-bold">❌ Direct</div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-4">
+                {/* Data source */}
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📧</div>
+                    <div className="text-blue-400 text-xs">Your Data</div>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <svg width="40" height="100" viewBox="0 0 40 100">
+                  <line x1="20" y1="0" x2="20" y2="90" stroke="#ef4444" strokeWidth="3"/>
+                  <circle cx="20" cy="45" r="4" fill="#ef4444">
+                    <animate attributeName="cy" from="0" to="90" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                  <polygon points="15,90 20,100 25,90" fill="#ef4444"/>
+                </svg>
+                
+                {/* AI Model */}
+                <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-white font-semibold text-sm">AI Model</div>
+                    <div className="text-red-400 text-xs mt-2">Raw sensitive data</div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Three vertical paths side-by-side */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-                
-                {/* Path 1: Direct (No Protection) */}
-                <div className="flex flex-col items-center">
-                  <div className="bg-red-900 bg-opacity-30 border-2 border-red-800 rounded-xl p-3 mb-4 w-full">
-                    <div className="text-center text-red-300 font-bold">❌ Direct</div>
-                  </div>
-                  
-                  <svg width="60" height="280" viewBox="0 0 60 280" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="270" stroke="#ef4444" strokeWidth="3"/>
-                    <circle cx="30" cy="135" r="5" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="270" dur="3s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="25,270 30,280 35,270" fill="#ef4444"/>
-                  </svg>
+            
+            {/* Column 2: Third-Party */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
+              <div className="text-center mb-6">
+                <div className="bg-red-900 bg-opacity-40 rounded-xl p-3 mb-4">
+                  <div className="text-red-300 font-bold">❌ Third-Party</div>
                 </div>
-                
-                {/* Path 2: Via Competitor (Leaves) */}
-                <div className="flex flex-col items-center">
-                  <div className="bg-red-900 bg-opacity-30 border-2 border-red-800 rounded-xl p-3 mb-4 w-full">
-                    <div className="text-center text-red-300 font-bold">❌ Via Third-Party</div>
-                  </div>
-                  
-                  <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="50" stroke="#ef4444" strokeWidth="3"/>
-                    <circle cx="30" cy="25" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="25,50 30,60 35,50" fill="#ef4444"/>
-                  </svg>
-                  
-                  <div className="bg-red-950 bg-opacity-70 border-2 border-red-800 rounded-xl p-4 mb-2 w-full">
-                    <div className="text-center">
-                      <div className="text-3xl mb-2">☁️</div>
-                      <div className="text-red-300 font-bold">Competitor</div>
-                      <div className="text-red-400 text-xs">Their cloud</div>
-                      <div className="text-red-500 text-xs mt-2 font-bold animate-pulse">⚠️ DATA LEAVES</div>
-                    </div>
-                  </div>
-                  
-                  <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="50" stroke="#ef4444" strokeWidth="3"/>
-                    <circle cx="30" cy="25" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
-                    </circle>
-                    <polygon points="25,50 30,60 35,50" fill="#ef4444"/>
-                  </svg>
-                </div>
-                
-                {/* Path 3: Vizco (Stays) */}
-                <div className="flex flex-col items-center">
-                  <div className="bg-green-900 bg-opacity-30 border-2 border-green-700 rounded-xl p-3 mb-4 w-full">
-                    <div className="text-center text-green-300 font-bold">✅ Via Vizco</div>
-                  </div>
-                  
-                  <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="50" stroke="#22c55e" strokeWidth="3"/>
-                    <circle cx="30" cy="25" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="25,50 30,60 35,50" fill="#22c55e"/>
-                  </svg>
-                  
-                  <div className="border-2 border-dashed border-blue-600 rounded-xl p-3 bg-blue-950 bg-opacity-20 mb-2 w-full relative">
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 py-0.5 border border-blue-600 rounded-full z-10 whitespace-nowrap">
-                      <span className="text-blue-400 text-xs font-bold">YOUR ENVIRONMENT</span>
-                    </div>
-                    <div className="bg-purple-950 bg-opacity-70 border-2 border-purple-600 rounded-lg p-4 mt-2">
-                      <div className="text-center">
-                        <div className="text-3xl mb-2">🛡️</div>
-                        <div className="text-purple-300 font-bold">Vizco Layer</div>
-                        <div className="text-purple-400 text-xs">Governs & redacts</div>
-                        <div className="text-green-500 text-xs mt-2 font-bold">✅ DATA STAYS</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="50" stroke="#22c55e" strokeWidth="3" strokeDasharray="5,5"/>
-                    <circle cx="30" cy="25" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
-                    </circle>
-                    <polygon points="25,50 30,60 35,50" fill="#22c55e"/>
-                  </svg>
-                </div>
-                
               </div>
               
-              {/* Single AI Model at Bottom */}
-              <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-6 shadow-2xl max-w-md mx-auto">
-                <div className="text-center">
-                  <div className="text-5xl mb-3">🤖</div>
-                  <div className="text-white font-bold text-xl mb-2">AI Model</div>
-                  <div className="text-gray-400 text-sm">ChatGPT / Claude / Gemini</div>
-                  <div className="mt-4 pt-4 border-t border-gray-700">
-                    <div className="grid grid-cols-3 gap-2 text-xs">
-                      <div className="text-red-400">❌ Raw data</div>
-                      <div className="text-red-400">❌ Raw data</div>
-                      <div className="text-green-400">✅ Redacted</div>
-                    </div>
+              <div className="flex flex-col items-center space-y-4">
+                {/* Data source */}
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📧</div>
+                    <div className="text-blue-400 text-xs">Your Data</div>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                  <line x1="20" y1="0" x2="20" y2="30" stroke="#ef4444" strokeWidth="3"/>
+                  <circle cx="20" cy="15" r="4" fill="#ef4444">
+                    <animate attributeName="cy" from="0" to="30" dur="1s" repeatCount="indefinite"/>
+                  </circle>
+                  <polygon points="15,30 20,40 25,30" fill="#ef4444"/>
+                </svg>
+                
+                {/* Competitor cloud */}
+                <div className="bg-red-950 bg-opacity-70 border-2 border-red-800 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">☁️</div>
+                    <div className="text-red-300 font-semibold text-sm">Competitor</div>
+                    <div className="text-red-500 text-xs mt-1 animate-pulse">⚠️ Leaves environment</div>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                  <line x1="20" y1="0" x2="20" y2="30" stroke="#ef4444" strokeWidth="3"/>
+                  <circle cx="20" cy="15" r="4" fill="#ef4444">
+                    <animate attributeName="cy" from="0" to="30" dur="1s" repeatCount="indefinite" begin="1s"/>
+                  </circle>
+                  <polygon points="15,30 20,40 25,30" fill="#ef4444"/>
+                </svg>
+                
+                {/* AI Model */}
+                <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-white font-semibold text-sm">AI Model</div>
+                    <div className="text-red-400 text-xs mt-2">Raw sensitive data</div>
                   </div>
                 </div>
               </div>
-
+            </div>
+            
+            {/* Column 3: Vizco */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-green-700 rounded-2xl p-6">
+              <div className="text-center mb-6">
+                <div className="bg-green-900 bg-opacity-40 rounded-xl p-3 mb-4">
+                  <div className="text-green-300 font-bold">✅ Vizco</div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-4">
+                {/* Data source */}
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📧</div>
+                    <div className="text-blue-400 text-xs">Your Data</div>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                  <line x1="20" y1="0" x2="20" y2="30" stroke="#22c55e" strokeWidth="3"/>
+                  <circle cx="20" cy="15" r="4" fill="#22c55e">
+                    <animate attributeName="cy" from="0" to="30" dur="1s" repeatCount="indefinite"/>
+                  </circle>
+                  <polygon points="15,30 20,40 25,30" fill="#22c55e"/>
+                </svg>
+                
+                {/* Vizco shield */}
+                <div className="border-2 border-dashed border-blue-600 bg-blue-950 bg-opacity-20 rounded-xl p-3 w-full relative">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 py-0.5 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap">
+                    YOUR ENVIRONMENT
+                  </div>
+                  <div className="bg-purple-950 bg-opacity-70 border-2 border-purple-600 rounded-lg p-4 mt-2">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🛡️</div>
+                      <div className="text-purple-300 font-semibold text-sm">Vizco</div>
+                      <div className="text-green-500 text-xs mt-1">✅ Stays in cloud</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                  <line x1="20" y1="0" x2="20" y2="30" stroke="#22c55e" strokeWidth="3" strokeDasharray="4,4"/>
+                  <circle cx="20" cy="15" r="4" fill="#22c55e">
+                    <animate attributeName="cy" from="0" to="30" dur="1s" repeatCount="indefinite" begin="1s"/>
+                  </circle>
+                  <polygon points="15,30 20,40 25,30" fill="#22c55e"/>
+                </svg>
+                
+                {/* AI Model */}
+                <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-white font-semibold text-sm">AI Model</div>
+                    <div className="text-green-400 text-xs mt-2">Redacted data only</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* Agent Governance Animation */}
+      {/* Agent Governance  */}
       <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            How Agents Access Your Data
+            Agent Governance
           </h2>
-          <p className="text-center text-gray-400 mb-6 max-w-3xl mx-auto text-lg">
-            A partner asks: &quot;Draft a summary of the ClientA case for opposing counsel&quot;
+          <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            Scenario: Partner asks agent to &quot;Draft a summary of the ClientA case for opposing counsel&quot;
           </p>
-          
-          {/* Scenario Box */}
-          <div className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 border border-blue-800 rounded-xl p-4 mb-12 max-w-3xl mx-auto">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">👨‍⚖️</span>
-              <div className="text-blue-200 text-sm">
-                <span className="font-bold">Partner request:</span> &quot;Draft a summary of the ClientA case for opposing counsel&quot;
-              </div>
-            </div>
-          </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             
-            {/* Without Vizco - Status Quo */}
-            <div className="bg-gradient-to-b from-red-950 from-opacity-20 to-black border-2 border-red-900 rounded-2xl p-8 relative">
+            {/* Without Vizco */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-900 px-4 py-2 border border-red-700 rounded-full">
                 <span className="text-red-300 font-bold text-sm">❌ Without Vizco</span>
               </div>
