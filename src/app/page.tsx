@@ -10,17 +10,17 @@ export default function Home() {
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <span className="text-sm text-purple-300 font-semibold">Your data never leaves your environment</span>
+          <span className="text-sm text-purple-300 font-semibold">Use frontier AI models without exposing sensitive data</span>
         </div>
         
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
           The AI Governance Layer
         </h1>
         <p className="text-xl sm:text-2xl text-center max-w-3xl mb-4 text-gray-200">
-          Enforce policies on content, access, and actions—<span className="text-purple-400 font-semibold">locally, before data reaches any model</span>—so your organization can adopt AI without compromise.
+          Enforce policies on content, access, and actions—<span className="text-purple-400 font-semibold">locally, before data reaches any model</span>—so your organization can use frontier AI models safely.
         </p>
         <p className="text-base text-center max-w-2xl mb-8 text-gray-400">
-          Not a SaaS endpoint. Not a third-party proxy. Vizco runs in your environment, keeping sensitive data under your control while enabling AI productivity.
+          Not a SaaS endpoint. Not a third-party proxy. Vizco runs in your environment, redacting sensitive data while enabling full AI productivity with ChatGPT, Claude, and Gemini.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
@@ -39,10 +39,10 @@ export default function Home() {
             The Problem with Third-Party AI
           </h2>
           <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
-            Security doesn&apos;t matter if sensitive data can&apos;t leave your environment in the first place
+            You need frontier AI models, but <span className="text-red-400 font-semibold">sensitive data must stay private</span>
           </p>
           <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
-            Competitors process data through third-party endpoints—increasing exposure regardless of their security claims
+            Competitors route your data through third-party endpoints—exposing PII and confidential information regardless of their security claims
           </p>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -109,7 +109,7 @@ export default function Home() {
               </div>
               
               <p className="text-red-300 text-center text-sm font-semibold">
-                ⚠️ Compliance violation: Sensitive data left your environment
+                ⚠️ PII, privileged content, and confidential data exposed to third parties
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default function Home() {
               </div>
               
               <p className="text-purple-300 text-center text-sm font-semibold">
-                ✅ Compliant: Sensitive data never left your device
+                ✅ Sensitive data redacted locally—use frontier AI models safely
               </p>
             </div>
           </div>
@@ -338,7 +338,7 @@ export default function Home() {
           </div>
           
           <div className="mt-12 text-center">
-            <p className="text-purple-400 font-semibold text-lg mb-2">All enforcement happens locally—zero data exposure</p>
+            <p className="text-purple-400 font-semibold text-lg mb-2">All enforcement happens locally—use frontier AI models without exposing sensitive data</p>
             <p className="text-gray-500 text-sm">Deploy as desktop app, on-premise, or in your VPC</p>
           </div>
         </div>
@@ -347,7 +347,7 @@ export default function Home() {
       {/* Trust & Security Section */}
       <section className="py-12 px-6 sm:px-12">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-900 bg-opacity-20 border border-purple-800 flex items-center justify-center">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-purple-400">
@@ -357,20 +357,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-white">Zero Trust Architecture</h3>
               <p className="text-gray-400 text-sm">
-                No data leaves your environment without explicit policy approval. Your secrets stay your secrets.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-900 bg-opacity-20 border border-purple-800 flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-purple-400">
-                  <path d="M9 11l3 3L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">Compliance Ready</h3>
-              <p className="text-gray-400 text-sm">
-                Meets data residency, privilege protection, and audit requirements for regulated industries (legal, finance, healthcare).
+                Sensitive data never leaves your environment without explicit policy enforcement. Your secrets stay your secrets.
               </p>
             </div>
 
