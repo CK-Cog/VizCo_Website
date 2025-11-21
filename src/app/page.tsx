@@ -46,23 +46,20 @@ export default function Home() {
           <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 sm:p-12">
             
             {/* Data Source at Top */}
-            <div className="max-w-2xl mx-auto">
-              
-              {/* Data Source at Top */}
-              <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-2xl p-6 shadow-2xl mb-8">
-                <div className="text-center">
-                  <div className="text-white font-bold text-lg mb-2">Your Environment</div>
-                  <div className="text-blue-400 text-sm mb-4">📧 Sensitive Data Lives Here</div>
-                  <div className="flex justify-center gap-3 items-center">
-                    <span className="text-3xl">📧</span>
-                    <span className="text-3xl">☁️</span>
-                    <span className="text-3xl">📁</span>
-                  </div>
+            <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-2xl p-6 shadow-2xl mb-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-white font-bold text-lg mb-2">Your Environment</div>
+                <div className="text-blue-400 text-sm mb-4">📧 Sensitive Data Lives Here</div>
+                <div className="flex justify-center gap-3 items-center">
+                  <span className="text-3xl">📧</span>
+                  <span className="text-3xl">☁️</span>
+                  <span className="text-3xl">📁</span>
                 </div>
               </div>
+            </div>
 
-              {/* Three vertical paths side-by-side */}
-              <div className="grid md:grid-cols-3 gap-6">
+            {/* Three vertical paths side-by-side */}
+            <div className="grid md:grid-cols-3 gap-6">
                 
                 {/* Path 1: Competitor (Leaves) */}
                 <div className="flex flex-col items-center">
@@ -419,4 +416,5 @@ export default function Home() {
     </div>
   );
 }
+
 
