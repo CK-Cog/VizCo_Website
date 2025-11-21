@@ -45,193 +45,188 @@ export default function Home() {
             With Vizco, it never has to leave—policies enforce where your data already exists
           </p>
           
-          {/* Three Paths Diagram */}
-          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 sm:p-12">
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              {/* Path 1: Third-Party Preprocessing */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4 px-4 py-2 bg-red-900 bg-opacity-30 border border-red-800 rounded-full">
-                  <span className="text-red-300 font-semibold text-sm">❌ Path 1: Third-Party Preprocessing</span>
-                </div>
-                
-                <div className="w-full space-y-4">
-                  {/* Data Source */}
-                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
-                    <div className="text-center mb-2">
-                      <div className="text-2xl mb-1">☁️</div>
-                      <div className="text-white font-semibold text-sm">Your Cloud</div>
-                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
-                    </div>
+          {/* Mediation-Style Animated Path Diagram */}
+          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            
+            {/* Single Source at Top */}
+            <div className="flex justify-center mb-12">
+              <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-2xl p-6 shadow-2xl">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">☁️</div>
+                  <div className="text-white font-bold text-lg">Your Cloud Environment</div>
+                  <div className="text-blue-400 text-sm">Google Workspace / Azure / Private Cloud</div>
+                  <div className="mt-2 px-3 py-1 bg-blue-900 bg-opacity-40 border border-blue-700 rounded-full inline-block">
+                    <span className="text-blue-300 text-xs">📧 Sensitive Data Lives Here</span>
                   </div>
-                  
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500 animate-pulse">
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  
-                  {/* Third Party */}
-                  <div className="bg-red-950 bg-opacity-40 border-2 border-red-800 rounded-xl p-4 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-red-500 opacity-10 animate-pulse"></div>
-                    <div className="text-center mb-2 relative z-10">
-                      <div className="text-2xl mb-1">⚠️</div>
-                      <div className="text-red-300 font-semibold text-sm">Competitor API</div>
-                      <div className="text-red-400 text-xs">Sensitive data exposed</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500">
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  
-                  {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4">
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-white font-semibold text-sm">AI Model</div>
-                      <div className="text-gray-400 text-xs">ChatGPT/Claude</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-4 text-center">
-                  <p className="text-red-400 text-xs font-semibold">❌ Data left your control</p>
                 </div>
               </div>
+            </div>
+
+            {/* Three Diverging Paths */}
+            <div className="relative" style={{minHeight: '500px'}}>
               
-              {/* Path 2: Direct to Model */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4 px-4 py-2 bg-red-900 bg-opacity-30 border border-red-800 rounded-full">
-                  <span className="text-red-300 font-semibold text-sm">❌ Path 2: Direct to Model</span>
+              {/* Your Environment Box (boundary) */}
+              <div className="absolute inset-x-0 top-0 border-4 border-dashed border-blue-700 rounded-2xl opacity-30" style={{height: '150px'}}>
+                <div className="absolute -top-6 left-4 bg-black px-3 py-1 border border-blue-700 rounded-full">
+                  <span className="text-blue-400 text-sm font-semibold">🔒 Your Secure Environment</span>
                 </div>
-                
-                <div className="w-full space-y-4">
-                  {/* Data Source */}
-                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
-                    <div className="text-center mb-2">
+              </div>
+
+              {/* Path 1: Third-Party (Left) */}
+              <div className="absolute left-0 top-0" style={{width: '30%'}}>
+                {/* Path inside environment */}
+                <div className="flex flex-col items-center">
+                  <svg width="4" height="120" viewBox="0 0 4 120" className="text-red-500 animate-pulse">
+                    <line x1="2" y1="0" x2="2" y2="120" stroke="currentColor" strokeWidth="4"/>
+                    <circle cx="2" cy="60" r="3" fill="currentColor">
+                      <animate attributeName="cy" from="0" to="120" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                  </svg>
+                  
+                  {/* Crosses boundary - Warning */}
+                  <div className="my-2 px-3 py-1 bg-red-900 bg-opacity-50 border-2 border-red-500 rounded-lg animate-pulse">
+                    <span className="text-red-300 text-xs font-bold">⚠️ LEAVES ENVIRONMENT</span>
+                  </div>
+                  
+                  {/* Third-Party Server */}
+                  <div className="mt-4 bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 shadow-xl w-full">
+                    <div className="text-center">
                       <div className="text-2xl mb-1">☁️</div>
-                      <div className="text-white font-semibold text-sm">Your Cloud</div>
-                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
+                      <div className="text-red-300 font-semibold text-sm">Competitor</div>
+                      <div className="text-red-400 text-xs">Third-Party API</div>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500 animate-pulse" style={{animationDelay: '0.3s'}}>
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
+                  <svg width="4" height="100" viewBox="0 0 4 100" className="text-red-500">
+                    <line x1="2" y1="0" x2="2" y2="100" stroke="currentColor" strokeWidth="4"/>
+                  </svg>
+                  
+                  {/* AI Model */}
+                  <div className="mt-4 bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🤖</div>
+                      <div className="text-white font-semibold text-xs">AI Model</div>
+                    </div>
                   </div>
                   
-                  {/* No preprocessing - empty space */}
-                  <div className="bg-gray-950 bg-opacity-40 border-2 border-gray-700 rounded-xl p-4 border-dashed">
-                    <div className="text-center mb-2">
+                  <div className="mt-3 text-center">
+                    <span className="text-red-400 text-xs font-bold">❌ Path 1: Third-Party</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Path 2: Direct (Center) */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-0" style={{width: '30%'}}>
+                <div className="flex flex-col items-center">
+                  <svg width="4" height="120" viewBox="0 0 4 120" className="text-red-500 animate-pulse" style={{animationDelay: '0.7s'}}>
+                    <line x1="2" y1="0" x2="2" y2="120" stroke="currentColor" strokeWidth="4"/>
+                    <circle cx="2" cy="60" r="3" fill="currentColor">
+                      <animate attributeName="cy" from="0" to="120" dur="2s" repeatCount="indefinite" begin="0.7s"/>
+                    </circle>
+                  </svg>
+                  
+                  {/* Crosses boundary - Warning */}
+                  <div className="my-2 px-3 py-1 bg-red-900 bg-opacity-50 border-2 border-red-500 rounded-lg animate-pulse" style={{animationDelay: '0.7s'}}>
+                    <span className="text-red-300 text-xs font-bold">⚠️ LEAVES ENVIRONMENT</span>
+                  </div>
+                  
+                  {/* Empty space (no preprocessing) */}
+                  <div className="mt-4 bg-gray-950 bg-opacity-40 border-2 border-gray-700 border-dashed rounded-xl p-4 w-full">
+                    <div className="text-center">
                       <div className="text-2xl mb-1 opacity-30">∅</div>
                       <div className="text-gray-500 font-semibold text-sm">No Protection</div>
-                      <div className="text-gray-600 text-xs">Raw data sent</div>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500">
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
-                  </div>
+                  <svg width="4" height="100" viewBox="0 0 4 100" className="text-red-500">
+                    <line x1="2" y1="0" x2="2" y2="100" stroke="currentColor" strokeWidth="4"/>
+                  </svg>
                   
                   {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4">
+                  <div className="mt-4 bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
                     <div className="text-center">
                       <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-white font-semibold text-sm">AI Model</div>
-                      <div className="text-gray-400 text-xs">ChatGPT/Claude</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-4 text-center">
-                  <p className="text-red-400 text-xs font-semibold">❌ Data left your control</p>
-                </div>
-              </div>
-              
-              {/* Path 3: Vizco */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4 px-4 py-2 bg-purple-900 bg-opacity-30 border border-purple-700 rounded-full">
-                  <span className="text-purple-300 font-semibold text-sm">✅ Path 3: Vizco</span>
-                </div>
-                
-                <div className="w-full space-y-4">
-                  {/* Data Source */}
-                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
-                    <div className="text-center mb-2">
-                      <div className="text-2xl mb-1">☁️</div>
-                      <div className="text-white font-semibold text-sm">Your Cloud</div>
-                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
+                      <div className="text-white font-semibold text-xs">AI Model</div>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-purple-500">
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
+                  <div className="mt-3 text-center">
+                    <span className="text-red-400 text-xs font-bold">❌ Path 2: Direct</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Path 3: Vizco (Right - Green/Purple) */}
+              <div className="absolute right-0 top-0" style={{width: '30%'}}>
+                <div className="flex flex-col items-center">
+                  <svg width="4" height="120" viewBox="0 0 4 120" className="text-green-500">
+                    <line x1="2" y1="0" x2="2" y2="120" stroke="currentColor" strokeWidth="4"/>
+                    <circle cx="2" cy="60" r="3" fill="currentColor">
+                      <animate attributeName="cy" from="0" to="120" dur="2s" repeatCount="indefinite" begin="1.4s"/>
+                    </circle>
+                  </svg>
+                  
+                  {/* Stays inside - Check */}
+                  <div className="my-2 px-3 py-1 bg-green-900 bg-opacity-50 border-2 border-green-500 rounded-lg">
+                    <span className="text-green-300 text-xs font-bold">✅ STAYS IN ENVIRONMENT</span>
                   </div>
                   
                   {/* Vizco Layer */}
-                  <div className="bg-purple-950 bg-opacity-40 border-2 border-purple-700 rounded-xl p-4 relative overflow-hidden">
+                  <div className="mt-4 bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4 shadow-xl w-full relative overflow-hidden">
                     <div className="absolute inset-0 bg-purple-500 opacity-10"></div>
-                    <div className="text-center mb-2 relative z-10">
+                    <div className="text-center relative z-10">
                       <div className="text-2xl mb-1">🛡️</div>
-                      <div className="text-purple-300 font-semibold text-sm">Vizco Layer</div>
-                      <div className="text-purple-400 text-xs">Runs in your cloud</div>
+                      <div className="text-purple-300 font-semibold text-sm">Vizco</div>
+                      <div className="text-purple-400 text-xs">Policy Layer</div>
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
-                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-purple-500">
-                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3" strokeDasharray="6 3"/>
-                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
-                    </svg>
-                  </div>
+                  <svg width="4" height="100" viewBox="0 0 4 100" className="text-green-500">
+                    <line x1="2" y1="0" x2="2" y2="100" stroke="currentColor" strokeWidth="4" strokeDasharray="8 4"/>
+                  </svg>
                   
                   {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 opacity-80">
+                  <div className="mt-4 bg-gray-900 border-2 border-green-700 rounded-xl p-4 w-full">
                     <div className="text-center">
                       <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-white font-semibold text-sm">AI Model</div>
-                      <div className="text-purple-400 text-xs">Redacted data only</div>
+                      <div className="text-green-400 font-semibold text-xs">Redacted Only</div>
                     </div>
                   </div>
+                  
+                  <div className="mt-3 text-center">
+                    <span className="text-green-400 text-xs font-bold">✅ Path 3: Vizco</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Legend at Bottom */}
+            <div className="mt-8 pt-8 border-t-2 border-gray-800">
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="inline-block px-4 py-2 bg-red-900 bg-opacity-30 border border-red-800 rounded-lg mb-2">
+                    <span className="text-red-300 font-bold text-sm">❌ Path 1 & 2</span>
+                  </div>
+                  <p className="text-gray-400 text-xs">Sensitive data crosses environment boundary—exposed to third parties or sent raw to AI</p>
                 </div>
                 
-                <div className="mt-4 text-center">
-                  <p className="text-purple-400 text-xs font-semibold">✅ Sensitive data stayed in your cloud</p>
+                <div className="text-center">
+                  <div className="inline-block px-4 py-2 bg-green-900 bg-opacity-30 border border-green-700 rounded-lg mb-2">
+                    <span className="text-green-300 font-bold text-sm">✅ Path 3: Vizco</span>
+                  </div>
+                  <p className="text-gray-300 text-xs font-semibold">Policies enforce where data lives—sensitive info never leaves your cloud</p>
                 </div>
-              </div>
-              
-            </div>
-            
-            {/* Bottom Explanation */}
-            <div className="mt-12 pt-8 border-t border-gray-800">
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <p className="text-red-400 font-semibold mb-2 text-sm">Third-Party Risk</p>
-                  <p className="text-gray-500 text-xs">Your sensitive data flows through competitor servers before reaching AI</p>
-                </div>
-                <div>
-                  <p className="text-red-400 font-semibold mb-2 text-sm">Direct Exposure</p>
-                  <p className="text-gray-500 text-xs">Raw PII and confidential data sent directly to AI models</p>
-                </div>
-                <div>
-                  <p className="text-purple-400 font-semibold mb-2 text-sm">Vizco: Policy Where Data Lives</p>
-                  <p className="text-gray-400 text-xs">Enforce redaction, access, and action policies in your Google Workspace, Azure, or private cloud—status quo maintained</p>
+                
+                <div className="text-center">
+                  <div className="inline-block px-4 py-2 bg-blue-900 bg-opacity-30 border border-blue-700 rounded-lg mb-2">
+                    <span className="text-blue-300 font-bold text-sm">🔒 Status Quo</span>
+                  </div>
+                  <p className="text-gray-400 text-xs">No new exposure—data stays in Google Workspace, Azure, or your private cloud</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
