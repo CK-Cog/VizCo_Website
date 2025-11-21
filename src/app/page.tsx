@@ -279,50 +279,46 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* All emails accessible */}
+              {/* Animated email flow - unrestricted */}
               <div className="mb-6">
-                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Access:</div>
-                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
-                  <div className="text-red-400 text-xs space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">📧</span>
-                      <span>All emails (yours + colleagues&apos;)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">👥</span>
-                      <span>All contacts &amp; recipients</span>
-                    </div>
-                    <div className="flex items-center gap-2 animate-pulse">
-                      <span className="text-lg">⚠️</span>
-                      <span className="font-bold">Including sensitive PII</span>
-                    </div>
-                  </div>
+                <div className="flex justify-center mb-4">
+                  <svg width="200" height="120" viewBox="0 0 200 120">
+                    {/* Multiple email paths converging */}
+                    <line x1="30" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
+                    <line x1="100" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
+                    <line x1="170" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
+                    {/* Animated dots */}
+                    <circle cx="100" cy="50" r="4" fill="#ef4444">
+                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="65" cy="30" r="4" fill="#ef4444">
+                      <animate attributeName="cx" from="30" to="100" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="135" cy="30" r="4" fill="#ef4444">
+                      <animate attributeName="cx" from="170" to="100" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    {/* Agent at bottom */}
+                    <circle cx="100" cy="105" r="8" fill="#7f1d1d"/>
+                    <text x="100" y="110" fontSize="12" textAnchor="middle" fill="#fca5a5">🤖</text>
+                  </svg>
                 </div>
-              </div>
-              
-              {/* Agent Actions */}
-              <div className="mb-6">
-                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Can:</div>
-                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
-                  <div className="text-red-400 text-xs space-y-2">
-                    <div>✓ Read all email content</div>
-                    <div>✓ Send emails on your behalf</div>
-                    <div>✓ Delete or archive emails</div>
-                    <div className="text-red-300 font-bold pt-2 border-t border-red-900">No restrictions • No approvals</div>
+                
+                <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4">
+                  <div className="text-red-300 font-bold text-sm mb-3 text-center">Agent sees:</div>
+                  <div className="text-red-400 text-sm space-y-2">
+                    <div className="animate-pulse">📧 All your emails (past & present)</div>
+                    <div>✓ Read • Send • Delete anything</div>
+                    <div className="text-red-300 font-bold pt-2 border-t border-red-900">⚠️ Massive data exposure</div>
                   </div>
                 </div>
               </div>
               
               {/* Risk */}
-              <div className="bg-red-900 bg-opacity-50 border-2 border-red-700 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2 flex items-center gap-2">
-                  <span className="text-xl">⚠️</span>
-                  <span>Risk:</span>
-                </div>
-                <div className="text-red-400 text-xs space-y-1">
-                  <div>• Unauthorized data access</div>
-                  <div>• PII exposed to AI model</div>
-                  <div>• Uncontrolled agent actions</div>
+              <div className="bg-red-900 bg-opacity-50 border-2 border-red-700 rounded-xl p-3 text-center">
+                <div className="text-red-300 font-bold text-sm">
+                  ⚠️ Compliance & privacy risk
                 </div>
               </div>
             </div>
@@ -335,62 +331,58 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Vizco Shield Filters */}
+              {/* Animated filtered flow - through Vizco */}
               <div className="mb-6">
-                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4 mb-4 relative">
-                  <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl animate-pulse"></div>
+                <div className="flex justify-center mb-4">
+                  <svg width="200" height="160" viewBox="0 0 200 160">
+                    {/* Single email path from top */}
+                    <line x1="100" y1="10" x2="100" y2="50" stroke="#22c55e" strokeWidth="2"/>
+                    <circle cx="100" cy="30" r="4" fill="#22c55e">
+                      <animate attributeName="cy" from="10" to="50" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    {/* Vizco Shield in middle */}
+                    <rect x="70" y="55" width="60" height="40" rx="8" fill="#7c3aed" stroke="#a78bfa" strokeWidth="2"/>
+                    <text x="100" y="70" fontSize="16" textAnchor="middle">🛡️</text>
+                    <text x="100" y="88" fontSize="8" textAnchor="middle" fill="#e9d5ff">Vizco</text>
+                    <circle cx="100" cy="75" r="20" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.5">
+                      <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    {/* Filtered path to agent */}
+                    <line x1="100" y1="95" x2="100" y2="140" stroke="#22c55e" strokeWidth="2" strokeDasharray="4,4"/>
+                    <circle cx="100" cy="117" r="4" fill="#22c55e">
+                      <animate attributeName="cy" from="95" to="140" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+                    </circle>
+                    
+                    {/* Agent at bottom */}
+                    <circle cx="100" cy="150" r="8" fill="#166534"/>
+                    <text x="100" y="155" fontSize="12" textAnchor="middle" fill="#86efac">🤖</text>
+                  </svg>
+                </div>
+                
+                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mb-4 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
                   <div className="text-center relative z-10">
-                    <div className="text-2xl mb-2">🛡️</div>
-                    <div className="text-purple-300 font-bold text-sm mb-1">Vizco Governance Layer</div>
-                    <div className="text-purple-400 text-xs">Enforces policies before agent access</div>
+                    <div className="text-purple-300 font-bold text-sm">🛡️ Vizco filters before agent access</div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Filtered Access */}
-              <div className="mb-6">
-                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Access:</div>
-                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
-                  <div className="text-green-400 text-xs space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">📧</span>
-                      <span>Only your emails (role-filtered)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🛡️</span>
-                      <span>PII automatically redacted</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">✓</span>
-                      <span className="font-bold text-green-300">Governed by policy</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Agent Actions Controlled */}
-              <div className="mb-6">
-                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Can:</div>
-                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
-                  <div className="text-green-400 text-xs space-y-2">
-                    <div>✓ Read authorized emails only</div>
-                    <div className="text-yellow-400">⚠️ Send emails (requires approval)</div>
-                    <div className="text-red-400">✗ Delete or archive (blocked)</div>
-                    <div className="text-green-300 font-bold pt-2 border-t border-green-900">Policy-enforced • Audit logged</div>
+                
+                <div className="bg-green-950 bg-opacity-60 border-2 border-green-700 rounded-xl p-4">
+                  <div className="text-green-300 font-bold text-sm mb-3 text-center">Agent sees:</div>
+                  <div className="text-green-400 text-sm space-y-2">
+                    <div>📧 Only today&apos;s emails</div>
+                    <div>✓ Read only • Send needs approval</div>
+                    <div className="text-green-300 font-bold pt-2 border-t border-green-900">✅ Minimal exposure, maximum control</div>
                   </div>
                 </div>
               </div>
               
               {/* Outcome */}
-              <div className="bg-green-900 bg-opacity-50 border-2 border-green-700 rounded-xl p-4">
-                <div className="text-green-300 font-bold text-sm mb-2 flex items-center gap-2">
-                  <span className="text-xl">✓</span>
-                  <span>Safe & Compliant:</span>
-                </div>
-                <div className="text-green-400 text-xs space-y-1">
-                  <div>• Restricted data access</div>
-                  <div>• PII automatically protected</div>
-                  <div>• High-risk actions require approval</div>
+              <div className="bg-green-900 bg-opacity-50 border-2 border-green-700 rounded-xl p-3 text-center">
+                <div className="text-green-300 font-bold text-sm">
+                  ✅ Secure & compliant by default
                 </div>
           </div>
           </div>
