@@ -36,13 +36,10 @@ export default function Home() {
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Three Ways to Use AI—Only One Keeps Sensitive Data Private
+            Data Flow Paths to AI Models
           </h2>
-          <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
-            Your data already lives in Google Workspace, Azure, and private cloud
-          </p>
-          <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
-            With Vizco, it never has to leave—policies enforce where your data already exists
+          <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto text-lg">
+            Three paths—only one keeps sensitive data in your environment
           </p>
           
           {/* Mediation-Style Animated Path Diagram - Left to Right */}
@@ -259,17 +256,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Key Features */}
+      {/* Agent Governance Animation */}
       <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Enterprise-Grade AI Governance
+            Autonomous Agent Governance
           </h2>
           <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            Every feature runs in your environment—giving you control, compliance, and confidence
+            Status quo: agents see all data and take any action. Vizco: govern what agents see and what they can do.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="rounded-2xl border border-purple-800 bg-gradient-to-b from-purple-950 from-opacity-20 to-black p-6 hover:border-purple-600 transition">
               <div className="w-12 h-12 rounded-lg bg-purple-900 bg-opacity-30 flex items-center justify-center mb-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-400">
