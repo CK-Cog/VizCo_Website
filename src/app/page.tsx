@@ -215,151 +215,58 @@ export default function Home() {
             
             {/* Without Vizco */}
             <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-900 px-4 py-2 border border-red-700 rounded-full">
-                <span className="text-red-300 font-bold text-sm">❌ Without Vizco</span>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">Unrestricted Access</h3>
-              
-              {/* Animated Data Flow */}
-              <div className="mb-8">
-                {/* Data Sources */}
-                <div className="flex justify-around mb-4">
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">📧</div>
-                    <div className="text-red-400 text-xs font-bold animate-pulse">All Email</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">📁</div>
-                    <div className="text-red-400 text-xs font-bold animate-pulse">All Files</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">💼</div>
-                    <div className="text-red-400 text-xs font-bold animate-pulse">All Matters</div>
-                  </div>
-                </div>
-                
-                {/* Arrows flowing down */}
-                <div className="flex justify-center mb-4">
-                  <svg width="200" height="60" viewBox="0 0 200 60">
-                    <line x1="50" y1="0" x2="100" y2="50" stroke="#ef4444" strokeWidth="3"/>
-                    <line x1="100" y1="0" x2="100" y2="50" stroke="#ef4444" strokeWidth="3"/>
-                    <line x1="150" y1="0" x2="100" y2="50" stroke="#ef4444" strokeWidth="3"/>
-                    <circle cx="100" cy="25" r="5" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="50" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="95,50 100,60 105,50" fill="#ef4444"/>
-                  </svg>
-                </div>
-                
-                {/* Agent */}
-                <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4">
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">🤖</div>
-                    <div className="text-red-300 font-bold">Agent sees:</div>
-                    <div className="text-red-400 text-sm mt-1">ClientA + ClientB + ClientC emails</div>
-                    <div className="text-red-400 text-sm">Including privileged matters</div>
-                  </div>
+              <div className="text-center mb-6">
+                <div className="bg-red-900 bg-opacity-40 rounded-xl p-3">
+                  <div className="text-red-300 font-bold">❌ Without Vizco</div>
                 </div>
               </div>
               
-              {/* Result */}
-              <div className="bg-red-900 bg-opacity-40 border-2 border-red-700 rounded-xl p-4">
-                <div className="text-red-300 font-bold mb-2 flex items-center gap-2">
-                  <span className="text-xl">⚠️</span>
-                  <span>Result:</span>
+              <div className="space-y-4">
+                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
+                  <div className="text-red-300 font-semibold mb-2">Agent accesses:</div>
+                  <div className="text-red-400 text-sm space-y-1">
+                    <div>• ClientA emails</div>
+                    <div>• ClientB emails (unauthorized)</div>
+                    <div>• ClientC emails (unauthorized)</div>
+                  </div>
                 </div>
-                <div className="space-y-2 text-sm">
-                  <div className="text-red-400">• Accesses unauthorized matters (ClientB, ClientC)</div>
-                  <div className="text-red-400">• Includes SSNs, account numbers unredacted</div>
-                  <div className="text-red-400">• Sends draft with privileged info exposed</div>
+                
+                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
+                  <div className="text-red-300 font-semibold mb-2">Draft includes:</div>
+                  <div className="text-red-400 text-sm space-y-1">
+                    <div>• Unredacted SSNs</div>
+                    <div>• Privileged information from other matters</div>
+                    <div>• No approval required</div>
+                  </div>
                 </div>
               </div>
             </div>
             
-            {/* With Vizco - Governed */}
-            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-700 rounded-2xl p-8 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-900 px-4 py-2 border border-purple-700 rounded-full">
-                <span className="text-purple-300 font-bold text-sm">✅ With Vizco</span>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">Policy-Controlled</h3>
-              
-              {/* Animated Data Flow with Shield */}
-              <div className="mb-8">
-                {/* Data Sources */}
-                <div className="flex justify-around mb-4">
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">📧</div>
-                    <div className="text-gray-400 text-xs">All Email</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">📁</div>
-                    <div className="text-gray-400 text-xs">All Files</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">💼</div>
-                    <div className="text-gray-400 text-xs">All Matters</div>
-                  </div>
-                </div>
-                
-                {/* Arrows to shield */}
-                <div className="flex justify-center mb-3">
-                  <svg width="200" height="40" viewBox="0 0 200 40">
-                    <line x1="50" y1="0" x2="100" y2="35" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                    <line x1="100" y1="0" x2="100" y2="35" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                    <line x1="150" y1="0" x2="100" y2="35" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="5,5">
-                      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                  </svg>
-                </div>
-                
-                {/* Vizco Shield */}
-                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mb-3 relative">
-                  <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl animate-pulse"></div>
-                  <div className="text-center relative z-10">
-                    <div className="text-2xl mb-1">🛡️</div>
-                    <div className="text-purple-300 font-bold text-sm">Vizco Shield</div>
-                    <div className="text-purple-400 text-xs">Filtering & Redacting</div>
-                  </div>
-                </div>
-                
-                {/* Filtered arrow */}
-                <div className="flex justify-center mb-3">
-                  <svg width="100" height="30" viewBox="0 0 100 30">
-                    <line x1="50" y1="0" x2="50" y2="25" stroke="#22c55e" strokeWidth="3"/>
-                    <circle cx="50" cy="12" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="0" to="25" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="45,25 50,30 55,25" fill="#22c55e"/>
-                  </svg>
-                </div>
-                
-                {/* Agent */}
-                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4">
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">🤖</div>
-                    <div className="text-purple-300 font-bold">Agent sees:</div>
-                    <div className="text-green-400 text-sm mt-1">ClientA only (authorized)</div>
-                    <div className="text-green-400 text-sm">PII redacted</div>
-                  </div>
+            {/* With Vizco */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-green-700 rounded-2xl p-6">
+              <div className="text-center mb-6">
+                <div className="bg-green-900 bg-opacity-40 rounded-xl p-3">
+                  <div className="text-green-300 font-bold">✅ With Vizco</div>
                 </div>
               </div>
               
-              {/* Result */}
-              <div className="bg-green-900 bg-opacity-40 border-2 border-green-700 rounded-xl p-4">
-                <div className="text-green-300 font-bold mb-2 flex items-center gap-2">
-                  <span className="text-xl">✅</span>
-                  <span>Result:</span>
+              <div className="space-y-4">
+                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
+                  <div className="text-green-300 font-semibold mb-2">Agent accesses:</div>
+                  <div className="text-green-400 text-sm space-y-1">
+                    <div>• ClientA emails only (authorized)</div>
+                    <div>• ClientB blocked</div>
+                    <div>• ClientC blocked</div>
+                  </div>
                 </div>
-                <div className="space-y-2 text-sm">
-                  <div className="text-green-400">• Only ClientA matter accessed</div>
-                  <div className="text-green-400">• SSNs automatically redacted: [REDACTED]</div>
-                  <div className="text-yellow-400">• Draft requires partner approval before sending</div>
+                
+                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
+                  <div className="text-green-300 font-semibold mb-2">Draft includes:</div>
+                  <div className="text-green-400 text-sm space-y-1">
+                    <div>• SSNs auto-redacted: [REDACTED]</div>
+                    <div>• Only authorized matter content</div>
+                    <div>• Requires partner approval to send</div>
+                  </div>
                 </div>
               </div>
             </div>
