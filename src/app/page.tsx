@@ -267,152 +267,174 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="rounded-2xl border border-purple-800 bg-gradient-to-b from-purple-950 from-opacity-20 to-black p-6 hover:border-purple-600 transition">
-              <div className="w-12 h-12 rounded-lg bg-purple-900 bg-opacity-30 flex items-center justify-center mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-400">
-                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M8 6h3M8 17h3M17 8v3M17 17v3" stroke="currentColor" strokeWidth="2"/>
-                </svg>
+            
+            {/* Without Vizco - Status Quo */}
+            <div className="bg-gradient-to-b from-red-950 from-opacity-20 to-black border-2 border-red-900 rounded-2xl p-8 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-900 px-4 py-2 border border-red-700 rounded-full">
+                <span className="text-red-300 font-bold text-sm">❌ Status Quo</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">PII Redaction</h3>
-              <p className="text-gray-400 text-sm">
-                Automatically detect and redact sensitive information (SSNs, account numbers, addresses) before any data reaches an AI model—locally, in real-time.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-purple-800 bg-gradient-to-b from-purple-950 from-opacity-20 to-black p-6 hover:border-purple-600 transition">
-              <div className="w-12 h-12 rounded-lg bg-purple-900 bg-opacity-30 flex items-center justify-center mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-400">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="12" cy="11" r="3" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">Matter‑Level Access</h3>
-              <p className="text-gray-400 text-sm">
-                Enforce case/client-specific permissions across all AI interactions. Only authorized users can query or generate content for sensitive matters.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-purple-800 bg-gradient-to-b from-purple-950 from-opacity-20 to-black p-6 hover:border-purple-600 transition">
-              <div className="w-12 h-12 rounded-lg bg-purple-900 bg-opacity-30 flex items-center justify-center mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-400">
-                  <path d="M9 11l3 3L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">Action Approvals</h3>
-              <p className="text-gray-400 text-sm">
-                Define allow-lists and approval workflows for high-risk actions (sending emails, filing documents). AI can draft, but humans approve.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-purple-800 bg-gradient-to-b from-purple-950 from-opacity-20 to-black p-6 hover:border-purple-600 transition">
-              <div className="w-12 h-12 rounded-lg bg-purple-900 bg-opacity-30 flex items-center justify-center mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-400">
-                  <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-white">Model-Agnostic</h3>
-              <p className="text-gray-400 text-sm">
-                Works with any LLM (ChatGPT, Claude, Gemini) and integrates with your existing tools (Gmail, Drive, Slack, DMS). One policy layer, everywhere.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works - Visual Cards */}
-      <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-gray-950 to-black">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Three-Layer Policy Enforcement
-          </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            All policies run locally—before any data leaves your device
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Content Card */}
-            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-800 rounded-2xl p-6 hover:border-purple-600 transition-all hover:scale-105 duration-300">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center relative">
-                <div className="absolute inset-0 rounded-full bg-purple-500 opacity-20 animate-ping"></div>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-purple-400 relative z-10">
-                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M8 6h3M8 17h3M17 8v3M17 17v3" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                  1
+              
+              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">Without Vizco</h3>
+              
+              {/* Data Sources */}
+              <div className="flex justify-center gap-4 mb-8">
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">📧</div>
+                  <div className="text-xs text-blue-400">Email</div>
+                  <div className="text-xs text-gray-500">ALL data</div>
+                </div>
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">📁</div>
+                  <div className="text-xs text-blue-400">Files</div>
+                  <div className="text-xs text-gray-500">ALL data</div>
+                </div>
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">👥</div>
+                  <div className="text-xs text-blue-400">Contacts</div>
+                  <div className="text-xs text-gray-500">ALL data</div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-3 text-white">Content</h3>
-              <p className="text-center text-gray-300 font-semibold mb-2 text-sm">Redact PII & Sensitive Data</p>
-              <div className="bg-black bg-opacity-40 border border-purple-800 rounded-lg p-3 text-xs mb-3">
-                <div className="text-red-400 line-through mb-1">SSN: 123-45-6789</div>
-                <div className="text-purple-400">SSN: [REDACTED]</div>
-              </div>
-              <p className="text-gray-400 text-sm text-center">
-                Auto-detect PII, privileged content, confidential data
-              </p>
-            </div>
-
-            {/* Access Card */}
-            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-800 rounded-2xl p-6 hover:border-purple-600 transition-all hover:scale-105 duration-300">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center relative">
-                <div className="absolute inset-0 rounded-full bg-purple-500 opacity-20 animate-ping" style={{animationDelay: '0.2s'}}></div>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-purple-400 relative z-10">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="12" cy="11" r="3" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                  2
+              
+              {/* Agent accessing everything */}
+              <div className="relative mb-8">
+                <div className="absolute left-1/2 transform -translate-x-1/2 -top-4">
+                  <div className="flex flex-col items-center">
+                    <svg width="4" height="40" className="animate-pulse">
+                      <line x1="2" y1="0" x2="2" y2="40" stroke="#ef4444" strokeWidth="3"/>
+                      <circle cx="2" cy="20" r="4" fill="#ef4444">
+                        <animate attributeName="cy" from="0" to="40" dur="1.5s" repeatCount="indefinite"/>
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 mt-8">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-red-300 font-bold">AI Agent</div>
+                    <div className="text-red-400 text-sm mt-2">Sees: Everything</div>
+                    <div className="text-red-400 text-sm">Can do: Everything</div>
+                  </div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-3 text-white">Access</h3>
-              <p className="text-center text-gray-300 font-semibold mb-2 text-sm">Control What Agents See</p>
-              <div className="bg-black bg-opacity-40 border border-purple-800 rounded-lg p-3 text-xs mb-3">
-                <div className="text-purple-400 mb-1">✅ Matter A: Access Granted</div>
-                <div className="text-red-400">❌ Matter B: Access Denied</div>
-              </div>
-              <p className="text-gray-400 text-sm text-center">
-                Matter-level & role-based permissions enforced locally
-              </p>
-            </div>
-
-            {/* Actions Card */}
-            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-800 rounded-2xl p-6 hover:border-purple-600 transition-all hover:scale-105 duration-300">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center relative">
-                <div className="absolute inset-0 rounded-full bg-purple-500 opacity-20 animate-ping" style={{animationDelay: '0.4s'}}></div>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-purple-400 relative z-10">
-                  <path d="M9 11l3 3L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                  3
+              
+              {/* Actions - all allowed */}
+              <div className="space-y-2">
+                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-red-400 text-xl">✓</span>
+                  <div className="flex-1">
+                    <div className="text-red-300 text-sm font-semibold">Send emails</div>
+                    <div className="text-red-500 text-xs">No restrictions</div>
+                  </div>
+                </div>
+                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-red-400 text-xl">✓</span>
+                  <div className="flex-1">
+                    <div className="text-red-300 text-sm font-semibold">Delete files</div>
+                    <div className="text-red-500 text-xs">No restrictions</div>
+                  </div>
+                </div>
+                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-red-400 text-xl">✓</span>
+                  <div className="flex-1">
+                    <div className="text-red-300 text-sm font-semibold">Access sensitive data</div>
+                    <div className="text-red-500 text-xs">No restrictions</div>
+                  </div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-center mb-3 text-white">Actions</h3>
-              <p className="text-center text-gray-300 font-semibold mb-2 text-sm">Govern Tool Usage</p>
-              <div className="bg-black bg-opacity-40 border border-purple-800 rounded-lg p-3 text-xs mb-3">
-                <div className="text-green-400 mb-1">✅ Gmail: Read-only</div>
-                <div className="text-yellow-400 mb-1">⚠️ Send: Needs Approval</div>
-                <div className="text-red-400">❌ Drive: Blocked</div>
-              </div>
-              <p className="text-gray-400 text-sm text-center">
-                Define tools, allow-lists, approval workflows
-              </p>
             </div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-purple-400 font-semibold text-lg mb-2">All enforcement happens locally—use frontier AI models without exposing sensitive data</p>
-            <p className="text-gray-500 text-sm">Deploy as desktop app, on-premise, or in your VPC</p>
+            
+            {/* With Vizco - Governed */}
+            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-700 rounded-2xl p-8 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-900 px-4 py-2 border border-purple-700 rounded-full">
+                <span className="text-purple-300 font-bold text-sm">✅ With Vizco</span>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">With Vizco Shield</h3>
+              
+              {/* Data Sources */}
+              <div className="flex justify-center gap-4 mb-8">
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">📧</div>
+                  <div className="text-xs text-blue-400">Email</div>
+                  <div className="text-xs text-purple-400">Task-specific</div>
+                </div>
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">📁</div>
+                  <div className="text-xs text-blue-400">Files</div>
+                  <div className="text-xs text-purple-400">Task-specific</div>
+                </div>
+                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
+                  <div className="text-2xl mb-1">👥</div>
+                  <div className="text-xs text-blue-400">Contacts</div>
+                  <div className="text-xs text-purple-400">Task-specific</div>
+                </div>
+              </div>
+              
+              {/* Vizco Shield filtering */}
+              <div className="relative mb-8">
+                <div className="absolute left-1/2 transform -translate-x-1/2 -top-4">
+                  <div className="flex flex-col items-center">
+                    <svg width="4" height="40">
+                      <line x1="2" y1="0" x2="2" y2="40" stroke="#8b5cf6" strokeWidth="3"/>
+                      <circle cx="2" cy="20" r="4" fill="#8b5cf6">
+                        <animate attributeName="cy" from="0" to="40" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Vizco Shield */}
+                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mt-4 relative">
+                  <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl"></div>
+                  <div className="text-center relative z-10">
+                    <div className="text-2xl mb-1">🛡️</div>
+                    <div className="text-purple-300 font-bold text-sm">Vizco Shield</div>
+                    <div className="text-purple-400 text-xs">Governs access & actions</div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center mt-2">
+                  <svg width="4" height="20">
+                    <line x1="2" y1="0" x2="2" y2="20" stroke="#8b5cf6" strokeWidth="3"/>
+                  </svg>
+                </div>
+                
+                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-purple-300 font-bold">AI Agent</div>
+                    <div className="text-purple-400 text-sm mt-2">Sees: Task-relevant only</div>
+                    <div className="text-purple-400 text-sm">Can do: Approved actions</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Actions - governed */}
+              <div className="space-y-2">
+                <div className="bg-green-900 bg-opacity-30 border border-green-700 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <div className="flex-1">
+                    <div className="text-green-300 text-sm font-semibold">Read emails</div>
+                    <div className="text-green-500 text-xs">Task-specific only</div>
+                  </div>
+                </div>
+                <div className="bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-yellow-400 text-xl">⚠</span>
+                  <div className="flex-1">
+                    <div className="text-yellow-300 text-sm font-semibold">Send emails</div>
+                    <div className="text-yellow-500 text-xs">Requires approval</div>
+                  </div>
+                </div>
+                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                  <span className="text-red-400 text-xl">✗</span>
+                  <div className="flex-1">
+                    <div className="text-red-300 text-sm font-semibold">Delete files</div>
+                    <div className="text-red-500 text-xs">Blocked</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
