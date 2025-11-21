@@ -54,16 +54,16 @@ export default function Home() {
                   <div className="text-center">
                     <div className="text-3xl mb-2">📧</div>
                     <div className="text-blue-400 font-bold text-base mb-1">Your Data</div>
-                    <div className="text-blue-500 text-xs">Contains PII</div>
+                    <div className="text-orange-400 text-xs font-semibold">Contains sensitive PII</div>
                   </div>
                 </div>
               </div>
               
               {/* Three Paths in Middle */}
-              <div className="flex-1 relative" style={{height: '480px'}}>
+              <div className="flex-1 relative" style={{height: '550px'}}>
                 
                 {/* Path 1: Direct (Bottom - Straight) */}
-                <div className="absolute bottom-12 left-0 right-0 flex items-center">
+                <div className="absolute bottom-20 left-0 right-0 flex items-center">
                   <div className="flex-1 relative h-12">
                     <svg width="100%" height="48" viewBox="0 0 800 48" preserveAspectRatio="none" className="absolute inset-0">
                       <line x1="0" y1="24" x2="800" y2="24" stroke="#ef4444" strokeWidth="3"/>
@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
                 
                 {/* Path 2: Via Competitor (Top - Through Cloud) */}
-                <div className="absolute top-8 left-0 right-0 flex items-center">
+                <div className="absolute top-4 left-0 right-0 flex items-center">
                   <div className="flex-1 flex items-center gap-2">
                     {/* Arrow to competitor */}
                     <svg width="35%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none">
@@ -95,7 +95,7 @@ export default function Home() {
                     <div className="flex-shrink-0">
                       <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4 relative">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-3 py-1 border border-red-700 rounded text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
-                          ⚠️ DATA LEAVES
+                          ⚠️ SENSITIVE DATA LEAVES
                         </div>
                         <div className="text-center pt-2">
                           <div className="text-3xl mb-2">☁️</div>
@@ -185,9 +185,9 @@ export default function Home() {
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
                 <div className="text-red-300 font-bold text-sm mb-2">❌ Direct Path</div>
                 <div className="text-red-400 text-xs space-y-1">
-                  <div>• Raw sensitive data sent</div>
+                  <div>• Sensitive data sent unprotected</div>
                   <div>• No policy enforcement</div>
-                  <div>• PII exposed to AI</div>
+                  <div>• PII exposed to AI model</div>
                 </div>
               </div>
               
@@ -195,8 +195,8 @@ export default function Home() {
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
                 <div className="text-red-300 font-bold text-sm mb-2">❌ Third-Party Path</div>
                 <div className="text-red-400 text-xs space-y-1">
-                  <div>• Data leaves environment</div>
-                  <div>• Processed externally</div>
+                  <div>• Sensitive data leaves environment</div>
+                  <div>• Processed in external cloud</div>
                   <div>• Loss of control</div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function Home() {
               <div className="bg-green-950 bg-opacity-30 border border-green-700 rounded-xl p-4">
                 <div className="text-green-300 font-bold text-sm mb-2">✅ Vizco Path</div>
                 <div className="text-green-400 text-xs space-y-1">
-                  <div>• Data stays in your cloud</div>
+                  <div>• Sensitive data stays in your cloud</div>
                   <div>• Firm policies enforced</div>
                   <div>• PII automatically redacted</div>
                 </div>
