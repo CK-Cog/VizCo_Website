@@ -91,156 +91,146 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Client Environment Box (contains Vizco) */}
-              <div className="relative border-4 border-dashed border-blue-700 rounded-2xl p-6 bg-blue-950 bg-opacity-10 flex-shrink-0">
-                <div className="absolute -top-4 left-4 bg-black px-3 py-1 border-2 border-blue-700 rounded-full">
-                  <span className="text-blue-300 text-sm font-semibold">🔒 Client Environment</span>
-                </div>
+              {/* Three Diverging Paths - Mediation Plot Style */}
+              <div className="flex-1 relative" style={{minHeight: '400px'}}>
                 
-                {/* Vizco Layer inside client environment */}
-                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4 shadow-xl relative overflow-hidden" style={{width: '200px', height: '140px'}}>
-                  <div className="absolute inset-0 bg-purple-500 opacity-10"></div>
-                  <div className="text-center relative z-10 flex flex-col items-center justify-center h-full">
-                    <div className="text-3xl mb-2">🛡️</div>
-                    <div className="text-purple-300 font-bold text-base">Vizco Layer</div>
-                    <div className="text-purple-400 text-xs mt-1">Runs in your cloud</div>
-                    <div className="text-purple-400 text-xs">PII redaction</div>
+                {/* Path 1: Direct to Model (Bottom - straight line) - RED */}
+                <div className="absolute bottom-0 left-0 right-0 flex items-center">
+                  <div className="flex items-center w-full">
+                    {/* Straight red line */}
+                    <svg width="100%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
+                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
+                      <circle cx="50" cy="2" r="4" fill="#ef4444">
+                        <animate attributeName="cx" from="0" to="100" dur="2.5s" repeatCount="indefinite"/>
+                      </circle>
+                    </svg>
+                    
+                    {/* AI Model */}
+                    <div className="bg-gray-900 border-2 border-red-700 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
+                      <div className="text-center">
+                        <div className="text-3xl mb-1">🤖</div>
+                        <div className="text-white font-bold">AI Model</div>
+                        <div className="text-red-400 text-xs mt-1">Raw data exposed</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Label below */}
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+                    <span className="text-red-400 font-bold text-sm">❌ Path 1: Direct (No Protection)</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Three Diverging Paths Flowing Right */}
-              <div className="flex-1 grid grid-rows-3 gap-6 items-center">
-                
-                {/* Path 1: Third-Party (Top Row) - RED */}
-                <div className="flex items-center gap-3">
-                  {/* Arrow leaving environment */}
-                  <svg width="80" height="4" viewBox="0 0 80 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="80" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <circle cx="40" cy="2" r="3" fill="#ef4444">
-                      <animate attributeName="cx" from="0" to="80" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                  </svg>
-                  
-                  <div className="px-3 py-1 bg-red-900 bg-opacity-50 border-2 border-red-500 rounded-lg animate-pulse flex-shrink-0">
-                    <span className="text-red-300 text-xs font-bold">⚠️ LEAVES</span>
-                  </div>
-                  
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <polygon points="55,0 60,2 55,4" fill="#ef4444"/>
-                  </svg>
-                  
-                  {/* Third-Party Server */}
-                  <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-3 shadow-xl flex-shrink-0" style={{width: '140px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">☁️</div>
-                      <div className="text-red-300 font-semibold text-xs">Competitor</div>
-                      <div className="text-red-400 text-[10px]">Third-Party</div>
+                {/* Path 2: Via Third-Party API (Middle - mediator) - RED */}
+                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex items-center">
+                  <div className="flex items-center w-full">
+                    {/* Line to third party */}
+                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
+                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
+                      <circle cx="50" cy="2" r="4" fill="#ef4444">
+                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite"/>
+                      </circle>
+                    </svg>
+                    
+                    <div className="px-2 py-1 bg-red-900 bg-opacity-50 border border-red-500 rounded animate-pulse mx-2">
+                      <span className="text-red-300 text-[10px] font-bold">LEAVES</span>
+                    </div>
+                    
+                    {/* Competitor Third-Party */}
+                    <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 shadow-2xl mx-3 relative" style={{width: '180px'}}>
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-2 py-1 border border-red-700 rounded-full">
+                        <span className="text-red-300 text-[10px] font-bold">MEDIATOR</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl mb-1">☁️</div>
+                        <div className="text-red-300 font-bold text-sm">Competitor API</div>
+                        <div className="text-red-400 text-xs">Policy enforcement</div>
+                        <div className="text-red-500 text-[10px]">in their cloud</div>
+                      </div>
+                    </div>
+                    
+                    {/* Line to AI */}
+                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
+                      <line x1="0" y1="2" x2="100" y2="2" stroke="#ef4444" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
+                      <circle cx="50" cy="2" r="4" fill="#ef4444">
+                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="1.2s"/>
+                      </circle>
+                    </svg>
+                    
+                    {/* AI Model */}
+                    <div className="bg-gray-900 border-2 border-red-700 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
+                      <div className="text-center">
+                        <div className="text-3xl mb-1">🤖</div>
+                        <div className="text-white font-bold">AI Model</div>
+                        <div className="text-red-400 text-xs mt-1">Still exposed</div>
+                      </div>
                     </div>
                   </div>
                   
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <polygon points="55,0 60,2 55,4" fill="#ef4444"/>
-                  </svg>
-                  
-                  {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-3 flex-shrink-0" style={{width: '120px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-white font-semibold text-xs">ChatGPT</div>
-                    </div>
+                  {/* Label above */}
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                    <span className="text-red-400 font-bold text-sm">❌ Path 2: Via Competitor (Data Leaves Your Environment)</span>
                   </div>
-                  
-                  <div className="text-red-400 text-xs font-bold ml-2">❌ Path 1</div>
                 </div>
 
-                {/* Path 2: Direct (Middle Row) - RED */}
-                <div className="flex items-center gap-3">
-                  {/* Arrow leaving environment */}
-                  <svg width="80" height="4" viewBox="0 0 80 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="80" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <circle cx="40" cy="2" r="3" fill="#ef4444">
-                      <animate attributeName="cx" from="0" to="80" dur="2s" repeatCount="indefinite" begin="0.7s"/>
-                    </circle>
-                  </svg>
-                  
-                  <div className="px-3 py-1 bg-red-900 bg-opacity-50 border-2 border-red-500 rounded-lg animate-pulse flex-shrink-0" style={{animationDelay: '0.7s'}}>
-                    <span className="text-red-300 text-xs font-bold">⚠️ LEAVES</span>
-                  </div>
-                  
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <polygon points="55,0 60,2 55,4" fill="#ef4444"/>
-                  </svg>
-                  
-                  {/* Empty (no preprocessing) */}
-                  <div className="bg-gray-950 bg-opacity-40 border-2 border-gray-700 border-dashed rounded-xl p-3 flex-shrink-0" style={{width: '140px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1 opacity-30">∅</div>
-                      <div className="text-gray-500 font-semibold text-xs">No Layer</div>
+                {/* Path 3: Via Vizco in Client Environment (Top) - GREEN */}
+                <div className="absolute top-0 left-0 right-0 flex items-center">
+                  <div className="flex items-center w-full">
+                    {/* Line to Vizco */}
+                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
+                      <line x1="0" y1="2" x2="100" y2="2" stroke="#22c55e" strokeWidth="4" vectorEffect="non-scaling-stroke"/>
+                      <circle cx="50" cy="2" r="4" fill="#22c55e">
+                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="0.5s"/>
+                      </circle>
+                    </svg>
+                    
+                    <div className="px-2 py-1 bg-green-900 bg-opacity-50 border border-green-500 rounded mx-2">
+                      <span className="text-green-300 text-[10px] font-bold">STAYS</span>
+                    </div>
+                    
+                    {/* Vizco Layer in Client Environment */}
+                    <div className="relative mx-3" style={{width: '220px'}}>
+                      {/* Client Environment Box */}
+                      <div className="border-2 border-dashed border-blue-600 rounded-xl p-2 bg-blue-950 bg-opacity-20">
+                        <div className="absolute -top-3 left-2 bg-black px-2 py-0.5 border border-blue-600 rounded-full">
+                          <span className="text-blue-400 text-[10px] font-bold">CLIENT ENVIRONMENT</span>
+                        </div>
+                        
+                        {/* Vizco inside */}
+                        <div className="bg-purple-950 bg-opacity-70 border-2 border-purple-600 rounded-lg p-3 shadow-xl relative">
+                          <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-lg"></div>
+                          <div className="text-center relative z-10">
+                            <div className="text-2xl mb-1">🛡️</div>
+                            <div className="text-purple-300 font-bold text-sm">Vizco Layer</div>
+                            <div className="text-purple-400 text-xs">Policy enforcement</div>
+                            <div className="text-purple-400 text-[10px]">in YOUR cloud</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Line to AI (dashed - controlled) */}
+                    <svg width="35%" height="4" viewBox="0 0 100 4" preserveAspectRatio="none" className="flex-1">
+                      <line x1="0" y1="2" x2="100" y2="2" stroke="#22c55e" strokeWidth="4" strokeDasharray="8 4" vectorEffect="non-scaling-stroke"/>
+                      <circle cx="50" cy="2" r="4" fill="#22c55e">
+                        <animate attributeName="cx" from="0" to="100" dur="1.2s" repeatCount="indefinite" begin="1.7s"/>
+                      </circle>
+                    </svg>
+                    
+                    {/* AI Model */}
+                    <div className="bg-gray-900 border-2 border-green-600 rounded-xl p-4 ml-4 shadow-xl" style={{width: '160px'}}>
+                      <div className="text-center">
+                        <div className="text-3xl mb-1">🤖</div>
+                        <div className="text-white font-bold">AI Model</div>
+                        <div className="text-green-400 text-xs mt-1">Redacted only</div>
+                      </div>
                     </div>
                   </div>
                   
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#ef4444" strokeWidth="4"/>
-                    <polygon points="55,0 60,2 55,4" fill="#ef4444"/>
-                  </svg>
-                  
-                  {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-3 flex-shrink-0" style={{width: '120px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-white font-semibold text-xs">Claude</div>
-                    </div>
+                  {/* Label above */}
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
+                    <span className="text-green-400 font-bold text-sm">✅ Path 3: Via Vizco (Stays in Your Environment)</span>
                   </div>
-                  
-                  <div className="text-red-400 text-xs font-bold ml-2">❌ Path 2</div>
-                </div>
-
-                {/* Path 3: Vizco (Bottom Row) - GREEN */}
-                <div className="flex items-center gap-3">
-                  {/* Arrow staying in environment */}
-                  <svg width="80" height="4" viewBox="0 0 80 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="80" y2="2" stroke="#22c55e" strokeWidth="4"/>
-                    <circle cx="40" cy="2" r="3" fill="#22c55e">
-                      <animate attributeName="cx" from="0" to="80" dur="2s" repeatCount="indefinite" begin="1.4s"/>
-                    </circle>
-                  </svg>
-                  
-                  <div className="px-3 py-1 bg-green-900 bg-opacity-50 border-2 border-green-500 rounded-lg flex-shrink-0">
-                    <span className="text-green-300 text-xs font-bold">✅ STAYS</span>
-                  </div>
-                  
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#22c55e" strokeWidth="4"/>
-                    <polygon points="55,0 60,2 55,4" fill="#22c55e"/>
-                  </svg>
-                  
-                  {/* Processed indicator */}
-                  <div className="bg-green-950 bg-opacity-40 border-2 border-green-700 rounded-xl p-3 flex-shrink-0" style={{width: '140px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">✅</div>
-                      <div className="text-green-300 font-semibold text-xs">Redacted</div>
-                      <div className="text-green-400 text-[10px]">PII removed</div>
-                    </div>
-                  </div>
-                  
-                  <svg width="60" height="4" viewBox="0 0 60 4" className="flex-shrink-0">
-                    <line x1="0" y1="2" x2="60" y2="2" stroke="#22c55e" strokeWidth="4" strokeDasharray="6 3"/>
-                    <polygon points="55,0 60,2 55,4" fill="#22c55e"/>
-                  </svg>
-                  
-                  {/* AI Model */}
-                  <div className="bg-gray-900 border-2 border-green-700 rounded-xl p-3 flex-shrink-0" style={{width: '120px'}}>
-                    <div className="text-center">
-                      <div className="text-2xl mb-1">🤖</div>
-                      <div className="text-green-400 font-semibold text-xs">Safe AI</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-green-400 text-xs font-bold ml-2">✅ Path 3</div>
                 </div>
 
               </div>
