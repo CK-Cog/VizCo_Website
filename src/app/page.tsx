@@ -243,22 +243,52 @@ export default function Home() {
             How Vizco Works
           </h2>
           <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            Three-layer protection that runs entirely in your environment
+            Policy enforcement that runs entirely in your environment
           </p>
           
-          <div className="space-y-8">
+          <div className="max-w-3xl mx-auto">
             {/* Step 1 */}
             <div className="flex flex-col md:flex-row gap-6 items-start">
               <div className="flex-shrink-0">
                 <div className="w-16 h-16 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-purple-400">1</span>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-purple-400">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">Content Policy Enforcement</h3>
-                <p className="text-gray-400 mb-3">
-                  Before any prompt or file reaches an AI model, Vizco scans for sensitive information—PII, privileged content, confidential data—and applies your organization&apos;s redaction policies locally on your device.
+                <h3 className="text-xl font-semibold mb-2 text-white">Policy Enforcement</h3>
+                <p className="text-gray-400 mb-4">
+                  Before any data reaches an AI model, Vizco enforces your organization&apos;s policies locally on your device—controlling content, access, and actions:
                 </p>
+                
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-white text-sm font-semibold mb-1">Content: Redact PII & Sensitive Data</p>
+                      <p className="text-gray-400 text-sm">Automatically detect and redact PII, privileged content, and confidential information before AI processing.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-white text-sm font-semibold mb-1">Access: Control What Agents See</p>
+                      <p className="text-gray-400 text-sm">Enforce matter-level and role-based permissions—agents only access data users are authorized to see.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-white text-sm font-semibold mb-1">Actions: Govern Tool Usage</p>
+                      <p className="text-gray-400 text-sm">Define which tools agents can use and what actions they can perform (read-only vs. send, allow-lists, approvals).</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-black bg-opacity-40 border border-gray-800 rounded-lg p-4 text-sm">
                   <div className="flex items-center gap-2 text-gray-500 mb-2">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-purple-500">
@@ -266,68 +296,9 @@ export default function Home() {
                     </svg>
                     <span className="text-purple-400">Example:</span>
                   </div>
-                  <p className="text-gray-400 mb-1"><span className="text-red-400 line-through">John Smith, SSN: 123-45-6789</span></p>
-                  <p className="text-gray-300">→ <span className="text-purple-400">[REDACTED NAME], SSN: [REDACTED]</span></p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <svg width="2" height="40" viewBox="0 0 2 40" className="text-purple-800">
-                <line x1="1" y1="0" x2="1" y2="40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
-              </svg>
-            </div>
-
-            {/* Step 2 */}
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-purple-400">2</span>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">Access Control & Permissions</h3>
-                <p className="text-gray-400 mb-3">
-                  Vizco enforces matter-level and role-based access. Users can only query, summarize, or generate content for cases/clients they&apos;re authorized to access—no exceptions, even with AI assistants.
-                </p>
-                <div className="bg-black bg-opacity-40 border border-gray-800 rounded-lg p-4 text-sm">
-                  <div className="flex items-center gap-2 text-gray-500 mb-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-purple-500">
-                      <path d="M9 11l3 3L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-purple-400">Example:</span>
-                  </div>
-                  <p className="text-gray-400">Junior associate asks AI about Partner-only case → <span className="text-red-400">Access Denied</span></p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <svg width="2" height="40" viewBox="0 0 2 40" className="text-purple-800">
-                <line x1="1" y1="0" x2="1" y2="40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
-              </svg>
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-full bg-purple-900 bg-opacity-30 border-2 border-purple-700 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-purple-400">3</span>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">Action Approvals & Audit Trail</h3>
-                <p className="text-gray-400 mb-3">
-                  High-risk actions (sending emails, filing documents, updating records) require human approval. Every AI interaction is logged locally for compliance and review—full transparency, zero data leakage.
-                </p>
-                <div className="bg-black bg-opacity-40 border border-gray-800 rounded-lg p-4 text-sm">
-                  <div className="flex items-center gap-2 text-gray-500 mb-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-purple-500">
-                      <path d="M9 11l3 3L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-purple-400">Example:</span>
-                  </div>
-                  <p className="text-gray-400">AI drafts email to client → <span className="text-yellow-400">Pending Partner Review</span> → <span className="text-green-400">Approved & Sent</span></p>
+                  <p className="text-gray-400 mb-1"><span className="text-red-400 line-through">John Smith, SSN: 123-45-6789, Client: Acme Corp</span></p>
+                  <p className="text-gray-300 mb-3">→ <span className="text-purple-400">[REDACTED NAME], SSN: [REDACTED], Client: Acme Corp</span></p>
+                  <p className="text-gray-400 text-xs">Agent restricted to: Gmail (read-only), Calendar (view), Drive (no access)</p>
                 </div>
               </div>
             </div>
