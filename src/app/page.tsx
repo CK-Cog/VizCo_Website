@@ -42,10 +42,153 @@ export default function Home() {
             Three paths—only one keeps sensitive data in your environment
           </p>
           
-          {/* Clean 3-Column Comparison */}
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Horizontal Mediation Plot */}
+          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8">
             
-            {/* Column 1: Direct */}
+            {/* Data Source Left, AI Model Right, Three Paths */}
+            <div className="flex items-center justify-between gap-4 min-h-[400px]">
+              
+              {/* Data Source (Left) */}
+              <div className="flex-shrink-0 w-32">
+                <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-xl p-4">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">📧</div>
+                    <div className="text-blue-400 font-semibold text-sm">Your Data</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Three Paths in Middle */}
+              <div className="flex-1 relative" style={{height: '400px'}}>
+                
+                {/* Path 1: Direct (Bottom - Straight) */}
+                <div className="absolute bottom-1/4 left-0 right-0 flex items-center">
+                  <div className="flex-1 relative h-12">
+                    <svg width="100%" height="48" viewBox="0 0 800 48" preserveAspectRatio="none" className="absolute inset-0">
+                      <line x1="0" y1="24" x2="800" y2="24" stroke="#ef4444" strokeWidth="3"/>
+                      <circle cx="400" cy="24" r="5" fill="#ef4444">
+                        <animate attributeName="cx" from="0" to="800" dur="3s" repeatCount="indefinite"/>
+                      </circle>
+                      <polygon points="795,19 805,24 795,29" fill="#ef4444"/>
+                    </svg>
+                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
+                      ❌ Direct
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Path 2: Via Competitor (Top - Through Cloud) */}
+                <div className="absolute top-0 left-0 right-0 flex items-center">
+                  <div className="flex-1 flex items-center gap-2">
+                    {/* Arrow to competitor */}
+                    <svg width="35%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none">
+                      <line x1="0" y1="60" x2="280" y2="20" stroke="#ef4444" strokeWidth="3"/>
+                      <circle cx="140" cy="40" r="5" fill="#ef4444">
+                        <animate attributeName="cx" from="0" to="280" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="cy" from="60" to="20" dur="2s" repeatCount="indefinite"/>
+                      </circle>
+                      <polygon points="275,15 285,20 280,25" fill="#ef4444"/>
+                    </svg>
+                    
+                    {/* Competitor box */}
+                    <div className="flex-shrink-0">
+                      <div className="bg-red-950 border-2 border-red-800 rounded-xl p-3 relative">
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-2 py-1 border border-red-700 rounded text-xs text-red-300 font-bold whitespace-nowrap">
+                          ⚠️ LEAVES
+                        </div>
+                        <div className="text-center pt-2">
+                          <div className="text-2xl mb-1">☁️</div>
+                          <div className="text-red-300 font-semibold text-xs">Competitor</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Arrow from competitor */}
+                    <svg width="35%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none">
+                      <line x1="20" y1="20" x2="300" y2="60" stroke="#ef4444" strokeWidth="3"/>
+                      <circle cx="160" cy="40" r="5" fill="#ef4444">
+                        <animate attributeName="cx" from="20" to="300" dur="2s" repeatCount="indefinite" begin="2s"/>
+                        <animate attributeName="cy" from="20" to="60" dur="2s" repeatCount="indefinite" begin="2s"/>
+                      </circle>
+                      <polygon points="295,55 305,60 300,65" fill="#ef4444"/>
+                    </svg>
+                  </div>
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
+                    ❌ Third-Party
+                  </div>
+                </div>
+                
+                {/* Path 3: Via Vizco (Middle - Through Shield) */}
+                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex items-center">
+                  <div className="flex-1 flex items-center gap-2">
+                    {/* Arrow to Vizco */}
+                    <svg width="35%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
+                      <line x1="0" y1="30" x2="280" y2="30" stroke="#22c55e" strokeWidth="3"/>
+                      <circle cx="140" cy="30" r="5" fill="#22c55e">
+                        <animate attributeName="cx" from="0" to="280" dur="2s" repeatCount="indefinite"/>
+                      </circle>
+                      <polygon points="275,25 285,30 275,35" fill="#22c55e"/>
+                    </svg>
+                    
+                    {/* Vizco box */}
+                    <div className="flex-shrink-0">
+                      <div className="border-2 border-dashed border-blue-600 bg-blue-950 bg-opacity-20 rounded-xl p-2 relative">
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 py-1 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap">
+                          YOUR ENV
+                        </div>
+                        <div className="bg-purple-950 border-2 border-purple-600 rounded-lg p-3 mt-1">
+                          <div className="text-center">
+                            <div className="text-2xl mb-1">🛡️</div>
+                            <div className="text-purple-300 font-semibold text-xs">Vizco</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Arrow from Vizco (dashed) */}
+                    <svg width="35%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
+                      <line x1="20" y1="30" x2="300" y2="30" stroke="#22c55e" strokeWidth="3" strokeDasharray="8,4"/>
+                      <circle cx="160" cy="30" r="5" fill="#22c55e">
+                        <animate attributeName="cx" from="20" to="300" dur="2s" repeatCount="indefinite" begin="2s"/>
+                      </circle>
+                      <polygon points="295,25 305,30 295,35" fill="#22c55e"/>
+                    </svg>
+                  </div>
+                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-green-400 text-sm font-semibold">
+                    ✅ Vizco
+                  </div>
+                </div>
+                
+              </div>
+              
+              {/* AI Model (Right) */}
+              <div className="flex-shrink-0 w-32">
+                <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">🤖</div>
+                    <div className="text-white font-semibold text-sm">AI Model</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Agent Governance  */}
+      <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
+            Agent Governance
+          </h2>
+          <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            Scenario: Partner asks agent to &quot;Draft a summary of the ClientA case for opposing counsel&quot;
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            
+            {/* Without Vizco */}
             <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
               <div className="text-center mb-6">
                 <div className="bg-red-900 bg-opacity-40 rounded-xl p-3 mb-4">
@@ -221,23 +364,51 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="space-y-4">
-                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
-                  <div className="text-red-300 font-semibold mb-2">Agent accesses:</div>
-                  <div className="text-red-400 text-sm space-y-1">
-                    <div>• ClientA emails</div>
-                    <div>• ClientB emails (unauthorized)</div>
-                    <div>• ClientC emails (unauthorized)</div>
-                  </div>
+              {/* Data sources at top */}
+              <div className="flex justify-around mb-6">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientA</div>
                 </div>
-                
-                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
-                  <div className="text-red-300 font-semibold mb-2">Draft includes:</div>
-                  <div className="text-red-400 text-sm space-y-1">
-                    <div>• Unredacted SSNs</div>
-                    <div>• Privileged information from other matters</div>
-                    <div>• No approval required</div>
-                  </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientB</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientC</div>
+                </div>
+              </div>
+              
+              {/* Animated arrows converging */}
+              <div className="flex justify-center mb-4">
+                <svg width="200" height="80" viewBox="0 0 200 80">
+                  <line x1="35" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
+                  <line x1="100" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
+                  <line x1="165" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
+                  <circle cx="100" cy="35" r="5" fill="#ef4444">
+                    <animate attributeName="cy" from="0" to="70" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                  <polygon points="95,70 100,80 105,70" fill="#ef4444"/>
+                </svg>
+              </div>
+              
+              {/* Agent box */}
+              <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 mb-4">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🤖</div>
+                  <div className="text-red-300 font-bold">Agent</div>
+                  <div className="text-red-400 text-xs mt-2">Sees ALL matters</div>
+                </div>
+              </div>
+              
+              {/* Result */}
+              <div className="bg-red-900 bg-opacity-40 border-2 border-red-700 rounded-xl p-4">
+                <div className="text-red-300 font-bold text-sm mb-2">⚠️ Result:</div>
+                <div className="text-red-400 text-xs space-y-1">
+                  <div>• Exposes ClientB & ClientC (unauthorized)</div>
+                  <div>• Unredacted SSNs sent to AI</div>
+                  <div>• No approval process</div>
                 </div>
               </div>
             </div>
@@ -250,23 +421,69 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="space-y-4">
-                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
-                  <div className="text-green-300 font-semibold mb-2">Agent accesses:</div>
-                  <div className="text-green-400 text-sm space-y-1">
-                    <div>• ClientA emails only (authorized)</div>
-                    <div>• ClientB blocked</div>
-                    <div>• ClientC blocked</div>
-                  </div>
+              {/* Data sources at top */}
+              <div className="flex justify-around mb-6">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-gray-400 text-xs">ClientA</div>
                 </div>
-                
-                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
-                  <div className="text-green-300 font-semibold mb-2">Draft includes:</div>
-                  <div className="text-green-400 text-sm space-y-1">
-                    <div>• SSNs auto-redacted: [REDACTED]</div>
-                    <div>• Only authorized matter content</div>
-                    <div>• Requires partner approval to send</div>
-                  </div>
+                <div className="text-center opacity-50">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-gray-600 text-xs line-through">ClientB</div>
+                </div>
+                <div className="text-center opacity-50">
+                  <div className="text-3xl mb-2">💼</div>
+                  <div className="text-gray-600 text-xs line-through">ClientC</div>
+                </div>
+              </div>
+              
+              {/* Animated arrow through shield */}
+              <div className="flex justify-center mb-3">
+                <svg width="80" height="40" viewBox="0 0 80 40">
+                  <line x1="40" y1="0" x2="40" y2="35" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="4,4">
+                    <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite"/>
+                  </line>
+                  <polygon points="35,35 40,40 45,35" fill="#8b5cf6"/>
+                </svg>
+              </div>
+              
+              {/* Vizco Shield */}
+              <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mb-3 relative">
+                <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl animate-pulse"></div>
+                <div className="text-center relative z-10">
+                  <div className="text-2xl mb-1">🛡️</div>
+                  <div className="text-purple-300 font-bold text-sm">Vizco Shield</div>
+                  <div className="text-purple-400 text-xs">Filtering & Redacting</div>
+                </div>
+              </div>
+              
+              {/* Animated filtered arrow */}
+              <div className="flex justify-center mb-3">
+                <svg width="80" height="40" viewBox="0 0 80 40">
+                  <line x1="40" y1="0" x2="40" y2="35" stroke="#22c55e" strokeWidth="3"/>
+                  <circle cx="40" cy="17" r="4" fill="#22c55e">
+                    <animate attributeName="cy" from="0" to="35" dur="1.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <polygon points="35,35 40,40 45,35" fill="#22c55e"/>
+                </svg>
+              </div>
+              
+              {/* Agent box */}
+              <div className="bg-green-950 bg-opacity-60 border-2 border-green-700 rounded-xl p-4 mb-4">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🤖</div>
+                  <div className="text-green-300 font-bold">Agent</div>
+                  <div className="text-green-400 text-xs mt-2">Sees ClientA only</div>
+                </div>
+              </div>
+              
+              {/* Result */}
+              <div className="bg-green-900 bg-opacity-40 border-2 border-green-700 rounded-xl p-4">
+                <div className="text-green-300 font-bold text-sm mb-2">✅ Result:</div>
+                <div className="text-green-400 text-xs space-y-1">
+                  <div>• Only ClientA accessed</div>
+                  <div>• SSNs redacted: [REDACTED]</div>
+                  <div>• Requires partner approval</div>
                 </div>
               </div>
             </div>
