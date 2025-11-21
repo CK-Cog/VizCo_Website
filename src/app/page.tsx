@@ -36,10 +36,10 @@ export default function Home() {
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Data Flow Paths to AI Models
+            Three Ways to Connect Your Data to AI
           </h2>
           <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto text-lg">
-            Three paths—only one keeps sensitive data in your environment
+            Only one keeps sensitive data within your environment
           </p>
           
           {/* Horizontal Mediation Plot */}
@@ -49,12 +49,22 @@ export default function Home() {
             <div className="flex items-center justify-between gap-4 min-h-[400px]">
               
               {/* Data Source (Left) */}
-              <div className="flex-shrink-0 w-40">
+              <div className="flex-shrink-0 w-48">
                 <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-xl p-5">
                   <div className="text-center">
-                    <div className="text-3xl mb-2">📧</div>
-                    <div className="text-blue-400 font-bold text-base mb-1">Your Data</div>
-                    <div className="text-orange-400 text-xs font-semibold">Contains sensitive PII</div>
+                    <div className="text-blue-300 font-bold text-sm mb-3">Your Data Sources</div>
+                    <div className="flex justify-center gap-2 mb-3">
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/gmail_logo.svg" alt="Gmail" width={24} height={24} />
+                      </div>
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/azure_logo.svg" alt="Azure" width={24} height={24} />
+                      </div>
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/google_drive_logo.svg" alt="Drive" width={24} height={24} />
+                      </div>
+                    </div>
+                    <div className="text-orange-400 text-xs font-semibold">Contains PII</div>
                   </div>
                 </div>
               </div>
@@ -64,7 +74,7 @@ export default function Home() {
                 
                 {/* Legend for red paths */}
                 <div className="absolute top-0 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
-                  ⚠️ SENSITIVE DATA LEAVES
+                  ⚠️ Sensitive data exits your environment
                 </div>
                 
                 {/* Path 1: Direct (Bottom - Straight) */}
@@ -101,8 +111,8 @@ export default function Home() {
                       <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4">
                         <div className="text-center">
                           <div className="text-3xl mb-2">☁️</div>
-                          <div className="text-red-300 font-bold text-sm mb-1">Third-Party</div>
-                          <div className="text-red-400 text-xs">External cloud</div>
+                          <div className="text-red-300 font-bold text-sm mb-1">Third-Party Service</div>
+                          <div className="text-red-400 text-xs">Preprocessing layer</div>
                         </div>
                       </div>
                     </div>
@@ -141,9 +151,9 @@ export default function Home() {
                           <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
-                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco Shield</div>
-                            <div className="text-purple-400 text-xs">Enforces policies</div>
-                            <div className="text-purple-500 text-xs">(e.g., PII redaction)</div>
+                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco</div>
+                            <div className="text-purple-400 text-xs">Policy enforcement</div>
+                            <div className="text-purple-500 text-xs">PII redaction • Access control</div>
                           </div>
                         </div>
                       </div>
@@ -163,12 +173,22 @@ export default function Home() {
               </div>
               
               {/* AI Model (Right) */}
-              <div className="flex-shrink-0 w-40">
+              <div className="flex-shrink-0 w-48">
                 <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-5">
                   <div className="text-center">
-                    <div className="text-3xl mb-2">🤖</div>
-                    <div className="text-white font-bold text-base mb-1">AI Model</div>
-                    <div className="text-gray-400 text-xs">ChatGPT/Claude</div>
+                    <div className="text-gray-300 font-bold text-sm mb-3">AI Models</div>
+                    <div className="flex justify-center gap-2 mb-2">
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/chatgpt_logo.svg" alt="ChatGPT" width={24} height={24} />
+                      </div>
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/claude_logo.svg" alt="Claude" width={24} height={24} />
+                      </div>
+                      <div className="bg-white rounded p-1.5">
+                        <Image src="/gemini_logo.svg" alt="Gemini" width={24} height={24} />
+                      </div>
+                    </div>
+                    <div className="text-gray-400 text-xs">Frontier models</div>
                   </div>
                 </div>
               </div>
@@ -179,33 +199,33 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               {/* Direct Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Direct Path</div>
+                <div className="text-red-300 font-bold text-sm mb-2">❌ Direct Connection</div>
                 <div className="text-red-400 text-xs space-y-1">
-                  <div>• Sensitive data sent unprotected</div>
-                  <div>• No policy enforcement</div>
-                  <div>• PII exposed to AI model</div>
+                  <div>• Unfiltered data transmission</div>
+                  <div>• No governance layer</div>
+                  <div>• PII exposed to model provider</div>
                 </div>
               </div>
               
               {/* Third-Party Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Third-Party Path</div>
+                <div className="text-red-300 font-bold text-sm mb-2">❌ Via Third-Party</div>
                 <div className="text-red-400 text-xs space-y-1">
-                  <div>• Sensitive data leaves environment</div>
-                  <div>• Processed in external cloud</div>
-                  <div>• Loss of control</div>
+                  <div>• Data exits your environment</div>
+                  <div>• External preprocessing</div>
+                  <div>• Compliance risk</div>
                 </div>
               </div>
               
               {/* Vizco Path Info */}
               <div className="bg-green-950 bg-opacity-30 border border-green-700 rounded-xl p-4">
-                <div className="text-green-300 font-bold text-sm mb-2">✅ Vizco Path</div>
+                <div className="text-green-300 font-bold text-sm mb-2">✅ Via Vizco</div>
                 <div className="text-green-400 text-xs space-y-1">
-                  <div>• Sensitive data stays in your cloud</div>
-                  <div>• Firm policies enforced</div>
-                  <div>• PII automatically redacted</div>
-          </div>
-          </div>
+                  <div>• Data remains in your environment</div>
+                  <div>• Policy enforcement at source</div>
+                  <div>• Automatic PII redaction</div>
+                </div>
+              </div>
           </div>
           </div>
         </div>
