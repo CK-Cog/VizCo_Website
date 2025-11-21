@@ -32,6 +32,32 @@ export default function Home() {
         </a>
       </header>
 
+      {/* How Vizco Governs Agents */}
+      <section className="py-16 px-6 sm:px-12 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-white">
+            How Vizco Governs Agents
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="text-4xl mb-3">🔍</div>
+              <div className="text-purple-300 font-bold mb-2">Control What Agents See</div>
+              <div className="text-gray-400 text-sm">Filter data access by role, matter, or policy before it reaches the agent</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-3">🛡️</div>
+              <div className="text-purple-300 font-bold mb-2">Redact Sensitive Content</div>
+              <div className="text-gray-400 text-sm">Automatically remove PII, privileged information, and confidential data</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-3">✋</div>
+              <div className="text-purple-300 font-bold mb-2">Restrict Actions</div>
+              <div className="text-gray-400 text-sm">Require approvals for high-risk actions like sending emails or deleting files</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Difference - Visual Comparison */}
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
@@ -226,165 +252,6 @@ export default function Home() {
                   <div>• Automatic PII redaction</div>
                 </div>
               </div>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Autonomous Agent Governance  */}
-      <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Autonomous Agent Governance
-          </h2>
-          <p className="text-center text-gray-400 mb-8 max-w-3xl mx-auto text-lg">
-            AI agents need access to your data to be useful—but unrestricted access creates risk
-          </p>
-          
-          {/* What Vizco Does */}
-          <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-800 rounded-2xl p-8 mb-12">
-            <h3 className="text-2xl font-bold text-center mb-6 text-white">How Vizco Governs Agents</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-4xl mb-3">🔍</div>
-                <div className="text-purple-300 font-bold mb-2">Control What Agents See</div>
-                <div className="text-gray-400 text-sm">Filter data access by role, matter, or policy before it reaches the agent</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3">🛡️</div>
-                <div className="text-purple-300 font-bold mb-2">Redact Sensitive Content</div>
-                <div className="text-gray-400 text-sm">Automatically remove PII, privileged information, and confidential data</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3">✋</div>
-                <div className="text-purple-300 font-bold mb-2">Restrict Actions</div>
-                <div className="text-gray-400 text-sm">Require approvals for high-risk actions like sending emails or deleting files</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Case Example Header */}
-          <h3 className="text-2xl font-bold text-center mb-4 text-white">Example: Email Summary Agent</h3>
-          <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
-            Request: &quot;Summarize my emails from today&quot;
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            
-            {/* Status Quo - Without Vizco */}
-            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
-              <div className="text-center mb-6">
-                <div className="bg-red-900 bg-opacity-40 rounded-xl p-3">
-                  <div className="text-red-300 font-bold">❌ Status Quo</div>
-                </div>
-              </div>
-              
-              {/* Animated email flow - unrestricted */}
-              <div className="mb-6">
-                <div className="flex justify-center mb-4">
-                  <svg width="200" height="120" viewBox="0 0 200 120">
-                    {/* Multiple email paths converging */}
-                    <line x1="30" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
-                    <line x1="100" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
-                    <line x1="170" y1="10" x2="100" y2="90" stroke="#ef4444" strokeWidth="2"/>
-                    {/* Animated dots */}
-                    <circle cx="100" cy="50" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="65" cy="30" r="4" fill="#ef4444">
-                      <animate attributeName="cx" from="30" to="100" dur="2s" repeatCount="indefinite"/>
-                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="135" cy="30" r="4" fill="#ef4444">
-                      <animate attributeName="cx" from="170" to="100" dur="2s" repeatCount="indefinite"/>
-                      <animate attributeName="cy" from="10" to="90" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    {/* Agent at bottom */}
-                    <circle cx="100" cy="105" r="8" fill="#7f1d1d"/>
-                    <text x="100" y="110" fontSize="12" textAnchor="middle" fill="#fca5a5">🤖</text>
-                  </svg>
-                </div>
-                
-                <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4">
-                  <div className="text-red-300 font-bold text-sm mb-3 text-center">Agent sees:</div>
-                  <div className="text-red-400 text-sm space-y-2">
-                    <div className="animate-pulse">📧 All your emails (past & present)</div>
-                    <div>✓ Read • Send • Delete anything</div>
-                    <div className="text-red-300 font-bold pt-2 border-t border-red-900">⚠️ Massive data exposure</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Risk */}
-              <div className="bg-red-900 bg-opacity-50 border-2 border-red-700 rounded-xl p-3 text-center">
-                <div className="text-red-300 font-bold text-sm">
-                  ⚠️ Compliance & privacy risk
-                </div>
-              </div>
-            </div>
-            
-            {/* With Vizco - Governed */}
-            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-purple-700 rounded-2xl p-6">
-              <div className="text-center mb-6">
-                <div className="bg-purple-900 bg-opacity-40 rounded-xl p-3">
-                  <div className="text-purple-300 font-bold">✅ With Vizco</div>
-                </div>
-              </div>
-              
-              {/* Animated filtered flow - through Vizco */}
-              <div className="mb-6">
-                <div className="flex justify-center mb-4">
-                  <svg width="200" height="160" viewBox="0 0 200 160">
-                    {/* Single email path from top */}
-                    <line x1="100" y1="10" x2="100" y2="50" stroke="#22c55e" strokeWidth="2"/>
-                    <circle cx="100" cy="30" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="10" to="50" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    {/* Vizco Shield in middle */}
-                    <rect x="70" y="55" width="60" height="40" rx="8" fill="#7c3aed" stroke="#a78bfa" strokeWidth="2"/>
-                    <text x="100" y="70" fontSize="16" textAnchor="middle">🛡️</text>
-                    <text x="100" y="88" fontSize="8" textAnchor="middle" fill="#e9d5ff">Vizco</text>
-                    <circle cx="100" cy="75" r="20" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.5">
-                      <animate attributeName="r" from="20" to="30" dur="2s" repeatCount="indefinite"/>
-                      <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    {/* Filtered path to agent */}
-                    <line x1="100" y1="95" x2="100" y2="140" stroke="#22c55e" strokeWidth="2" strokeDasharray="4,4"/>
-                    <circle cx="100" cy="117" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="95" to="140" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
-                    </circle>
-                    
-                    {/* Agent at bottom */}
-                    <circle cx="100" cy="150" r="8" fill="#166534"/>
-                    <text x="100" y="155" fontSize="12" textAnchor="middle" fill="#86efac">🤖</text>
-                  </svg>
-                </div>
-                
-                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mb-4 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
-                  <div className="text-center relative z-10">
-                    <div className="text-purple-300 font-bold text-sm">🛡️ Vizco filters before agent access</div>
-                  </div>
-                </div>
-                
-                <div className="bg-green-950 bg-opacity-60 border-2 border-green-700 rounded-xl p-4">
-                  <div className="text-green-300 font-bold text-sm mb-3 text-center">Agent sees:</div>
-                  <div className="text-green-400 text-sm space-y-2">
-                    <div>📧 Only today&apos;s emails</div>
-                    <div>✓ Read only • Send needs approval</div>
-                    <div className="text-green-300 font-bold pt-2 border-t border-green-900">✅ Minimal exposure, maximum control</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Outcome */}
-              <div className="bg-green-900 bg-opacity-50 border-2 border-green-700 rounded-xl p-3 text-center">
-                <div className="text-green-300 font-bold text-sm">
-                  ✅ Secure & compliant by default
-                </div>
-          </div>
           </div>
           </div>
         </div>
