@@ -13,13 +13,13 @@ export default function Home() {
           <span className="text-sm text-purple-300 font-semibold">Use frontier AI models without exposing sensitive data</span>
         </div>
         
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent px-4">
           The AI Governance Layer
         </h1>
-        <p className="text-xl sm:text-2xl text-center max-w-3xl mb-4 text-gray-200">
+        <p className="text-lg sm:text-xl md:text-2xl text-center max-w-3xl mb-4 text-gray-200 px-4">
           Enforce policies on content, access, and actions—<span className="text-purple-400 font-semibold">locally, before data reaches any model</span>—so your organization can use frontier AI models safely.
         </p>
-        <p className="text-base text-center max-w-2xl mb-8 text-gray-400">
+        <p className="text-sm sm:text-base text-center max-w-2xl mb-8 text-gray-400 px-4">
           Not a SaaS endpoint. Not a third-party proxy. Vizco runs in your environment, redacting sensitive data while enabling full AI productivity with ChatGPT, Claude, and Gemini.
         </p>
         <a
@@ -35,24 +35,24 @@ export default function Home() {
       {/* How Vizco Governs Agents */}
       <section className="py-16 px-6 sm:px-12 bg-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 text-white px-4">
             How Vizco Governs Agents
           </h2> 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-4xl mb-3">🔍</div>
-              <div className="text-purple-300 font-bold mb-2">Control What Agents See</div>
-              <div className="text-gray-400 text-sm">Filter data access by role, matter, or policy before it reaches the agent</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3">🔍</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Control What Agents See</div>
+              <div className="text-gray-400 text-sm sm:text-base">Filter data access by role, matter, or policy before it reaches the agent</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-3">🛡️</div>
-              <div className="text-purple-300 font-bold mb-2">Redact Sensitive Content</div>
-              <div className="text-gray-400 text-sm">Automatically remove PII, privileged information, and confidential data</div>
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3">🛡️</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Redact Sensitive Content</div>
+              <div className="text-gray-400 text-sm sm:text-base">Automatically remove PII, privileged information, and confidential data</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-3">✋</div>
-              <div className="text-purple-300 font-bold mb-2">Restrict Actions</div>
-              <div className="text-gray-400 text-sm">Require approvals for high-risk actions like sending emails or deleting files</div>
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3">✋</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Restrict Actions</div>
+              <div className="text-gray-400 text-sm sm:text-base">Require approvals for high-risk actions like sending emails or deleting files</div>
             </div>
           </div>
         </div>
@@ -61,10 +61,10 @@ export default function Home() {
       {/* The Difference - Visual Comparison */}
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
             Three Ways to Connect Your Data to AI
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto text-lg">
+          <p className="text-center text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto text-base sm:text-lg px-4">
             Only one keeps sensitive data within your environment
           </p>
           
@@ -256,10 +256,10 @@ export default function Home() {
           </div>
           
           {/* Mobile Version - Vertical Stack */}
-          <div className="md:hidden space-y-8">
+          <div className="md:hidden space-y-6 px-4">
             
             {/* Legend for mobile */}
-            <div className="bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold text-center animate-pulse">
+            <div className="bg-red-900 px-3 py-2 border-2 border-red-700 rounded-xl text-xs sm:text-sm text-red-300 font-bold text-center animate-pulse">
               ⚠️ Sensitive data leaves your environment
             </div>
             
