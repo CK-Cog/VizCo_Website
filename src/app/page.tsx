@@ -73,7 +73,7 @@ export default function Home() {
               <div className="flex-1 relative" style={{height: '550px'}}>
                 
                 {/* Legend for red paths */}
-                <div className="absolute top-0 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
+                <div className="absolute -top-12 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
                   ⚠️ Sensitive data leaves your environment
                 </div>
                 
@@ -231,146 +231,166 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Agent Governance  */}
+      {/* Autonomous Agent Governance  */}
       <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Agent Governance
+            Autonomous Agent Governance
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
-            Scenario: Partner asks agent to &quot;Draft a summary of the ClientA case for opposing counsel&quot;
+          <p className="text-center text-gray-400 mb-8 max-w-3xl mx-auto text-lg">
+            AI agents need access to your data to be useful—but unrestricted access creates risk
+          </p>
+          
+          {/* What Vizco Does */}
+          <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-800 rounded-2xl p-8 mb-12">
+            <h3 className="text-2xl font-bold text-center mb-6 text-white">How Vizco Governs Agents</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-4xl mb-3">🔍</div>
+                <div className="text-purple-300 font-bold mb-2">Control What Agents See</div>
+                <div className="text-gray-400 text-sm">Filter data access by role, matter, or policy before it reaches the agent</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">🛡️</div>
+                <div className="text-purple-300 font-bold mb-2">Redact Sensitive Content</div>
+                <div className="text-gray-400 text-sm">Automatically remove PII, privileged information, and confidential data</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">✋</div>
+                <div className="text-purple-300 font-bold mb-2">Restrict Actions</div>
+                <div className="text-gray-400 text-sm">Require approvals for high-risk actions like sending emails or deleting files</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Case Example Header */}
+          <h3 className="text-2xl font-bold text-center mb-4 text-white">Example: Email Summary Agent</h3>
+          <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+            Request: &quot;Summarize my emails from today&quot;
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
             
-            {/* Without Vizco */}
+            {/* Status Quo - Without Vizco */}
             <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-red-900 rounded-2xl p-6">
               <div className="text-center mb-6">
                 <div className="bg-red-900 bg-opacity-40 rounded-xl p-3">
-                  <div className="text-red-300 font-bold">❌ Without Vizco</div>
+                  <div className="text-red-300 font-bold">❌ Status Quo</div>
                 </div>
               </div>
               
-              {/* Data sources at top */}
-              <div className="flex justify-around mb-6">
-                <div className="text-center">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientA</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientB</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-red-400 text-xs font-semibold animate-pulse">ClientC</div>
-                </div>
-              </div>
-              
-              {/* Animated arrows converging */}
-              <div className="flex justify-center mb-4">
-                <svg width="200" height="80" viewBox="0 0 200 80">
-                  <line x1="35" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
-                  <line x1="100" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
-                  <line x1="165" y1="0" x2="100" y2="70" stroke="#ef4444" strokeWidth="3"/>
-                  <circle cx="100" cy="35" r="5" fill="#ef4444">
-                    <animate attributeName="cy" from="0" to="70" dur="2s" repeatCount="indefinite"/>
-                  </circle>
-                  <polygon points="95,70 100,80 105,70" fill="#ef4444"/>
-                </svg>
-              </div>
-              
-              {/* Agent box */}
-              <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 mb-4">
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🤖</div>
-                  <div className="text-red-300 font-bold">Agent</div>
-                  <div className="text-red-400 text-xs mt-2">Sees ALL matters</div>
+              {/* All emails accessible */}
+              <div className="mb-6">
+                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Access:</div>
+                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
+                  <div className="text-red-400 text-xs space-y-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">📧</span>
+                      <span>All emails (yours + colleagues&apos;)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">👥</span>
+                      <span>All contacts &amp; recipients</span>
+                    </div>
+                    <div className="flex items-center gap-2 animate-pulse">
+                      <span className="text-lg">⚠️</span>
+                      <span className="font-bold">Including sensitive PII</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Result */}
-              <div className="bg-red-900 bg-opacity-40 border-2 border-red-700 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">⚠️ Result:</div>
+              {/* Agent Actions */}
+              <div className="mb-6">
+                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Can:</div>
+                <div className="bg-red-950 bg-opacity-40 border border-red-800 rounded-xl p-4">
+                  <div className="text-red-400 text-xs space-y-2">
+                    <div>✓ Read all email content</div>
+                    <div>✓ Send emails on your behalf</div>
+                    <div>✓ Delete or archive emails</div>
+                    <div className="text-red-300 font-bold pt-2 border-t border-red-900">No restrictions • No approvals</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Risk */}
+              <div className="bg-red-900 bg-opacity-50 border-2 border-red-700 rounded-xl p-4">
+                <div className="text-red-300 font-bold text-sm mb-2 flex items-center gap-2">
+                  <span className="text-xl">⚠️</span>
+                  <span>Risk:</span>
+                </div>
                 <div className="text-red-400 text-xs space-y-1">
-                  <div>• Exposes ClientB & ClientC (unauthorized)</div>
-                  <div>• Unredacted SSNs sent to AI</div>
-                  <div>• No approval process</div>
+                  <div>• Unauthorized data access</div>
+                  <div>• PII exposed to AI model</div>
+                  <div>• Uncontrolled agent actions</div>
                 </div>
               </div>
             </div>
             
-            {/* With Vizco */}
-            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-green-700 rounded-2xl p-6">
+            {/* With Vizco - Governed */}
+            <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-purple-700 rounded-2xl p-6">
               <div className="text-center mb-6">
-                <div className="bg-green-900 bg-opacity-40 rounded-xl p-3">
-                  <div className="text-green-300 font-bold">✅ With Vizco</div>
+                <div className="bg-purple-900 bg-opacity-40 rounded-xl p-3">
+                  <div className="text-purple-300 font-bold">✅ With Vizco</div>
                 </div>
               </div>
               
-              {/* Data sources at top */}
-              <div className="flex justify-around mb-6">
-                <div className="text-center">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-gray-400 text-xs">ClientA</div>
-                </div>
-                <div className="text-center opacity-50">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-gray-600 text-xs line-through">ClientB</div>
-                </div>
-                <div className="text-center opacity-50">
-                  <div className="text-3xl mb-2">💼</div>
-                  <div className="text-gray-600 text-xs line-through">ClientC</div>
+              {/* Vizco Shield Filters */}
+              <div className="mb-6">
+                <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4 mb-4 relative">
+                  <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl animate-pulse"></div>
+                  <div className="text-center relative z-10">
+                    <div className="text-2xl mb-2">🛡️</div>
+                    <div className="text-purple-300 font-bold text-sm mb-1">Vizco Governance Layer</div>
+                    <div className="text-purple-400 text-xs">Enforces policies before agent access</div>
+                  </div>
                 </div>
               </div>
               
-              {/* Animated arrow through shield */}
-              <div className="flex justify-center mb-3">
-                <svg width="80" height="40" viewBox="0 0 80 40">
-                  <line x1="40" y1="0" x2="40" y2="35" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="4,4">
-                    <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite"/>
-                  </line>
-                  <polygon points="35,35 40,40 45,35" fill="#8b5cf6"/>
-                </svg>
-              </div>
-              
-              {/* Vizco Shield */}
-              <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-3 mb-3 relative">
-                <div className="absolute inset-0 bg-purple-500 opacity-10 rounded-xl animate-pulse"></div>
-                <div className="text-center relative z-10">
-                  <div className="text-2xl mb-1">🛡️</div>
-                  <div className="text-purple-300 font-bold text-sm">Vizco Shield</div>
-                  <div className="text-purple-400 text-xs">Filtering & Redacting</div>
+              {/* Filtered Access */}
+              <div className="mb-6">
+                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Access:</div>
+                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
+                  <div className="text-green-400 text-xs space-y-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">📧</span>
+                      <span>Only your emails (role-filtered)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🛡️</span>
+                      <span>PII automatically redacted</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">✓</span>
+                      <span className="font-bold text-green-300">Governed by policy</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Animated filtered arrow */}
-              <div className="flex justify-center mb-3">
-                <svg width="80" height="40" viewBox="0 0 80 40">
-                  <line x1="40" y1="0" x2="40" y2="35" stroke="#22c55e" strokeWidth="3"/>
-                  <circle cx="40" cy="17" r="4" fill="#22c55e">
-                    <animate attributeName="cy" from="0" to="35" dur="1.5s" repeatCount="indefinite"/>
-                  </circle>
-                  <polygon points="35,35 40,40 45,35" fill="#22c55e"/>
-                </svg>
-              </div>
-              
-              {/* Agent box */}
-              <div className="bg-green-950 bg-opacity-60 border-2 border-green-700 rounded-xl p-4 mb-4">
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🤖</div>
-                  <div className="text-green-300 font-bold">Agent</div>
-                  <div className="text-green-400 text-xs mt-2">Sees ClientA only</div>
+              {/* Agent Actions Controlled */}
+              <div className="mb-6">
+                <div className="text-center text-gray-300 font-semibold text-sm mb-3">Agent Can:</div>
+                <div className="bg-green-950 bg-opacity-40 border border-green-800 rounded-xl p-4">
+                  <div className="text-green-400 text-xs space-y-2">
+                    <div>✓ Read authorized emails only</div>
+                    <div className="text-yellow-400">⚠️ Send emails (requires approval)</div>
+                    <div className="text-red-400">✗ Delete or archive (blocked)</div>
+                    <div className="text-green-300 font-bold pt-2 border-t border-green-900">Policy-enforced • Audit logged</div>
+                  </div>
                 </div>
               </div>
               
-              {/* Result */}
-              <div className="bg-green-900 bg-opacity-40 border-2 border-green-700 rounded-xl p-4">
-                <div className="text-green-300 font-bold text-sm mb-2">✅ Result:</div>
+              {/* Outcome */}
+              <div className="bg-green-900 bg-opacity-50 border-2 border-green-700 rounded-xl p-4">
+                <div className="text-green-300 font-bold text-sm mb-2 flex items-center gap-2">
+                  <span className="text-xl">✓</span>
+                  <span>Safe & Compliant:</span>
+                </div>
                 <div className="text-green-400 text-xs space-y-1">
-                  <div>• Only ClientA accessed</div>
-                  <div>• SSNs redacted: [REDACTED]</div>
-                  <div>• Requires partner approval</div>
+                  <div>• Restricted data access</div>
+                  <div>• PII automatically protected</div>
+                  <div>• High-risk actions require approval</div>
                 </div>
           </div>
           </div>
@@ -391,7 +411,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-white">Zero Trust Architecture</h3>
               <p className="text-gray-400 text-sm">
-                Sensitive data never leaves your environment without explicit policy enforcement. Your secrets stay your secrets.
+                Sensitive data never leaves your environment without explicit policy enforcement.
               </p>
             </div>
 
