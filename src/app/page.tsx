@@ -260,10 +260,13 @@ export default function Home() {
       <section id="learn-more" className="px-6 sm:px-12 mb-16 mt-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            Autonomous Agent Governance
+            The Agent Governance Problem
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-            Status quo: agents see all data and take any action. Vizco: govern what agents see and what they can do.
+          <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
+            Today's AI agents have unrestricted access to everything.
+          </p>
+          <p className="text-center text-purple-400 mb-12 max-w-2xl mx-auto font-semibold">
+            Vizco governs what agents can see and what actions they can take.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -271,27 +274,31 @@ export default function Home() {
             {/* Without Vizco - Status Quo */}
             <div className="bg-gradient-to-b from-red-950 from-opacity-20 to-black border-2 border-red-900 rounded-2xl p-8 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-900 px-4 py-2 border border-red-700 rounded-full">
-                <span className="text-red-300 font-bold text-sm">❌ Status Quo</span>
+                <span className="text-red-300 font-bold text-sm">⚠️ The Risk</span>
               </div>
               
-              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">Without Vizco</h3>
+              <h3 className="text-2xl font-bold text-center mb-4 mt-4 text-white">Uncontrolled Agent Access</h3>
+              <p className="text-center text-red-400 text-sm mb-8">Agents see everything, do anything</p>
               
               {/* Data Sources */}
-              <div className="flex justify-center gap-4 mb-8">
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">📧</div>
-                  <div className="text-xs text-blue-400">Email</div>
-                  <div className="text-xs text-gray-500">ALL data</div>
-                </div>
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">📁</div>
-                  <div className="text-xs text-blue-400">Files</div>
-                  <div className="text-xs text-gray-500">ALL data</div>
-                </div>
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">👥</div>
-                  <div className="text-xs text-blue-400">Contacts</div>
-                  <div className="text-xs text-gray-500">ALL data</div>
+              <div className="mb-6">
+                <div className="text-center text-gray-400 text-xs mb-3 font-semibold">YOUR DATA SOURCES</div>
+                <div className="flex justify-center gap-3">
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">📧</div>
+                    <div className="text-xs text-blue-400 font-semibold">Email</div>
+                    <div className="text-xs text-red-400 font-bold mt-1">Full access</div>
+                  </div>
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">📁</div>
+                    <div className="text-xs text-blue-400 font-semibold">Files</div>
+                    <div className="text-xs text-red-400 font-bold mt-1">Full access</div>
+                  </div>
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">👥</div>
+                    <div className="text-xs text-blue-400 font-semibold">Contacts</div>
+                    <div className="text-xs text-red-400 font-bold mt-1">Full access</div>
+                  </div>
                 </div>
               </div>
               
@@ -311,34 +318,36 @@ export default function Home() {
                 <div className="bg-red-950 bg-opacity-60 border-2 border-red-800 rounded-xl p-4 mt-8">
                   <div className="text-center">
                     <div className="text-3xl mb-2">🤖</div>
-                    <div className="text-red-300 font-bold">AI Agent</div>
-                    <div className="text-red-400 text-sm mt-2">Sees: Everything</div>
-                    <div className="text-red-400 text-sm">Can do: Everything</div>
+                    <div className="text-red-300 font-bold text-lg">AI Agent</div>
+                    <div className="text-red-400 text-xs mt-2 font-semibold uppercase tracking-wide">No Restrictions</div>
                   </div>
                 </div>
               </div>
               
               {/* Actions - all allowed */}
-              <div className="space-y-2">
-                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-red-400 text-xl">✓</span>
-                  <div className="flex-1">
-                    <div className="text-red-300 text-sm font-semibold">Send emails</div>
-                    <div className="text-red-500 text-xs">No restrictions</div>
+              <div>
+                <div className="text-center text-gray-400 text-xs mb-3 font-semibold">WHAT AGENTS CAN DO</div>
+                <div className="space-y-2">
+                  <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-red-400 text-lg">⚠️</span>
+                    <div className="flex-1">
+                      <div className="text-red-300 text-sm font-semibold">Read all emails & files</div>
+                      <div className="text-red-500 text-xs">Including sensitive/privileged content</div>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-red-400 text-xl">✓</span>
-                  <div className="flex-1">
-                    <div className="text-red-300 text-sm font-semibold">Delete files</div>
-                    <div className="text-red-500 text-xs">No restrictions</div>
+                  <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-red-400 text-lg">⚠️</span>
+                    <div className="flex-1">
+                      <div className="text-red-300 text-sm font-semibold">Send emails automatically</div>
+                      <div className="text-red-500 text-xs">No approval required</div>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-red-400 text-xl">✓</span>
-                  <div className="flex-1">
-                    <div className="text-red-300 text-sm font-semibold">Access sensitive data</div>
-                    <div className="text-red-500 text-xs">No restrictions</div>
+                  <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-red-400 text-lg">⚠️</span>
+                    <div className="flex-1">
+                      <div className="text-red-300 text-sm font-semibold">Delete or modify files</div>
+                      <div className="text-red-500 text-xs">Irreversible actions permitted</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -347,27 +356,31 @@ export default function Home() {
             {/* With Vizco - Governed */}
             <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-700 rounded-2xl p-8 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-900 px-4 py-2 border border-purple-700 rounded-full">
-                <span className="text-purple-300 font-bold text-sm">✅ With Vizco</span>
+                <span className="text-purple-300 font-bold text-sm">✅ The Solution</span>
               </div>
               
-              <h3 className="text-2xl font-bold text-center mb-8 mt-4 text-white">With Vizco Shield</h3>
+              <h3 className="text-2xl font-bold text-center mb-4 mt-4 text-white">Vizco Governance Layer</h3>
+              <p className="text-center text-purple-400 text-sm mb-8">Control what agents see and do</p>
               
               {/* Data Sources */}
-              <div className="flex justify-center gap-4 mb-8">
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">📧</div>
-                  <div className="text-xs text-blue-400">Email</div>
-                  <div className="text-xs text-purple-400">Task-specific</div>
-                </div>
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">📁</div>
-                  <div className="text-xs text-blue-400">Files</div>
-                  <div className="text-xs text-purple-400">Task-specific</div>
-                </div>
-                <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center">
-                  <div className="text-2xl mb-1">👥</div>
-                  <div className="text-xs text-blue-400">Contacts</div>
-                  <div className="text-xs text-purple-400">Task-specific</div>
+              <div className="mb-6">
+                <div className="text-center text-gray-400 text-xs mb-3 font-semibold">YOUR DATA SOURCES</div>
+                <div className="flex justify-center gap-3">
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">📧</div>
+                    <div className="text-xs text-blue-400 font-semibold">Email</div>
+                    <div className="text-xs text-purple-400 font-bold mt-1">Filtered</div>
+                  </div>
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">📁</div>
+                    <div className="text-xs text-blue-400 font-semibold">Files</div>
+                    <div className="text-xs text-purple-400 font-bold mt-1">Filtered</div>
+                  </div>
+                  <div className="bg-blue-950 bg-opacity-40 border border-blue-800 rounded-lg p-3 text-center flex-1 max-w-[90px]">
+                    <div className="text-2xl mb-1">👥</div>
+                    <div className="text-xs text-blue-400 font-semibold">Contacts</div>
+                    <div className="text-xs text-purple-400 font-bold mt-1">Filtered</div>
+                  </div>
                 </div>
               </div>
               
@@ -403,34 +416,36 @@ export default function Home() {
                 <div className="bg-purple-950 bg-opacity-60 border-2 border-purple-600 rounded-xl p-4">
                   <div className="text-center">
                     <div className="text-3xl mb-2">🤖</div>
-                    <div className="text-purple-300 font-bold">AI Agent</div>
-                    <div className="text-purple-400 text-sm mt-2">Sees: Task-relevant only</div>
-                    <div className="text-purple-400 text-sm">Can do: Approved actions</div>
+                    <div className="text-purple-300 font-bold text-lg">AI Agent</div>
+                    <div className="text-purple-400 text-xs mt-2 font-semibold uppercase tracking-wide">Policy-Governed</div>
                   </div>
                 </div>
               </div>
               
               {/* Actions - governed */}
-              <div className="space-y-2">
-                <div className="bg-green-900 bg-opacity-30 border border-green-700 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-green-400 text-xl">✓</span>
-                  <div className="flex-1">
-                    <div className="text-green-300 text-sm font-semibold">Read emails</div>
-                    <div className="text-green-500 text-xs">Task-specific only</div>
+              <div>
+                <div className="text-center text-gray-400 text-xs mb-3 font-semibold">WHAT AGENTS CAN DO</div>
+                <div className="space-y-2">
+                  <div className="bg-green-900 bg-opacity-30 border border-green-700 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-green-400 text-lg">✓</span>
+                    <div className="flex-1">
+                      <div className="text-green-300 text-sm font-semibold">Read authorized content only</div>
+                      <div className="text-green-500 text-xs">Redact PII, filter by matter/role</div>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-yellow-400 text-xl">⚠</span>
-                  <div className="flex-1">
-                    <div className="text-yellow-300 text-sm font-semibold">Send emails</div>
-                    <div className="text-yellow-500 text-xs">Requires approval</div>
+                  <div className="bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-yellow-400 text-lg">⚠️</span>
+                    <div className="flex-1">
+                      <div className="text-yellow-300 text-sm font-semibold">Send emails with approval</div>
+                      <div className="text-yellow-500 text-xs">Human review required before sending</div>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
-                  <span className="text-red-400 text-xl">✗</span>
-                  <div className="flex-1">
-                    <div className="text-red-300 text-sm font-semibold">Delete files</div>
-                    <div className="text-red-500 text-xs">Blocked</div>
+                  <div className="bg-red-900 bg-opacity-30 border border-red-800 rounded-lg p-3 flex items-center gap-3">
+                    <span className="text-red-400 text-lg">✗</span>
+                    <div className="flex-1">
+                      <div className="text-gray-300 text-sm font-semibold">Delete or modify files</div>
+                      <div className="text-gray-500 text-xs">Blocked by policy</div>
+                    </div>
                   </div>
                 </div>
               </div>
