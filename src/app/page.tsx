@@ -59,19 +59,33 @@ export default function Home() {
             </div>
 
             {/* Three vertical paths side-by-side */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
                 
-                {/* Path 1: Competitor (Leaves) */}
+                {/* Path 1: Direct (No Protection) */}
                 <div className="flex flex-col items-center">
                   <div className="bg-red-900 bg-opacity-30 border-2 border-red-800 rounded-xl p-3 mb-4 w-full">
-                    <div className="text-center text-red-300 font-bold">❌ Via Competitor</div>
+                    <div className="text-center text-red-300 font-bold">❌ Direct</div>
                   </div>
                   
-                  {/* Arrow down */}
+                  <svg width="60" height="280" viewBox="0 0 60 280" className="mb-2">
+                    <line x1="30" y1="0" x2="30" y2="270" stroke="#ef4444" strokeWidth="3"/>
+                    <circle cx="30" cy="135" r="5" fill="#ef4444">
+                      <animate attributeName="cy" from="0" to="270" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <polygon points="25,270 30,280 35,270" fill="#ef4444"/>
+                  </svg>
+                </div>
+                
+                {/* Path 2: Via Competitor (Leaves) */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-red-900 bg-opacity-30 border-2 border-red-800 rounded-xl p-3 mb-4 w-full">
+                    <div className="text-center text-red-300 font-bold">❌ Via Third-Party</div>
+                  </div>
+                  
                   <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
                     <line x1="30" y1="0" x2="30" y2="50" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="30" cy="25" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="50" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite"/>
                     </circle>
                     <polygon points="25,50 30,60 35,50" fill="#ef4444"/>
                   </svg>
@@ -81,27 +95,20 @@ export default function Home() {
                       <div className="text-3xl mb-2">☁️</div>
                       <div className="text-red-300 font-bold">Competitor</div>
                       <div className="text-red-400 text-xs">Their cloud</div>
-                      <div className="text-red-500 text-xs mt-2 font-bold animate-pulse">⚠️ LEAVES YOUR ENVIRONMENT</div>
+                      <div className="text-red-500 text-xs mt-2 font-bold animate-pulse">⚠️ DATA LEAVES</div>
                     </div>
                   </div>
                   
                   <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
                     <line x1="30" y1="0" x2="30" y2="50" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="30" cy="25" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="50" dur="2s" repeatCount="indefinite" begin="1s"/>
+                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
                     </circle>
                     <polygon points="25,50 30,60 35,50" fill="#ef4444"/>
                   </svg>
-                  
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
-                    <div className="text-center">
-                      <div className="text-3xl mb-2">🤖</div>
-                      <div className="text-gray-300 font-bold">AI Model</div>
-                    </div>
-                  </div>
                 </div>
                 
-                {/* Path 2: Vizco (Stays) */}
+                {/* Path 3: Vizco (Stays) */}
                 <div className="flex flex-col items-center">
                   <div className="bg-green-900 bg-opacity-30 border-2 border-green-700 rounded-xl p-3 mb-4 w-full">
                     <div className="text-center text-green-300 font-bold">✅ Via Vizco</div>
@@ -110,7 +117,7 @@ export default function Home() {
                   <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
                     <line x1="30" y1="0" x2="30" y2="50" stroke="#22c55e" strokeWidth="3"/>
                     <circle cx="30" cy="25" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="0" to="50" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite"/>
                     </circle>
                     <polygon points="25,50 30,60 35,50" fill="#22c55e"/>
                   </svg>
@@ -124,7 +131,7 @@ export default function Home() {
                         <div className="text-3xl mb-2">🛡️</div>
                         <div className="text-purple-300 font-bold">Vizco Layer</div>
                         <div className="text-purple-400 text-xs">Governs & redacts</div>
-                        <div className="text-green-500 text-xs mt-2 font-bold">✅ STAYS IN YOUR CLOUD</div>
+                        <div className="text-green-500 text-xs mt-2 font-bold">✅ DATA STAYS</div>
                       </div>
                     </div>
                   </div>
@@ -132,43 +139,28 @@ export default function Home() {
                   <svg width="60" height="60" viewBox="0 0 60 60" className="mb-2">
                     <line x1="30" y1="0" x2="30" y2="50" stroke="#22c55e" strokeWidth="3" strokeDasharray="5,5"/>
                     <circle cx="30" cy="25" r="4" fill="#22c55e">
-                      <animate attributeName="cy" from="0" to="50" dur="2s" repeatCount="indefinite" begin="1s"/>
+                      <animate attributeName="cy" from="0" to="50" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
                     </circle>
                     <polygon points="25,50 30,60 35,50" fill="#22c55e"/>
                   </svg>
-                  
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
-                    <div className="text-center">
-                      <div className="text-3xl mb-2">🤖</div>
-                      <div className="text-gray-300 font-bold">AI Model</div>
-                      <div className="text-green-400 text-xs">(redacted data)</div>
+                </div>
+                
+              </div>
+              
+              {/* Single AI Model at Bottom */}
+              <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-6 shadow-2xl max-w-md mx-auto">
+                <div className="text-center">
+                  <div className="text-5xl mb-3">🤖</div>
+                  <div className="text-white font-bold text-xl mb-2">AI Model</div>
+                  <div className="text-gray-400 text-sm">ChatGPT / Claude / Gemini</div>
+                  <div className="mt-4 pt-4 border-t border-gray-700">
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div className="text-red-400">❌ Raw data</div>
+                      <div className="text-red-400">❌ Raw data</div>
+                      <div className="text-green-400">✅ Redacted</div>
                     </div>
                   </div>
                 </div>
-                
-                {/* Path 3: Direct (No Protection) */}
-                <div className="flex flex-col items-center">
-                  <div className="bg-red-900 bg-opacity-30 border-2 border-red-800 rounded-xl p-3 mb-4 w-full">
-                    <div className="text-center text-red-300 font-bold">❌ Direct</div>
-                  </div>
-                  
-                  <svg width="60" height="220" viewBox="0 0 60 220" className="mb-2">
-                    <line x1="30" y1="0" x2="30" y2="210" stroke="#ef4444" strokeWidth="3"/>
-                    <circle cx="30" cy="100" r="4" fill="#ef4444">
-                      <animate attributeName="cy" from="0" to="210" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <polygon points="25,210 30,220 35,210" fill="#ef4444"/>
-                  </svg>
-                  
-                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 w-full">
-                    <div className="text-center">
-                      <div className="text-3xl mb-2">🤖</div>
-                      <div className="text-gray-300 font-bold">AI Model</div>
-                      <div className="text-red-400 text-xs">(raw sensitive data)</div>
-                    </div>
-                  </div>
-                </div>
-                
               </div>
 
           </div>
