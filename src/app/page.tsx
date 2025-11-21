@@ -36,148 +36,201 @@ export default function Home() {
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-white">
-            The Problem with Third-Party AI
+            Three Ways to Use AI—Only One Keeps Sensitive Data Private
           </h2>
           <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
-            You need frontier AI models, but <span className="text-red-400 font-semibold">sensitive data must stay private</span>
+            Your data already lives in Google Workspace, Azure, and private cloud
           </p>
           <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
-            Competitors route your data through third-party endpoints—exposing PII and confidential information regardless of their security claims
+            With Vizco, it never has to leave—policies enforce where your data already exists
           </p>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Traditional SaaS - Visual Focus */}
-            <div className="bg-gradient-to-b from-red-950 from-opacity-20 to-black border-2 border-red-900 rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <div className="px-3 py-1 bg-red-900 bg-opacity-50 border border-red-700 rounded-full text-xs font-bold text-red-300">
-                  ❌ Data Exposure
+          {/* Three Paths Diagram */}
+          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 sm:p-12">
+            <div className="grid md:grid-cols-3 gap-8">
+              
+              {/* Path 1: Third-Party Preprocessing */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 px-4 py-2 bg-red-900 bg-opacity-30 border border-red-800 rounded-full">
+                  <span className="text-red-300 font-semibold text-sm">❌ Path 1: Third-Party Preprocessing</span>
                 </div>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-white mb-8">Traditional SaaS AI</h3>
-              
-              {/* Large Visual Diagram */}
-              <div className="bg-black bg-opacity-60 rounded-xl p-6 border-2 border-red-800 mb-6">
-                <div className="space-y-6">
-                  {/* Your Data */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-lg bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-3xl">
-                      📧
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">Your Sensitive Data</div>
-                      <div className="text-gray-400 text-sm">Emails, documents, PII</div>
+                
+                <div className="w-full space-y-4">
+                  {/* Data Source */}
+                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
+                    <div className="text-center mb-2">
+                      <div className="text-2xl mb-1">☁️</div>
+                      <div className="text-white font-semibold text-sm">Your Cloud</div>
+                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
                     </div>
                   </div>
                   
                   <div className="flex justify-center">
-                    <svg width="4" height="40" viewBox="0 0 4 40" className="text-red-500 animate-pulse">
-                      <line x1="2" y1="0" x2="2" y2="40" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,35 2,40 4,35" fill="currentColor"/>
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500 animate-pulse">
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
                     </svg>
                   </div>
                   
                   {/* Third Party */}
-                  <div className="flex items-center gap-4 bg-red-900 bg-opacity-20 rounded-lg p-3 border border-red-800">
-                    <div className="w-16 h-16 rounded-lg bg-red-900 bg-opacity-40 border-2 border-red-700 flex items-center justify-center text-3xl animate-pulse">
-                      ☁️
-                    </div>
-                    <div>
-                      <div className="text-red-300 font-semibold">Third-Party Server</div>
-                      <div className="text-red-400 text-sm">❌ Unencrypted PII exposed</div>
+                  <div className="bg-red-950 bg-opacity-40 border-2 border-red-800 rounded-xl p-4 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-red-500 opacity-10 animate-pulse"></div>
+                    <div className="text-center mb-2 relative z-10">
+                      <div className="text-2xl mb-1">⚠️</div>
+                      <div className="text-red-300 font-semibold text-sm">Competitor API</div>
+                      <div className="text-red-400 text-xs">Sensitive data exposed</div>
                     </div>
                   </div>
                   
                   <div className="flex justify-center">
-                    <svg width="4" height="40" viewBox="0 0 4 40" className="text-red-500">
-                      <line x1="2" y1="0" x2="2" y2="40" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,35 2,40 4,35" fill="currentColor"/>
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500">
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
                     </svg>
                   </div>
                   
                   {/* AI Model */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-lg bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-3xl">
-                      🤖
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">AI Model</div>
-                      <div className="text-gray-400 text-sm">Receives raw data</div>
+                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🤖</div>
+                      <div className="text-white font-semibold text-sm">AI Model</div>
+                      <div className="text-gray-400 text-xs">ChatGPT/Claude</div>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <p className="text-red-300 text-center text-sm font-semibold">
-                ⚠️ PII, privileged content, and confidential data exposed to third parties
-              </p>
-            </div>
-
-            {/* Vizco Approach - Visual Focus */}
-            <div className="bg-gradient-to-b from-purple-950 from-opacity-20 to-black border-2 border-purple-700 rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <div className="px-3 py-1 bg-purple-900 bg-opacity-50 border border-purple-700 rounded-full text-xs font-bold text-purple-300">
-                  ✅ Zero Exposure
+                
+                <div className="mt-4 text-center">
+                  <p className="text-red-400 text-xs font-semibold">❌ Data left your control</p>
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold text-white mb-8">Vizco (Local)</h3>
-              
-              {/* Large Visual Diagram */}
-              <div className="bg-black bg-opacity-60 rounded-xl p-6 border-2 border-purple-700 mb-6">
-                <div className="space-y-6">
-                  {/* Your Data */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-lg bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-3xl">
-                      📧
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">Your Sensitive Data</div>
-                      <div className="text-gray-400 text-sm">Stays in your environment</div>
+              {/* Path 2: Direct to Model */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 px-4 py-2 bg-red-900 bg-opacity-30 border border-red-800 rounded-full">
+                  <span className="text-red-300 font-semibold text-sm">❌ Path 2: Direct to Model</span>
+                </div>
+                
+                <div className="w-full space-y-4">
+                  {/* Data Source */}
+                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
+                    <div className="text-center mb-2">
+                      <div className="text-2xl mb-1">☁️</div>
+                      <div className="text-white font-semibold text-sm">Your Cloud</div>
+                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
                     </div>
                   </div>
                   
                   <div className="flex justify-center">
-                    <svg width="4" height="40" viewBox="0 0 4 40" className="text-purple-500">
-                      <line x1="2" y1="0" x2="2" y2="40" stroke="currentColor" strokeWidth="3"/>
-                      <polygon points="0,35 2,40 4,35" fill="currentColor"/>
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500 animate-pulse" style={{animationDelay: '0.3s'}}>
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  
+                  {/* No preprocessing - empty space */}
+                  <div className="bg-gray-950 bg-opacity-40 border-2 border-gray-700 rounded-xl p-4 border-dashed">
+                    <div className="text-center mb-2">
+                      <div className="text-2xl mb-1 opacity-30">∅</div>
+                      <div className="text-gray-500 font-semibold text-sm">No Protection</div>
+                      <div className="text-gray-600 text-xs">Raw data sent</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-red-500">
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  
+                  {/* AI Model */}
+                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🤖</div>
+                      <div className="text-white font-semibold text-sm">AI Model</div>
+                      <div className="text-gray-400 text-xs">ChatGPT/Claude</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-4 text-center">
+                  <p className="text-red-400 text-xs font-semibold">❌ Data left your control</p>
+                </div>
+              </div>
+              
+              {/* Path 3: Vizco */}
+              <div className="flex flex-col items-center">
+                <div className="mb-4 px-4 py-2 bg-purple-900 bg-opacity-30 border border-purple-700 rounded-full">
+                  <span className="text-purple-300 font-semibold text-sm">✅ Path 3: Vizco</span>
+                </div>
+                
+                <div className="w-full space-y-4">
+                  {/* Data Source */}
+                  <div className="bg-blue-950 bg-opacity-30 border-2 border-blue-800 rounded-xl p-4">
+                    <div className="text-center mb-2">
+                      <div className="text-2xl mb-1">☁️</div>
+                      <div className="text-white font-semibold text-sm">Your Cloud</div>
+                      <div className="text-blue-400 text-xs">Google Workspace / Azure</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-purple-500">
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
                     </svg>
                   </div>
                   
                   {/* Vizco Layer */}
-                  <div className="flex items-center gap-4 bg-purple-900 bg-opacity-20 rounded-lg p-3 border-2 border-purple-600">
-                    <div className="w-16 h-16 rounded-lg bg-purple-900 bg-opacity-40 border-2 border-purple-600 flex items-center justify-center text-2xl font-bold">
-                      🛡️
-                    </div>
-                    <div>
-                      <div className="text-purple-300 font-semibold">Vizco Local Layer</div>
-                      <div className="text-purple-400 text-sm">✅ PII redacted here</div>
+                  <div className="bg-purple-950 bg-opacity-40 border-2 border-purple-700 rounded-xl p-4 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-purple-500 opacity-10"></div>
+                    <div className="text-center mb-2 relative z-10">
+                      <div className="text-2xl mb-1">🛡️</div>
+                      <div className="text-purple-300 font-semibold text-sm">Vizco Layer</div>
+                      <div className="text-purple-400 text-xs">Runs in your cloud</div>
                     </div>
                   </div>
                   
                   <div className="flex justify-center">
-                    <svg width="4" height="40" viewBox="0 0 4 40" className="text-purple-500">
-                      <line x1="2" y1="0" x2="2" y2="40" stroke="currentColor" strokeWidth="3" strokeDasharray="4 2"/>
-                      <polygon points="0,35 2,40 4,35" fill="currentColor"/>
+                    <svg width="4" height="50" viewBox="0 0 4 50" className="text-purple-500">
+                      <line x1="2" y1="0" x2="2" y2="50" stroke="currentColor" strokeWidth="3" strokeDasharray="6 3"/>
+                      <polygon points="0,45 2,50 4,45" fill="currentColor"/>
                     </svg>
                   </div>
                   
                   {/* AI Model */}
-                  <div className="flex items-center gap-4 opacity-70">
-                    <div className="w-16 h-16 rounded-lg bg-gray-800 border-2 border-gray-700 flex items-center justify-center text-3xl">
-                      🤖
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">AI Model</div>
-                      <div className="text-purple-400 text-sm">Only sees redacted data</div>
+                  <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-4 opacity-80">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🤖</div>
+                      <div className="text-white font-semibold text-sm">AI Model</div>
+                      <div className="text-purple-400 text-xs">Redacted data only</div>
                     </div>
                   </div>
                 </div>
+                
+                <div className="mt-4 text-center">
+                  <p className="text-purple-400 text-xs font-semibold">✅ Sensitive data stayed in your cloud</p>
+                </div>
               </div>
               
-              <p className="text-purple-300 text-center text-sm font-semibold">
-                ✅ Sensitive data redacted locally—use frontier AI models safely
-              </p>
+            </div>
+            
+            {/* Bottom Explanation */}
+            <div className="mt-12 pt-8 border-t border-gray-800">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <p className="text-red-400 font-semibold mb-2 text-sm">Third-Party Risk</p>
+                  <p className="text-gray-500 text-xs">Your sensitive data flows through competitor servers before reaching AI</p>
+                </div>
+                <div>
+                  <p className="text-red-400 font-semibold mb-2 text-sm">Direct Exposure</p>
+                  <p className="text-gray-500 text-xs">Raw PII and confidential data sent directly to AI models</p>
+                </div>
+                <div>
+                  <p className="text-purple-400 font-semibold mb-2 text-sm">Vizco: Policy Where Data Lives</p>
+                  <p className="text-gray-400 text-xs">Enforce redaction, access, and action policies in your Google Workspace, Azure, or private cloud—status quo maintained</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
