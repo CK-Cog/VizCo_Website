@@ -62,6 +62,11 @@ export default function Home() {
               {/* Three Paths in Middle */}
               <div className="flex-1 relative" style={{height: '550px'}}>
                 
+                {/* Legend for red paths */}
+                <div className="absolute top-0 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
+                  ⚠️ SENSITIVE DATA LEAVES
+                </div>
+                
                 {/* Path 1: Direct (Bottom - Straight) */}
                 <div className="absolute bottom-20 left-0 right-0 flex items-center">
                   <div className="flex-1 relative h-12">
@@ -93,11 +98,8 @@ export default function Home() {
                     
                     {/* Competitor box */}
                     <div className="flex-shrink-0">
-                      <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4 relative">
-                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-3 py-1 border border-red-700 rounded text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
-                          ⚠️ SENSITIVE DATA LEAVES
-                        </div>
-                        <div className="text-center pt-2">
+                      <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4">
+                        <div className="text-center">
                           <div className="text-3xl mb-2">☁️</div>
                           <div className="text-red-300 font-bold text-sm mb-1">Third-Party</div>
                           <div className="text-red-400 text-xs">External cloud</div>
@@ -202,9 +204,9 @@ export default function Home() {
                   <div>• Sensitive data stays in your cloud</div>
                   <div>• Firm policies enforced</div>
                   <div>• PII automatically redacted</div>
-                </div>
-              </div>
-            </div>
+          </div>
+          </div>
+          </div>
           </div>
         </div>
       </section>
@@ -350,8 +352,8 @@ export default function Home() {
                   <div>• SSNs redacted: [REDACTED]</div>
                   <div>• Requires partner approval</div>
                 </div>
-              </div>
-            </div>
+          </div>
+          </div>
           </div>
         </div>
       </section>
@@ -379,12 +381,12 @@ export default function Home() {
                   <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
                   <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-              </div>
+          </div>
               <h3 className="text-lg font-semibold mb-2 text-white">Deploy in Minutes</h3>
               <p className="text-gray-400 text-sm">
                 Desktop app or containerized deployment. No complex infrastructure—just download, configure policies, and go.
               </p>
-            </div>
+          </div>
           </div>
         </div>
       </section>
