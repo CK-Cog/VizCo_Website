@@ -68,8 +68,8 @@ export default function Home() {
             Only one keeps sensitive data within your environment
           </p>
           
-          {/* Horizontal Mediation Plot */}
-          <div className="bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8">
+          {/* Horizontal Mediation Plot - Desktop only, hidden on mobile */}
+          <div className="hidden md:block bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8">
             
             {/* Data Source Left, AI Model Right, Three Paths */}
             <div className="flex items-center justify-between gap-4 min-h-[400px]">
@@ -253,6 +253,121 @@ export default function Home() {
                 </div>
               </div>
           </div>
+          </div>
+          
+          {/* Mobile Version - Vertical Stack */}
+          <div className="md:hidden space-y-8">
+            
+            {/* Legend for mobile */}
+            <div className="bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold text-center animate-pulse">
+              ⚠️ Sensitive data leaves your environment
+            </div>
+            
+            {/* Data Source */}
+            <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-xl p-5">
+              <div className="text-center">
+                <div className="text-blue-300 font-bold text-sm mb-3">Your Data Sources</div>
+                <div className="flex justify-center gap-2 mb-3">
+                  <div className="text-2xl">📧</div>
+                  <div className="text-2xl">☁️</div>
+                  <div className="text-2xl">📁</div>
+                </div>
+                <div className="text-orange-400 text-xs font-semibold">Contains PII</div>
+              </div>
+            </div>
+            
+            {/* Three Paths */}
+            <div className="space-y-6">
+              
+              {/* Direct Path */}
+              <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-red-300 font-bold mb-2">❌ Direct Connection</div>
+                  <svg width="60" height="80" viewBox="0 0 60 80" className="mx-auto">
+                    <line x1="30" y1="0" x2="30" y2="70" stroke="#ef4444" strokeWidth="3"/>
+                    <circle cx="30" cy="35" r="4" fill="#ef4444">
+                      <animate attributeName="cy" from="0" to="70" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <polygon points="25,70 30,80 35,70" fill="#ef4444"/>
+                  </svg>
+                </div>
+                <div className="text-red-400 text-xs space-y-1">
+                  <div>• Unfiltered data transmission</div>
+                  <div>• No governance layer</div>
+                  <div>• PII exposed to model provider</div>
+                </div>
+              </div>
+              
+              {/* Third-Party Path */}
+              <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-red-300 font-bold mb-2">❌ Via Third-Party</div>
+                  <svg width="120" height="140" viewBox="0 0 120 140" className="mx-auto">
+                    <line x1="60" y1="0" x2="60" y2="40" stroke="#ef4444" strokeWidth="3"/>
+                    <circle cx="60" cy="20" r="4" fill="#ef4444">
+                      <animate attributeName="cy" from="0" to="40" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <rect x="30" y="45" width="60" height="40" rx="8" fill="#7f1d1d" stroke="#ef4444" strokeWidth="2"/>
+                    <text x="60" y="65" fontSize="20" textAnchor="middle">☁️</text>
+                    <text x="60" y="78" fontSize="6" textAnchor="middle" fill="#fca5a5">Third-Party</text>
+                    <line x1="60" y1="85" x2="60" y2="130" stroke="#ef4444" strokeWidth="3"/>
+                    <circle cx="60" cy="107" r="4" fill="#ef4444">
+                      <animate attributeName="cy" from="85" to="130" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+                    </circle>
+                    <polygon points="55,130 60,140 65,130" fill="#ef4444"/>
+                  </svg>
+                </div>
+                <div className="text-red-400 text-xs space-y-1">
+                  <div>• Data exits your environment</div>
+                  <div>• External preprocessing</div>
+                  <div>• Compliance risk</div>
+                </div>
+              </div>
+              
+              {/* Vizco Path */}
+              <div className="bg-green-950 bg-opacity-30 border-2 border-green-700 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-green-300 font-bold mb-2">✅ Via Vizco</div>
+                  <svg width="120" height="160" viewBox="0 0 120 160" className="mx-auto">
+                    <line x1="60" y1="0" x2="60" y2="45" stroke="#22c55e" strokeWidth="3"/>
+                    <circle cx="60" cy="22" r="4" fill="#22c55e">
+                      <animate attributeName="cy" from="0" to="45" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <rect x="20" y="50" width="80" height="50" rx="8" fill="#7c3aed" stroke="#a78bfa" strokeWidth="2"/>
+                    <text x="60" y="70" fontSize="20" textAnchor="middle">🛡️</text>
+                    <text x="60" y="85" fontSize="7" textAnchor="middle" fill="#e9d5ff">Vizco Shield</text>
+                    <text x="60" y="93" fontSize="6" textAnchor="middle" fill="#c4b5fd">YOUR ENVIRONMENT</text>
+                    <circle cx="60" cy="75" r="30" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.5">
+                      <animate attributeName="r" from="30" to="40" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <line x1="60" y1="100" x2="60" y2="150" stroke="#22c55e" strokeWidth="3" strokeDasharray="4,4"/>
+                    <circle cx="60" cy="125" r="4" fill="#22c55e">
+                      <animate attributeName="cy" from="100" to="150" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+                    </circle>
+                    <polygon points="55,150 60,160 65,150" fill="#22c55e"/>
+                  </svg>
+                </div>
+                <div className="text-green-400 text-xs space-y-1">
+                  <div>• Data remains in your environment</div>
+                  <div>• Policy enforcement at source</div>
+                  <div>• Automatic PII redaction</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* AI Models */}
+            <div className="bg-gray-900 border-2 border-gray-700 rounded-xl p-5">
+              <div className="text-center">
+                <div className="text-gray-300 font-bold text-sm mb-3">AI Models</div>
+                <div className="flex justify-center gap-2 mb-2">
+                  <div className="text-2xl">🤖</div>
+                  <div className="text-2xl">🤖</div>
+                  <div className="text-2xl">🤖</div>
+                </div>
+                <div className="text-gray-400 text-xs">ChatGPT • Claude • Gemini</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
