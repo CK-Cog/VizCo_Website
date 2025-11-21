@@ -261,7 +261,7 @@ export default function Home() {
             The Agent Governance Problem
           </h2>
           <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
-            Today's AI agents have unrestricted access to everything.
+            Today&apos;s AI agents have unrestricted access to everything.
           </p>
           <p className="text-center text-purple-400 mb-6 max-w-2xl mx-auto font-semibold">
             Vizco governs what agents can see and what actions they can take.
@@ -274,7 +274,7 @@ export default function Home() {
               <div>
                 <div className="text-purple-300 font-bold mb-2">Example: Legal Research Agent</div>
                 <div className="text-gray-300 text-sm leading-relaxed">
-                  A partner asks their AI agent to "summarize all communications with ClientA." <span className="text-red-400 font-semibold">Without governance</span>, the agent scans the entire firm's email—including privileged matters the partner isn't authorized to see—and sends unredacted content (including SSNs, account numbers) directly to ChatGPT. <span className="text-purple-400 font-semibold">With Vizco</span>, the agent only accesses ClientA matter files the partner is cleared for, automatically redacts PII before any AI processing, and requires approval before sending any external communications.
+                  A partner asks their AI agent to &quot;summarize all communications with ClientA.&quot; <span className="text-red-400 font-semibold">Without governance</span>, the agent scans the entire firm&apos;s email—including privileged matters the partner isn&apos;t authorized to see—and sends unredacted content (including SSNs, account numbers) directly to ChatGPT. <span className="text-purple-400 font-semibold">With Vizco</span>, the agent only accesses ClientA matter files the partner is cleared for, automatically redacts PII before any AI processing, and requires approval before sending any external communications.
                 </div>
               </div>
             </div>
