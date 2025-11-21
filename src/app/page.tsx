@@ -89,10 +89,10 @@ export default function Home() {
               </div>
 
               {/* Mediation Plot - Proper Layout */}
-              <div className="flex-1 relative" style={{minHeight: '450px', paddingTop: '60px', paddingBottom: '60px'}}>
+              <div className="flex-1 relative" style={{minHeight: '500px', paddingTop: '40px', paddingBottom: '40px'}}>
                 
                 {/* Path 3 (Bottom): Direct - Straight Line - RED */}
-                <div className="absolute bottom-16 left-0 right-0">
+                <div className="absolute bottom-4 left-0 right-0">
                   <div className="flex items-center justify-center gap-4">
                     <svg width="90%" height="60" viewBox="0 0 900 60" preserveAspectRatio="xMidYMid meet" className="mx-auto">
                       {/* Straight line */}
@@ -156,8 +156,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Path 1 (Top): Via Competitor Mediator - RED with vertical arrows */}
-                <div className="absolute top-8 left-0 right-0">
+                {/* Path 1 (Top): Via Competitor - RED with vertical arrows */}
+                <div className="absolute top-0 left-0 right-0">
                   <div className="flex items-center justify-center gap-2 relative">
                     {/* Upward arrow from data to mediator */}
                     <svg width="25%" height="120" viewBox="0 0 250 120" preserveAspectRatio="xMidYMid meet">
@@ -177,16 +177,14 @@ export default function Home() {
                       <span className="text-red-300 text-xs font-bold">⚠️ LEAVES</span>
                     </div>
                     
-                    {/* Competitor Mediator - positioned above */}
+                    {/* Competitor - positioned above */}
                     <div className="relative" style={{width: '200px'}}>
-                      <div className="bg-red-950 bg-opacity-70 border-2 border-red-800 rounded-xl p-3 shadow-2xl">
-                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-900 px-2 py-1 border border-red-700 rounded-full whitespace-nowrap">
-                          <span className="text-red-300 text-[10px] font-bold">MEDIATOR</span>
-                        </div>
+                      <div className="bg-red-950 bg-opacity-70 border-2 border-red-800 rounded-xl p-4 shadow-2xl">
                         <div className="text-center">
                           <div className="text-2xl mb-1">☁️</div>
                           <div className="text-red-300 font-bold text-sm">Competitor</div>
                           <div className="text-red-400 text-xs">Their cloud</div>
+                          <div className="text-red-500 text-[10px] mt-1 font-semibold">⚠️ LEAVES</div>
                         </div>
                       </div>
                     </div>
@@ -265,9 +263,22 @@ export default function Home() {
           <p className="text-center text-gray-400 mb-3 max-w-3xl mx-auto text-lg">
             Today's AI agents have unrestricted access to everything.
           </p>
-          <p className="text-center text-purple-400 mb-12 max-w-2xl mx-auto font-semibold">
+          <p className="text-center text-purple-400 mb-6 max-w-2xl mx-auto font-semibold">
             Vizco governs what agents can see and what actions they can take.
           </p>
+          
+          {/* Use Case Example */}
+          <div className="bg-gradient-to-r from-purple-950 from-opacity-20 via-gray-900 to-purple-950 to-opacity-20 border border-purple-800 rounded-xl p-6 mb-12 max-w-4xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="text-3xl flex-shrink-0">⚖️</div>
+              <div>
+                <div className="text-purple-300 font-bold mb-2">Example: Legal Research Agent</div>
+                <div className="text-gray-300 text-sm leading-relaxed">
+                  A partner asks their AI agent to "summarize all communications with ClientA." <span className="text-red-400 font-semibold">Without governance</span>, the agent scans the entire firm's email—including privileged matters the partner isn't authorized to see—and sends unredacted content (including SSNs, account numbers) directly to ChatGPT. <span className="text-purple-400 font-semibold">With Vizco</span>, the agent only accesses ClientA matter files the partner is cleared for, automatically redacts PII before any AI processing, and requires approval before sending any external communications.
+                </div>
+              </div>
+            </div>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             
