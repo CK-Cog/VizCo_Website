@@ -90,7 +90,7 @@ export default function Home() {
                         <Image src="/google_drive_logo.svg" alt="Drive" width={24} height={24} />
                       </div>
                     </div>
-                    <div className="text-orange-400 text-xs font-semibold">Contains PII</div>
+                    <div className="text-orange-400 text-xs font-semibold">Private data</div>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function Home() {
                   <div className="text-2xl">☁️</div>
                   <div className="text-2xl">📁</div>
                 </div>
-                <div className="text-orange-400 text-xs font-semibold">Contains PII</div>
+                <div className="text-orange-400 text-xs font-semibold">Private data</div>
               </div>
             </div>
             
