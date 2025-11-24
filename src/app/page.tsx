@@ -96,15 +96,20 @@ export default function Home() {
               </div>
               
               {/* Three Paths in Middle */}
-              <div className="flex-1 relative" style={{height: '550px'}}>
+              <div className="flex-1 relative" style={{height: '600px'}}>
                 
                 {/* Legend for red paths */}
                 <div className="absolute -top-12 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
                   ⚠️ Sensitive data leaves your environment
                 </div>
                 
+                {/* Legend for green path */}
+                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap z-10">
+                  ✅ Sensitive data stays in your environment
+                </div>
+                
                 {/* Path 1: Direct (Bottom - Straight) */}
-                <div className="absolute bottom-20 left-0 right-0 flex items-center">
+                <div className="absolute bottom-16 left-0 right-0 flex items-center">
                   <div className="flex-1 relative h-12">
                     <svg width="100%" height="48" viewBox="0 0 800 48" preserveAspectRatio="none" className="absolute inset-0">
                       <line x1="0" y1="24" x2="800" y2="24" stroke="#ef4444" strokeWidth="3"/>
@@ -120,7 +125,7 @@ export default function Home() {
                 </div>
                 
                 {/* Path 2: Via Competitor (Top - Through Cloud) */}
-                <div className="absolute top-4 left-0 right-0 flex items-center">
+                <div className="absolute top-8 left-0 right-0 flex items-center">
                   <div className="flex-1 flex items-center gap-2">
                     {/* Arrow to competitor */}
                     <svg width="35%" height="80" viewBox="0 0 300 80" preserveAspectRatio="none">
