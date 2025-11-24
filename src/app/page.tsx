@@ -119,7 +119,7 @@ export default function Home() {
                       <polygon points="795,19 805,24 795,29" fill="#ef4444"/>
                     </svg>
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
-                      ❌ Direct
+                      ❌ Status Quo (Direct)
                     </div>
                   </div>
                 </div>
