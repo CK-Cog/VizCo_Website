@@ -1,10 +1,56 @@
+'use client';
+
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    canvas.width = window.innerWidth;
+    canvas.height = 600; // Fixed height for hero section
+    
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops: number[] = Array(Math.floor(columns)).fill(1);
+    
+    function draw() {
+      if (!ctx) return;
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0f0';
+      ctx.font = fontSize + 'px monospace';
+      
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    
+    const interval = setInterval(draw, 33);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       {/* Hero Section */}
-      <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black">
+      <header className="flex flex-col items-center justify-center py-16 px-4 sm:px-8 bg-black relative overflow-hidden">
+        {/* Matrix effect background */}
+        <div className="absolute inset-0 opacity-15 pointer-events-none">
+          <canvas id="matrix-canvas" className="w-full h-full"></canvas>
+        </div>
+        
+        <div className="relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-900 bg-opacity-30 border border-purple-800 rounded-full mb-6">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-purple-400">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -30,6 +76,7 @@ export default function Home() {
         >
           Book a Demo
         </a>
+        </div>
       </header>
 
       {/* How Vizco Governs Agents */}
