@@ -149,7 +149,7 @@ export default function Home() {
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
                 {/* Legends in upper right - stacked vertically */}
-                <div className="absolute top-0 right-0 z-20 flex flex-col gap-2">
+                <div className="absolute top-0 -right-4 z-20 flex flex-col gap-2">
                   <div className="bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap">
                     ✅ Stays in your environment
                   </div>
