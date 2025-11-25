@@ -88,18 +88,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center px-4">
               <div className="text-4xl sm:text-5xl mb-3">🔍</div>
-              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Control What Agents See</div>
-              <div className="text-gray-400 text-sm sm:text-base">Filter data access by role, matter, or policy before it reaches the agent</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Control Data Access</div>
+              <div className="text-gray-400 text-sm sm:text-base">Decide which documents, emails, or fields an agent is allowed to access at all based on role, matter, or policy.</div>
             </div>
             <div className="text-center px-4">
               <div className="text-4xl sm:text-5xl mb-3">🛡️</div>
-              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Redact Sensitive Content</div>
-              <div className="text-gray-400 text-sm sm:text-base">Automatically remove PII, privileged information, and confidential data</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Protect Sensitive Information</div>
+              <div className="text-gray-400 text-sm sm:text-base">Even inside permitted content, automatically redact PII, privileged text, and confidential details before the agent ever sees them.</div>
             </div>
             <div className="text-center px-4">
               <div className="text-4xl sm:text-5xl mb-3">✋</div>
-              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Restrict Actions</div>
-              <div className="text-gray-400 text-sm sm:text-base">Require approvals for high-risk actions like sending emails or deleting files</div>
+              <div className="text-purple-300 font-bold mb-2 text-base sm:text-lg">Enforce Action Permissions</div>
+              <div className="text-gray-400 text-sm sm:text-base">Control what the agent is allowed to do—and require approvals for high-risk actions like sending emails, modifying records, or deleting files.</div>
             </div>
           </div>
         </div>
