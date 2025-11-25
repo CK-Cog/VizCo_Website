@@ -158,7 +158,7 @@ export default function Home() {
                 </div>
                 
                 {/* Path 3: Via Vizco (Middle - Through Shield) */}
-                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex items-center">
+                <div className="absolute top-1/2 transform translate-y-2 left-0 right-0 flex items-center">
                   <div className="flex-1 flex items-center gap-2">
                     {/* Arrow to Vizco */}
                     <svg width="35%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
