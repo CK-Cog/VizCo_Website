@@ -182,9 +182,9 @@ export default function Home() {
                           <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
-                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco</div>
-                            <div className="text-purple-400 text-xs">Policy enforcement</div>
-                            <div className="text-purple-500 text-xs">PII redaction • Access control</div>
+                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco Shield</div>
+                            <div className="text-purple-400 text-xs mb-1">→ Outbound: Redact PII</div>
+                            <div className="text-purple-400 text-xs">← Inbound: Restore data</div>
                           </div>
                         </div>
                       </div>
@@ -253,8 +253,9 @@ export default function Home() {
                 <div className="text-green-300 font-bold text-sm mb-2">✅ Via Vizco</div>
                 <div className="text-green-400 text-xs space-y-1">
                   <div>• Data remains in your environment</div>
+                  <div>• Automatic PII redaction outbound</div>
+                  <div>• Restores redacted data in responses</div>
                   <div>• Policy enforcement at source</div>
-                  <div>• Automatic PII redaction</div>
                 </div>
               </div>
           </div>
@@ -355,8 +356,9 @@ export default function Home() {
                 </div>
                 <div className="text-green-400 text-xs space-y-1">
                   <div>• Data remains in your environment</div>
+                  <div>• Automatic PII redaction outbound</div>
+                  <div>• Restores redacted data in responses</div>
                   <div>• Policy enforcement at source</div>
-                  <div>• Automatic PII redaction</div>
                 </div>
               </div>
             </div>
