@@ -98,11 +98,8 @@ export default function Home() {
               {/* Three Paths in Middle */}
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
-                {/* Legends stacked vertically */}
-                <div className="absolute -top-16 left-0 right-0 flex flex-col items-center gap-2 z-10">
-                  <div className="bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap">
-                    ✅ Sensitive data stays in your environment
-                  </div>
+                {/* Red legend at top */}
+                <div className="absolute -top-12 left-0 right-0 flex justify-center z-10">
                   <div className="bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
                     ⚠️ Sensitive data leaves your environment
                   </div>
@@ -173,7 +170,11 @@ export default function Home() {
                     </svg>
                     
                     {/* Vizco box */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 relative">
+                      {/* Green legend above Vizco box */}
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap z-20">
+                        ✅ Sensitive data stays in your environment
+                      </div>
                       <div className="border-2 border-dashed border-blue-600 bg-blue-950 bg-opacity-20 rounded-xl p-3 relative">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-3 py-1 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap">
                           🔒 YOUR ENVIRONMENT
