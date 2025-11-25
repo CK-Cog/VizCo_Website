@@ -119,7 +119,7 @@ export default function Home() {
                       <polygon points="795,19 805,24 795,29" fill="#ef4444"/>
                     </svg>
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
-                      ❌ Status Quo (Direct)
+                      ❌ Typical AI Use (No Policy Layer)
                     </div>
                   </div>
                 </div>
@@ -182,9 +182,9 @@ export default function Home() {
                           <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
-                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco Shield</div>
-                            <div className="text-purple-400 text-xs mb-1">→ Outbound: Redact PII</div>
-                            <div className="text-purple-400 text-xs">← Inbound: Restore data</div>
+                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco</div>
+                            <div className="text-purple-400 text-xs">Policy enforcement</div>
+                            <div className="text-purple-500 text-xs">PII redaction • Access control</div>
                           </div>
                         </div>
                       </div>
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               {/* Direct Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Direct Connection (Status Quo)</div>
+                <div className="text-red-300 font-bold text-sm mb-2">❌ Typical AI Use</div>
                 <div className="text-red-400 text-xs space-y-1">
                   <div>• Using ChatGPT, Claude, Gemini directly</div>
                   <div>• No policy enforcement</div>
@@ -240,7 +240,7 @@ export default function Home() {
               
               {/* Third-Party Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Via Third-Party</div>
+                <div className="text-red-300 font-bold text-sm mb-2">❌ Third-Party SaaS Policy Layer</div>
                 <div className="text-red-400 text-xs space-y-1">
                   <div>• Data exits your environment</div>
                   <div>• External preprocessing</div>
@@ -253,9 +253,8 @@ export default function Home() {
                 <div className="text-green-300 font-bold text-sm mb-2">✅ Via Vizco</div>
                 <div className="text-green-400 text-xs space-y-1">
                   <div>• Data remains in your environment</div>
-                  <div>• Automatic PII redaction outbound</div>
-                  <div>• Restores redacted data in responses</div>
                   <div>• Policy enforcement at source</div>
+                  <div>• Automatic PII redaction</div>
                 </div>
               </div>
           </div>
@@ -288,7 +287,7 @@ export default function Home() {
               {/* Direct Path */}
               <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
                 <div className="text-center mb-3">
-                  <div className="text-red-300 font-bold mb-2">❌ Direct Connection (Status Quo)</div>
+                  <div className="text-red-300 font-bold mb-2">❌ Typical AI Use</div>
                   <svg width="60" height="80" viewBox="0 0 60 80" className="mx-auto">
                     <line x1="30" y1="0" x2="30" y2="70" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="30" cy="35" r="4" fill="#ef4444">
@@ -307,7 +306,7 @@ export default function Home() {
               {/* Third-Party Path */}
               <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
                 <div className="text-center mb-3">
-                  <div className="text-red-300 font-bold mb-2">❌ Via Third-Party</div>
+                  <div className="text-red-300 font-bold mb-2">❌ Third-Party SaaS Policy Layer</div>
                   <svg width="120" height="140" viewBox="0 0 120 140" className="mx-auto">
                     <line x1="60" y1="0" x2="60" y2="40" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="60" cy="20" r="4" fill="#ef4444">
@@ -356,9 +355,8 @@ export default function Home() {
                 </div>
                 <div className="text-green-400 text-xs space-y-1">
                   <div>• Data remains in your environment</div>
-                  <div>• Automatic PII redaction outbound</div>
-                  <div>• Restores redacted data in responses</div>
                   <div>• Policy enforcement at source</div>
+                  <div>• Automatic PII redaction</div>
                 </div>
               </div>
             </div>
