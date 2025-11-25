@@ -142,8 +142,8 @@ export default function Home() {
                       <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4">
                         <div className="text-center">
                           <div className="text-3xl mb-2">☁️</div>
-                          <div className="text-red-300 font-bold text-sm mb-1">Third-Party Service</div>
-                          <div className="text-red-400 text-xs">Preprocessing layer</div>
+                          <div className="text-red-300 font-bold text-sm mb-1">SaaS Policy Service</div>
+                          <div className="text-red-400 text-xs">Private data sent to external endpoint</div>
                         </div>
                       </div>
                     </div>
@@ -183,8 +183,8 @@ export default function Home() {
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
                             <div className="text-purple-300 font-bold text-sm mb-1">Vizco</div>
-                            <div className="text-purple-400 text-xs">Policy enforcement</div>
-                            <div className="text-purple-500 text-xs">PII redaction • Access control</div>
+                            <div className="text-purple-400 text-xs mb-1">Policy enforcement</div>
+                            <div className="text-purple-500 text-xs">Including PII redaction • Access control</div>
                           </div>
                         </div>
                       </div>
@@ -314,7 +314,7 @@ export default function Home() {
                     </circle>
                     <rect x="30" y="45" width="60" height="40" rx="8" fill="#7f1d1d" stroke="#ef4444" strokeWidth="2"/>
                     <text x="60" y="65" fontSize="20" textAnchor="middle">☁️</text>
-                    <text x="60" y="78" fontSize="6" textAnchor="middle" fill="#fca5a5">Third-Party</text>
+                    <text x="60" y="78" fontSize="6" textAnchor="middle" fill="#fca5a5">SaaS Policy</text>
                     <line x1="60" y1="85" x2="60" y2="130" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="60" cy="107" r="4" fill="#ef4444">
                       <animate attributeName="cy" from="85" to="130" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
