@@ -98,9 +98,9 @@ export default function Home() {
               {/* Three Paths in Middle */}
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
-                {/* Red legend at top */}
-                <div className="absolute -top-12 left-0 right-0 flex justify-center z-10">
-                  <div className="bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
+                {/* Red legend - positioned near the risky paths */}
+                <div className="absolute top-0 right-4 z-10">
+                  <div className="bg-red-900 px-3 py-1.5 border-2 border-red-700 rounded-lg text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
                     ⚠️ Sensitive data leaves your environment
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export default function Home() {
                 </div>
                 
                 {/* Path 3: Via Vizco (Middle - Through Shield) */}
-                <div className="absolute top-1/2 transform translate-y-2 left-0 right-0 flex items-center">
+                <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex items-center">
                   <div className="flex-1 flex items-center gap-2">
                     {/* Arrow to Vizco */}
                     <svg width="35%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
@@ -171,9 +171,9 @@ export default function Home() {
                     
                     {/* Vizco box */}
                     <div className="flex-shrink-0 relative">
-                      {/* Green legend above Vizco box */}
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap z-20">
-                        ✅ Sensitive data stays in your environment
+                      {/* Green legend to the left of Vizco box */}
+                      <div className="absolute left-0 top-1/2 transform -translate-x-full -translate-y-1/2 -ml-3 bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap z-20">
+                        ✅ Stays in your environment
                       </div>
                       <div className="border-2 border-dashed border-blue-600 bg-blue-950 bg-opacity-20 rounded-xl p-3 relative">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-3 py-1 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap">
