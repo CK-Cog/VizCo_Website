@@ -98,14 +98,14 @@ export default function Home() {
               {/* Three Paths in Middle */}
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
-                {/* Legend for green path */}
-                <div className="absolute -top-12 left-0 bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap z-10">
-                  ✅ Sensitive data stays in your environment
-                </div>
-                
-                {/* Legend for red paths */}
-                <div className="absolute -top-12 right-0 bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse z-10">
-                  ⚠️ Sensitive data leaves your environment
+                {/* Legends stacked vertically */}
+                <div className="absolute -top-16 left-0 right-0 flex flex-col items-center gap-2 z-10">
+                  <div className="bg-green-900 px-4 py-2 border-2 border-green-600 rounded-xl text-xs text-green-300 font-bold whitespace-nowrap">
+                    ✅ Sensitive data stays in your environment
+                  </div>
+                  <div className="bg-red-900 px-4 py-2 border-2 border-red-700 rounded-xl text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
+                    ⚠️ Sensitive data leaves your environment
+                  </div>
                 </div>
                 
                 {/* Path 1: Direct (Bottom - Straight) */}
@@ -119,7 +119,7 @@ export default function Home() {
                       <polygon points="795,19 805,24 795,29" fill="#ef4444"/>
                     </svg>
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-red-400 text-sm font-semibold">
-                      ❌ Typical AI Use (No Policy Layer)
+                      ⚠️ Typical AI Use (No Policy Layer)
                     </div>
                   </div>
                 </div>
@@ -142,7 +142,7 @@ export default function Home() {
                       <div className="bg-red-950 border-2 border-red-800 rounded-xl p-4">
                         <div className="text-center">
                           <div className="text-3xl mb-2">☁️</div>
-                          <div className="text-red-300 font-bold text-sm mb-1">SaaS Policy Service</div>
+                          <div className="text-red-300 font-bold text-sm mb-1">⚠️ SaaS Policy Enforcement</div>
                           <div className="text-red-400 text-xs">Private data sent to external endpoint</div>
                         </div>
                       </div>
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               {/* Direct Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Typical AI Use</div>
+                <div className="text-red-300 font-bold text-sm mb-2">⚠️ Typical AI Use</div>
                 <div className="text-red-400 text-xs space-y-1">
                   <div>• Using ChatGPT, Claude, Gemini directly</div>
                   <div>• No policy enforcement</div>
@@ -240,7 +240,7 @@ export default function Home() {
               
               {/* Third-Party Path Info */}
               <div className="bg-red-950 bg-opacity-30 border border-red-800 rounded-xl p-4">
-                <div className="text-red-300 font-bold text-sm mb-2">❌ Third-Party SaaS Policy Layer</div>
+                <div className="text-red-300 font-bold text-sm mb-2">⚠️ SaaS Policy Enforcement</div>
                 <div className="text-red-400 text-xs space-y-1">
                   <div>• Data exits your environment</div>
                   <div>• External preprocessing</div>
@@ -287,7 +287,7 @@ export default function Home() {
               {/* Direct Path */}
               <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
                 <div className="text-center mb-3">
-                  <div className="text-red-300 font-bold mb-2">❌ Typical AI Use</div>
+                  <div className="text-red-300 font-bold mb-2">⚠️ Typical AI Use</div>
                   <svg width="60" height="80" viewBox="0 0 60 80" className="mx-auto">
                     <line x1="30" y1="0" x2="30" y2="70" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="30" cy="35" r="4" fill="#ef4444">
@@ -306,7 +306,7 @@ export default function Home() {
               {/* Third-Party Path */}
               <div className="bg-red-950 bg-opacity-30 border-2 border-red-800 rounded-xl p-4">
                 <div className="text-center mb-3">
-                  <div className="text-red-300 font-bold mb-2">❌ Third-Party SaaS Policy Layer</div>
+                  <div className="text-red-300 font-bold mb-2">⚠️ SaaS Policy Enforcement</div>
                   <svg width="120" height="140" viewBox="0 0 120 140" className="mx-auto">
                     <line x1="60" y1="0" x2="60" y2="40" stroke="#ef4444" strokeWidth="3"/>
                     <circle cx="60" cy="20" r="4" fill="#ef4444">
