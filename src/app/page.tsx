@@ -118,8 +118,8 @@ export default function Home() {
           {/* Horizontal Mediation Plot - Desktop only, hidden on mobile */}
           <div className="hidden md:block bg-gradient-to-b from-gray-950 to-black border-2 border-gray-800 rounded-3xl p-8 relative">
             
-            {/* Legends positioned outside on the right */}
-            <div className="absolute top-8 -right-52 z-20 flex flex-col gap-2">
+            {/* Legends positioned at far right within the diagram */}
+            <div className="absolute top-8 right-8 z-20 flex flex-col gap-2">
               <div className="bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap">
                 ✅ Stays in your environment
               </div>
