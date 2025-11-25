@@ -50,7 +50,7 @@ export default function Home() {
           <canvas id="matrix-canvas" className="w-full h-full"></canvas>
         </div>
         
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-col items-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-900 bg-opacity-30 border border-purple-800 rounded-full mb-6">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-purple-400">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -145,8 +145,11 @@ export default function Home() {
               {/* Three Paths in Middle */}
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
-                {/* Red legend - positioned near the risky paths */}
-                <div className="absolute top-0 right-4 z-10">
+                {/* Legends in upper right - stacked vertically */}
+                <div className="absolute top-0 right-4 z-10 flex flex-col gap-2">
+                  <div className="bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap">
+                    ✅ Stays in your environment
+                  </div>
                   <div className="bg-red-900 px-3 py-1.5 border-2 border-red-700 rounded-lg text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
                     ⚠️ Sensitive data leaves your environment
                   </div>
@@ -217,11 +220,7 @@ export default function Home() {
                     </svg>
                     
                     {/* Vizco box */}
-                    <div className="flex-shrink-0 relative">
-                      {/* Green legend to the left of Vizco box */}
-                      <div className="absolute left-0 top-1/2 transform -translate-x-full -translate-y-1/2 -ml-3 bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap z-20">
-                        ✅ Stays in your environment
-                      </div>
+                    <div className="flex-shrink-0">
                       <div className="border-2 border-dashed border-blue-600 bg-blue-950 bg-opacity-20 rounded-xl p-3 relative">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-3 py-1 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap">
                           🔒 YOUR ENVIRONMENT
