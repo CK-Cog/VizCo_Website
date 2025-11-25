@@ -121,7 +121,7 @@ export default function Home() {
             {/* Legends positioned at far right within the diagram */}
             <div className="absolute top-8 right-8 z-20 flex flex-col gap-2">
               <div className="bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap">
-                ✅ Stays in your environment
+                ✅ Sensitive data stays in your environment
               </div>
               <div className="bg-red-900 px-3 py-1.5 border-2 border-red-700 rounded-lg text-xs text-red-300 font-bold whitespace-nowrap animate-pulse">
                 ⚠️ Sensitive data leaves your environment
