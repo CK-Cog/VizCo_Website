@@ -122,7 +122,10 @@ export default function Home() {
             <div className="flex items-center justify-between gap-4 min-h-[400px]">
               
               {/* Data Source (Left) */}
-              <div className="flex-shrink-0 w-48">
+              <div className="flex-shrink-0 w-48 relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-3 py-1 border border-blue-600 rounded text-xs text-blue-400 font-bold whitespace-nowrap z-10">
+                  🔒 YOUR ENVIRONMENT
+                </div>
                 <div className="bg-blue-950 bg-opacity-40 border-2 border-blue-800 rounded-xl p-5">
                   <div className="text-center">
                     <div className="text-blue-300 font-bold text-sm mb-3">Your Data Sources</div>
@@ -146,7 +149,7 @@ export default function Home() {
               <div className="flex-1 relative" style={{height: '600px'}}>
                 
                 {/* Legends in upper right - stacked vertically */}
-                <div className="absolute top-0 right-4 z-10 flex flex-col gap-2">
+                <div className="absolute top-0 right-0 z-20 flex flex-col gap-2">
                   <div className="bg-green-900 px-3 py-1.5 border-2 border-green-600 rounded-lg text-xs text-green-300 font-bold whitespace-nowrap">
                     ✅ Stays in your environment
                   </div>
