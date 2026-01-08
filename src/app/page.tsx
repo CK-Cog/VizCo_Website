@@ -66,7 +66,7 @@ export default function Home() {
           Enforce policies on content, access, and actions—<span className="text-purple-400 font-semibold">locally, before data reaches any model</span>—so your organization can use frontier AI models safely.
         </p>
         <p className="text-sm sm:text-base text-center max-w-2xl mb-8 text-gray-400 px-4">
-          Not a SaaS endpoint. Not a third-party proxy. Vizco runs in your environment, redacting sensitive data while enabling full AI productivity with ChatGPT, Claude, and Gemini.
+          Not a SaaS endpoint. Not a third-party proxy. Vizco' SecureMCP runs in your environment, redacting sensitive data while enabling full AI productivity with ChatGPT, Claude, and Gemini.
         </p>
         <a
           href="https://calendly.com/chris-kelly-stanford/1-1"
