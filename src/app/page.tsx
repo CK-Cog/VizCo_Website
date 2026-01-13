@@ -11,13 +11,18 @@ export default function Home() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    canvas.width = window.innerWidth;
-    canvas.height = 600; // Fixed height for hero section
-    
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops: number[] = Array(Math.floor(columns)).fill(1);
+    let drops: number[] = [];
+    
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 600; // Fixed height for hero section
+      const columns = canvas.width / fontSize;
+      drops = Array(Math.floor(columns)).fill(1);
+    }
+    
+    initCanvas();
     
     function draw() {
       if (!ctx) return;
@@ -38,7 +43,17 @@ export default function Home() {
     
     const interval = setInterval(draw, 33);
     
-    return () => clearInterval(interval);
+    // Handle window resize
+    const handleResize = () => {
+      initCanvas();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
   
   return (
