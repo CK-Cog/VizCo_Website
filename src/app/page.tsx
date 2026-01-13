@@ -249,7 +249,7 @@ export default function Home() {
                           <div className="absolute inset-0 bg-purple-500 opacity-10 animate-pulse"></div>
                           <div className="text-center relative z-10">
                             <div className="text-3xl mb-2">🛡️</div>
-                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco</div>
+                            <div className="text-purple-300 font-bold text-sm mb-1">Vizco&apos;s SecureMCP layer</div>
                             <div className="text-purple-400 text-xs mb-1">Policy enforcement</div>
                             <div className="text-purple-500 text-xs">Including PII redaction • Access control</div>
                           </div>
