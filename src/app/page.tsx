@@ -11,13 +11,18 @@ export default function Home() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    canvas.width = window.innerWidth;
-    canvas.height = 600; // Fixed height for hero section
-    
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops: number[] = Array(Math.floor(columns)).fill(1);
+    let drops: number[] = [];
+    
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 600; // Fixed height for hero section
+      const columns = canvas.width / fontSize;
+      drops = Array(Math.floor(columns)).fill(1);
+    }
+    
+    initCanvas();
     
     function draw() {
       if (!ctx) return;
@@ -38,7 +43,17 @@ export default function Home() {
     
     const interval = setInterval(draw, 33);
     
-    return () => clearInterval(interval);
+    // Handle window resize
+    const handleResize = () => {
+      initCanvas();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
   
   return (
@@ -60,7 +75,7 @@ export default function Home() {
         </div>
         
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-center tracking-tight leading-tight bg-gradient-to-r from-purple-900 via-white to-purple-900 bg-clip-text text-transparent px-4">
-          VizCo&apos;s SecureMCP: The AI Governance Layer
+          SecureMCP: The AI Governance Layer
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-center max-w-3xl mb-4 text-gray-200 px-4">
           Enforce policies on content, access, and actions—<span className="text-purple-400 font-semibold">locally, before data reaches any model</span>—so your organization can use frontier AI models safely.
