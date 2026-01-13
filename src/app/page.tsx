@@ -96,11 +96,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* How Vizco Governs Agents */}
+      {/* How Vizco's SecureMCP Governs Agents */}
       <section className="py-16 px-6 sm:px-12 bg-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 text-white px-4">
-            How Vizco Governs Agents
+            How Vizco&apos;s SecureMCP Governs Agents
           </h2> 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center px-4">
