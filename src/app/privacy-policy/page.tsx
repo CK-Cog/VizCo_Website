@@ -175,7 +175,6 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-semibold mb-4 text-white">11. Your Choices and Controls</h2>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
             <li>You can review and revoke SecureMCP&apos;s access to your Google account at any time through your Google Account settings (e.g., &quot;Third-party access&quot; / &quot;Security&quot; pages).</li>
-            <li>Questions about what data SecureMCP can access and how it is used should be directed to SecureMCP, as it controls the integration and token storage.</li>
           </ul>
         </section>
 
