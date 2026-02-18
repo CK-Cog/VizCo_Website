@@ -137,7 +137,39 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">8. Sharing of Information</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">8. SecureMCP (Client-Side Application)</h2>
+          <p className="text-gray-300 mb-4">
+            SecureMCP is a client-side application designed to run autonomously on a customer-controlled environment. SecureMCP does not transmit customer data to VizCo. The only communication between SecureMCP and VizCo is for user authentication via the VizCo OAuth application (to verify identity and authorize access).
+          </p>
+
+          <h3 className="text-xl font-semibold mb-2 text-purple-700">How SecureMCP Handles Google Workspace Data</h3>
+          <p className="text-gray-300 mb-4">
+            When SecureMCP receives data from Google Workspace (which may include private or sensitive information), it processes that data locally and applies privacy protections before any information is used in downstream AI interactions:
+          </p>
+          <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
+            <li><strong>Local redaction and minimization:</strong> SecureMCP automatically redacts private data where appropriate.</li>
+            <li><strong>Tokenization of identifiers:</strong> Private identifiers (such as names, emails, employee IDs, document IDs, or similar identifiers) are replaced with non-identifying tokens before any context is sent outside the customer environment.</li>
+            <li><strong>No sharing with VizCo:</strong> The redacted/tokenized context is not sent to VizCo at any time.</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-2 text-purple-700">Use of Third-Party Frontier AI Model Providers</h3>
+          <p className="text-gray-300 mb-4">
+            SecureMCP enables a chat interface that can send the redacted and tokenized context to third-party AI model providers (for example, OpenAI or other frontier AI vendors) to generate responses. These providers receive only the processed context produced by SecureMCP, not the original unredacted data.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-2 text-purple-700">Token Mapping Security</h3>
+          <p className="text-gray-300 mb-4">
+            To preserve functionality (e.g., referencing entities consistently across a session), SecureMCP maintains token mappings from tokens back to private identifiers. These mappings are protected as follows:
+          </p>
+          <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
+            <li><strong>Encrypted at rest:</strong> Token mappings are stored encrypted on the customer-controlled device or environment.</li>
+            <li><strong>Not accessible to VizCo:</strong> VizCo does not receive, store, or have access to token mappings.</li>
+            <li><strong>Resilience to device compromise:</strong> Because mappings are encrypted at rest, they remain protected even if a client computer or environment is compromised (subject to the strength of encryption and protection of encryption keys within the customer environment).</li>
+          </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-white">9. Sharing of Information</h2>
           <p className="text-gray-300 mb-4">
             VizCo does not sell personal information.
           </p>
@@ -157,7 +189,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">9. Data Retention</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">10. Data Retention</h2>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
             <li>Aggregate operational metrics may be retained for as long as necessary for security, reliability, and compliance purposes, consistent with VizCo&apos;s internal retention schedules.</li>
             <li>Support communications are retained as needed to address requests and maintain records.</li>
@@ -165,42 +197,42 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">10. Security</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">11. Security</h2>
           <p className="text-gray-300 mb-4">
             VizCo implements administrative, technical, and organizational measures designed to protect the OAuth Client configuration and related systems. No system is 100% secure; however, because VizCo does not receive OAuth tokens or Google user data in this model, the risk of exposure of such data through VizCo systems is reduced.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">11. Your Choices and Controls</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">12. Your Choices and Controls</h2>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
             <li>You can review and revoke SecureMCP&apos;s access to your Google account at any time through your Google Account settings (e.g., &quot;Third-party access&quot; / &quot;Security&quot; pages).</li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">12. International Transfers</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">13. International Transfers</h2>
           <p className="text-gray-300 mb-4">
             If VizCo processes any information described above outside your jurisdiction, VizCo does so with appropriate safeguards consistent with applicable law.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">13. Children&apos;s Privacy</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">14. Children&apos;s Privacy</h2>
           <p className="text-gray-300 mb-4">
             VizCo&apos;s OAuth Client is not intended for use by children, and VizCo does not knowingly collect personal information from children.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">14. Changes to This Policy</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">15. Changes to This Policy</h2>
           <p className="text-gray-300 mb-4">
             VizCo may update this policy from time to time. VizCo will post the updated version with a new effective date.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">15. Contact Us</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">16. Contact Us</h2>
           <p className="text-gray-300 mb-4">
             For privacy questions or requests, contact:
           </p>
