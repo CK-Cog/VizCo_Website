@@ -4,27 +4,30 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-black text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-white">Privacy Policy – OAuth Client Hosted by VizCo</h1>
+        <h1 className="text-4xl font-bold mb-6 text-white">Privacy Policy – SecureMCP</h1>
         <p className="text-gray-400 mb-6">
-          <strong>Effective date:</strong> February 17, 2026
+          <strong>Effective date:</strong> 1.11.2025
         </p>
         <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-6 mb-6">
           <p className="text-gray-300 mb-2">
             <strong>Company:</strong> VizCo (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)
           </p>
           <p className="text-gray-300 mb-2">
-            <strong>Contact:</strong> <a href="mailto:privacy@vizco.com" className="text-purple-700 underline hover:text-purple-600">privacy@vizco.com</a>
+            <strong>Contact:</strong> <a href="mailto:admin@vizco.com" className="text-purple-700 underline hover:text-purple-600">admin@vizco.com</a>
           </p>
         </div>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-white">1. Scope of this Policy</h2>
           <p className="text-gray-300 mb-4">
-            This policy explains how VizCo handles information in connection with a Google OAuth application registration (&quot;OAuth Client&quot;) that is used by third-party applications—specifically SecureMCP, a user-run application that operates locally on users&apos; computers—to enable users to connect their Google accounts, including services such as Gmail, Google Calendar, and Google Drive. This policy covers VizCo&apos;s role as the owner/host of the OAuth Client configuration and consent screen identity in Google Cloud.
+            This policy explains how VizCo handles information in connection with a Google OAuth application registration (&quot;OAuth Client&quot;) that is used by applications connecting to Google Workspace services—specifically SecureMCP, a user-run application that operates locally on users&apos; computers—to enable end-users to link their Google accounts, including services such as Gmail, Google Calendar, and Google Drive. This policy covers VizCo&apos;s role as the owner/host of the OAuth Client configuration and consent screen identity in Google Cloud.
           </p>
           <div className="bg-purple-900 bg-opacity-20 border border-purple-800 rounded-lg p-4 mt-4">
+            <p className="text-gray-300 text-sm mb-2">
+              <strong>Important:</strong> In this arrangement, SecureMCP application controls the OAuth redirect and token handling on the user&apos;s device.
+            </p>
             <p className="text-gray-300 text-sm">
-              <strong>Important:</strong> In this arrangement, SecureMCP (not VizCo) controls the OAuth redirect and token handling on the user&apos;s device and/or SecureMCP&apos;s infrastructure (as applicable). VizCo does not receive OAuth tokens through this authorization flow.
+              VizCo does not receive OAuth tokens through this authorization flow.
             </p>
           </div>
         </section>
@@ -32,8 +35,8 @@ export default function PrivacyPolicy() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-white">2. Roles: Who Processes What</h2>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2">
-            <li><strong>SecureMCP as Controller/Processor of User Data:</strong> When you authorize SecureMCP to access your Google account, SecureMCP determines what data is accessed and how it is used, subject to the scopes you approve and SecureMCP&apos;s privacy practices.</li>
-            <li><strong>VizCo as OAuth Client Owner:</strong> VizCo maintains the OAuth Client configuration in its Google Cloud project. VizCo does not operate SecureMCP&apos;s OAuth redirect endpoint and does not receive your OAuth authorization codes or tokens from Google as part of this flow.</li>
+            <li><strong>SecureMCP as Controller/Processor of User Data:</strong> When you authorize SecureMCP to access your Google account, SecureMCP determines what data is accessed and how it is used, subject to the scopes you approve and SecureMCP&apos;s privacy practices. This data always stays local to end users.</li>
+            <li><strong>VizCo as OAuth Client Provider:</strong> VizCo maintains the OAuth Client configuration in its Google Cloud project. VizCo does not receive your OAuth authorization codes or tokens from Google as part of this flow and does not see any data.</li>
           </ul>
         </section>
 
@@ -59,7 +62,7 @@ export default function PrivacyPolicy() {
             VizCo also cannot:
           </p>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
-            <li>View the contents of your emails, calendar events, or Drive files through this OAuth authorization</li>
+            <li>View or modify the contents of your emails, calendar events, or Drive files through this OAuth authorization</li>
             <li>Act on your behalf in Google services via OAuth (since VizCo does not hold your tokens)</li>
           </ul>
         </section>
@@ -86,12 +89,12 @@ export default function PrivacyPolicy() {
 
           <h3 className="text-xl font-semibold mb-2 text-purple-700">4.2 Support and Communications</h3>
           <p className="text-gray-300 mb-4">
-            If users or SecureMCP operators contact VizCo directly, VizCo may collect information they provide (e.g., name, email address, message content) for support and troubleshooting.
+            If users or SecureMCP application contact VizCo directly, VizCo may collect information they provide (e.g., name, email address, message content) for support and troubleshooting.
           </p>
 
           <h3 className="text-xl font-semibold mb-2 text-purple-700">4.3 VizCo Website/Service Data (if applicable)</h3>
           <p className="text-gray-300 mb-4">
-            If you visit VizCo websites or portals, VizCo may collect standard web analytics and device information as described in VizCo&apos;s general privacy notice at [link/reference], if available.
+            If you visit VizCo websites or portals, VizCo may collect standard web analytics and device information as described in VizCo&apos;s general privacy notice, if available.
           </p>
         </section>
 
@@ -127,8 +130,8 @@ export default function PrivacyPolicy() {
             In this architecture, VizCo cannot:
           </p>
           <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">
-            <li>See which specific Google accounts authorized SecureMCP (unless SecureMCP separately provides that information to VizCo)</li>
-            <li>Retrieve user tokens from Google, since they are delivered to SecureMCP&apos;s redirect endpoint or local flow</li>
+            <li>See which specific Google accounts authorized their SecureMCP applications</li>
+            <li>Retrieve user tokens from Google, since they are delivered to SecureMCP&apos;s redirect endpoint and local data flow</li>
             <li>Access user Gmail, Google Calendar, or Google Drive data via OAuth (without tokens)</li>
           </ul>
         </section>
@@ -186,7 +189,7 @@ export default function PrivacyPolicy() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-white">13. Children&apos;s Privacy</h2>
           <p className="text-gray-300 mb-4">
-            VizCo&apos;s OAuth Client is not intended for use by children under [13/16—pick based on jurisdiction], and VizCo does not knowingly collect personal information from children.
+            VizCo&apos;s OAuth Client is not intended for use by children, and VizCo does not knowingly collect personal information from children.
           </p>
         </section>
 
@@ -207,7 +210,7 @@ export default function PrivacyPolicy() {
               <strong>VizCo Privacy Team</strong>
             </p>
             <p className="text-gray-300">
-              <a href="mailto:privacy@vizco.com" className="text-purple-700 underline hover:text-purple-600">privacy@vizco.com</a>
+              <a href="mailto:admin@vizco.com" className="text-purple-700 underline hover:text-purple-600">admin@vizco.com</a>
             </p>
           </div>
         </section>
