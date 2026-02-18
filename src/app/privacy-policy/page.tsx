@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
             <strong>Company:</strong> VizCo (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)
           </p>
           <p className="text-gray-300 mb-2">
-            <strong>Contact:</strong> <a href="mailto:admin@vizco.com" className="text-purple-700 underline hover:text-purple-600">admin@vizco.com</a>
+            <strong>Contact:</strong> <a href="mailto:admin@vizco.co" className="text-purple-700 underline hover:text-purple-600">admin@vizco.co</a>
           </p>
         </div>
 
@@ -209,7 +209,7 @@ export default function PrivacyPolicy() {
               <strong>VizCo Privacy Team</strong>
             </p>
             <p className="text-gray-300">
-              <a href="mailto:admin@vizco.com" className="text-purple-700 underline hover:text-purple-600">admin@vizco.com</a>
+              <a href="mailto:admin@vizco.co" className="text-purple-700 underline hover:text-purple-600">admin@vizco.co</a>
             </p>
           </div>
         </section>
