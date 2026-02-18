@@ -6,14 +6,14 @@ export default function PrivacyPolicy() {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-white">Privacy Policy – OAuth Client Hosted by VizCo</h1>
         <p className="text-gray-400 mb-6">
-          <strong>Effective date:</strong> [Date]
+          <strong>Effective date:</strong> February 17, 2026
         </p>
         <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-6 mb-6">
           <p className="text-gray-300 mb-2">
             <strong>Company:</strong> VizCo (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)
           </p>
           <p className="text-gray-300 mb-2">
-            <strong>Contact:</strong> <a href="mailto:privacy@vizco.com" className="text-purple-700 underline hover:text-purple-600">privacy@vizco.com</a> | [Address]
+            <strong>Contact:</strong> <a href="mailto:privacy@vizco.com" className="text-purple-700 underline hover:text-purple-600">privacy@vizco.com</a>
           </p>
         </div>
 
