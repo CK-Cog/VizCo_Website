@@ -52,7 +52,7 @@ export default function RootLayout({
           </div>
         </nav>
         {/* Spacer to offset fixed nav height */}
-        <div className="h-20" />
+        <div className="h-24" />
         {children}
       </body>
     </html>

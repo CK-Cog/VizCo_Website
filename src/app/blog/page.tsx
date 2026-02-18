@@ -5,7 +5,7 @@ export const revalidate = 0;
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-12">
+    <div className="min-h-screen bg-black text-white px-8 pb-8 pt-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6">Blog</h1>
         <p className="text-gray-300 mb-10">Research and insights on AI governance and legal tech.</p>

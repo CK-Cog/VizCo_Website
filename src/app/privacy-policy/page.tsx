@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-12">
+    <div className="min-h-screen bg-black text-white px-8 pb-8 pt-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-white">Privacy Policy – SecureMCP</h1>
         <p className="text-gray-400 mb-6">

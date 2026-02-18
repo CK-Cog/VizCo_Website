@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-12">
+    <div className="min-h-screen bg-black text-white px-8 pb-8 pt-6">
       <h1 className="text-4xl font-bold mb-6">Terms of Service</h1>
       <p className="mb-4">By using the Vizco website, you agree to the following terms and conditions.</p>
       <h2 className="text-2xl font-semibold mt-6 mb-2">Use of Site</h2>

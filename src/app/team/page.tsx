@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-12">
+    <div className="min-h-screen bg-black text-white px-8 pb-8 pt-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-14 text-white">Meet the Team</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">

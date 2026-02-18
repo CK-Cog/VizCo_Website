@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CareersPage() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-12">
+    <div className="min-h-screen bg-black text-white px-8 pb-8 pt-6">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Hero / What We Do */}
         <header className="space-y-3">
