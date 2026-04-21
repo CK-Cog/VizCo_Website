@@ -122,6 +122,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Numbers That Matter */}
+      <section className="py-12 px-6 sm:px-12 bg-gradient-to-b from-black to-purple-950/10 border-y border-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-sm uppercase tracking-[0.2em] text-purple-400 text-center font-semibold mb-8">
+            Numbers That Matter
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            {/* TODO: replace placeholder metrics with verified SecureMCP figures */}
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">&lt;100ms</div>
+              <div className="text-xs sm:text-sm text-gray-400">Policy enforcement latency</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">0</div>
+              <div className="text-xs sm:text-sm text-gray-400">Sensitive records sent to third parties</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">100%</div>
+              <div className="text-xs sm:text-sm text-gray-400">Input &amp; output coverage</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white mb-1">&lt;1 hr</div>
+              <div className="text-xs sm:text-sm text-gray-400">Average deployment time</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Difference - Visual Comparison */}
       <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950 via-opacity-10 to-black">
         <div className="max-w-6xl mx-auto">
@@ -441,6 +469,255 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* What SecureMCP Enforces - Input/Output Controls */}
+      <section id="learn-more" className="py-16 px-6 sm:px-12 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
+            What SecureMCP Enforces
+          </h2>
+          <p className="text-center text-gray-400 mb-10 sm:mb-12 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            Fine-grained policy controls applied to every prompt and every response—locally, before data leaves your environment.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {/* Input Controls */}
+            <div className="bg-gradient-to-br from-purple-950/40 to-black border border-purple-900/60 rounded-2xl p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-purple-900/40 border border-purple-700 flex items-center justify-center text-xl">⬇️</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">Input Controls</h3>
+              </div>
+              <p className="text-sm text-gray-400 mb-5">Protect prompts before they reach any model.</p>
+              <ul className="space-y-3 text-sm sm:text-base">
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">PII redaction</span> — names, emails, SSNs, account numbers automatically masked.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Privileged content filter</span> — attorney-client, medical, or confidential text scrubbed.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Secrets &amp; credentials</span> — API keys, tokens, passwords blocked at the source.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Access control</span> — role, matter, and policy gates decide what data an agent can even see.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Prompt injection detection</span> — flag and block crafted inputs targeting the model.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Topic &amp; substring controls</span> — enforce allow- and deny-lists per team.</span></li>
+              </ul>
+            </div>
+
+            {/* Output Controls */}
+            <div className="bg-gradient-to-br from-purple-950/40 to-black border border-purple-900/60 rounded-2xl p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-purple-900/40 border border-purple-700 flex items-center justify-center text-xl">⬆️</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">Output Controls</h3>
+              </div>
+              <p className="text-sm text-gray-400 mb-5">Validate responses before they reach users or trigger actions.</p>
+              <ul className="space-y-3 text-sm sm:text-base">
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">De-redaction</span> — placeholders securely restored inside your environment, never at the provider.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Action approval gates</span> — high-risk tool calls (send, delete, transfer) require human review.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Response validation</span> — enforce schema, format, and policy compliance on every output.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Data exfiltration prevention</span> — block responses that would leak sensitive content downstream.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Full audit trail</span> — every prompt, response, block, and override logged for compliance review.</span></li>
+                <li className="flex gap-3 text-gray-300"><span className="text-purple-400 font-bold">•</span><span><span className="text-white font-semibold">Toxicity &amp; policy filters</span> — catch inappropriate or off-brand output before users see it.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before / After Redaction Example */}
+      <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950/10 to-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
+            See SecureMCP In Action
+          </h2>
+          <p className="text-center text-gray-400 mb-10 sm:mb-12 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            Same prompt, two views. Your users keep full context. The model only sees what policy allows.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {/* What Humans See */}
+            <div className="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="px-5 py-3 border-b border-gray-800 bg-gray-900 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                <span className="text-sm font-semibold text-gray-200">What your user sees</span>
+              </div>
+              <div className="p-5 sm:p-6 font-mono text-sm text-gray-300 leading-relaxed">
+                <div className="text-gray-500 mb-2">Draft a reply to this client email:</div>
+                <div>Hi team, <span className="text-white">Jane Smith</span> (<span className="text-white">jane.smith@acme-corp.com</span>, <span className="text-white">+1-415-555-0142</span>) is asking about the <span className="text-white">Project Orion</span> acquisition. Her SSN on file is <span className="text-white">123-45-6789</span>, DOB <span className="text-white">04/21/1984</span>. Internal deal value is <span className="text-white">$42M</span>. Please confirm next steps.</div>
+              </div>
+            </div>
+
+            {/* What LLM Sees */}
+            <div className="bg-gray-950 border border-purple-800 rounded-2xl overflow-hidden shadow-[0_0_40px_-10px_rgba(168,85,247,0.3)]">
+              <div className="px-5 py-3 border-b border-purple-900 bg-purple-950/40 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></div>
+                <span className="text-sm font-semibold text-purple-200">What the model sees (after SecureMCP)</span>
+              </div>
+              <div className="p-5 sm:p-6 font-mono text-sm text-gray-300 leading-relaxed">
+                <div className="text-gray-500 mb-2">Draft a reply to this client email:</div>
+                <div>Hi team, <span className="bg-purple-900/60 text-purple-200 px-1 rounded">[PERSON_01]</span> (<span className="bg-purple-900/60 text-purple-200 px-1 rounded">[EMAIL_01]</span>, <span className="bg-purple-900/60 text-purple-200 px-1 rounded">[PHONE_01]</span>) is asking about the <span className="bg-purple-900/60 text-purple-200 px-1 rounded">[PROJECT_01]</span> acquisition. Her SSN on file is <span className="bg-red-900/50 text-red-200 px-1 rounded">[BLOCKED]</span>, DOB <span className="bg-red-900/50 text-red-200 px-1 rounded">[BLOCKED]</span>. Internal deal value is <span className="bg-purple-900/60 text-purple-200 px-1 rounded">[AMOUNT_01]</span>. Please confirm next steps.</div>
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-gray-500 text-sm mt-6 max-w-2xl mx-auto px-4">
+            When the model replies, SecureMCP restores placeholders inside your environment — the user sees a normal, personalized response.
+          </p>
+        </div>
+      </section>
+
+      {/* Deploy Anywhere */}
+      <section className="py-16 px-6 sm:px-12 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
+            Deploy SecureMCP Anywhere
+          </h2>
+          <p className="text-center text-gray-400 mb-10 sm:mb-12 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            Runs entirely inside your environment—desktop, cloud, or air-gapped. Zero changes to existing workflows.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { title: "On-Premises", sub: "Air-gapped", icon: "🏢" },
+              { title: "Private Cloud", sub: "VMware, OpenStack", icon: "☁️" },
+              { title: "AWS", sub: "EKS, ECS, Lambda", icon: "🟧" },
+              { title: "Azure", sub: "AKS, Container Apps", icon: "🟦" },
+              { title: "Google Cloud", sub: "GKE, Cloud Run", icon: "🟩" },
+              { title: "Desktop", sub: "macOS, Windows", icon: "💻" },
+            ].map((env) => (
+              <div
+                key={env.title}
+                className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 hover:border-purple-700 transition rounded-xl p-5 text-center"
+              >
+                <div className="text-3xl mb-2">{env.icon}</div>
+                <div className="text-white font-semibold text-sm mb-1">{env.title}</div>
+                <div className="text-gray-500 text-xs">{env.sub}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 grid sm:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-300 mb-1">Container-ready</div>
+              <div className="text-xs sm:text-sm text-gray-400">Docker &amp; Kubernetes out of the box</div>
+            </div>
+            <div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-300 mb-1">API-first</div>
+              <div className="text-xs sm:text-sm text-gray-400">Drop in alongside existing AI workflows</div>
+            </div>
+            <div>
+              <div className="text-2xl sm:text-3xl font-bold text-purple-300 mb-1">Zero workflow changes</div>
+              <div className="text-xs sm:text-sm text-gray-400">Works with ChatGPT, Claude, Gemini today</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vizco vs. Comparison Table */}
+      <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black to-purple-950/10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
+            Vizco vs. The Alternatives
+          </h2>
+          <p className="text-center text-gray-400 mb-10 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            Most AI governance tools protect your data <span className="italic">after</span> it has already left your environment. SecureMCP prevents it from leaving in the first place.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-gray-800">
+            <table className="w-full min-w-[720px] text-left text-sm sm:text-base">
+              <thead className="bg-gray-950">
+                <tr>
+                  <th className="px-4 sm:px-6 py-4 text-gray-400 font-semibold">Capability</th>
+                  <th className="px-4 sm:px-6 py-4 text-gray-400 font-semibold text-center">Direct AI Use</th>
+                  <th className="px-4 sm:px-6 py-4 text-gray-400 font-semibold text-center">SaaS Proxy</th>
+                  <th className="px-4 sm:px-6 py-4 text-purple-300 font-bold text-center bg-purple-950/30">Vizco SecureMCP</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-900">
+                {[
+                  ["Data stays in your environment", "no", "no", "yes"],
+                  ["PII & secrets redaction", "no", "yes", "yes"],
+                  ["Role / matter-based access control", "no", "limited", "yes"],
+                  ["Action approval gates (send, delete, transfer)", "no", "no", "yes"],
+                  ["Full audit trail of every prompt & action", "no", "partial", "yes"],
+                  ["Works with ChatGPT, Claude, Gemini", "yes", "yes", "yes"],
+                  ["Air-gapped / on-prem deployment", "n/a", "no", "yes"],
+                  ["Third-party data exposure", "high", "moderate", "none"],
+                ].map(([cap, a, b, c], idx) => {
+                  const render = (val: string, highlight = false) => {
+                    if (val === "yes") return <span className="text-green-400">✓</span>;
+                    if (val === "no") return <span className="text-red-400">✕</span>;
+                    return <span className={highlight ? "text-purple-300" : "text-yellow-400"}>{val}</span>;
+                  };
+                  return (
+                    <tr key={idx} className="hover:bg-gray-950/60">
+                      <td className="px-4 sm:px-6 py-4 text-gray-200">{cap}</td>
+                      <td className="px-4 sm:px-6 py-4 text-center">{render(a)}</td>
+                      <td className="px-4 sm:px-6 py-4 text-center">{render(b)}</td>
+                      <td className="px-4 sm:px-6 py-4 text-center bg-purple-950/20">{render(c, true)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="py-16 px-6 sm:px-12 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-white px-4">
+            Built for Regulated Industries
+          </h2>
+          <p className="text-center text-gray-400 mb-10 sm:mb-12 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            Where sensitive data, strict oversight, and AI productivity all have to coexist.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { t: "Legal", d: "Protect privileged content and matter-level access while enabling AI-assisted drafting and review.", i: "⚖️" },
+              { t: "Financial Services", d: "Keep client data, PII, and trade information inside your environment — SOC 2 and GLBA-aligned.", i: "💼" },
+              { t: "Healthcare", d: "HIPAA-aware redaction of PHI so clinicians and analysts can use frontier models safely.", i: "🏥" },
+              { t: "Defense & Gov", d: "Air-gapped, on-prem deployment with full audit logging for sensitive and classified contexts.", i: "🛡️" },
+              { t: "Insurance", d: "Protect policyholder PII while accelerating claims, underwriting, and summarization workflows.", i: "📋" },
+              { t: "Enterprise IT", d: "Govern shadow AI, enforce per-team policies, and get visibility across every provider.", i: "🏢" },
+            ].map((ind) => (
+              <div
+                key={ind.t}
+                className="bg-gradient-to-br from-gray-950 to-black border border-gray-800 hover:border-purple-700 transition rounded-xl p-5 sm:p-6"
+              >
+                <div className="text-3xl mb-3">{ind.i}</div>
+                <div className="text-white font-bold mb-2">{ind.t}</div>
+                <div className="text-gray-400 text-sm leading-relaxed">{ind.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Ready */}
+      <section className="py-16 px-6 sm:px-12 bg-gradient-to-b from-black via-purple-950/10 to-black">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white px-4">
+            Compliance-Ready by Design
+          </h2>
+          <p className="text-gray-400 mb-10 max-w-3xl mx-auto text-base sm:text-lg px-4">
+            {/* TODO: update wording once certifications are in place */}
+            SecureMCP is built to help your organization meet the frameworks your customers and regulators already require.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            {[
+              "SOC 2",
+              "HIPAA",
+              "GDPR",
+              "EU AI Act",
+              "CCPA",
+              "NIST AI RMF",
+              "PCI-DSS",
+              "ISO 27001",
+            ].map((badge) => (
+              <div
+                key={badge}
+                className="px-4 py-2 rounded-full border border-purple-800 bg-purple-950/30 text-purple-200 text-sm font-semibold"
+              >
+                {badge}
+              </div>
+            ))}
+          </div>
+          <p className="text-gray-500 text-xs mt-6 max-w-2xl mx-auto">
+            {/* TODO: clarify which are certified vs. aligned once final */}
+            Certifications and attestations in progress. Talk to us about your specific framework requirements.
+          </p>
         </div>
       </section>
 
