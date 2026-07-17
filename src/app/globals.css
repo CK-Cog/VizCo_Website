@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
+/* ============================================================
+   VizCo identity — warm paper, near-black ink, redaction motif
+   Monochrome system with a single restrained accent.
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f6f3ec;
+  --background: #f6f3ec;
+  --foreground: #16140f;
+
+  /* Warm ink scale */
+  --ink-900: #16140f;
+  --ink-700: #423e35;
+  --ink-500: #6e6857;
+  --ink-300: #bbb4a2;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-subtle: #efeadd;
+  --surface-muted: #e8e1d2;
+  --border: #e2dbca;
+  --border-strong: #d3cab4;
+
+  /* Tiny accent (used sparingly) */
+  --accent: #d8f24b;
+
+  /* Brand tokens remapped to monochrome ink so existing utilities
+     inherit the new identity automatically. */
+  --brand-50: #eee9db;
+  --brand-100: #dad3c1;
+  --brand-300: #c8c0ac;
+  --brand-500: #16140f;
+  --brand-600: #16140f;
+  --brand-700: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-paper: var(--paper);
+  --color-ink-900: var(--ink-900);
+  --color-ink-700: var(--ink-700);
+  --color-ink-500: var(--ink-500);
+  --color-ink-300: var(--ink-300);
+
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--accent);
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-300: var(--brand-300);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background: var(--paper);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Brand motif: redaction & highlight marks ---- */
+/* Redacted: a solid marker block. Reveals real text on hover/focus. */
+.redact {
+  position: relative;
+  background: var(--ink-900);
+  color: transparent;
+  border-radius: 3px;
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: color 0.18s ease, background 0.18s ease;
+  cursor: default;
+}
+.redact:hover,
+.redact:focus-visible {
+  background: var(--accent);
+  color: var(--ink-900);
+}
+
+/* Solid marker block that keeps its label visible (e.g. logo, key phrases) */
+.mark {
+  background: var(--ink-900);
+  color: var(--paper);
+  border-radius: 3px;
+  padding: 0 0.16em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Highlighter swipe — the tiny accent */
+.hi {
+  background: var(--accent);
+  color: var(--ink-900);
+  padding: 0 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Mono label / eyebrow treatment */
+.label {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---- Entrance animation ---- */
+@keyframes vizco-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: vizco-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-rise {
+    animation: none;
+  }
 }
