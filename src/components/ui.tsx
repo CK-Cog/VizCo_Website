@@ -105,13 +105,13 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${alignment}`}>
       {eyebrow && (
-        <div className="mb-4">
+        <div className="mb-3">
           <Eyebrow>{eyebrow}</Eyebrow>
         </div>
       )}
       <SectionTitle>{title}</SectionTitle>
       {subtitle && (
-        <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
+        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg">
           {subtitle}
         </p>
       )}
