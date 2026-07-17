@@ -52,12 +52,12 @@ const fits = [
   {
     icon: Plug,
     title: "Apps you already run",
-    body: "Microsoft 365, SharePoint, CRM, internal APIs. Governed access, not a marketplace.",
+    body: "Microsoft 365, SharePoint, CRM, and internal APIs. Governed access, not a marketplace.",
   },
   {
     icon: ShieldOff,
-    title: "Sensitive data & credentials stay inside your walls",
-    body: "Sensitive data and credentials remain in your environment. Keys stay isolated; only policy-approved context reaches the model.",
+    title: "Sensitive data stays inside your walls",
+    body: "Sensitive data and credentials remain in your environment. Only policy-approved context reaches the model.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function HowItWorks() {
                 One layer between AI and your <Mark>systems.</Mark>
               </>
             }
-            subtitle="Works with both: vendor-controlled platforms and systems you build internally, plus the applications those clients reach."
+            subtitle="Connect AI to the systems you already run, then govern every call."
           />
 
           <div className="mt-8 grid grid-cols-1 rounded-lg border border-border bg-surface sm:grid-cols-2">

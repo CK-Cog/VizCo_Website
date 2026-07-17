@@ -25,13 +25,12 @@ export default function Hero() {
           </PageTitle>
 
           <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl">
-            VizCo sits between your AI clients and the systems your teams already
-            use, enforcing policy on every call, on your infrastructure.
+            AI is reaching your systems without real control over what it can do
+            or what data it can access.
           </p>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-500">
-            Works with vendor-controlled platforms like ChatGPT Enterprise and
-            with systems you build internally. Deploy in your cloud, on-prem, or
-            air-gapped, not ours.
+            VizCo enforces policy between AI clients and your applications, on
+            your infrastructure: cloud, on-prem, or air-gapped.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
