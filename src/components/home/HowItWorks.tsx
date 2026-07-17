@@ -4,9 +4,11 @@ import {
   ScrollText,
   Database,
   Bot,
-  Eye,
+  ShieldOff,
+  Code2,
 } from "lucide-react";
 import { Container, Section, SectionHeading, Mark } from "@/components/ui";
+import PolicyExample from "@/components/home/PolicyExample";
 
 const controls = [
   {
@@ -27,69 +29,66 @@ const controls = [
   {
     icon: Plug,
     t: "Secure Connectivity",
-    b: "Reach internal systems and data without exposing credentials or keys.",
+    b: "Reach internal systems without exposing credentials or keys outside your walls.",
   },
   {
     icon: ScrollText,
     t: "Audit Trail",
-    b: "Immutable log on your infrastructure.",
+    b: "Every call, policy decision, action, and data outcome logged on your infrastructure.",
   },
 ];
 
-const features = [
+const fits = [
   {
     icon: Bot,
-    title: "Works where you already use AI",
-    body: "ChatGPT Enterprise and other vendor-controlled UIs—or systems you build in-house. Same policy layer either way.",
+    title: "Vendor-controlled platforms",
+    body: "ChatGPT Enterprise, Claude, Gemini, Copilot, and other vendor UIs your teams already use.",
+  },
+  {
+    icon: Code2,
+    title: "Internally built systems",
+    body: "Your own chat apps, agents, and APIs. Same policy layer as the vendor platforms.",
   },
   {
     icon: Plug,
-    title: "Safely connect your applications",
-    body: "Governed access to the apps you already run—e.g. Microsoft 365, SharePoint, CRM, and internal APIs.",
+    title: "Apps you already run",
+    body: "Microsoft 365, SharePoint, CRM, internal APIs. Governed access, not a marketplace.",
   },
   {
-    icon: Fingerprint,
-    title: "Policy by identity",
-    body: "Scoped by user, group, role, and agent—evaluated before any call runs.",
-  },
-  {
-    icon: Eye,
-    title: "Full visibility",
-    body: "Immutable logs on your infrastructure for incidents, policy, and compliance.",
+    icon: ShieldOff,
+    title: "Sensitive data & credentials stay inside your walls",
+    body: "Sensitive data and credentials remain in your environment. Keys stay isolated; only policy-approved context reaches the model.",
   },
 ];
 
 export default function HowItWorks() {
   return (
     <>
-      <Section id="how">
+      <Section id="how" className="!py-16 sm:!py-20">
         <Container>
           <SectionHeading
             eyebrow="How it works"
             title={
               <>
-                Connect your systems. Govern every <Mark>call.</Mark>
+                One layer between AI and your <Mark>systems.</Mark>
               </>
             }
-            subtitle="One policy layer between AI—vendor platforms or internal systems—and your applications and data sources."
+            subtitle="Works with both: vendor-controlled platforms and systems you build internally, plus the applications those clients reach."
           />
 
-          <div className="mt-10 grid grid-cols-1 rounded-lg border border-border bg-surface sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((f, i) => (
+          <div className="mt-8 grid grid-cols-1 rounded-lg border border-border bg-surface sm:grid-cols-2">
+            {fits.map((f) => (
               <div
                 key={f.title}
-                className="border-border px-5 py-5 sm:px-6 sm:py-6 [&:not(:first-child)]:border-t sm:[&:nth-child(2n)]:border-l sm:[&:nth-child(n+3)]:border-t lg:[&:not(:first-child)]:border-l lg:[&:nth-child(n+3)]:border-t-0"
+                className="border-border px-5 py-5 sm:px-6 sm:py-5 [&:not(:first-child)]:border-t sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(2n)]:border-l sm:[&:nth-child(n+3)]:border-t"
               >
                 <div className="flex items-center gap-2">
-                  <span className="label text-ink-500">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <f.icon className="h-4 w-4 text-ink-900" />
+                  <f.icon className="h-4 w-4 shrink-0 text-ink-900" />
+                  <h3 className="text-base font-semibold leading-snug text-ink-900">
+                    {f.title}
+                  </h3>
                 </div>
-                <h3 className="mt-3 text-base font-semibold text-ink-900">
-                  {f.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-snug text-ink-500">
+                <p className="mt-2 text-sm leading-relaxed text-ink-500">
                   {f.body}
                 </p>
               </div>
@@ -98,7 +97,7 @@ export default function HowItWorks() {
         </Container>
       </Section>
 
-      <Section id="policies" className="bg-surface-subtle">
+      <Section id="policies" className="!py-16 sm:!py-20 bg-surface-subtle">
         <Container>
           <SectionHeading
             eyebrow="Policies we enforce"
@@ -107,36 +106,40 @@ export default function HowItWorks() {
                 What the Policy Layer <Mark>controls.</Mark>
               </>
             }
-            subtitle="Runs inside your environment—your cloud, on-prem, or air-gapped—not ours."
+            subtitle="Identity, data, actions, connectivity, and audit, on every call."
           />
 
-          <div className="mx-auto mt-10 max-w-2xl rounded-lg border border-border bg-surface p-5 sm:p-6">
-            <div className="flex items-center gap-3 rounded-md border border-border bg-paper px-3 py-3">
-              <span className="rounded-[3px] bg-ink-900 px-2 py-1 text-xs font-semibold text-paper">
-                VizCo
-              </span>
-              <div className="text-sm font-semibold text-ink-900">
-                VizCo Policy Layer
+          <div className="mx-auto mt-8 max-w-3xl space-y-8">
+            <div className="rounded-lg border border-border bg-surface p-5 sm:p-6">
+              <div className="flex items-center gap-3 rounded-md border border-border bg-paper px-3 py-3">
+                <span className="rounded-[3px] bg-ink-900 px-2 py-1 text-xs font-semibold text-paper">
+                  VizCo
+                </span>
+                <div className="text-sm font-semibold text-ink-900">
+                  VizCo Policy Layer
+                </div>
               </div>
-            </div>
-            <div className="mt-3 space-y-2">
-              {controls.map((c) => (
-                <div
-                  key={c.t}
-                  className="flex items-start gap-3 rounded-md border border-border bg-paper px-3 py-2.5"
-                >
-                  <c.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink-900" />
-                  <div>
-                    <div className="text-sm font-semibold text-ink-900">
-                      {c.t}
-                    </div>
-                    <div className="text-xs leading-relaxed text-ink-500">
-                      {c.b}
+              <div className="mt-3 space-y-2">
+                {controls.map((c) => (
+                  <div
+                    key={c.t}
+                    className="flex items-start gap-3 rounded-md border border-border bg-paper px-3 py-2.5"
+                  >
+                    <c.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink-900" />
+                    <div>
+                      <div className="text-sm font-semibold text-ink-900">
+                        {c.t}
+                      </div>
+                      <div className="text-xs leading-relaxed text-ink-500">
+                        {c.b}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+
+            <PolicyExample />
           </div>
         </Container>
       </Section>
