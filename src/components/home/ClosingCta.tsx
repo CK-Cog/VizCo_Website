@@ -9,7 +9,7 @@ export default function ClosingCta() {
           <SectionTitle className="text-paper">
             See it on your workflows.
           </SectionTitle>
-          <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg lg:text-xl">
             Book a short demo and we&apos;ll walk through policy enforcement on
             the AI clients and systems you already use.
           </p>
@@ -18,7 +18,7 @@ export default function ClosingCta() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-paper px-7 py-3.5 text-sm font-semibold text-ink-900 transition-colors hover:bg-white"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-paper px-7 py-3.5 text-base font-semibold text-ink-900 transition-colors hover:bg-white"
             >
               Book a Demo
               <ArrowRight className="h-4 w-4 text-ink-900" />

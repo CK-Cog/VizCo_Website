@@ -44,29 +44,29 @@ export default function RootLayout({
           <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 sm:px-8">
             <Wordmark />
 
-            <div className="hidden items-center gap-1 md:flex">
+            <div className="hidden items-center gap-1 sm:flex">
               <Link
                 href="/team"
-                className="rounded-md px-3 py-2 font-mono text-[13px] text-ink-700 transition-colors hover:text-ink-900"
+                className="rounded-md px-2.5 py-2 font-mono text-[12px] text-ink-700 transition-colors hover:text-ink-900 md:px-3 md:text-[13px]"
               >
                 Team
               </Link>
               <Link
                 href="/careers"
-                className="rounded-md px-3 py-2 font-mono text-[13px] text-ink-700 transition-colors hover:text-ink-900"
+                className="rounded-md px-2.5 py-2 font-mono text-[12px] text-ink-700 transition-colors hover:text-ink-900 md:px-3 md:text-[13px]"
               >
                 Careers
               </Link>
               <Link
                 href="/blog"
-                className="rounded-md px-3 py-2 font-mono text-[13px] text-ink-700 transition-colors hover:text-ink-900"
+                className="rounded-md px-2.5 py-2 font-mono text-[12px] text-ink-700 transition-colors hover:text-ink-900 md:px-3 md:text-[13px]"
               >
                 Blog
               </Link>
             </div>
 
-            <div className="flex items-center gap-3">
-              <Button href={CALENDLY_URL} external className="px-5 py-2.5">
+            <div className="flex items-center gap-2">
+              <Button href={CALENDLY_URL} external className="px-4 py-2 text-[13px] sm:px-5 sm:py-2.5 sm:text-sm">
                 Book a Demo
               </Button>
             </div>

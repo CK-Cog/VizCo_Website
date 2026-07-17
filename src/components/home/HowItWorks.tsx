@@ -83,12 +83,12 @@ export default function HowItWorks() {
                 className="border-border px-5 py-5 sm:px-6 sm:py-5 [&:not(:first-child)]:border-t sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(2n)]:border-l sm:[&:nth-child(n+3)]:border-t"
               >
                 <div className="flex items-center gap-2">
-                  <f.icon className="h-4 w-4 shrink-0 text-ink-900" />
-                  <h3 className="text-base font-semibold leading-snug text-ink-900">
+                  <f.icon className="h-4 w-4 shrink-0 text-ink-900 sm:h-5 sm:w-5" />
+                  <h3 className="text-base font-semibold leading-snug text-ink-900 sm:text-lg">
                     {f.title}
                   </h3>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-500">
+                <p className="mt-2 text-sm leading-relaxed text-ink-500 sm:text-base">
                   {f.body}
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function HowItWorks() {
                 <span className="rounded-[3px] bg-ink-900 px-2 py-1 text-xs font-semibold text-paper">
                   VizCo
                 </span>
-                <div className="text-sm font-semibold text-ink-900">
+                <div className="text-sm font-semibold text-ink-900 sm:text-base">
                   VizCo Policy Layer
                 </div>
               </div>
@@ -123,14 +123,14 @@ export default function HowItWorks() {
                 {controls.map((c) => (
                   <div
                     key={c.t}
-                    className="flex items-start gap-3 rounded-md border border-border bg-paper px-3 py-2.5"
+                    className="flex items-start gap-3 rounded-md border border-border bg-paper px-3 py-2.5 sm:px-4 sm:py-3"
                   >
-                    <c.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink-900" />
+                    <c.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink-900 sm:h-5 sm:w-5" />
                     <div>
-                      <div className="text-sm font-semibold text-ink-900">
+                      <div className="text-sm font-semibold text-ink-900 sm:text-base">
                         {c.t}
                       </div>
-                      <div className="text-xs leading-relaxed text-ink-500">
+                      <div className="mt-0.5 text-xs leading-relaxed text-ink-500 sm:text-sm">
                         {c.b}
                       </div>
                     </div>

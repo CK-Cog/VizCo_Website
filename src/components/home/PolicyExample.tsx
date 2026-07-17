@@ -44,10 +44,10 @@ export default function PolicyExample() {
   return (
     <div>
       <div className="mb-5 text-center">
-        <p className="text-base font-semibold text-ink-900 sm:text-lg">
+        <p className="text-lg font-semibold text-ink-900 sm:text-xl">
           Examples in ChatGPT Enterprise
         </p>
-        <p className="mt-1 text-sm text-ink-500">
+        <p className="mt-1 text-sm text-ink-500 sm:text-base">
           Data control · Action control
         </p>
       </div>
