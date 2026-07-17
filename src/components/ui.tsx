@@ -3,10 +3,10 @@ import type { ReactNode } from "react";
 
 /* Shared typography — keep page and section titles consistent site-wide */
 export const pageTitleClass =
-  "text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl md:leading-[1.08]";
+  "text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl lg:leading-[1.05]";
 
 export const sectionTitleClass =
-  "text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl md:text-[2.75rem] md:leading-[1.08]";
+  "text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl lg:text-[3rem] lg:leading-[1.08]";
 
 export function PageTitle({
   children,
@@ -111,7 +111,7 @@ export function SectionHeading({
       )}
       <SectionTitle>{title}</SectionTitle>
       {subtitle && (
-        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg">
+        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg lg:text-xl">
           {subtitle}
         </p>
       )}

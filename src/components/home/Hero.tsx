@@ -24,21 +24,21 @@ export default function Hero() {
             AI adoption.
           </PageTitle>
 
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl">
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl lg:text-2xl">
             AI is reaching your systems without real control over what it can do
             or what data it can access.
           </p>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-500">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-500 sm:text-lg">
             VizCo enforces policy between AI clients and your applications, on
             your infrastructure: cloud, on-prem, or air-gapped.
           </p>
 
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-            <Button href={CALENDLY_URL} external className="px-7 py-3.5">
+          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
+            <Button href={CALENDLY_URL} external className="px-7 py-3.5 text-base">
               Book a Demo
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button href="#how" variant="secondary" className="px-7 py-3.5">
+            <Button href="#how" variant="secondary" className="px-7 py-3.5 text-base">
               See how it works
             </Button>
           </div>
