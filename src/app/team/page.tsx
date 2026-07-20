@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Mail } from "lucide-react";
+import { Container, Section, Eyebrow, Mark, PageTitle } from "@/components/ui";
 
 function LinkedinIcon({ className = "" }: { className?: string }) {
   return (
@@ -15,14 +16,22 @@ function LinkedinIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
-import { Container, Section, Eyebrow, Mark, PageTitle } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Team | VizCo",
-  description: "Meet the team building the AI policy enforcement layer for the enterprise.",
+  description: "Meet the team building the adoption layer for enterprise AI.",
 };
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  prev?: string;
+  img?: string;
+  email?: string;
+  linkedin?: string;
+};
+
+const team: TeamMember[] = [
   {
     name: "Chris Kelly, Ph.D.",
     role: "Co-Founder & CEO",
@@ -39,7 +48,33 @@ const team = [
     email: "daniel@vizco.co",
     linkedin: "https://www.linkedin.com/in/danielkharitonov/",
   },
+  {
+    name: "Tanay Baswa",
+    role: "Founding Engineer",
+  },
+  {
+    name: "Mark Farrelly",
+    role: "Founding GTM Lead",
+  },
+  {
+    name: "Emily Oprisan",
+    role: "GTM",
+  },
+  {
+    name: "Makayla Colombo",
+    role: "GTM",
+  },
 ];
+
+function initials(name: string) {
+  return name
+    .replace(/,.*$/, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? "")
+    .join("");
+}
 
 export default function TeamPage() {
   return (
@@ -55,40 +90,57 @@ export default function TeamPage() {
             </PageTitle>
           </div>
 
-          <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-8 sm:grid-cols-2">
             {team.map((m) => (
               <div
                 key={m.name}
                 className="flex flex-col items-center rounded-lg border border-border bg-surface p-8 text-center"
               >
-                <Image
-                  src={m.img}
-                  alt={m.name}
-                  width={128}
-                  height={128}
-                  className="mb-4 h-32 w-32 rounded-full border border-border-strong object-cover"
-                />
+                {m.img ? (
+                  <Image
+                    src={m.img}
+                    alt={m.name}
+                    width={128}
+                    height={128}
+                    className="mb-4 h-32 w-32 rounded-full border border-border-strong object-cover"
+                  />
+                ) : (
+                  <div
+                    aria-hidden
+                    className="mb-4 flex h-32 w-32 items-center justify-center rounded-full border border-border-strong bg-paper font-mono text-xl font-semibold text-ink-500"
+                  >
+                    {initials(m.name)}
+                  </div>
+                )}
                 <h3 className="text-lg font-semibold text-ink-900">{m.name}</h3>
                 <p className="label mt-1.5 text-ink-500">{m.role}</p>
-                <p className="mt-2 text-sm text-ink-500">{m.prev}</p>
-                <div className="mt-4 flex items-center gap-4">
-                  <a
-                    href={`mailto:${m.email}`}
-                    aria-label={`Email ${m.name}`}
-                    className="text-ink-500 transition-colors hover:text-ink-900"
-                  >
-                    <Mail className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={m.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${m.name} on LinkedIn`}
-                    className="text-ink-500 transition-colors hover:text-ink-900"
-                  >
-                    <LinkedinIcon className="h-5 w-5" />
-                  </a>
-                </div>
+                {m.prev ? (
+                  <p className="mt-2 text-sm text-ink-500">{m.prev}</p>
+                ) : null}
+                {m.email || m.linkedin ? (
+                  <div className="mt-4 flex items-center gap-4">
+                    {m.email ? (
+                      <a
+                        href={`mailto:${m.email}`}
+                        aria-label={`Email ${m.name}`}
+                        className="text-ink-500 transition-colors hover:text-ink-900"
+                      >
+                        <Mail className="h-5 w-5" />
+                      </a>
+                    ) : null}
+                    {m.linkedin ? (
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${m.name} on LinkedIn`}
+                        className="text-ink-500 transition-colors hover:text-ink-900"
+                      >
+                        <LinkedinIcon className="h-5 w-5" />
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>

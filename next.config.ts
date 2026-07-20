@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/platform",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/trust",
         destination: "/",
         permanent: true,
