@@ -9,9 +9,9 @@ export default function ClosingCta() {
           <SectionTitle className="text-paper">
             See it on your workflows.
           </SectionTitle>
-          <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg lg:text-xl">
-            Book a short demo and we&apos;ll walk through policy enforcement on
-            the platforms and systems you already run.
+          <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg">
+            Book a short demo and we&apos;ll walk through security and spend
+            enforcement on the platforms and systems you already run.
           </p>
           <div className="mt-8">
             <a

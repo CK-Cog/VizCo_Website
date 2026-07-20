@@ -20,17 +20,13 @@ export default function Hero() {
       <Container className="relative py-20 sm:py-24">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center animate-rise">
           <PageTitle className="mx-auto max-w-4xl">
-            The <Mark className="whitespace-nowrap">policy layer</Mark> for safe
-            AI adoption.
+            The <Mark className="whitespace-nowrap">adoption layer</Mark> for
+            enterprise AI.
           </PageTitle>
 
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl lg:text-2xl">
-            AI is reaching your systems without real control over what it can do
-            or what data it can access.
-          </p>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-500 sm:text-lg">
-            VizCo enforces policy between AI clients and your applications, on
-            your infrastructure: cloud, on-prem, or air-gapped.
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl">
+            Enforce your security and spend policies on every request, before
+            anything leaves your environment.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">

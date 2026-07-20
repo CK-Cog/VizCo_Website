@@ -20,8 +20,8 @@ export default function BlogPage() {
             Research &amp; <Mark>insights.</Mark>
           </PageTitle>
           <p className="mt-4 max-w-2xl text-lg text-ink-500">
-            Perspectives on AI policy enforcement, security, and safe enterprise
-            adoption.
+            Perspectives on enterprise AI adoption, security policy enforcement,
+            and keeping spend tied to teams, projects, and approved use cases.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-6">

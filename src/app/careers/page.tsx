@@ -4,7 +4,7 @@ import { Container, Section, Button, Eyebrow, Mark, PageTitle } from "@/componen
 export const metadata: Metadata = {
   title: "Careers | VizCo",
   description:
-    "Join VizCo to build the policy layer for safe AI adoption: action control, data control, and a full audit trail, deployed inside your environment.",
+    "Join VizCo to build the adoption layer for enterprise AI: security policy enforcement and budget visibility, deployed inside your environment.",
 };
 
 const APPLY_URL =
@@ -22,9 +22,9 @@ export default function CareersPage() {
               Make AI safe for the <Mark>enterprise.</Mark>
             </PageTitle>
             <p className="max-w-2xl text-lg text-ink-500">
-              We&apos;re building the policy layer for safe AI adoption:
-              action control and data control when AI connects to your systems,
-              enforced at the MCP layer and deployed inside your environment.
+              We&apos;re building the adoption layer for enterprise AI:
+              security policy enforcement and budget enforcement with usage
+              visibility, so leadership can say yes to frontier models at scale.
             </p>
           </header>
 
@@ -33,11 +33,11 @@ export default function CareersPage() {
             {[
               {
                 t: "What we do",
-                b: "Real-time policy on actions and data: identity, scope, data control on the return path, and allowed actions. Enforced at the MCP layer. Model-agnostic, works with the AI clients enterprises already use.",
+                b: "Security policy enforcement and budget enforcement with usage visibility. Sensitive data is blocked or redacted before it reaches an external model. Spend stays tied to teams, projects, and approved use cases. Enforced inside your perimeter.",
               },
               {
                 t: "Why it matters",
-                b: "Enterprises want frontier models but can't risk sensitive data or compliance. We make sensitive workflows safe without slowing people down.",
+                b: "Enterprises want frontier models but need control over data, actions, and cost. We are the layer that lets leadership say yes to AI at scale.",
               },
               {
                 t: "Stage",

@@ -6,7 +6,10 @@ export const pageTitleClass =
   "text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl lg:leading-[1.05]";
 
 export const sectionTitleClass =
-  "text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl lg:text-[3rem] lg:leading-[1.08]";
+  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:text-4xl lg:leading-[1.1]";
+
+export const leadTitleClass =
+  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:leading-snug";
 
 export function PageTitle({
   children,
@@ -111,7 +114,7 @@ export function SectionHeading({
       )}
       <SectionTitle>{title}</SectionTitle>
       {subtitle && (
-        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg lg:text-xl">
+        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg">
           {subtitle}
         </p>
       )}
