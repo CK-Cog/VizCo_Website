@@ -45,13 +45,13 @@ export const budgetControls = [
   },
   {
     icon: Eye,
-    t: "Spend visibility",
-    b: "Detailed reports of where AI spend is going, by team, project, and model.",
+    t: "Spend by owner",
+    b: "See cost by team, project, and model, so you know who is spending what.",
   },
   {
     icon: ChartColumn,
-    t: "Usage themes",
-    b: "See themes of AI use and which workflows drive spend across the enterprise.",
+    t: "Use by workflow",
+    b: "See themes of AI use and which workflows are running, so you know what the spend is for.",
   },
 ];
 

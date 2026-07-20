@@ -105,12 +105,12 @@ export default function PlatformPage() {
                 b: "Set budgets by team, project, or use case. Overages are blocked before spend runs away.",
               },
               {
-                t: "Spend visibility report",
-                b: "Detailed report of where AI spend is going: by team, project, model, workflow, and time period.",
+                t: "Spend by owner",
+                b: "See cost by team, project, and model, so you know who is spending what.",
               },
               {
-                t: "Themes of AI use",
-                b: "See which workflows and themes drive spend across the enterprise.",
+                t: "Use by workflow",
+                b: "See themes of AI use and which workflows are running, so you know what the spend is for.",
               },
             ].map((item) => (
               <div

@@ -18,9 +18,8 @@ export default function Budget() {
         />
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-ink-500 sm:text-lg">
-          VizCo enforces budgetary limits and gives you detailed visibility
-          reports on spend and themes of AI use: where money is going, and on
-          what workflows.
+          VizCo enforces budgetary limits and shows both sides of the picture:
+          who is spending, and what workflows that spend is for.
         </p>
 
         <div className="mx-auto mt-8 max-w-3xl">
