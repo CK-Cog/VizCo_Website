@@ -11,7 +11,7 @@ export default function ClosingCta() {
           </SectionTitle>
           <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg lg:text-xl">
             Book a short demo and we&apos;ll walk through policy enforcement on
-            the AI clients and systems you already use.
+            the platforms and systems you already run.
           </p>
           <div className="mt-8">
             <a
