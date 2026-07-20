@@ -7,7 +7,7 @@ export default function ClosingCta() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <SectionTitle className="text-paper">
-            See it on your workflows.
+            VizCo: See it on your workflows.
           </SectionTitle>
           <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg">
             Book a short demo and we&apos;ll walk through security and spend
