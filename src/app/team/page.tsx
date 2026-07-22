@@ -51,18 +51,29 @@ const team: TeamMember[] = [
   {
     name: "Tanay Baswa",
     role: "Founding Engineer",
+    email: "tanay@vizco.co",
+    linkedin: "https://www.linkedin.com/in/tanaybaswa/",
   },
   {
     name: "Mark Farrelly",
     role: "Founding GTM Lead",
+    prev: "Prev: HBAN, Microsoft, Enterprise Ireland",
+    img: "/Mark.jpg",
+    email: "mark@vizco.co",
+    linkedin: "https://www.linkedin.com/in/markfarrelly64/",
   },
   {
     name: "Emily Oprisan",
     role: "GTM",
+    img: "/Emily.jpg",
+    email: "emily@vizco.co",
+    linkedin: "https://www.linkedin.com/in/emily-oprisan-128796297/",
   },
   {
     name: "Makayla Colombo",
     role: "GTM",
+    email: "makayla@vizco.co",
+    linkedin: "https://www.linkedin.com/in/makaylacolombo/",
   },
 ];
 
