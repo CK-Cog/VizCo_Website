@@ -77,6 +77,27 @@ const team: TeamMember[] = [
   },
 ];
 
+const advisors: TeamMember[] = [
+  {
+    name: "Alan Boehme",
+    role: "Advisor",
+    img: "/Alan.jpg",
+    linkedin: "https://www.linkedin.com/in/alanboehme/",
+  },
+  {
+    name: "Junaid Islam",
+    role: "Advisor",
+    img: "/Junaid.jpg",
+    linkedin: "https://www.linkedin.com/in/junaidislam/",
+  },
+  {
+    name: "Carlos Colombo",
+    role: "Advisor",
+    img: "/Carlos.jpg",
+    linkedin: "https://www.linkedin.com/in/carlos-colombo-5059787/",
+  },
+];
+
 function initials(name: string) {
   return name
     .replace(/,.*$/, "")
@@ -85,6 +106,56 @@ function initials(name: string) {
     .slice(0, 2)
     .map((part) => part[0]?.toUpperCase() ?? "")
     .join("");
+}
+
+function PersonCard({ m }: { m: TeamMember }) {
+  return (
+    <div className="flex flex-col items-center rounded-lg border border-border bg-surface p-8 text-center">
+      {m.img ? (
+        <Image
+          src={m.img}
+          alt={m.name}
+          width={128}
+          height={128}
+          className="mb-4 h-32 w-32 rounded-full border border-border-strong object-cover"
+        />
+      ) : (
+        <div
+          aria-hidden
+          className="mb-4 flex h-32 w-32 items-center justify-center rounded-full border border-border-strong bg-paper font-mono text-xl font-semibold text-ink-500"
+        >
+          {initials(m.name)}
+        </div>
+      )}
+      <h3 className="text-lg font-semibold text-ink-900">{m.name}</h3>
+      <p className="label mt-1.5 text-ink-500">{m.role}</p>
+      {m.prev ? <p className="mt-2 text-sm text-ink-500">{m.prev}</p> : null}
+      {m.email || m.linkedin ? (
+        <div className="mt-4 flex items-center gap-4">
+          {m.email ? (
+            <a
+              href={`mailto:${m.email}`}
+              aria-label={`Email ${m.name}`}
+              className="text-ink-500 transition-colors hover:text-ink-900"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
+          ) : null}
+          {m.linkedin ? (
+            <a
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${m.name} on LinkedIn`}
+              className="text-ink-500 transition-colors hover:text-ink-900"
+            >
+              <LinkedinIcon className="h-5 w-5" />
+            </a>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
 }
 
 export default function TeamPage() {
@@ -103,57 +174,19 @@ export default function TeamPage() {
 
           <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-8 sm:grid-cols-2">
             {team.map((m) => (
-              <div
-                key={m.name}
-                className="flex flex-col items-center rounded-lg border border-border bg-surface p-8 text-center"
-              >
-                {m.img ? (
-                  <Image
-                    src={m.img}
-                    alt={m.name}
-                    width={128}
-                    height={128}
-                    className="mb-4 h-32 w-32 rounded-full border border-border-strong object-cover"
-                  />
-                ) : (
-                  <div
-                    aria-hidden
-                    className="mb-4 flex h-32 w-32 items-center justify-center rounded-full border border-border-strong bg-paper font-mono text-xl font-semibold text-ink-500"
-                  >
-                    {initials(m.name)}
-                  </div>
-                )}
-                <h3 className="text-lg font-semibold text-ink-900">{m.name}</h3>
-                <p className="label mt-1.5 text-ink-500">{m.role}</p>
-                {m.prev ? (
-                  <p className="mt-2 text-sm text-ink-500">{m.prev}</p>
-                ) : null}
-                {m.email || m.linkedin ? (
-                  <div className="mt-4 flex items-center gap-4">
-                    {m.email ? (
-                      <a
-                        href={`mailto:${m.email}`}
-                        aria-label={`Email ${m.name}`}
-                        className="text-ink-500 transition-colors hover:text-ink-900"
-                      >
-                        <Mail className="h-5 w-5" />
-                      </a>
-                    ) : null}
-                    {m.linkedin ? (
-                      <a
-                        href={m.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${m.name} on LinkedIn`}
-                        className="text-ink-500 transition-colors hover:text-ink-900"
-                      >
-                        <LinkedinIcon className="h-5 w-5" />
-                      </a>
-                    ) : null}
-                  </div>
-                ) : null}
-              </div>
+              <PersonCard key={m.name} m={m} />
             ))}
+          </div>
+
+          <div className="mx-auto mt-20 max-w-3xl">
+            <div className="flex justify-center">
+              <Eyebrow>Advisors</Eyebrow>
+            </div>
+            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-5">
+              {advisors.map((m) => (
+                <PersonCard key={m.name} m={m} />
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
