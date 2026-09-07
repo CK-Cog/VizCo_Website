@@ -85,8 +85,17 @@ export default function RootLayout({
                 </Link>
               </div>
             </div>
-            <div className="mt-10 border-t border-border pt-6 text-xs text-ink-500">
-              © {new Date().getFullYear()} VizCo. All rights reserved.
+            <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
+              <p className="text-xs text-ink-500">
+                © {new Date().getFullYear()} VizCo. All rights reserved.
+              </p>
+              <div className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-3 py-1.5 font-mono text-[11px] tracking-wide text-ink-700">
+                <span
+                  aria-hidden
+                  className="inline-block h-2 w-2 rounded-[1px] bg-ink-900"
+                />
+                SOC 2 Type I Certified
+              </div>
             </div>
           </div>
         </footer>
