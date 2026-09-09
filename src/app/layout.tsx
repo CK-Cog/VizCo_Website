@@ -89,13 +89,26 @@ export default function RootLayout({
               <p className="text-xs text-ink-500">
                 © {new Date().getFullYear()} VizCo. All rights reserved.
               </p>
-              <div className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-3 py-1.5 font-mono text-[11px] tracking-wide text-ink-700">
-                <span
-                  aria-hidden
-                  className="inline-block h-2 w-2 rounded-[1px] bg-ink-900"
+              <a
+                href="https://www.aicpa.org/soc4so"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="SOC 2 Type I attestation"
+                className="inline-flex items-center gap-3 transition-opacity hover:opacity-80"
+              >
+                <img
+                  src="/soc2-type1.png"
+                  alt="AICPA SOC for Service Organizations"
+                  width={56}
+                  height={56}
+                  className="h-14 w-14"
                 />
-                SOC 2 Type I Certified
-              </div>
+                <span className="font-mono text-[11px] leading-snug tracking-wide text-ink-700">
+                  SOC 2 Type I
+                  <br />
+                  Attested
+                </span>
+              </a>
             </div>
           </div>
         </footer>
