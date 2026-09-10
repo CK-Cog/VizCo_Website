@@ -1,25 +1,26 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Container, Section, SectionHeading, Mark } from "@/components/ui";
-import { budgetControls } from "@/lib/platform-content";
+import { riskControls } from "@/lib/platform-content";
 
-export default function Budget() {
+export default function RiskEvidence() {
   return (
-    <Section id="budget" className="!py-16 sm:!py-20 bg-surface-subtle">
+    <Section id="risk" className="!py-16 sm:!py-20">
       <Container>
         <SectionHeading
-          eyebrow="Spend optimization"
+          eyebrow="Risk & liability evidence"
           title={
             <>
-              Keep spend tied to approved <Mark>work.</Mark>
+              Prove control when AI creates <Mark>liability.</Mark>
             </>
           }
-          subtitle="Frontier API calls cost real money, and at enterprise scale spend gets away from you fast."
+          subtitle="The evidence enterprises need to adopt AI with accountability."
         />
 
         <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-ink-500 sm:text-lg">
-          VizCo enforces budgetary limits and shows both sides of the picture:
-          who is spending, and what workflows that spend is for.
+          VizCo turns policy decisions into a clear record of exposure, controls
+          in force, and outcomes, so risk is visible before it becomes an
+          incident.
         </p>
 
         <div className="mx-auto mt-8 max-w-3xl">
@@ -29,11 +30,11 @@ export default function Budget() {
                 VizCo
               </span>
               <div className="text-sm font-semibold text-ink-900 sm:text-base">
-                Spend optimization
+                Risk & liability evidence
               </div>
             </div>
             <div className="mt-3 space-y-2">
-              {budgetControls.map((c) => (
+              {riskControls.map((c) => (
                 <div
                   key={c.t}
                   className="flex items-start gap-3 rounded-md border border-border bg-paper px-3 py-2.5 sm:px-4 sm:py-3"
@@ -54,10 +55,10 @@ export default function Budget() {
 
           <div className="mt-6 text-center">
             <Link
-              href="/platform#budget"
+              href="/platform#risk"
               className="inline-flex items-center gap-2 text-sm font-semibold text-ink-900 hover:underline sm:text-base"
             >
-              Spend & usage in depth
+              Risk evidence in depth
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

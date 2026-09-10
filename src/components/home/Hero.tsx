@@ -25,8 +25,8 @@ export default function Hero() {
           </PageTitle>
 
           <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl">
-            Enforce your security and spend policies on every request, before
-            anything leaves your environment.
+            Governance, spend optimization, and risk evidence on every request,
+            before anything leaves your environment.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
@@ -34,8 +34,8 @@ export default function Hero() {
               Book a Demo
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button href="#how" variant="secondary" className="px-7 py-3.5 text-base">
-              See how it works
+            <Button href="#pillars" variant="secondary" className="px-7 py-3.5 text-base">
+              See the pillars
             </Button>
           </div>
         </div>

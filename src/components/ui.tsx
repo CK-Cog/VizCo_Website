@@ -163,4 +163,6 @@ export function Button({
   );
 }
 
-export const CALENDLY_URL = "https://calendly.com/chris-kelly-stanford/1-1";
+export const BOOKING_URL = "https://calendar.app.google/UUfjxJN178KsGvCGA";
+/** @deprecated Use BOOKING_URL */
+export const CALENDLY_URL = BOOKING_URL;
