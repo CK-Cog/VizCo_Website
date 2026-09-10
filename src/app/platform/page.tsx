@@ -16,12 +16,13 @@ import {
   securityControls,
   integrations,
   deployments,
+  riskControls,
 } from "@/lib/platform-content";
 
 export const metadata: Metadata = {
   title: "Platform | VizCo",
   description:
-    "VizCo is the adoption layer for enterprise AI. Enforce security policies and budgets on every request, inside your perimeter.",
+    "VizCo is the adoption layer for enterprise AI. Governance, spend optimization, and risk evidence on every request, inside your perimeter.",
 };
 
 export default function PlatformPage() {
@@ -34,9 +35,9 @@ export default function PlatformPage() {
             The <Mark>adoption layer</Mark> for enterprise AI.
           </PageTitle>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-500 sm:text-xl">
-            VizCo sits between your company and the models. We enforce what data
-            goes out and what it costs, so your enterprise can say yes to
-            frontier AI at scale.
+            VizCo sits between your company and the models. We enforce
+            governance and spend, and produce the risk evidence leadership needs
+            to say yes to frontier AI at scale.
           </p>
           <div className="mt-8">
             <Button href={CALENDLY_URL} external>
@@ -50,7 +51,7 @@ export default function PlatformPage() {
         <Container>
           <SectionHeading
             align="left"
-            eyebrow="Security policy enforcement"
+            eyebrow="AI governance"
             title={
               <>
                 Control what leaves and what AI can <Mark>do.</Mark>
@@ -89,7 +90,7 @@ export default function PlatformPage() {
         <Container>
           <SectionHeading
             align="left"
-            eyebrow="Budget enforcement & usage visibility"
+            eyebrow="Spend optimization"
             title={
               <>
                 Keep spend tied to approved <Mark>work.</Mark>
@@ -129,7 +130,46 @@ export default function PlatformPage() {
         </Container>
       </Section>
 
-      <Section id="integrations" className="!py-16 sm:!py-20 bg-surface-subtle">
+      <Section id="risk" className="!py-16 sm:!py-20 bg-surface-subtle">
+        <Container>
+          <SectionHeading
+            align="left"
+            eyebrow="Risk & liability evidence"
+            title={
+              <>
+                Prove control when AI creates <Mark>liability.</Mark>
+              </>
+            }
+            subtitle="Exposure signals, controls in force, and an auditable trail. Evidence enterprises need to adopt AI with accountability."
+          />
+
+          <ul className="mt-8 max-w-3xl space-y-3">
+            {riskControls.map((c) => (
+              <li key={c.t} className="flex items-start gap-3">
+                <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-ink-900 sm:h-5 sm:w-5" />
+                <div>
+                  <div className="text-sm font-semibold text-ink-900 sm:text-base">
+                    {c.t}
+                  </div>
+                  <p className="mt-0.5 text-sm leading-relaxed text-ink-500">
+                    {c.b}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            href="/#risk"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink-900 hover:underline sm:text-base"
+          >
+            See risk evidence on the homepage
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Container>
+      </Section>
+
+      <Section id="integrations" className="!py-16 sm:!py-20">
         <Container>
           <SectionHeading
             align="left"
@@ -166,7 +206,7 @@ export default function PlatformPage() {
         </Container>
       </Section>
 
-      <Section id="deployment" className="!py-16 sm:!py-20">
+      <Section id="deployment" className="!py-16 sm:!py-20 bg-surface-subtle">
         <Container>
           <SectionHeading
             align="left"

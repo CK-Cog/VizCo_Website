@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vizco.co"),
   title: "VizCo | The Adoption Layer for Enterprise AI",
   description:
-    "VizCo is the adoption layer for enterprise AI. Enforce security and spend policies on every request, before anything leaves your environment.",
+    "VizCo is the adoption layer for enterprise AI. Governance, spend optimization, and risk evidence on every request, before anything leaves your environment.",
   openGraph: {
     title: "VizCo | The Adoption Layer for Enterprise AI",
     description:
-      "Enforce security policies and budgets on every request. Sensitive data is blocked or redacted before it reaches an external model. Spend stays tied to teams, projects, and approved use cases.",
+      "Enforce governance and spend policies on every request. Produce risk evidence for leadership and auditors. Sensitive data stays inside your environment.",
     url: "https://vizco.co",
     siteName: "VizCo",
     type: "website",
@@ -51,8 +51,8 @@ export default function RootLayout({
               <div className="max-w-sm">
                 <Wordmark />
                 <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                  The adoption layer for enterprise AI, deployed in your
-                  environment.
+                  The adoption layer for enterprise AI: governance, spend, and
+                  risk evidence, deployed in your environment.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 font-mono text-[13px] sm:grid-cols-3">

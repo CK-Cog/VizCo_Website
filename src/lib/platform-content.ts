@@ -7,6 +7,7 @@ import {
   Wallet,
   Eye,
   ChartColumn,
+  ShieldCheck,
 } from "lucide-react";
 
 export const securityControls = [
@@ -52,6 +53,24 @@ export const budgetControls = [
     icon: ChartColumn,
     t: "Use by workflow",
     b: "See themes of AI use and which workflows are running, so you know what the spend is for.",
+  },
+];
+
+export const riskControls = [
+  {
+    icon: Eye,
+    t: "Exposure",
+    b: "See sensitive-data exposure and risky behaviour across AI usage and workflows.",
+  },
+  {
+    icon: ShieldCheck,
+    t: "Controls in force",
+    b: "Know which policies actually applied on each request, and whether interventions worked.",
+  },
+  {
+    icon: ScrollText,
+    t: "Evidence trail",
+    b: "An auditable record for leadership, auditors, and risk partners who need proof, not scores.",
   },
 ];
 

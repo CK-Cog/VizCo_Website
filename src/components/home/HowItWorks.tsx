@@ -66,10 +66,10 @@ export default function HowItWorks() {
       <Section id="security" className="!py-16 sm:!py-20">
         <Container>
           <SectionHeading
-            eyebrow="Security policy enforcement"
+            eyebrow="AI governance"
             title={
               <>
-                Security policies we <Mark>enforce.</Mark>
+                Governance policies we <Mark>enforce.</Mark>
               </>
             }
             subtitle="Identity, data, actions, connectivity, and audit, on every call."
@@ -82,7 +82,7 @@ export default function HowItWorks() {
                   VizCo
                 </span>
                 <div className="text-sm font-semibold text-ink-900 sm:text-base">
-                  Security policy enforcement
+                  AI governance
                 </div>
               </div>
               <div className="mt-3 space-y-2">
