@@ -62,19 +62,6 @@ const team: TeamMember[] = [
     email: "mark@vizco.co",
     linkedin: "https://www.linkedin.com/in/markfarrelly64/",
   },
-  {
-    name: "Emily Oprisan",
-    role: "GTM",
-    img: "/Emily.jpg",
-    email: "emily@vizco.co",
-    linkedin: "https://www.linkedin.com/in/emily-oprisan-128796297/",
-  },
-  {
-    name: "Makayla Colombo",
-    role: "GTM",
-    email: "makayla@vizco.co",
-    linkedin: "https://www.linkedin.com/in/makaylacolombo/",
-  },
 ];
 
 const advisors: TeamMember[] = [
