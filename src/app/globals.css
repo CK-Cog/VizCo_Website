@@ -62,6 +62,7 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
 }
 
 html {
@@ -74,6 +75,10 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+.font-editorial {
+  font-family: var(--font-instrument-serif), Georgia, serif;
 }
 
 /* ---- Brand motif: redaction & highlight marks ---- */
@@ -137,11 +142,56 @@ body {
   animation: vizco-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes vizco-flow-signal {
+  0%,
+  8% {
+    left: 0;
+  }
+  25%,
+  33% {
+    left: 33.333%;
+  }
+  50%,
+  58% {
+    left: 66.666%;
+  }
+  75%,
+  92% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes vizco-flow-card {
+  0%,
+  18% {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgb(22 20 15 / 0.1);
+  }
+  25%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgb(22 20 15 / 0);
+  }
+}
+
+.vizco-flow-signal {
+  animation: vizco-flow-signal 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.vizco-flow-card {
+  animation: vizco-flow-card 8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .animate-rise {
+  .animate-rise,
+  .vizco-flow-card,
+  .vizco-flow-signal {
     animation: none;
   }
 }

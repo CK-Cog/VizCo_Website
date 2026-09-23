@@ -1,18 +1,14 @@
 import Hero from "@/components/home/Hero";
-import Pillars from "@/components/home/Pillars";
-import HowItWorks from "@/components/home/HowItWorks";
-import Budget from "@/components/home/Budget";
-import RiskEvidence from "@/components/home/RiskEvidence";
+import MissingLink from "@/components/home/MissingLink";
+import WhoItsFor from "@/components/home/WhoItsFor";
 import ClosingCta from "@/components/home/ClosingCta";
 
 export default function Home() {
   return (
     <main className="bg-paper">
       <Hero />
-      <Pillars />
-      <HowItWorks />
-      <Budget />
-      <RiskEvidence />
+      <MissingLink />
+      <WhoItsFor />
       <ClosingCta />
     </main>
   );

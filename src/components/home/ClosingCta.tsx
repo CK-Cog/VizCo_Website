@@ -1,27 +1,37 @@
 import { ArrowRight } from "lucide-react";
-import { Container, SectionTitle, CALENDLY_URL } from "@/components/ui";
+import {
+  Container,
+  Eyebrow,
+  BOOKING_URL,
+} from "@/components/ui";
 
 export default function ClosingCta() {
   return (
-    <section className="border-t border-border bg-ink-900 py-16 sm:py-20">
+    <section className="border-t border-border bg-paper py-16 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <SectionTitle className="text-paper">
-            VizCo: See it on your workflows.
-          </SectionTitle>
-          <p className="mt-3 text-base leading-relaxed text-brand-100 sm:text-lg">
-            Book a short demo and we&apos;ll walk through security and spend
-            enforcement on the platforms and systems you already run.
-          </p>
-          <div className="mt-8">
+        <div className="mx-auto grid max-w-5xl items-end gap-8 border-y border-border py-10 sm:py-14 md:grid-cols-[1fr_auto]">
+          <div>
+            <div>
+              <Eyebrow>Start a conversation</Eyebrow>
+            </div>
+            <h2 className="font-editorial mt-4 max-w-2xl text-balance text-4xl leading-[1] tracking-[-0.02em] text-ink-900 sm:text-5xl lg:text-6xl">
+              Bring us one AI <span className="italic">workflow.</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-500 sm:text-lg">
+              Show us what the AI does, the data and tools it can access, and
+              the outcome you need covered. We&apos;ll show you what it takes
+              to make that deployment insurable.
+            </p>
+          </div>
+          <div>
             <a
-              href={CALENDLY_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-paper px-7 py-3.5 text-base font-semibold text-ink-900 transition-colors hover:bg-white"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-ink-900 px-7 py-3.5 text-base font-semibold text-paper transition-colors hover:bg-black md:w-auto"
             >
-              Book a Demo
-              <ArrowRight className="h-4 w-4 text-ink-900" />
+              Talk to us
+              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
