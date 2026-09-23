@@ -53,7 +53,7 @@ export default function WhoItsFor() {
             return (
             <article
               key={path.label}
-              className={`flex flex-col border p-6 sm:p-8 md:min-h-[34rem] ${
+              className={`flex flex-col border p-6 sm:p-7 ${
                 dark
                   ? "border-ink-900 bg-ink-900 text-paper"
                   : "border-border-strong bg-surface text-ink-900"
@@ -79,17 +79,17 @@ export default function WhoItsFor() {
               </div>
 
               <p
-                className={`mt-10 font-mono text-[10px] uppercase tracking-[0.16em] ${
+                className={`mt-7 font-mono text-[10px] uppercase tracking-[0.16em] ${
                   dark ? "text-paper/55" : "text-ink-500"
                 }`}
               >
                 {path.label}
               </p>
-              <h3 className="mt-3 max-w-md text-3xl font-semibold leading-[1.08] tracking-[-0.025em]">
+              <h3 className="mt-2 max-w-md text-3xl font-semibold leading-[1.08] tracking-[-0.025em]">
                 {path.title}
               </h3>
               <p
-                className={`mt-4 max-w-md text-base leading-relaxed ${
+                className={`mt-3 max-w-md text-base leading-relaxed ${
                   dark ? "text-paper/65" : "text-ink-700"
                 }`}
               >
@@ -97,7 +97,7 @@ export default function WhoItsFor() {
               </p>
 
               <div
-                className={`mt-10 border md:mt-auto ${
+                className={`mt-8 border ${
                   dark
                     ? "border-paper/15 bg-paper/[0.04]"
                     : "border-border bg-paper"
