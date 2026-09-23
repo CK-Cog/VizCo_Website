@@ -142,47 +142,24 @@ body {
   animation: vizco-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes vizco-flow-signal {
+@keyframes vizco-loop-progress {
   0%,
-  8% {
-    left: 0;
+  12% {
+    width: 0;
   }
-  25%,
-  33% {
-    left: 33.333%;
+  18%,
+  32% {
+    width: 100%;
   }
-  50%,
-  58% {
-    left: 66.666%;
-  }
-  75%,
-  92% {
-    left: 100%;
-  }
+  38%,
   100% {
-    left: 0;
+    width: 0;
   }
 }
 
-@keyframes vizco-flow-card {
-  0%,
-  18% {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgb(22 20 15 / 0.1);
-  }
-  25%,
-  100% {
-    transform: translateY(0);
-    box-shadow: 0 0 0 rgb(22 20 15 / 0);
-  }
-}
-
-.vizco-flow-signal {
-  animation: vizco-flow-signal 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-.vizco-flow-card {
-  animation: vizco-flow-card 8s ease-in-out infinite;
+.vizco-loop-progress {
+  width: 0;
+  animation: vizco-loop-progress 10s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -190,8 +167,7 @@ body {
     scroll-behavior: auto;
   }
   .animate-rise,
-  .vizco-flow-card,
-  .vizco-flow-signal {
+  .vizco-loop-progress {
     animation: none;
   }
 }

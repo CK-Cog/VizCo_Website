@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Container, Button, BOOKING_URL } from "@/components/ui";
-import DeploymentFlow from "@/components/home/DeploymentFlow";
+import EvidenceLoop from "@/components/home/EvidenceLoop";
 
 const interventions = [
   ["Baseline", "Uncontrolled exposure"],
@@ -200,8 +200,8 @@ export default function Hero() {
 
           <div className="mt-7 grid max-w-4xl gap-7 sm:grid-cols-[1fr_auto] sm:items-end">
             <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-700 sm:text-xl">
-              VizCo assesses each AI deployment, recommends the guardrails that
-              reduce risk, and provides verified evidence for underwriting.
+              Understand the risk in each AI deployment and build the evidence
+              insurers need.
             </p>
             <Button
               href={BOOKING_URL}
@@ -213,7 +213,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <DeploymentFlow />
+        <EvidenceLoop />
       </Container>
     </section>
   );

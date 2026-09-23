@@ -17,9 +17,8 @@ export default function ClosingCta() {
               Bring us one AI <span className="italic">deployment.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-700 sm:text-lg">
-              Show us what it does, the data and tools it can access, and the
-              outcome you need covered. We&apos;ll show you what it takes to
-              make the deployment insurable.
+              We&apos;ll show you where the risk sits and what evidence is
+              missing.
             </p>
           </div>
           <div>
