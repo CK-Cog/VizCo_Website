@@ -30,7 +30,7 @@ const paths = [
 
 export default function WhoItsFor() {
   return (
-    <Section id="cover" className="bg-paper !py-16 sm:!py-20">
+    <Section id="cover" className="bg-paper !py-16">
       <Container>
         <div className="mx-auto max-w-5xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">

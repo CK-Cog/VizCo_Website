@@ -188,7 +188,7 @@ export default function Hero() {
         }}
       />
 
-      <Container className="relative pb-8 pt-20 sm:pb-12 sm:pt-28">
+      <Container className="relative pb-0 pt-20 sm:pt-28">
         <div className="max-w-4xl animate-rise">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
             Insurance for AI deployments
