@@ -4,26 +4,26 @@ import { Container, Section } from "@/components/ui";
 const paths = [
   {
     audience: "For AI providers",
-    label: "AI Guarantee",
-    title: "Back the outcome you promise.",
-    body: "Give customers confidence that the AI product or service you deliver will meet an agreed performance commitment.",
+    label: "AI Guarantee readiness",
+    title: "Support the outcome you promise.",
+    body: "Give customers clearer evidence that the AI product or service you deliver has been assessed against an agreed performance commitment.",
     source: "AI product",
     sourceDetail: "You deliver",
     target: "Agreed outcome",
     targetDetail: "Customer expects",
-    response: "Backs the performance promise",
+    response: "Evidence for performance backing",
     dark: false,
   },
   {
     audience: "For enterprises",
-    label: "AI Liability",
-    title: "Cover what your AI says and does.",
-    body: "Protect the business from liability created by an AI deployment when existing policies exclude or do not address the exposure.",
+    label: "AI Liability readiness",
+    title: "Prepare AI risk for underwriting.",
+    body: "Give insurers a clearer view of the liability created by what an AI deployment says and does.",
     source: "AI deployment",
     sourceDetail: "You operate",
-    target: "Output or action",
-    targetDetail: "Creates exposure",
-    response: "Covers the resulting liability",
+    target: "Liability exposure",
+    targetDetail: "Measured and verified",
+    response: "Evidence for liability underwriting",
     dark: true,
   },
 ];
@@ -37,12 +37,12 @@ export default function WhoItsFor() {
             Who it is for
           </p>
           <h2 className="font-editorial mt-4 max-w-4xl text-balance text-4xl leading-[1] tracking-[-0.02em] text-ink-900 sm:text-5xl lg:text-6xl">
-            Cover for the AI you sell and{" "}
+            Evidence for the AI you sell and{" "}
             <span className="italic">operate.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-700">
-            Two paths to protection, each built around evidence from the
-            deployment itself.
+            Two insurance pathways, built on the same deployment-level
+            evidence.
           </p>
         </div>
 
