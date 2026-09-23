@@ -18,7 +18,7 @@ export default function DeploymentFlow() {
       id="how"
       className="relative mx-auto mt-16 max-w-6xl scroll-mt-24 border-y border-border bg-surface/80 sm:mt-20"
     >
-      <div className="grid gap-4 border-b border-border bg-paper/80 px-5 py-5 sm:px-7 lg:grid-cols-[1fr_auto] lg:items-end">
+      <div className="border-b border-border bg-paper/80 px-5 py-5 sm:px-7 sm:py-7">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
             How it works
@@ -27,7 +27,7 @@ export default function DeploymentFlow() {
             From gap analysis to insurance.
           </h2>
         </div>
-        <p className="max-w-md text-base leading-relaxed text-ink-700 sm:text-lg lg:text-right">
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink-700 sm:text-lg">
           Assess the deployment, identify the right guardrails, verify the
           reduction in risk, and take the evidence to underwriting.
         </p>
