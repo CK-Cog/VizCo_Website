@@ -3,13 +3,13 @@ import { ArrowLeftRight, Check, RefreshCw } from "lucide-react";
 const gaps = [
   "Autonomous decisions",
   "Sensitive data exposure",
-  "Unrestricted tool access",
+  "Unrestricted actions",
 ];
 
 const guardrails = [
   ["Human review", "High-impact actions"],
   ["Data boundaries", "Sensitive context"],
-  ["Action limits", "Tools and permissions"],
+  ["Tool limits", "Actions and permissions"],
 ];
 
 export default function DeploymentFlow() {
@@ -23,13 +23,13 @@ export default function DeploymentFlow() {
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
             How it works
           </p>
-          <h2 className="font-editorial mt-2 text-3xl leading-none tracking-[-0.02em] text-ink-900 sm:text-4xl">
-            From risk assessment to insurance.
+          <h2 className="font-editorial mt-4 max-w-3xl text-balance text-4xl leading-[1] tracking-[-0.02em] text-ink-900 sm:text-5xl lg:text-6xl">
+            From gap analysis to insurance.
           </h2>
         </div>
-        <p className="max-w-md text-sm leading-relaxed text-ink-500 lg:text-right">
-          One workflow at a time: find the gaps, add the right guardrails,
-          verify the change, and take the evidence to underwriting.
+        <p className="max-w-md text-base leading-relaxed text-ink-700 sm:text-lg lg:text-right">
+          Assess the deployment, identify the right guardrails, verify the
+          reduction in risk, and take the evidence to underwriting.
         </p>
       </div>
 
@@ -46,10 +46,10 @@ export default function DeploymentFlow() {
           style={{ animationDelay: "0s" }}
         >
           <StepHeader number="1" label="01 · Assess" dark />
-          <Metric label="Initial exposure" value="High" dark />
+          <Metric label="Baseline risk" value="High" dark />
           <div className="mt-auto border-t border-paper/15 pt-4">
             <p className="mb-3 text-xs font-semibold text-paper/70">
-              3 material gaps found
+              3 liability gaps found
             </p>
             <ul className="space-y-2.5">
               {gaps.map((gap, index) => (
@@ -66,11 +66,11 @@ export default function DeploymentFlow() {
           className="vizco-flow-card relative flex min-h-[19rem] flex-col border border-border-strong bg-paper p-5 text-ink-900"
           style={{ animationDelay: "2s" }}
         >
-          <StepHeader number="2" label="02 · Safeguard" />
-          <Metric label="Gap analysis" value="3 actions" />
+          <StepHeader number="2" label="02 · Identify" />
+          <Metric label="Gap analysis" value="3 guardrails" />
           <div className="mt-auto border-t border-border pt-4">
             <p className="mb-3 text-xs font-semibold text-ink-700">
-              Guardrails for this workflow
+              Required for this deployment
             </p>
             <ul className="space-y-2.5">
               {guardrails.map(([title, detail]) => (
@@ -91,10 +91,10 @@ export default function DeploymentFlow() {
           style={{ animationDelay: "4s" }}
         >
           <StepHeader number="3" label="03 · Verify" dark />
-          <Metric label="Reassessed exposure" value="Lower" dark />
+          <Metric label="Residual risk" value="Lower" dark />
           <div className="mt-auto border-t border-paper/15 pt-4">
             <p className="mb-3 text-xs font-semibold text-paper/70">
-              Controls confirmed
+              Guardrails verified
             </p>
             <ul className="space-y-2.5">
               {guardrails.map(([title]) => (
@@ -113,18 +113,18 @@ export default function DeploymentFlow() {
         </article>
 
         <article
-          className="vizco-flow-card relative flex min-h-[19rem] flex-col border border-border-strong bg-surface p-5 text-ink-900"
+          className="vizco-flow-card relative flex min-h-[19rem] flex-col border border-border-strong border-t-4 border-t-accent bg-surface p-5 pt-4 text-ink-900"
           style={{ animationDelay: "6s" }}
         >
           <StepHeader number="4" label="04 · Underwrite" accent />
-          <Metric label="Evidence package" value="Ready" />
+          <Metric label="Underwriting status" value="Ready" />
           <div className="mt-auto border-t border-border pt-4">
             <p className="text-base font-semibold leading-snug text-ink-900">
-              Coverage shaped by the evidence.
+              Evidence that supports coverage.
             </p>
             <p className="mt-2 text-xs leading-relaxed text-ink-500">
               Underwriters see the deployment, its guardrails, and the
-              resulting reduction in risk.
+              verified reduction in risk.
             </p>
           </div>
         </article>
@@ -136,11 +136,12 @@ export default function DeploymentFlow() {
             </span>
             <div>
               <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-ink-700">
-                Continuous assessment
+                Continuous reassessment
               </p>
               <p className="mt-1 max-w-xl text-xs leading-relaxed text-ink-500">
-                A new model, dataset, tool, or permission triggers another
-                assessment, so the insurance evidence stays current.
+                When a model, dataset, tool, or permission changes, VizCo
+                reassesses the deployment and updates the underwriting
+                evidence.
               </p>
             </div>
           </div>
@@ -159,7 +160,7 @@ export default function DeploymentFlow() {
             </span>
             <div className="text-center">
               <p className="text-xs font-semibold text-ink-900">
-                Insurance evidence
+                Underwriting evidence
               </p>
               <p className="mt-0.5 text-[10px] text-ink-500">
                 Reassessed · updated
@@ -225,7 +226,9 @@ function Metric({
       >
         {label}
       </p>
-      <p className="font-editorial mt-1 text-5xl leading-none">{value}</p>
+      <p className="mt-2 text-4xl font-semibold leading-none tracking-[-0.04em]">
+        {value}
+      </p>
     </div>
   );
 }

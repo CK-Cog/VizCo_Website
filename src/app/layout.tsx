@@ -23,13 +23,13 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vizco.co"),
-  title: "VizCo | Making AI Deployments Insurable",
+  title: "VizCo | AI Deployment Insurance",
   description:
-    "VizCo finds the gaps in each AI workflow, shows what closes them, and turns verified risk reduction into better coverage.",
+    "VizCo finds liability gaps in AI deployments, identifies the guardrails that reduce risk, and verifies their impact for underwriting.",
   openGraph: {
-    title: "VizCo | Making AI Deployments Insurable",
+    title: "VizCo | AI Deployment Insurance",
     description:
-      "AI insurance should reward better controls.",
+      "Make your AI deployment insurable.",
     url: "https://vizco.co",
     siteName: "VizCo",
     type: "website",
