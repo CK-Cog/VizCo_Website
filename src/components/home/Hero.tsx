@@ -188,21 +188,20 @@ export default function Hero() {
         }}
       />
 
-      <Container className="relative pb-16 pt-20 sm:pb-24 sm:pt-28">
+      <Container className="relative pb-8 pt-20 sm:pb-12 sm:pt-28">
         <div className="max-w-4xl animate-rise">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
             Insurance for AI deployments
           </p>
           <h1 className="font-editorial max-w-4xl text-balance text-5xl leading-[0.95] tracking-[-0.025em] text-ink-900 sm:text-7xl lg:text-[5.75rem]">
-            Insurance for the AI you{" "}
-            <span className="italic">build and run.</span>
+            Make your AI deployment{" "}
+            <span className="italic">insurable.</span>
           </h1>
 
           <div className="mt-7 grid max-w-4xl gap-7 sm:grid-cols-[1fr_auto] sm:items-end">
-            <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-500 sm:text-xl">
-              VizCo finds the gaps that create liability, identifies the
-              guardrails that close them, and verifies the evidence needed to
-              insure each deployment.
+            <p className="max-w-2xl text-pretty text-lg leading-relaxed text-ink-700 sm:text-xl">
+              VizCo assesses each deployment and shows underwriters how
+              verified guardrails change its risk.
             </p>
             <Button
               href={BOOKING_URL}
