@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Link from "next/link";
 import Wordmark from "@/components/Wordmark";
 import SiteHeader from "@/components/SiteHeader";
@@ -15,15 +15,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://vizco.co"),
-  title: "VizCo | The Adoption Layer for Enterprise AI",
+  title: "VizCo | Making AI Deployments Insurable",
   description:
-    "VizCo is the adoption layer for enterprise AI. Governance, spend optimization, and risk evidence on every request, before anything leaves your environment.",
+    "VizCo finds the gaps in each AI workflow, shows what closes them, and turns verified risk reduction into better coverage.",
   openGraph: {
-    title: "VizCo | The Adoption Layer for Enterprise AI",
+    title: "VizCo | Making AI Deployments Insurable",
     description:
-      "Enforce governance and spend policies on every request. Produce risk evidence for leadership and auditors. Sensitive data stays inside your environment.",
+      "AI insurance should reward better controls.",
     url: "https://vizco.co",
     siteName: "VizCo",
     type: "website",
@@ -38,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-paper text-ink-900 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} bg-paper text-ink-900 antialiased`}
       >
         <SiteHeader />
 
@@ -51,25 +57,12 @@ export default function RootLayout({
               <div className="max-w-sm">
                 <Wordmark />
                 <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                  The adoption layer for enterprise AI: governance, spend, and
-                  risk evidence, deployed in your environment.
+                  Making AI deployments insurable.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 font-mono text-[13px] sm:grid-cols-3">
-                <Link
-                  href="/platform"
-                  className="text-ink-500 hover:text-ink-900"
-                >
-                  Platform
-                </Link>
+              <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 font-mono text-[13px]">
                 <Link href="/team" className="text-ink-500 hover:text-ink-900">
                   Team
-                </Link>
-                <Link href="/careers" className="text-ink-500 hover:text-ink-900">
-                  Careers
-                </Link>
-                <Link href="/blog" className="text-ink-500 hover:text-ink-900">
-                  Blog
                 </Link>
                 <Link
                   href="/privacy-policy"

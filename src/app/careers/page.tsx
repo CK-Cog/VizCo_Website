@@ -4,7 +4,7 @@ import { Container, Section, Button, Eyebrow, Mark, PageTitle } from "@/componen
 export const metadata: Metadata = {
   title: "Careers | VizCo",
   description:
-    "Join VizCo to build the adoption layer for enterprise AI: security policy enforcement and budget visibility, deployed inside your environment.",
+    "Join VizCo to make AI deployments insurable: assess agents, close gaps, and broker continuous evidence for cover.",
 };
 
 const APPLY_URL =
@@ -19,12 +19,12 @@ export default function CareersPage() {
           <header className="space-y-3">
             <Eyebrow>Careers</Eyebrow>
             <PageTitle>
-              Make AI safe for the <Mark>enterprise.</Mark>
+              Make AI <Mark>insurable.</Mark>
             </PageTitle>
             <p className="max-w-2xl text-lg text-ink-500">
-              We&apos;re building the adoption layer for enterprise AI:
-              security policy enforcement and budget enforcement with usage
-              visibility, so leadership can say yes to frontier models at scale.
+              We&apos;re making AI deployments insurable: scan every agent,
+              close the gaps, and broker continuous evidence so cover matches
+              what runs.
             </p>
           </header>
 
@@ -33,11 +33,11 @@ export default function CareersPage() {
             {[
               {
                 t: "What we do",
-                b: "Security policy enforcement and budget enforcement with usage visibility. Sensitive data is blocked or redacted before it reaches an external model. Spend stays tied to teams, projects, and approved use cases. Enforced inside your perimeter.",
+                b: "Independent gap analysis for AI liability and AI guarantees. Per-agent scores, which guardrails cut risk, and continuous requalification as deployments change.",
               },
               {
                 t: "Why it matters",
-                b: "Enterprises want frontier models but need control over data, actions, and cost. We are the layer that lets leadership say yes to AI at scale.",
+                b: "Carriers are excluding AI they cannot price. Operators own what their agents say and do. Evidence is what makes cover possible.",
               },
               {
                 t: "Stage",

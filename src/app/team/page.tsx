@@ -19,7 +19,7 @@ function LinkedinIcon({ className = "" }: { className?: string }) {
 
 export const metadata: Metadata = {
   title: "Team | VizCo",
-  description: "Meet the team building the adoption layer for enterprise AI.",
+  description: "Meet the team making AI deployments insurable.",
 };
 
 type TeamMember = {

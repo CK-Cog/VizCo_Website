@@ -1,99 +1,122 @@
-import {
-  Fingerprint,
-  Plug,
-  ScrollText,
-  Database,
-  Bot,
-  Wallet,
-  Eye,
-  ChartColumn,
-  ShieldCheck,
-} from "lucide-react";
-
-export const securityControls = [
+export const scanObservations = [
   {
-    icon: Fingerprint,
-    t: "Policy & Identity",
-    b: "Roles, permissions, and approvals enforced before any call runs.",
+    t: "Models and vendors",
+    b: "Which models and vendors are in use for the agent under assessment.",
   },
   {
-    icon: Database,
-    t: "Data Control",
-    b: "Sensitive fields are blocked or redacted before they ever reach an external model.",
+    t: "Data and tool access",
+    b: "What data stores and tools the agent can reach, and with what permissions.",
   },
   {
-    icon: Bot,
-    t: "Agent & Action Control",
-    b: "Constrain read, write, send, edit, and delete actions across systems.",
+    t: "Public exposure",
+    b: "Whether the agent is customer-facing or otherwise exposed outside the tenant.",
   },
   {
-    icon: Plug,
-    t: "Secure Connectivity",
-    b: "Reach internal systems without exposing credentials or keys outside your walls.",
+    t: "Autonomy thresholds",
+    b: "Where the agent decides alone, and where human review is required.",
   },
   {
-    icon: ScrollText,
-    t: "Audit Trail",
-    b: "Every call, policy decision, action, and data outcome logged on your infrastructure.",
+    t: "Guardrails in place",
+    b: "Segmentation, access control, and other controls already attached to the workflow.",
+  },
+  {
+    t: "Evaluation history",
+    b: "Performance and evaluation records that back how the agent has behaved.",
   },
 ];
 
-export const budgetControls = [
+export const scoreStreams = [
   {
-    icon: Wallet,
-    t: "Budget limits",
-    b: "Set budgets by team, project, or use case. Limits are enforced on every request.",
+    t: "Static analysis, per release",
+    b: "Code, permissions, gated capabilities, and guardrails. Read only.",
   },
   {
-    icon: Eye,
-    t: "Spend by owner",
-    b: "See cost by team, project, and model, so you know who is spending what.",
+    t: "Action and admin logs",
+    b: "What each agent did, who changed what and when. Past data counts.",
   },
   {
-    icon: ChartColumn,
-    t: "Use by workflow",
-    b: "See themes of AI use and which workflows are running, so you know what the spend is for.",
+    t: "Measured outcomes",
+    b: "The risks you want covered, in numbers: how much sensitive data actually reached a model.",
   },
 ];
 
-export const riskControls = [
+export const underwriterGets = [
   {
-    icon: Eye,
-    t: "Exposure",
-    b: "See sensitive-data exposure and risky behaviour across AI usage and workflows.",
+    t: "Explainable",
+    b: "Every point on the score traces to an observation, not a form answer.",
   },
   {
-    icon: ShieldCheck,
-    t: "Controls in force",
-    b: "Know which policies actually applied on each request, and whether interventions worked.",
+    t: "Comparable",
+    b: "Benchmarked against similar agents.",
   },
   {
-    icon: ScrollText,
-    t: "Evidence trail",
-    b: "An auditable record for leadership, auditors, and risk partners who need proof, not scores.",
+    t: "Calibrated",
+    b: "Tightens as observed losses accumulate.",
+  },
+  {
+    t: "Provable at claim time",
+    b: "What was in place at the moment it happened.",
   },
 ];
 
-export const integrations = [
-  { name: "ChatGPT", logo: "/chatgpt_logo.svg" },
-  { name: "Claude", logo: "/claude_logo.svg" },
-  { name: "Gemini", logo: "/gemini_logo.svg" },
-  { name: "Microsoft 365", logo: "/microsoft_365_logo.svg" },
-  { name: "AWS", logo: "/aws_logo.svg" },
-  { name: "Google Cloud", logo: "/gcp_logo.svg" },
+export const gapLoop = [
+  {
+    t: "Gap analysis",
+    b: "For this deployment: which guardrails to adopt, how much each one cuts risk, and how that supports coverage.",
+  },
+  {
+    t: "Rescan",
+    b: "Confirm the guardrails are in and the risk score is lower. Measured change, not a checklist.",
+  },
+  {
+    t: "Insure",
+    b: "VizCo brokers that evidence to carriers. Lower measured risk supports cover that matches what runs.",
+  },
 ];
 
-export const deployments = [
+export const coveragePerils = [
   {
-    title: "Cloud",
-    body: "Deploy in your cloud account. Policies and budgets are enforced inside your perimeter.",
+    peril: "Sensitive data leaks through an agent",
+    looks: "Client data or contract terms reach a model or leave the tenant",
+    party: "First and third party",
   },
   {
-    title: "On-prem",
-    body: "Run VizCo on your own infrastructure, next to the systems and data you already govern.",
+    peril: "Agent acts beyond scope",
+    looks: "Wrong payment, deleted records, an unauthorized send",
+    party: "First party",
   },
   {
-    title: "Air-gapped",
-    body: "Operate in disconnected environments where sensitive workflows never leave your network.",
+    peril: "Wrong output relied upon",
+    looks: "A hallucinated answer becomes a customer claim",
+    party: "Third party",
+  },
+  {
+    peril: "Regulatory action on AI use",
+    looks: "Defense costs and, where insurable, fines",
+    party: "First party",
+  },
+  {
+    peril: "Underperformance against a promise",
+    looks: "The AI guarantee pays your client when the agent misses agreed performance",
+    party: "First party, paid to your client",
+  },
+];
+
+export const independence = [
+  {
+    t: "Guardrail impact, not a stack",
+    b: "We show how adopting specific guardrails changes risk for your deployment. We do not replace your governance tools.",
+  },
+  {
+    t: "Carrier agnostic",
+    b: "We broker evidence to carriers rather than sell one carrier's policy.",
+  },
+  {
+    t: "Read only",
+    b: "Nothing installed in the workflow, nothing changed, no active testing.",
+  },
+  {
+    t: "In your environment",
+    b: "VizCo runs in your VPC or on-prem. Your releases and logs stay inside your perimeter.",
   },
 ];
