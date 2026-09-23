@@ -6,9 +6,9 @@ import {
 
 export default function ClosingCta() {
   return (
-    <section className="border-t border-border bg-paper py-16 sm:py-20">
+    <section className="border-t border-border bg-paper py-16">
       <Container>
-        <div className="mx-auto grid max-w-5xl items-end gap-8 border-y border-border py-10 sm:py-14 md:grid-cols-[1fr_auto]">
+        <div className="mx-auto grid max-w-5xl items-end gap-8 md:grid-cols-[1fr_auto]">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
               Start a conversation

@@ -2,7 +2,7 @@ import { Container, Section } from "@/components/ui";
 
 export default function MissingLink() {
   return (
-    <Section className="bg-surface !py-16 sm:!py-20">
+    <Section className="bg-surface !py-16">
       <Container>
         <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <div>
