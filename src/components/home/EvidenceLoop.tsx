@@ -34,7 +34,7 @@ export default function EvidenceLoop() {
       id="how"
       className="relative mx-auto mt-16 max-w-6xl scroll-mt-24 border-y border-border bg-paper/80 sm:mt-20"
     >
-      <div className="px-5 py-8 sm:px-7 sm:py-10">
+      <div className="px-5 pb-5 pt-8 sm:px-7 sm:pb-6 sm:pt-10">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
           How it works
         </p>
@@ -43,7 +43,7 @@ export default function EvidenceLoop() {
         </h2>
       </div>
 
-      <div className="grid gap-x-5 gap-y-8 border-t border-border px-5 py-8 sm:grid-cols-2 sm:px-7 lg:grid-cols-5 lg:py-10">
+      <div className="grid gap-x-5 gap-y-8 px-5 pb-8 pt-4 sm:grid-cols-2 sm:px-7 sm:pt-5 lg:grid-cols-5 lg:pb-10">
         {steps.map((step, index) => (
           <article
             key={step.number}
