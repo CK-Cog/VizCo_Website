@@ -23,7 +23,7 @@ export default function SilentAiPost() {
         <Cite s="csis" />
       </p>
       <p>
-        <strong>Silence isn&apos;t cover.</strong> It&apos;s an assumption that has never been tested.
+        <strong>Silence isn&apos;t cover.</strong> It&apos;s an untested assumption.
       </p>
 
       <h2>Why silence is a risk</h2>
@@ -45,29 +45,18 @@ export default function SilentAiPost() {
 
       <h2>We&apos;ve been here before</h2>
       <p>
-        Insurance has met silence before. In 2017, UK regulators told insurers to manage the cyber risk sitting in policies that never mentioned
-        it.
-        <Cite s="pra2017" />
-      </p>
-      <p>
-        In January 2019 they wrote to insurers&apos; chief executives again, warning that many had still not worked out their exposure.
-        <Cite s="pra2019" />
-      </p>
-      <p>
-        The lesson for buyers: silence is something insurers and regulators work to remove. When it goes, it goes one of two ways. The policy
-        either covers the risk by name, or writes it out.
+        UK regulators told insurers in 2017 to manage the cyber risk sitting silently in their policies
+        <Cite s="pra2017" />, and in 2019 warned that many still hadn&apos;t worked out their exposure.
+        <Cite s="pra2019" /> Silence gets removed. When it goes, the policy either names the risk or writes it out.
       </p>
 
       <h2>What to do about it</h2>
       <ul>
         <li>
-          <strong>List the AI you rely on,</strong> including AI built into software you buy.
+          <strong>List the AI you rely on,</strong> including AI inside software you buy.
         </li>
         <li>
-          <strong>Ask in writing</strong> whether each policy responds to a loss caused by that AI.
-        </li>
-        <li>
-          <strong>Read your renewal</strong> for any new page that mentions artificial intelligence.
+          <strong>Ask in writing</strong> whether each policy pays for a loss caused by it.
         </li>
         <li>
           <strong>Replace silence with cover that names AI.</strong> That&apos;s what we place.

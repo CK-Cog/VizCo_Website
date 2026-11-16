@@ -23,7 +23,7 @@ export default function ExclusionsPost() {
         <Cite s="insuranceBusiness" />
       </p>
       <p>
-        Regulators have mostly let it through. More than 80% of insurers&apos; requests to exclude AI had been approved by April 2026.
+        More than 80% of insurers&apos; requests to exclude AI had been approved by April 2026.
         <Cite s="csis" />
       </p>
 
@@ -46,41 +46,12 @@ export default function ExclusionsPost() {
           <strong>It reaches AI you buy,</strong> through a vendor or software you already pay for.
           <Cite s="moneyGeek" />
         </li>
-        <li>
-          <strong>It isn&apos;t universal.</strong> It&apos;s optional, so it varies by insurer, state and renewal date.
-          <Cite s="moneyGeek" />
-        </li>
-      </ul>
-
-      <h2>Five things to check before you sign</h2>
-      <ul>
-        <li>
-          <strong>Find the extra pages.</strong> Look for anything added that mentions artificial intelligence, machine learning or automated
-          systems.
-        </li>
-        <li>
-          <strong>Read the definition.</strong> How broadly does it define AI? The standard wording reaches most AI in use today.
-        </li>
-        <li>
-          <strong>Read the trigger.</strong> &ldquo;Arising out of&rdquo; or &ldquo;directly or indirectly&rdquo; means any connection to AI can be
-          enough.
-        </li>
-        <li>
-          <strong>Count the AI you buy in.</strong> Chatbots, copilots and AI features in your software count, not only AI you build.
-        </li>
-        <li>
-          <strong>Check your contracts.</strong> What have you promised customers you&apos;ll pay if your AI gets something wrong?
-        </li>
       </ul>
 
       <h2>If you find one</h2>
       <p>
-        An exclusion doesn&apos;t have to leave you exposed. Insurers write out what they can&apos;t assess, and the core problem with AI is that they
-        can&apos;t see how it&apos;s built, governed or controlled.
-        <Cite s="csis" />
-      </p>
-      <p>
-        <strong>Evidence changes that.</strong> We put your AI on record for insurers, and place AI liability cover written for it.
+        Insurers write out what they can&apos;t see.
+        <Cite s="csis" /> <strong>Evidence changes that.</strong> We put your AI on record for insurers, and place cover written for it.
       </p>
     </Article>
   );

@@ -23,7 +23,7 @@ export default function InsightsPage() {
             What&apos;s changing in <Em>AI risk.</Em>
           </>
         }
-        sub="Short, sourced reads for the people who buy insurance. Every claim links to its source."
+        sub="Short, sourced reads on AI risk."
       />
 
       <Section className="pt-0 sm:pt-0">
@@ -34,7 +34,7 @@ export default function InsightsPage() {
               Guide
             </p>
             <p className="font-display mt-5 max-w-3xl text-balance text-3xl leading-tight sm:text-5xl">The AI insurance problem: exclusions and silent AI</p>
-            <p className="mt-4 max-w-2xl text-ink/70">The full picture, with every source, and a renewal checklist.</p>
+            <p className="mt-4 max-w-2xl text-ink/70">The full picture, with every source.</p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm underline decoration-signal decoration-2 underline-offset-[6px]">
               Read the guide
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
