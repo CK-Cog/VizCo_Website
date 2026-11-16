@@ -80,7 +80,7 @@ The only expected hits are in `the-problem` (the 2017 UK cyber-risk precedent an
 ## Still to do
 
 - Pick the final accent colour (orange, electric blue or acid lime were compared).
-- Tanay's team photo, and a one-line credential for each advisor.
+- A one-line credential for each advisor.
 - Licence and registration details for the footer.
 - A privacy policy for the website itself. The current one covers the VizCo Chat OAuth app only.
 - The company LinkedIn URL, to add as `sameAs` in the Organization schema.

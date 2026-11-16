@@ -26,7 +26,9 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Tanay Baswa",
-    role: "Founding Engineer",
+    role: "Co-Founder & Head of Product",
+    prev: "Previously UC Berkeley, Enkrypt AI",
+    img: "/Tanay.png",
     email: "tanay@vizco.co",
     linkedin: "https://www.linkedin.com/in/tanaybaswa/",
   },
@@ -40,7 +42,7 @@ export const TEAM: TeamMember[] = [
   },
 ];
 
-export const FOUNDERS = TEAM.slice(0, 2);
+export const FOUNDERS = TEAM.filter((m) => m.role.startsWith("Co-Founder"));
 
 export const ADVISORS: TeamMember[] = [
   {
