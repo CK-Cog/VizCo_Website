@@ -21,7 +21,6 @@ export default function TrendsPost() {
         The AI Incident Database recorded 362 AI incidents in 2025, up from 233 in 2024.
         <Cite s="aiIndex" />
       </p>
-      <p>As AI moves from answering questions to taking actions, a mistake stops being embarrassing and starts being a loss.</p>
 
       <h2>2. AI is getting harder to see into</h2>
       <p>
@@ -29,8 +28,7 @@ export default function TrendsPost() {
         <Cite s="aiIndex" />
       </p>
       <p>
-        That matters for cover. Insurers need to see a risk to insure it, and generative AI fails three of nine standard tests of insurability
-        outright, and strains five more.
+        Insurers need to see a risk to insure it. Generative AI fails three of nine standard tests of insurability.
         <Cite s="csis" />
       </p>
 
@@ -75,10 +73,9 @@ export default function TrendsPost() {
 
       <h2>What it means for you</h2>
       <p>
-        <strong>Liability for AI is growing at the same time as the cover for it is shrinking.</strong> The businesses that stay insured will be
-        the ones that can show insurers how their AI works.
+        <strong>Liability for AI is growing while cover for it shrinks.</strong> The businesses that stay insured will be the ones that can show
+        insurers how their AI works.
       </p>
-      <p>Start with two things: a list of the AI you run and buy, and a careful read of your next renewal.</p>
     </Article>
   );
 }

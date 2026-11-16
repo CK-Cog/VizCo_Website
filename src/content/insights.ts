@@ -19,17 +19,17 @@ export const INSIGHTS: Insight[] = [
     published: "2026-11-16",
     updated: "2026-11-16",
     dateLabel: "16 November 2026",
-    minutes: 4,
+    minutes: 3,
   },
   {
     slug: "ai-exclusions-at-renewal",
     tag: "AI exclusions",
     title: "AI exclusions are arriving at renewal",
-    dek: "What the standard wording says, how far it reaches, and five things to check before you sign.",
+    dek: "What the standard wording says, and how far it reaches.",
     published: "2026-11-16",
     updated: "2026-11-16",
     dateLabel: "16 November 2026",
-    minutes: 5,
+    minutes: 2,
   },
   {
     slug: "ai-liability-trends-2026",
@@ -39,7 +39,7 @@ export const INSIGHTS: Insight[] = [
     published: "2026-11-16",
     updated: "2026-11-16",
     dateLabel: "16 November 2026",
-    minutes: 6,
+    minutes: 3,
   },
 ];
 

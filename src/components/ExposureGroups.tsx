@@ -89,12 +89,11 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
         ))}
       </ol>
 
-      <div className="mt-5 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-cream-muted">Not a complete list. Cover always depends on the policy wording.</p>
+      <div className="mt-5 flex justify-end">
         <button
           type="button"
           onClick={() => setActive((active + 1) % EXPOSURE_GROUPS.length)}
-          className="self-start text-sm text-cream underline decoration-signal decoration-2 underline-offset-[6px] sm:self-auto"
+          className="text-sm text-cream underline decoration-signal decoration-2 underline-offset-[6px]"
         >
           Next: {EXPOSURE_GROUPS[(active + 1) % EXPOSURE_GROUPS.length].name} →
         </button>

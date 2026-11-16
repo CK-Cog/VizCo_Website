@@ -4,7 +4,6 @@ import JsonLd from "@/components/JsonLd";
 import { Factory, PersonStanding, Radar, Sparkles } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import RotatingWord from "@/components/home/RotatingWord";
-import CoverageGap from "@/components/CoverageGap";
 import FinalCta from "@/components/FinalCta";
 import { Block, Card, Container, Em, Section, SectionHeader, Steps } from "@/components/ui";
 
@@ -19,14 +18,14 @@ const AREAS = [
   { Icon: PersonStanding, title: "Humanoid robots", body: "Robots built to work alongside people, in homes, shops and warehouses." },
   { Icon: Factory, title: "Robots at work", body: "Robots on factory floors and in logistics, doing work once done by hand." },
   { Icon: Radar, title: "Autonomous systems", body: "The AI that steers machines, with no one at the controls." },
-  { Icon: Sparkles, title: "What comes next", body: "New technology that acts in the real world before the policies have caught up." },
+  { Icon: Sparkles, title: "What comes next", body: "New technology that acts in the real world." },
 ];
 
 const STEPS = [
-  { title: "Review", body: "We read your insurance against how your technology could cause harm or fail." },
-  { title: "Prove", body: "We put your safety and testing evidence on record." },
-  { title: "Place", body: "We take it to the insurers who will cover it, and negotiate." },
-  { title: "Defend", body: "We prepare your claim and argue it for you." },
+  { title: "Review", body: "We read your insurance against how your technology can fail." },
+  { title: "Prove", body: "We put your safety and test evidence on record." },
+  { title: "Place", body: "We negotiate cover with the insurers who will take it." },
+  { title: "Defend", body: "We argue your claim for you." },
 ];
 
 export default function EmergingRiskPage() {
@@ -68,17 +67,7 @@ export default function EmergingRiskPage() {
         </Container>
       </Section>
 
-      <CoverageGap
-        title="Your insurance wasn't written for this."
-        sub="Most policies were written for technology that already existed. These risks fall between the lines."
-        statement={
-          <>
-            VizCo finds the gap, <span className="bg-ink px-[0.14em] text-cream [box-decoration-break:clone]">and the cover that closes it.</span>
-          </>
-        }
-      />
-
-      <Block id="process" number="02" label="How it works" title="Same method. New frontier.">
+      <Block id="process" number="02" label="How we work" title="Same method. New frontier.">
         <Steps steps={STEPS} />
       </Block>
 

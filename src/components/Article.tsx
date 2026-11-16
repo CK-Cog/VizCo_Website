@@ -49,9 +49,6 @@ export default function Article({ post, sources, children }: { post: Insight; so
             >
               {children}
             </div>
-            <p className="mt-14 max-w-2xl border-t border-line-dark pt-6 text-sm text-cream-muted">
-              General information, not advice on any specific policy. Cover always depends on the policy wording.
-            </p>
           </div>
         </Container>
       </article>
