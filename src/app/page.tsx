@@ -7,7 +7,7 @@ import PolicyLine from "@/components/home/PolicyLine";
 import Reading from "@/components/home/Reading";
 import FinalCta from "@/components/FinalCta";
 import { Block, Faq, Steps } from "@/components/ui";
-import { EXPOSURES } from "@/content/exposures";
+import ExposureList from "@/components/ExposureList";
 
 export const metadata: Metadata = pageMeta({
   title: "VizCo | AI Liability Insurance & Emerging Risk Broker",
@@ -60,20 +60,9 @@ export default function Home() {
         number="01"
         label="What we cover"
         title="How AI goes wrong."
-        sub="Real examples of what AI liability is there for. Not a complete list."
+        sub="Real examples of what AI liability is there for."
       >
-        <ol className="mt-10 grid gap-x-10 sm:grid-cols-2">
-          {EXPOSURES.map((e) => (
-            <li key={e.code} className="flex gap-4 border-t border-line-dark py-5">
-              <span className="pt-1 font-mono text-xs text-cream-muted">{e.code}</span>
-              <div>
-                <h3 className="font-display text-xl leading-snug text-cream">{e.headline}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-cream-muted">{e.line}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-4 text-xs text-cream-muted">Cover always depends on the policy wording.</p>
+        <ExposureList />
       </Block>
 
       <Block

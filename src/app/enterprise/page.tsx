@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Boxes, Building2, FileWarning, Gavel, Network } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Expertise from "@/components/Expertise";
+import ExposureList from "@/components/ExposureList";
 import FinalCta from "@/components/FinalCta";
 import Reveal from "@/components/Reveal";
 import { InventoryCard, VendorStack } from "@/components/pages/Visuals";
@@ -55,7 +56,23 @@ export default function EnterprisePage() {
 
       <Section id="problem">
         <Container>
-          <SectionHeader number="01" kicker="The problem" title="Three risks closing in on enterprise AI." />
+          <SectionHeader
+            number="01"
+            kicker="The problem"
+            title="Thirteen ways enterprise AI goes wrong."
+            sub="Whether you built it or bought it, each one can end in a claim against you, a loss of your own, or both."
+          />
+          <ExposureList className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3" />
+        </Container>
+      </Section>
+
+      <Section id="why-now">
+        <Container>
+          <SectionHeader
+            number="02"
+            kicker="Why now"
+            title="The risk is growing. The cover is shrinking."
+          />
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <Card icon={<FileWarning className="h-6 w-6" strokeWidth={1.5} />} title="Exclusions at renewal">
               Standard AI exclusion wording has been available to insurers since January 2026. It&apos;s often added at renewal, where it&apos;s easy to
@@ -81,7 +98,7 @@ export default function EnterprisePage() {
       <Section id="approach">
         <Container>
           <SectionHeader
-            number="02"
+            number="03"
             kicker="Our approach"
             title="Two ways we help."
             sub="One method, applied to the AI you run and to the AI your vendors sell you."
@@ -107,13 +124,13 @@ export default function EnterprisePage() {
         </Container>
       </Section>
 
-      <Block id="process" number="03" label="How it works" title="From inventory to covered." sub="A clear process built for risk, legal and procurement teams.">
+      <Block id="process" number="04" label="How it works" title="From inventory to covered." sub="A clear process built for risk, legal and procurement teams.">
         <Steps steps={STEPS} />
       </Block>
 
-      <Expertise number="04" />
+      <Expertise number="05" />
 
-      <Block id="faq" number="05" label="Questions" title="Before you ask.">
+      <Block id="faq" number="06" label="Questions" title="Before you ask.">
         <Faq items={FAQ} className="mt-10" />
       </Block>
 
