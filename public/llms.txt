@@ -1,0 +1,32 @@
+# VizCo
+
+> VizCo is the AI & emerging risk specialty broker. It makes AI insurable and places AI liability insurance for enterprises and for the AI startups that sell to them. It also helps companies insure physical AI, such as humanoid robots, robots at work and autonomous systems.
+
+VizCo is an insurance broker. It represents its clients, not insurers. Policies are underwritten by third-party insurers, and VizCo does not underwrite or bear insurance risk. VizCo was founded by AI researchers from Stanford and MIT.
+
+How VizCo works:
+1. Review: reads a client's existing insurance against how their AI can fail, and finds where AI is silent or excluded.
+2. Prove: puts evidence about the client's AI on record (how it is built, tested and controlled) so insurers can assess it.
+3. Place: takes that evidence to insurers and negotiates AI liability cover.
+4. Reassess and defend: reviews cover as the AI changes, and prepares and argues claims.
+
+## Key pages
+
+- [Home](https://vizco.co/): what VizCo does, the ways AI goes wrong that AI liability insurance is for, and FAQs.
+- [The AI insurance problem](https://vizco.co/the-problem): a sourced guide to silent AI and AI exclusions in business insurance, why insurers are pulling back, growing AI liability, and a five-point renewal checklist.
+- [For AI startups](https://vizco.co/startups): getting AI through enterprise procurement with AI liability insurance and certificates.
+- [For enterprise](https://vizco.co/enterprise): covering the AI an enterprise runs and the AI it buys from vendors.
+- [Emerging risk](https://vizco.co/emerging-risk): insuring humanoid robots, robots at work and autonomous systems.
+- [About](https://vizco.co/about): the team and advisors.
+- [Contact](https://vizco.co/contact): book a call or email info@vizco.co.
+
+## Definitions
+
+- AI liability insurance: cover for the financial harm an organisation's AI causes, such as wrong answers people relied on, actions taken without permission, or data exposed.
+- Silent AI: a policy that never mentions AI. It neither covers nor excludes it, so whether AI-related losses are covered is only decided when a claim is made.
+- AI exclusion: wording added to a policy that removes cover for losses connected to AI. Standard AI exclusion wording has been available to insurers in the US since January 2026.
+- Emerging risk: a risk new enough that existing policies did not anticipate it. AI is the largest emerging risk today.
+
+## Optional
+
+- [AI Coverage Checker](https://platform.vizco.app/): a free tool to check how existing insurance treats AI.

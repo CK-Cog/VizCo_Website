@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import Link from "next/link";
-import Wordmark from "@/components/Wordmark";
+import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { SITE_URL, TAGLINE } from "@/content/site";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,22 +17,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
+const displaySans = Noto_Sans({
+  variable: "--font-display",
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
 });
 
+const description =
+  "VizCo is the AI & emerging risk specialty broker. We make AI insurable and place AI liability cover for enterprises and the AI startups that sell to them.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vizco.co"),
-  title: "VizCo | AI Deployment Insurance",
-  description:
-    "VizCo finds liability gaps in AI deployments, identifies the guardrails that reduce risk, and verifies their impact for underwriting.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "VizCo | AI Liability Insurance & Emerging Risk Broker",
+    template: "%s | VizCo",
+  },
+  description,
   openGraph: {
-    title: "VizCo | AI Deployment Insurance",
-    description:
-      "Make your AI deployment insurable.",
-    url: "https://vizco.co",
+    title: `VizCo | ${TAGLINE}`,
+    description,
+    url: SITE_URL,
     siteName: "VizCo",
     type: "website",
   },
@@ -44,67 +50,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} bg-paper text-ink-900 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${displaySans.variable} bg-ink text-cream antialiased`}
       >
+        <JsonLd data={organizationSchema()} />
         <SiteHeader />
-
-        <div className="h-16" />
+        <div className="h-[6.25rem]" aria-hidden />
         {children}
-
-        <footer className="border-t border-border bg-surface-subtle">
-          <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8">
-            <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-              <div className="max-w-sm">
-                <Wordmark />
-                <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                  Making AI deployments insurable.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 font-mono text-[13px]">
-                <Link href="/team" className="text-ink-500 hover:text-ink-900">
-                  Team
-                </Link>
-                <Link
-                  href="/privacy-policy"
-                  className="text-ink-500 hover:text-ink-900"
-                >
-                  Privacy
-                </Link>
-                <Link
-                  href="/terms-of-service"
-                  className="text-ink-500 hover:text-ink-900"
-                >
-                  Terms
-                </Link>
-              </div>
-            </div>
-            <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
-              <p className="text-xs text-ink-500">
-                © {new Date().getFullYear()} VizCo. All rights reserved.
-              </p>
-              <a
-                href="https://www.aicpa.org/soc4so"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="SOC 2 Type I attestation"
-                className="inline-flex items-center gap-3 transition-opacity hover:opacity-80"
-              >
-                <img
-                  src="/soc2-type1.png"
-                  alt="AICPA SOC for Service Organizations"
-                  width={56}
-                  height={56}
-                  className="h-14 w-14"
-                />
-                <span className="font-mono text-[11px] leading-snug tracking-wide text-ink-700">
-                  SOC 2 Type I
-                  <br />
-                  Attested
-                </span>
-              </a>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );

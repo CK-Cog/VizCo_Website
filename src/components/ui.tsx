@@ -1,168 +1,255 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
-/* Shared typography — keep page and section titles consistent site-wide */
-export const pageTitleClass =
-  "text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl lg:leading-[1.05]";
-
-export const sectionTitleClass =
-  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:text-4xl lg:leading-[1.1]";
-
-export const leadTitleClass =
-  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:leading-snug";
-
-export function PageTitle({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <h1 className={`text-balance ${pageTitleClass} ${className}`}>{children}</h1>
-  );
-}
-
-export function SectionTitle({
-  children,
-  className = "",
-  as: Tag = "h2",
-}: {
-  children: ReactNode;
-  className?: string;
-  as?: "h2" | "h3";
-}) {
-  return (
-    <Tag className={`text-balance ${sectionTitleClass} ${className}`}>
-      {children}
-    </Tag>
-  );
-}
+/* ---------- Layout ---------- */
 
 export function Container({
   children,
   className = "",
+  size = "lg",
 }: {
   children: ReactNode;
   className?: string;
+  size?: "md" | "lg";
 }) {
-  return (
-    <div className={`mx-auto w-full max-w-6xl px-6 sm:px-8 ${className}`}>
-      {children}
-    </div>
-  );
+  const max = size === "md" ? "max-w-3xl" : "max-w-6xl";
+  return <div className={`mx-auto w-full ${max} px-6 sm:px-8 ${className}`}>{children}</div>;
 }
 
 export function Section({
   children,
-  className = "",
   id,
+  className = "",
+  border = false,
 }: {
   children: ReactNode;
-  className?: string;
   id?: string;
+  className?: string;
+  border?: boolean;
 }) {
   return (
-    <section id={id} className={`py-20 sm:py-28 ${className}`}>
+    <section id={id} className={`relative py-16 sm:py-24 ${border ? "border-t border-line-dark/70" : ""} ${className}`}>
       {children}
     </section>
   );
 }
 
-/* A solid marker block that keeps its label readable. The redaction motif. */
-export function Mark({
-  children,
+/* ---------- Headings ---------- */
+
+export function Em({ children }: { children: ReactNode }) {
+  return <span className="block-mark">{children}</span>;
+}
+
+/** Editorial section heading: a rule, a small label, then a left-aligned title. */
+export function SectionHeader({
+  kicker,
+  number,
+  title,
+  sub,
   className = "",
 }: {
-  children: ReactNode;
+  kicker?: ReactNode;
+  number?: string;
+  title: ReactNode;
+  sub?: ReactNode;
   className?: string;
 }) {
-  return <span className={`mark ${className}`}>{children}</span>;
-}
-
-/* Mono eyebrow with a leading redaction tick. Recurring brand signature. */
-export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="label inline-flex items-center gap-2 text-ink-500">
-      <span
-        aria-hidden
-        className="inline-block h-3 w-5 rounded-[2px] bg-ink-900"
-      />
-      {children}
-    </span>
-  );
-}
-
-export function SectionHeading({
-  eyebrow,
-  title,
-  subtitle,
-  align = "center",
-}: {
-  eyebrow?: string;
-  title: ReactNode;
-  subtitle?: ReactNode;
-  align?: "center" | "left";
-}) {
-  const alignment = align === "center" ? "text-center mx-auto" : "text-left";
-  return (
-    <div className={`max-w-3xl ${alignment}`}>
-      {eyebrow && (
-        <div className="mb-3">
-          <Eyebrow>{eyebrow}</Eyebrow>
-        </div>
-      )}
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && (
-        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg">
-          {subtitle}
-        </p>
-      )}
+    <div className={`border-t border-cream pt-6 ${className}`}>
+      {kicker ? <Label number={number}>{kicker}</Label> : null}
+      <h2 className={`font-display max-w-3xl text-balance text-4xl leading-[1.08] text-cream sm:text-5xl ${kicker ? "mt-6" : ""}`}>{title}</h2>
+      {sub ? <p className="mt-4 max-w-2xl text-balance text-base text-cream-muted sm:text-lg">{sub}</p> : null}
     </div>
   );
 }
 
-type ButtonProps = {
-  children: ReactNode;
-  href: string;
-  variant?: "primary" | "secondary";
-  external?: boolean;
-  className?: string;
-};
+/** Small mono label with the signal square, e.g. "01  What we cover". */
+export function Label({ number, children, className = "" }: { number?: string; children: ReactNode; className?: string }) {
+  return (
+    <p className={`flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.16em] text-cream-muted ${className}`}>
+      <span aria-hidden className="h-2 w-2 shrink-0 bg-signal" />
+      {number ? <span className="text-cream">{number}</span> : null}
+      <span>{children}</span>
+    </p>
+  );
+}
+
+/** Editorial section: a narrow label column on the left, the content on the right. */
+export function Block({
+  id,
+  number,
+  label,
+  title,
+  sub,
+  children,
+}: {
+  id?: string;
+  number?: string;
+  label: ReactNode;
+  title?: ReactNode;
+  sub?: ReactNode;
+  children?: ReactNode;
+}) {
+  return (
+    <section id={id} className="py-16 sm:py-24">
+      <Container>
+        <div className="grid gap-6 border-t border-cream pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] lg:gap-12">
+          <Label number={number} className="self-start lg:pt-3">
+            {label}
+          </Label>
+          <div>
+            {title ? <h2 className="font-display max-w-3xl text-balance text-4xl leading-[1.08] text-cream sm:text-5xl">{title}</h2> : null}
+            {sub ? <p className="mt-4 max-w-2xl text-balance text-base text-cream-muted sm:text-lg">{sub}</p> : null}
+            {children}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ---------- Buttons ---------- */
 
 export function Button({
-  children,
   href,
+  children,
   variant = "primary",
   external = false,
   className = "",
-}: ButtonProps) {
+  arrow = true,
+}: {
+  href: string;
+  children: ReactNode;
+  variant?: "primary" | "outline";
+  external?: boolean;
+  className?: string;
+  arrow?: boolean;
+}) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200";
-  const styles =
+    "group inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+  const v =
     variant === "primary"
-      ? "bg-ink-900 text-paper hover:bg-black"
-      : "border border-border-strong bg-transparent text-ink-900 hover:bg-surface-muted";
-
+      ? "bg-cream text-ink hover:bg-accent-deep"
+      : "border border-line-dark text-cream hover:border-cream/40 hover:bg-cream/5";
+  const content = (
+    <>
+      {children}
+      {arrow ? <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /> : null}
+    </>
+  );
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${base} ${styles} ${className}`}
-      >
-        {children}
+      <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${v} ${className}`}>
+        {content}
       </a>
     );
   }
   return (
-    <Link href={href} className={`${base} ${styles} ${className}`}>
-      {children}
+    <Link href={href} className={`${base} ${v} ${className}`}>
+      {content}
     </Link>
   );
 }
 
-export const BOOKING_URL = "https://calendar.app.google/UUfjxJN178KsGvCGA";
-/** @deprecated Use BOOKING_URL */
-export const CALENDLY_URL = BOOKING_URL;
+/* ---------- Cards & panels ---------- */
+
+export function Card({
+  label,
+  title,
+  children,
+  icon,
+  highlight = false,
+  className = "",
+  delay = 0,
+}: {
+  label?: ReactNode;
+  title?: ReactNode;
+  children?: ReactNode;
+  icon?: ReactNode;
+  highlight?: boolean;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <Reveal delay={delay} className={`flex h-full flex-col border-t pt-6 ${highlight ? "border-t-2 border-signal" : "border-line-dark"} ${className}`}>
+      {icon ? <div className="mb-5 text-cream">{icon}</div> : null}
+      {label ? <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">{label}</p> : null}
+      {title ? <h3 className={`font-display text-2xl leading-tight text-cream ${label ? "mt-3" : ""}`}>{title}</h3> : null}
+      {children ? <div className="mt-3 text-[15px] leading-relaxed text-cream-muted">{children}</div> : null}
+    </Reveal>
+  );
+}
+
+export function ListPanel({ items, className = "" }: { items: string[]; className?: string }) {
+  return (
+    <ul className={`divide-y divide-line-dark border-y border-line-dark ${className}`}>
+      {items.map((it) => (
+        <li key={it} className="flex items-center gap-3 py-4 text-base text-cream">
+          <span aria-hidden className="h-2 w-2 shrink-0 bg-signal" />
+          {it}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Numbered process rows, used for every "how it works" on the site. */
+export function Steps({ steps, className = "mt-10" }: { steps: { title: string; body: string }[]; className?: string }) {
+  return (
+    <ol className={`border-b border-line-dark ${className}`}>
+      {steps.map((s, i) => (
+        <li key={s.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-t border-line-dark py-5 sm:grid-cols-[3rem_12rem_1fr] sm:items-baseline">
+          <span className="font-mono text-xs text-cream-muted">{String(i + 1).padStart(2, "0")}</span>
+          <h3 className="font-display text-2xl text-cream">{s.title}</h3>
+          <p className="col-start-2 mt-1 text-sm leading-relaxed text-cream-muted sm:col-start-3 sm:mt-0 sm:text-base">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a: ReactNode }[]; className?: string }) {
+  return (
+    <div className={`divide-y divide-line-dark border-y border-line-dark ${className}`}>
+      {items.map((item) => (
+        <details key={item.q} className="group py-5">
+          <summary className="flex items-start justify-between gap-6 text-left text-base font-medium text-cream sm:text-lg">
+            <span>{item.q}</span>
+            <span aria-hidden className="chev mt-0.5 text-xl leading-none text-accent-glow">+</span>
+          </summary>
+          <div className="mt-3 max-w-2xl text-sm leading-relaxed text-cream-muted sm:text-base">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+/** A bare "?" drawn like a lucide icon (lucide only ships it inside a circle). */
+export function QuestionMark({ className = "", strokeWidth = 2 }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M7.5 8.5a4.5 4.5 0 0 1 9 0c0 3-4.5 3.6-4.5 6.5" />
+      <path d="M12 20h.01" />
+    </svg>
+  );
+}
+
+export function LinkedinIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z" />
+    </svg>
+  );
+}
