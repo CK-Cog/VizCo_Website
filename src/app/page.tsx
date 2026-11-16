@@ -5,7 +5,9 @@ import Thesis from "@/components/home/Thesis";
 import Backers from "@/components/home/Backers";
 import PolicyLine from "@/components/home/PolicyLine";
 import FinalCta from "@/components/FinalCta";
-import { Block, Faq, Steps } from "@/components/ui";
+import { Block, Container, Faq, Section, SectionHeader } from "@/components/ui";
+import Process from "@/components/Process";
+import RiskChanges from "@/components/RiskChanges";
 import ExposureGroups from "@/components/ExposureGroups";
 
 export const metadata: Metadata = pageMeta({
@@ -15,13 +17,6 @@ export const metadata: Metadata = pageMeta({
     "AI liability insurance for enterprises and AI startups. VizCo finds where your policies are silent on or exclude AI, proves your AI to insurers and places the cover.",
   path: "/",
 });
-
-const STEPS = [
-  { title: "Review", body: "We read your insurance against how your AI can fail." },
-  { title: "Prove", body: "We put your AI's evidence on record for insurers." },
-  { title: "Place", body: "We negotiate cover with the right insurers." },
-  { title: "Defend", body: "We argue your claim for you." },
-];
 
 const FAQ = [
   {
@@ -35,6 +30,18 @@ const FAQ = [
   {
     q: "What is silent AI?",
     a: "A policy that never mentions AI. Whether it pays for an AI loss is only decided when you claim.",
+  },
+  {
+    q: "How do you assess AI risk?",
+    a: "We map the AI you run and buy, test it, review its controls, and read your policies against how it can fail.",
+  },
+  {
+    q: "What happens if our AI changes after we're insured?",
+    a: "We monitor for changes like model updates, new data and new uses, and report them to your insurers so your cover keeps up.",
+  },
+  {
+    q: "Do you help if we need to claim?",
+    a: "Yes. We keep the record of your AI that insurers need, and argue the claim for you.",
   },
   {
     q: "How are you paid?",
@@ -53,12 +60,17 @@ export default function Home() {
         <ExposureGroups />
       </Block>
 
-      <Block id="process" number="02" label="How we work" title="From review to claim.">
-        <Steps steps={STEPS} />
-      </Block>
+      <Section id="process">
+        <Container>
+          <SectionHeader number="02" kicker="How we work" title="Cover that keeps up with your AI." />
+          <Process />
+        </Container>
+      </Section>
 
-      <Block id="faq" number="03" label="Questions">
-        <Faq items={FAQ} />
+      <RiskChanges />
+
+      <Block id="faq" number="03" label="Questions" title="What buyers ask us.">
+        <Faq items={FAQ} className="mt-10 max-w-3xl" />
       </Block>
 
       <FinalCta />

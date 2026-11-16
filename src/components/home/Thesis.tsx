@@ -18,7 +18,7 @@ export default function Thesis() {
           Your insurance wasn&apos;t written for AI. <span className="block-mark my-[0.08em] inline-block whitespace-nowrap leading-[1.1]">We fix that.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-cream-muted sm:text-xl">
-          We find the gaps in your insurance, prove your AI to insurers, and place the cover.
+          We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Button href={BOOKING_URL} external>

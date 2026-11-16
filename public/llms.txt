@@ -5,10 +5,11 @@
 VizCo is an insurance broker. It represents its clients, not insurers. Policies are underwritten by third-party insurers, and VizCo does not underwrite or bear insurance risk. VizCo was founded by AI researchers from Stanford and MIT.
 
 How VizCo works:
-1. Review: reads a client's existing insurance against how their AI can fail, and finds where AI is silent or excluded.
-2. Prove: puts evidence about the client's AI on record (how it is built, tested and controlled) so insurers can assess it.
-3. Place: takes that evidence to insurers and negotiates AI liability cover.
-4. Defend: argues the client's claim, and rechecks cover at renewal.
+1. Assess: maps every AI system a client runs and buys, how it can fail, and where their policies are covered, silent or excluded.
+2. Mitigate: tests the AI, reviews its controls and recommends fixes, which can improve terms and make risks insurable.
+3. Place: takes the assessment and evidence to suitable insurers and negotiates wording that names AI.
+4. Monitor: watches continuously for changes in AI risk, such as a model update, new data, a new use or a new vendor. AI risk can change overnight, between renewals.
+5. Report: feeds those changes back to the client's insurers so cover reflects how the AI works today, and argues claims when they arise.
 
 ## Key pages
 
