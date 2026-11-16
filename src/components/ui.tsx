@@ -22,7 +22,7 @@ export function Section({
   children,
   id,
   className = "",
-  border = true,
+  border = false,
 }: {
   children: ReactNode;
   id?: string;
@@ -30,7 +30,7 @@ export function Section({
   border?: boolean;
 }) {
   return (
-    <section id={id} className={`relative py-20 sm:py-28 ${border ? "border-t border-line-dark/70" : ""} ${className}`}>
+    <section id={id} className={`relative py-16 sm:py-24 ${border ? "border-t border-line-dark/70" : ""} ${className}`}>
       {children}
     </section>
   );
@@ -38,20 +38,11 @@ export function Section({
 
 /* ---------- Headings ---------- */
 
-export function Kicker({ children, center = true }: { children: ReactNode; center?: boolean }) {
-  return (
-    <p className={`eyebrow flex items-center gap-3 text-accent-glow ${center ? "justify-center" : ""}`}>
-      <span aria-hidden className="h-px w-6 bg-accent/60" />
-      {children}
-      <span aria-hidden className="h-px w-6 bg-accent/60" />
-    </p>
-  );
-}
-
 export function Em({ children }: { children: ReactNode }) {
   return <span className="block-mark">{children}</span>;
 }
 
+/** Editorial section heading: a rule, a small label, then a left-aligned title. */
 export function SectionHeader({
   kicker,
   number,
@@ -65,25 +56,57 @@ export function SectionHeader({
   sub?: ReactNode;
   className?: string;
 }) {
-  if (number) {
-    return (
-      <div className={`max-w-3xl ${className}`}>
-        <div className="flex items-baseline gap-4">
-          <span className="font-mono text-sm text-accent-glow">{number}</span>
-          <h2 className="font-display text-balance text-4xl leading-[1.14] text-cream sm:text-5xl">{title}</h2>
-        </div>
-        {sub ? <p className="mt-4 text-pretty text-base text-cream-muted sm:text-lg">{sub}</p> : null}
-      </div>
-    );
-  }
   return (
-    <div className={`mx-auto max-w-3xl text-center ${className}`}>
-      {kicker ? <Kicker>{kicker}</Kicker> : null}
-      <h2 className={`font-display text-balance text-4xl leading-[1.14] text-cream sm:text-5xl ${kicker ? "mt-5" : ""}`}>
-        {title}
-      </h2>
-      {sub ? <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-cream-muted sm:text-lg">{sub}</p> : null}
+    <div className={`border-t border-cream pt-6 ${className}`}>
+      {kicker ? <Label number={number}>{kicker}</Label> : null}
+      <h2 className={`font-display max-w-3xl text-balance text-4xl leading-[1.08] text-cream sm:text-5xl ${kicker ? "mt-6" : ""}`}>{title}</h2>
+      {sub ? <p className="mt-4 max-w-2xl text-balance text-base text-cream-muted sm:text-lg">{sub}</p> : null}
     </div>
+  );
+}
+
+/** Small mono label with the signal square, e.g. "01  What we cover". */
+export function Label({ number, children, className = "" }: { number?: string; children: ReactNode; className?: string }) {
+  return (
+    <p className={`flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.16em] text-cream-muted ${className}`}>
+      <span aria-hidden className="h-2 w-2 shrink-0 bg-signal" />
+      {number ? <span className="text-cream">{number}</span> : null}
+      <span>{children}</span>
+    </p>
+  );
+}
+
+/** Editorial section: a narrow label column on the left, the content on the right. */
+export function Block({
+  id,
+  number,
+  label,
+  title,
+  sub,
+  children,
+}: {
+  id?: string;
+  number?: string;
+  label: ReactNode;
+  title?: ReactNode;
+  sub?: ReactNode;
+  children?: ReactNode;
+}) {
+  return (
+    <section id={id} className="py-16 sm:py-24">
+      <Container>
+        <div className="grid gap-6 border-t border-cream pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] lg:gap-12">
+          <Label number={number} className="self-start lg:pt-3">
+            {label}
+          </Label>
+          <div>
+            {title ? <h2 className="font-display max-w-3xl text-balance text-4xl leading-[1.08] text-cream sm:text-5xl">{title}</h2> : null}
+            {sub ? <p className="mt-4 max-w-2xl text-balance text-base text-cream-muted sm:text-lg">{sub}</p> : null}
+            {children}
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
 
@@ -150,41 +173,46 @@ export function Card({
   delay?: number;
 }) {
   return (
-    <Reveal
-      delay={delay}
-      className={`flex h-full flex-col rounded-md border p-6 sm:p-7 ${
-        highlight
-          ? "border-cream/50 bg-gradient-to-b from-cream/[0.06] to-ink-2 shadow-[0_0_60px_-30px_rgba(255,255,255,0.12)]"
-          : "border-line-dark bg-ink-2/80"
-      } ${className}`}
-    >
-      {icon ? <div className="mb-5 text-accent-glow">{icon}</div> : null}
-      {label ? <p className={`eyebrow ${highlight ? "text-accent-glow" : "text-cream-muted"}`}>{label}</p> : null}
+    <Reveal delay={delay} className={`flex h-full flex-col border-t pt-6 ${highlight ? "border-t-2 border-signal" : "border-line-dark"} ${className}`}>
+      {icon ? <div className="mb-5 text-cream">{icon}</div> : null}
+      {label ? <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">{label}</p> : null}
       {title ? <h3 className={`font-display text-2xl leading-tight text-cream ${label ? "mt-3" : ""}`}>{title}</h3> : null}
-      {children ? <div className="mt-3 text-sm leading-relaxed text-cream-muted">{children}</div> : null}
+      {children ? <div className="mt-3 text-[15px] leading-relaxed text-cream-muted">{children}</div> : null}
     </Reveal>
   );
 }
 
-export function ListPanel({ items, title, className = "" }: { items: string[]; title?: string; className?: string }) {
+export function ListPanel({ items, className = "" }: { items: string[]; className?: string }) {
   return (
-    <Reveal className={`rounded-md border border-line-dark bg-ink-2/80 ${className}`}>
-      {title ? <p className="eyebrow border-b border-line-dark px-6 py-4 text-center text-accent-glow">{title}</p> : null}
-      <ul className="divide-y divide-line-dark">
-        {items.map((it) => (
-          <li key={it} className="flex items-center gap-3 px-6 py-4 text-sm text-cream/90">
-            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-glow" />
-            {it}
-          </li>
-        ))}
-      </ul>
-    </Reveal>
+    <ul className={`divide-y divide-line-dark border-y border-line-dark ${className}`}>
+      {items.map((it) => (
+        <li key={it} className="flex items-center gap-3 py-4 text-base text-cream">
+          <span aria-hidden className="h-2 w-2 shrink-0 bg-signal" />
+          {it}
+        </li>
+      ))}
+    </ul>
   );
 }
 
-export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
+/** Numbered process rows, used for every "how it works" on the site. */
+export function Steps({ steps, className = "mt-10" }: { steps: { title: string; body: string }[]; className?: string }) {
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-line-dark border-y border-line-dark">
+    <ol className={`border-b border-line-dark ${className}`}>
+      {steps.map((s, i) => (
+        <li key={s.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-t border-line-dark py-5 sm:grid-cols-[3rem_12rem_1fr] sm:items-baseline">
+          <span className="font-mono text-xs text-cream-muted">{String(i + 1).padStart(2, "0")}</span>
+          <h3 className="font-display text-2xl text-cream">{s.title}</h3>
+          <p className="col-start-2 mt-1 text-sm leading-relaxed text-cream-muted sm:col-start-3 sm:mt-0 sm:text-base">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a: ReactNode }[]; className?: string }) {
+  return (
+    <div className={`divide-y divide-line-dark border-y border-line-dark ${className}`}>
       {items.map((item) => (
         <details key={item.q} className="group py-5">
           <summary className="flex items-start justify-between gap-6 text-left text-base font-medium text-cream sm:text-lg">
@@ -195,6 +223,26 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
         </details>
       ))}
     </div>
+  );
+}
+
+/** A bare "?" drawn like a lucide icon (lucide only ships it inside a circle). */
+export function QuestionMark({ className = "", strokeWidth = 2 }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M7.5 8.5a4.5 4.5 0 0 1 9 0c0 3-4.5 3.6-4.5 6.5" />
+      <path d="M12 20h.01" />
+    </svg>
   );
 }
 

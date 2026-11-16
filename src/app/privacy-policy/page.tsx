@@ -1,11 +1,14 @@
 import React from 'react';
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Container, Section } from "@/components/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
-  description: "How VizCo handles information in connection with the VizCo Chat OAuth client.",
-};
+  description:
+    "How VizCo handles information in connection with the VizCo Chat OAuth client.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicy() {
   return (

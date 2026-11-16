@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { SITE_URL, TAGLINE } from "@/content/site";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +29,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `VizCo | ${TAGLINE}`,
+    default: "VizCo | AI Liability Insurance & Emerging Risk Broker",
     template: "%s | VizCo",
   },
   description,
@@ -50,8 +52,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displaySans.variable} bg-ink text-cream antialiased`}
       >
+        <JsonLd data={organizationSchema()} />
         <SiteHeader />
-        <div className="h-16" aria-hidden />
+        <div className="h-[6.25rem]" aria-hidden />
         {children}
         <SiteFooter />
       </body>

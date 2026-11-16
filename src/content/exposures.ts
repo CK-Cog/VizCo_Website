@@ -13,4 +13,5 @@ export const EXPOSURES: Exposure[] = [
   { code: "05", headline: "It copies someone else's work.", line: "Protected content ends up in what it produces." },
   { code: "06", headline: "It treats people unfairly.", line: "A group loses out, and regulators notice." },
   { code: "07", headline: "It breaks the rules.", line: "A legal duty is missed, and you answer for it." },
+  { code: "08", headline: "It was oversold.", line: "Investors or customers say you overstated what it can do." },
 ];

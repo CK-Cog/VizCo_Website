@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import PersonCard from "@/components/PersonCard";
 import FinalCta from "@/components/FinalCta";
 import { Card, Container, Em, Section, SectionHeader } from "@/components/ui";
 import { ADVISORS, TEAM } from "@/content/team";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About",
-  description: "The people behind VizCo, the AI & emerging risk specialty broker.",
-};
+  description:
+    "The people behind VizCo, the AI & emerging risk specialty broker: AI researchers from Stanford and MIT working on AI liability insurance.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -17,9 +20,7 @@ export default function AboutPage() {
         kicker="About VizCo"
         title={
           <>
-            AI researchers.
-            <br />
-            <Em>On your side.</Em>
+            AI researchers. <Em>On your side.</Em>
           </>
         }
         sub="VizCo is the AI & emerging risk specialty broker. We came to insurance from AI research."
@@ -28,11 +29,12 @@ export default function AboutPage() {
       <Section id="emerging-risk">
         <Container>
           <SectionHeader
+            number="01"
             kicker="Why emerging risk"
             title="New risks arrive before the policies do."
             sub="AI is the biggest emerging risk today. It won't be the last. We work where existing cover hasn't caught up."
           />
-          <div className="mx-auto mt-14 grid max-w-5xl gap-4 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
             <Card label="We represent you" title="A broker, by design">
               Our job is to get your risk insured on the best terms, and to stand with you at claim time.
             </Card>
@@ -48,14 +50,19 @@ export default function AboutPage() {
 
       <Section id="team">
         <Container>
-          <SectionHeader kicker="The team" title="Who you'll work with." />
-          <div className="mx-auto mt-14 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeader number="02" kicker="The team" title="Who you'll work with." />
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((m, i) => (
               <PersonCard key={m.name} m={m} delay={i * 70} size="sm" />
             ))}
           </div>
-          <SectionHeader kicker="Advisors" title="Advisors." className="mt-24" />
-          <div className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-3">
+        </Container>
+      </Section>
+
+      <Section id="advisors">
+        <Container>
+          <SectionHeader number="03" kicker="Advisors" title="Advised by." />
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {ADVISORS.map((m, i) => (
               <PersonCard key={m.name} m={m} delay={i * 70} size="sm" />
             ))}

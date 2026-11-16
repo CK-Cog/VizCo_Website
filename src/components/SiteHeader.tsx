@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import Wordmark from "@/components/Wordmark";
-import { BOOKING_URL, NAV } from "@/content/site";
+import { BOOKING_URL, CHECKER_URL, NAV } from "@/content/site";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -46,6 +46,15 @@ export default function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line-dark/70 bg-ink/85 backdrop-blur-md">
+      <a
+        href={CHECKER_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex h-9 items-center justify-center gap-2 bg-cream px-4 text-[13px] font-medium text-ink"
+      >
+        Check your AI insurance coverage for free
+        <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" />
+      </a>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 sm:px-8">
         <Wordmark />
 
@@ -76,7 +85,7 @@ export default function SiteHeader() {
                     }
                     setMenu((m) => (m === item.label ? null : item.label));
                   }}
-                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm transition-colors ${
+                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm whitespace-nowrap transition-colors ${
                     pathname === item.href ? "text-cream" : "text-cream-muted hover:text-cream"
                   }`}
                 >
@@ -107,7 +116,7 @@ export default function SiteHeader() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full px-3 py-2 text-sm text-cream-muted transition-colors hover:text-cream"
+                className="rounded-full px-3 py-2 text-sm whitespace-nowrap text-cream-muted transition-colors hover:text-cream"
               >
                 {item.label}
               </a>
@@ -115,7 +124,7 @@ export default function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="rounded-full px-3 py-2 text-sm text-cream-muted transition-colors hover:text-cream"
+                className="rounded-full px-3 py-2 text-sm whitespace-nowrap text-cream-muted transition-colors hover:text-cream"
               >
                 {item.label}
               </Link>
@@ -146,7 +155,7 @@ export default function SiteHeader() {
       </div>
 
       <div id="mobile-nav" className={`${open ? "block" : "hidden"} border-t border-line-dark/70 bg-ink lg:hidden`}>
-        <nav className="mx-auto max-h-[calc(100vh-4rem)] w-full max-w-6xl overflow-y-auto px-6 py-4" aria-label="Mobile">
+        <nav className="mx-auto max-h-[calc(100vh-6.25rem)] w-full max-w-6xl overflow-y-auto px-6 py-4" aria-label="Mobile">
           {NAV.map((item) => (
             <div key={item.label} className="border-b border-line-dark/70 py-3 last:border-0">
               {item.external ? (

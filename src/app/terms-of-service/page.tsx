@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Container, Section } from "@/components/ui";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | VizCo",
-  description: "Terms and conditions for using the VizCo website.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Terms of Service",
+  description:
+    "Terms and conditions for using the VizCo website.",
+  path: "/terms-of-service",
+});
 
 export default function TermsOfService() {
   return (

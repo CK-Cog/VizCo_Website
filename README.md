@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VizCo website
 
-## Getting Started
+Marketing site for **VizCo, The AI & Emerging Risk Specialty Broker** (vizco.co).
 
-First, run the development server:
+Built with Next.js 15 (App Router), React 19, Tailwind CSS v4 and lucide-react icons. Every page is a static server component, and there is no backend.
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run lint
+npx tsc --noEmit   # type check
+npm run build      # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What it is |
+|---|---|
+| `src/app/page.tsx` | Home page |
+| `src/app/the-problem/` | Sourced guide to silent AI and AI exclusions (every claim cited) |
+| `src/app/startups/`, `src/app/enterprise/` | Audience pages |
+| `src/app/emerging-risk/` | Physical AI: humanoid robots, robots at work, autonomous systems |
+| `src/app/about/`, `src/app/contact/` | Team and contact |
+| `src/app/sitemap.ts`, `src/app/robots.ts` | Sitemap and robots.txt (AI crawlers allowed) |
+| `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Steps`, `Faq`, `Button`, `Em` |
+| `src/components/home/` | Home-only sections (`Thesis`, `PolicyLine`, `Reading`, `Backers`) |
+| `src/components/PageHero.tsx`, `FinalCta.tsx`, `CoverageGap.tsx` | Hero, closing call to action, black feature panel |
+| `src/components/pages/Visuals.tsx` | Illustrations (AI inventory, vendor stack, certificate) |
+| `src/content/site.ts` | Navigation, footer links, booking/checker URLs, disclaimer |
+| `src/content/team.ts` | Team and advisors |
+| `src/content/exposures.ts` | "How AI goes wrong" list |
+| `src/lib/seo.ts`, `src/components/JsonLd.tsx` | Per-page metadata helper and structured data |
+| `public/llms.txt` | Plain-text summary for AI answer engines |
+| `public/investors/` | Investor logos (black on transparent) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+- **Look:** editorial, black on white, from the logo ("Viz" plus "Co" reversed out of a black block). Left-aligned headings, a rule above each section, numbered section labels, square buttons.
+- **Colour tokens are inverted. Read this before styling.** In `globals.css`, `ink` is **white** (backgrounds) and `cream` is **black** (text and blocks). So `bg-cream text-ink` is a black block with white text.
+- **Accent:** one signal colour, `--signal` (currently orange `#ff5a1f`), used only for small marks: label squares, link underlines, the "Covered" box, one reading card. Never for body text. Changing the colour is a one-line edit in `globals.css`.
+- **Emphasis:** `<Em>` / `.block-mark` gives the black "Co"-style highlight.
+- **Fonts:** Noto Sans 700 for headings (`font-display`), Geist for body, Geist Mono for labels.
+- `.eyebrow` is plain (unlayered) CSS and overrides Tailwind size utilities. Use explicit utilities when you need a different size.
+- Check every change at 1280px, 1024px and 375px. No page should scroll sideways on a phone.
 
-To learn more about Next.js, take a look at the following resources:
+## Content rules (agreed, keep to them)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- No prices, premiums or dollar figures anywhere, including examples.
+- Never mention carriers: no insurer names, and not the word "carrier". "Insurers" is fine.
+- No policy-type names (cyber, Tech E&O, D&O, general liability). "AI liability" is fine.
+- No MGA mentions and no competitor comparisons. Don't cite competitor brokers' research.
+- The call to action is always **"Talk to us"**, never "Talk to a broker".
+- No performance guarantees.
+- Keep copy short and visual. Home hero copy makes statements, not questions.
+- Educational content must be researched and relevant to the buyer, with every figure or claim linked to a real source beside it. Never invent data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Quick check before committing:
 
-## Deploy on Vercel
+```bash
+grep -rn -i -E 'carrier|lloyd|\$[0-9]|price|premium|talk to a broker|\bMGA\b|guarantee|cyber|E&O|D&O|general liability' src public/llms.txt
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The only expected hits are in `the-problem` (the 2017 UK cyber-risk precedent and its source title).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## SEO and AI search (GEO)
+
+- Each page sets its metadata with `pageMeta({ title, description, path })` from `src/lib/seo.ts`. That gives the title, description, canonical address and share preview.
+- Structured data: Organization and WebSite on every page (in `layout.tsx`); FAQPage on home, startups and enterprise; Service on startups, enterprise and emerging risk; Article with citations on the-problem.
+- **When you add a page:** add it to `src/app/sitemap.ts`, give it `pageMeta`, and add a line to `public/llms.txt`.
+- **When you edit the-problem:** update `UPDATED` and `UPDATED_LABEL` at the top of the page. The visible "Updated" date and the article's `dateModified` both come from them.
+
+## Still to do
+
+- Pick the final accent colour (orange, electric blue or acid lime were compared).
+- Tanay's team photo, and a one-line credential for each advisor.
+- Licence and registration details for the footer.
+- A privacy policy for the website itself. The current one covers the VizCo Chat OAuth app only.
+- The company LinkedIn URL, to add as `sameAs` in the Organization schema.
+- Decide the spelling: "VizCo" vs "Vizco".
+- After launch, submit `https://vizco.co/sitemap.xml` in Google Search Console.
+
+## Branches
+
+- `main`: the current live site.
+- `redesign/broker-site`: this redesign. It is not merged into `main` yet.

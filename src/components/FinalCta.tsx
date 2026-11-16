@@ -1,34 +1,41 @@
-import { Button, Container, Kicker } from "@/components/ui";
-import { BOOKING_URL, CONTACT_EMAIL } from "@/content/site";
+import type { ReactNode } from "react";
+import { Button, Container } from "@/components/ui";
+import { BOOKING_URL, CHECKER_URL } from "@/content/site";
 
+/** Closing call to action, editorial: headline left, actions right. */
 export default function FinalCta({
-  kicker = "Get started",
-  title = "Find out where you stand.",
-  sub = "Thirty minutes. No preparation needed.",
+  title = (
+    <>
+      Find out where you <span className="block-mark">stand.</span>
+    </>
+  ),
+  sub,
   cta = "Talk to us",
+  checker = true,
 }: {
-  kicker?: string;
-  title?: React.ReactNode;
+  title?: ReactNode;
   sub?: string;
   cta?: string;
+  checker?: boolean;
 }) {
   return (
-    <section className="relative isolate overflow-hidden border-t border-line-dark/70 py-24 sm:py-32">
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[480px] w-[900px] max-w-[160vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.05] blur-[150px]"
-        aria-hidden
-      />
-      <Container className="text-center">
-        <Kicker>{kicker}</Kicker>
-        <h2 className="font-display mx-auto mt-6 max-w-3xl text-balance text-5xl leading-[1.14] text-cream sm:text-6xl">{title}</h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-cream-muted">{sub}</p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
-          <Button href={BOOKING_URL} external>
-            {cta}
-          </Button>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm text-cream-muted underline decoration-line-dark underline-offset-4 hover:text-cream">
-            {CONTACT_EMAIL}
-          </a>
+    <section className="pb-20 pt-8 sm:pb-28">
+      <Container>
+        <div className="flex flex-col gap-8 border-t border-cream pt-10 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2 className="font-display max-w-2xl text-balance text-4xl leading-[1.12] text-cream sm:text-6xl">{title}</h2>
+            {sub ? <p className="mt-4 max-w-xl text-balance text-lg text-cream-muted">{sub}</p> : null}
+          </div>
+          <div className="flex shrink-0 flex-wrap items-center gap-4">
+            <Button href={BOOKING_URL} external>
+              {cta}
+            </Button>
+            {checker ? (
+              <Button href={CHECKER_URL} external variant="outline">
+                Check your AI coverage
+              </Button>
+            ) : null}
+          </div>
         </div>
       </Container>
     </section>

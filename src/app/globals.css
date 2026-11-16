@@ -21,6 +21,10 @@
   --accent-deep: #2a2a2a;
   --accent-glow: #000000;
 
+  /* One signature accent, used for small marks and tags only (never body text) */
+  --signal: #ff5a1f;
+  --signal-ink: #000000;
+
   --ok: #1e8a62;
   --warn: #b5791c;
 
@@ -42,6 +46,8 @@
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-accent-glow: var(--accent-glow);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
   --color-ok: var(--ok);
   --color-warn: var(--warn);
   --color-paper: var(--paper);
@@ -57,7 +63,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7.25rem;
 }
 
 body {
@@ -136,16 +142,3 @@ details > summary { list-style: none; cursor: pointer; }
 details > summary::-webkit-details-marker { display: none; }
 details[open] .chev { transform: rotate(45deg); }
 .chev { transition: transform 0.2s ease; }
-
-/* Running banner (failure examples) */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - 10px)); }
-}
-.marquee-track { animation: marquee 70s linear infinite; }
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .marquee { overflow-x: auto; }
-  .marquee-track { animation: none; }
-}

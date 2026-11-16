@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/ai-exclusions",
+        destination: "/the-problem",
+        permanent: true,
+      },
+      {
         source: "/approach",
         destination: "/#process",
         permanent: false,

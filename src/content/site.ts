@@ -10,36 +10,11 @@ export type NavItem = NavLink & { items?: NavLink[] };
 
 export const NAV: NavItem[] = [
   { label: "What we cover", href: "/#coverage" },
-  { label: "AI Coverage Checker", href: CHECKER_URL, external: true },
-  {
-    label: "For startups",
-    href: "/startups",
-    items: [
-      { label: "Overview", href: "/startups" },
-      { label: "The problem", href: "/startups#problem" },
-      { label: "How it works", href: "/startups#process" },
-      { label: "What you get", href: "/startups#deliverable" },
-    ],
-  },
-  {
-    label: "For enterprise",
-    href: "/enterprise",
-    items: [
-      { label: "Overview", href: "/enterprise" },
-      { label: "The problem", href: "/enterprise#problem" },
-      { label: "Our approach", href: "/enterprise#approach" },
-      { label: "How it works", href: "/enterprise#process" },
-    ],
-  },
-  {
-    label: "About",
-    href: "/about",
-    items: [
-      { label: "Why emerging risk", href: "/about#emerging-risk" },
-      { label: "The team", href: "/about#team" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
+  { label: "The problem", href: "/the-problem" },
+  { label: "For startups", href: "/startups" },
+  { label: "For enterprise", href: "/enterprise" },
+  { label: "Emerging risk", href: "/emerging-risk" },
+  { label: "About", href: "/about" },
 ];
 
 export const FOOTER_GROUPS: { title: string; links: NavLink[] }[] = [
@@ -62,6 +37,8 @@ export const FOOTER_GROUPS: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
+      { label: "The problem", href: "/the-problem" },
+      { label: "Emerging risk", href: "/emerging-risk" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy", href: "/privacy-policy" },
