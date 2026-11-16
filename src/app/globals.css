@@ -142,3 +142,18 @@ details > summary { list-style: none; cursor: pointer; }
 details > summary::-webkit-details-marker { display: none; }
 details[open] .chev { transform: rotate(45deg); }
 .chev { transition: transform 0.2s ease; }
+
+/* "How AI goes wrong": auto-advancing groups */
+@keyframes group-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.group-progress { transform-origin: left; animation: group-progress 5s linear forwards; }
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: none; }
+}
+.slide-in { animation: slide-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .slide-in { animation: none; }
+}
