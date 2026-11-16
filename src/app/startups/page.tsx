@@ -3,6 +3,7 @@ import { FileCheck, Gavel, ShieldAlert } from "lucide-react";
 import FinalCta from "@/components/FinalCta";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 import { CertificateCard } from "@/components/pages/Visuals";
 import { Block, Card, Container, Em, Faq, ListPanel, Section, SectionHeader } from "@/components/ui";
 import Process from "@/components/Process";
@@ -61,21 +62,23 @@ export default function StartupsPage() {
             title="Your deal stalls in procurement."
             sub="Enterprise contracts make you liable if your AI gets something wrong. Procurement, legal and security each want proof you can pay."
           />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <Card icon={<FileCheck className="h-6 w-6" strokeWidth={1.5} />} label="Procurement" title="“Send us your certificate.”" />
-            <Card icon={<Gavel className="h-6 w-6" strokeWidth={1.5} />} label="Legal" title="“Who pays if it's wrong?”" delay={80} />
-            <Card icon={<ShieldAlert className="h-6 w-6" strokeWidth={1.5} />} label="Security" title="“Are you covered for a breach?”" delay={160} />
+          <div className="mt-14 grid gap-4 md:grid-cols-3">
+            <Card icon={<FileCheck className="h-5 w-5" strokeWidth={1.5} />} label="Procurement" title="“Send us your certificate.”" />
+            <Card icon={<Gavel className="h-5 w-5" strokeWidth={1.5} />} label="Legal" title="“Who pays if it's wrong?”" delay={80} />
+            <Card icon={<ShieldAlert className="h-5 w-5" strokeWidth={1.5} />} label="Security" title="“Are you covered for a breach?”" delay={160} />
           </div>
-          <p className="font-display mt-12 text-2xl text-cream sm:text-3xl">
-            We give them the <Em>answer.</Em>
-          </p>
+          <Reveal className="wipe mt-14">
+            <p className="font-display text-[2rem] leading-tight tracking-[-0.04em] text-cream sm:text-5xl">
+              We give them the <Em>answer.</Em>
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
       <Section id="deliverable">
         <Container>
           <SectionHeader number="02" kicker="What you get" title="Everything your buyer asks for." />
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
+          <div className="mt-14 grid items-center gap-16 lg:grid-cols-2">
             <ListPanel
               items={[
                 "A record of your AI, written for insurers",

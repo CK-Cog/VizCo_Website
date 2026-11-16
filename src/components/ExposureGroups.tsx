@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { EXPOSURE_GROUPS } from "@/content/exposures";
 
@@ -10,17 +10,21 @@ const COUNT = EXPOSURE_GROUPS.length;
 /** Start number (1-based) of each group, so items are numbered 01 to 12 across groups. */
 const STARTS = EXPOSURE_GROUPS.reduce<number[]>((acc, g, i) => [...acc, i === 0 ? 1 : acc[i - 1] + EXPOSURE_GROUPS[i - 1].items.length], []);
 
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 /**
- * "How AI goes wrong": four groups of three, as tabs of bold black cards.
- * Advances on its own every 5s (driven by the progress bar's CSS animation) while on screen.
- * Pauses on hover or keyboard focus, stops when someone picks a tab, has a pause button,
- * and never auto-advances for people who prefer reduced motion.
+ * "How AI goes wrong": four groups of three, as tabs over bold ink cards.
+ * A solid block slides to the selected tab. Advances on its own every 5s (driven by
+ * the progress bar's CSS animation) while on screen. Pauses on hover or keyboard focus,
+ * stops when someone picks a tab, has a pause button, and never auto-advances for
+ * people who prefer reduced motion.
  */
-export default function ExposureGroups({ className = "mt-10" }: { className?: string }) {
+export default function ExposureGroups({ className = "mt-12" }: { className?: string }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [held, setHeld] = useState(false);
   const [inView, setInView] = useState(false);
+  const [box, setBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
   const root = useRef<HTMLDivElement>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const group = EXPOSURE_GROUPS[active];
@@ -34,6 +38,20 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  const place = useCallback(() => {
+    const t = tabs.current[active];
+    if (t) setBox({ x: t.offsetLeft, y: t.offsetTop, w: t.offsetWidth, h: t.offsetHeight });
+  }, [active]);
+
+  useIsoLayoutEffect(() => {
+    place();
+  }, [place]);
+
+  useEffect(() => {
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [place]);
 
   const choose = (i: number, focus = false) => {
     const next = (i + COUNT) % COUNT;
@@ -55,7 +73,14 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
         if (!e.currentTarget.contains(e.relatedTarget as Node)) setHeld(false);
       }}
     >
-      <div role="tablist" aria-label="Groups" className="grid grid-cols-2 gap-2 md:grid-cols-4">
+      <div role="tablist" aria-label="Groups" className="relative grid grid-cols-2 gap-2 md:grid-cols-4">
+        {box ? (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-0 bg-cream transition-[transform,width,height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: `translate(${box.x}px, ${box.y}px)`, width: box.w, height: box.h }}
+          />
+        ) : null}
         {EXPOSURE_GROUPS.map((g, i) => {
           const selected = i === active;
           const start = STARTS[i];
@@ -81,14 +106,14 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
                   choose(i - 1, true);
                 }
               }}
-              className={`relative flex flex-col items-start gap-2 overflow-hidden border px-4 py-3 text-left transition-colors ${
-                selected ? "border-cream bg-cream text-ink" : "border-line-dark text-cream hover:border-cream"
+              className={`relative flex flex-col items-start gap-2.5 overflow-hidden border px-4 py-3.5 text-left transition-colors duration-300 ${
+                selected ? `border-cream text-ink ${box ? "" : "bg-cream"}` : "border-line-dark bg-surface/60 text-cream hover:border-line-strong hover:bg-surface"
               }`}
             >
-              <span className={`font-mono text-[11px] tracking-[0.12em] ${selected ? "text-ink/60" : "text-cream-muted"}`}>
+              <span className={`font-mono text-[11px] tracking-[0.12em] transition-colors ${selected ? "text-ink/55" : "text-subtle"}`}>
                 {pad(start)}–{pad(start + g.items.length - 1)}
               </span>
-              <span className="text-sm font-medium leading-snug sm:text-[15px]">{g.name}</span>
+              <span className="text-[15px] font-medium leading-snug tracking-[-0.015em]">{g.name}</span>
               {selected && playing ? (
                 <span
                   key={`progress-${active}`}
@@ -109,44 +134,39 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
         id="exposure-panel"
         aria-labelledby={`exposure-tab-${active}`}
         aria-live={playing ? "off" : "polite"}
-        className="mt-4"
+        className="mt-3"
       >
-        <ol className="grid gap-4 overflow-x-clip sm:grid-cols-3">
+        <ol className="grid gap-3 overflow-x-clip sm:grid-cols-3">
           {group.items.map((e, j) => (
-            <li
-              key={e.headline}
-              className="slide-in flex min-h-[13rem] flex-col justify-between bg-cream p-6 text-ink sm:min-h-[16rem]"
-              style={{ animationDelay: `${j * 90}ms` }}
-            >
-              <p className="flex items-center gap-2.5 font-mono text-xs text-ink/60">
-                <span aria-hidden className="h-2.5 w-2.5 bg-signal" />
-                {pad(STARTS[active] + j)}
-              </p>
-              <div className="mt-8">
-                <h3 className="font-display text-2xl leading-[1.1] sm:text-[1.7rem]">{e.headline}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink/70">{e.line}</p>
+            <li key={e.headline} className="slide-in" style={{ animationDelay: `${j * 90}ms` }}>
+              <div className="group relative flex h-full min-h-[14rem] flex-col justify-between overflow-hidden bg-cream p-6 text-ink transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] sm:min-h-[17rem] sm:p-7">
+                <div aria-hidden className="grid-texture pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <p className="relative flex items-center gap-3 font-mono text-xs text-ink/55">
+                  <span aria-hidden className="h-2.5 w-2.5 bg-signal transition-transform duration-500 group-hover:rotate-90" />
+                  {pad(STARTS[active] + j)}
+                </p>
+                <div className="relative mt-10">
+                  <h3 className="font-display text-[1.6rem] leading-[1.08] tracking-[-0.035em] sm:text-[1.85rem]">{e.headline}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink/65">{e.line}</p>
+                </div>
               </div>
             </li>
           ))}
         </ol>
       </div>
 
-      <div className="mt-5 flex items-center justify-between gap-4">
+      <div className="mt-6 flex items-center justify-between gap-4">
         <button
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause the rotation" : "Play the rotation"}
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-cream-muted hover:text-cream"
+          className="eyebrow inline-flex items-center gap-2 text-cream-muted transition-colors hover:text-cream"
         >
           {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
           {playing ? "Pause" : "Play"}
         </button>
-        <button
-          type="button"
-          onClick={() => choose(active + 1)}
-          className="text-sm text-cream underline decoration-signal decoration-2 underline-offset-[6px]"
-        >
-          Next: {EXPOSURE_GROUPS[(active + 1) % COUNT].name} →
+        <button type="button" onClick={() => choose(active + 1)} className="group text-[15px] font-medium text-cream">
+          <span className="link-signal">Next: {EXPOSURE_GROUPS[(active + 1) % COUNT].name} →</span>
         </button>
       </div>
     </div>

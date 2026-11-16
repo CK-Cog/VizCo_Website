@@ -44,7 +44,7 @@ export default function AboutPage() {
       <Section id="team">
         <Container>
           <SectionHeader number="02" kicker="The team" title="Who you'll work with." />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((m, i) => (
               <PersonCard key={m.name} m={m} delay={i * 70} size="sm" />
             ))}
@@ -55,7 +55,7 @@ export default function AboutPage() {
       <Section id="advisors">
         <Container>
           <SectionHeader number="03" kicker="Advisors" title="Advised by." />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
             {ADVISORS.map((m, i) => (
               <PersonCard key={m.name} m={m} delay={i * 70} size="sm" />
             ))}

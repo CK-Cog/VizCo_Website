@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { X } from "lucide-react";
 import Cite from "@/components/Cite";
+import CountUp from "@/components/CountUp";
+import Reveal from "@/components/Reveal";
 import DoesItPay from "@/components/DoesItPay";
 import FinalCta from "@/components/FinalCta";
 import JsonLd from "@/components/JsonLd";
@@ -57,8 +59,8 @@ function Facts({ facts }: { facts: { text: string; s: SourceKey | SourceKey[] }[
   return (
     <ul className="mt-6 space-y-4">
       {facts.map((f) => (
-        <li key={f.text} className="flex gap-3 text-[15px] leading-relaxed text-cream-muted">
-          <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 bg-cream" />
+        <li key={f.text} className="flex gap-3 text-[15px] leading-relaxed text-cream-muted sm:text-base">
+          <span aria-hidden className="mt-[0.62em] h-1.5 w-1.5 shrink-0 bg-cream" />
           <span>
             {f.text}
             <Cite s={f.s} />
@@ -93,14 +95,14 @@ export default function TheProblemPage() {
         }
         checker
       >
-        <p className="mt-10 font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">
+        <p className="eyebrow mt-12 text-cream-muted">
           Updated <time dateTime={UPDATED}>{UPDATED_LABEL}</time> · {USED.length} sources
         </p>
       </PageHero>
 
       <Section id="scale">
         <Container>
-          <div className="border-t border-cream pt-6">
+          <Reveal className="rule-draw pt-7">
             <DoesItPay
               number="01"
               kicker="Where you stand"
@@ -111,30 +113,35 @@ export default function TheProblemPage() {
                 </>
               }
             />
-          </div>
+          </Reveal>
         </Container>
       </Section>
 
       <Section id="explained">
         <Container>
           <SectionHeader number="02" kicker="The two problems" title="Silent vs excluded." />
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
-            <article className="border border-line-dark p-7 sm:p-9">
-              <span className="inline-flex h-10 w-10 items-center justify-center border border-cream text-cream">
-                <QuestionMark className="h-5 w-5" strokeWidth={2} />
-              </span>
-              <h3 className="font-display mt-5 text-3xl text-cream">Silent</h3>
-              <p className="mt-2 text-cream">The policy never mentions AI.</p>
-              <Facts facts={SILENT} />
-            </article>
-            <article className="border border-cream p-7 sm:p-9">
-              <span className="inline-flex h-10 w-10 items-center justify-center bg-cream text-ink">
-                <X className="h-5 w-5" strokeWidth={2} />
-              </span>
-              <h3 className="font-display mt-5 text-3xl text-cream">Excluded</h3>
-              <p className="mt-2 text-cream">The policy writes AI out.</p>
-              <Facts facts={EXCLUDED} />
-            </article>
+          <div className="mt-14 grid gap-4 md:grid-cols-2">
+            <Reveal className="h-full">
+              <article className="h-full border border-line-dark bg-surface p-7 shadow-[var(--shadow-card)] sm:p-10">
+                <span className="inline-flex h-12 w-12 items-center justify-center border border-cream text-cream">
+                  <QuestionMark className="h-5 w-5" strokeWidth={2} />
+                </span>
+                <h3 className="font-display t-h3 mt-8 text-cream">Silent</h3>
+                <p className="mt-2 text-lg tracking-[-0.015em] text-cream">The policy never mentions AI.</p>
+                <Facts facts={SILENT} />
+              </article>
+            </Reveal>
+            <Reveal delay={90} className="h-full">
+              <article className="relative h-full border border-cream bg-surface p-7 shadow-[var(--shadow-card)] sm:p-10">
+                <span aria-hidden className="absolute inset-x-0 -top-px h-[3px] bg-cream" />
+                <span className="inline-flex h-12 w-12 items-center justify-center bg-cream text-ink">
+                  <X className="h-5 w-5" strokeWidth={2} />
+                </span>
+                <h3 className="font-display t-h3 mt-8 text-cream">Excluded</h3>
+                <p className="mt-2 text-lg tracking-[-0.015em] text-cream">The policy writes AI out.</p>
+                <Facts facts={EXCLUDED} />
+              </article>
+            </Reveal>
           </div>
         </Container>
       </Section>
@@ -142,35 +149,46 @@ export default function TheProblemPage() {
       <Section id="trend">
         <Container>
           <SectionHeader number="03" kicker="Why it's happening" title="Insurers can't cover what they can't see." />
-          <ul className="mt-12 grid divide-y divide-line-dark border-y border-line-dark sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {STATS.map((st) => (
-              <li key={st.value} className="py-8 sm:px-6 sm:first:pl-0">
-                <p className="font-display text-5xl leading-none text-cream sm:text-6xl">{st.value}</p>
-                <p className="mt-3 max-w-[16rem] text-sm text-cream-muted">
+          <ul className="mt-14 grid gap-px border border-line-dark bg-line-dark sm:grid-cols-3">
+            {STATS.map((st, i) => (
+              <li key={st.value} className="group relative bg-surface p-7 sm:p-9">
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-signal transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                />
+                <p className="font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</p>
+                <p className="font-display mt-10 text-[3.5rem] leading-none tracking-[-0.05em] text-cream sm:text-[4.5rem]">
+                  <CountUp value={st.value} />
+                </p>
+                <p className="mt-4 max-w-[17rem] text-[15px] leading-relaxed text-cream-muted">
                   {st.label}
                   <Cite s={st.s} />
                 </p>
               </li>
             ))}
           </ul>
-          <p className="mt-10 max-w-xl text-cream">Evidence changes that. It&apos;s why we prove your AI to insurers.</p>
+          <p className="mt-10 max-w-xl text-lg tracking-[-0.015em] text-cream">Evidence changes that. It&apos;s why we prove your AI to insurers.</p>
         </Container>
       </Section>
 
       <Section id="liability">
         <Container>
           <SectionHeader number="04" kicker="Meanwhile" title="Your liability for AI is growing." />
-          <ol className="mt-12 divide-y divide-line-dark border-y border-line-dark">
-            {LIABILITY.map((l) => (
-              <li key={l.date} className="grid gap-2 py-7 sm:grid-cols-[9rem_1fr] sm:gap-8">
-                <p className="font-mono text-sm uppercase tracking-[0.12em] text-cream-muted">{l.date}</p>
-                <div>
-                  <h3 className="font-display text-xl text-cream sm:text-2xl">{l.title}</h3>
-                  <p className="mt-2 leading-relaxed text-cream-muted">
+          <ol className="relative mt-14 border-l border-line-dark sm:ml-[10.5rem]">
+            {LIABILITY.map((l, i) => (
+              <li key={l.date} className="relative pb-12 pl-8 last:pb-0 sm:pl-12">
+                <span
+                  aria-hidden
+                  className={`absolute -left-[5px] top-[0.55rem] h-[9px] w-[9px] ${i === LIABILITY.length - 1 ? "bg-signal" : "bg-cream"}`}
+                />
+                <p className="eyebrow text-cream-muted sm:absolute sm:-left-[10.5rem] sm:top-[0.6rem] sm:w-36 sm:text-right">{l.date}</p>
+                <Reveal delay={i * 60}>
+                  <h3 className="font-display mt-2 text-2xl tracking-[-0.03em] text-cream sm:mt-0 sm:text-[1.75rem]">{l.title}</h3>
+                  <p className="mt-2 max-w-2xl text-base leading-relaxed text-cream-muted sm:text-[17px]">
                     {l.body}
                     <Cite s={l.s} />
                   </p>
-                </div>
+                </Reveal>
               </li>
             ))}
           </ol>

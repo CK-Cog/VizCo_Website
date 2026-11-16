@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button, Container, Label } from "@/components/ui";
+import BlockField from "@/components/BlockField";
+import { Button, Container, Label, SwapArrow } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL, TAGLINE } from "@/content/site";
 
 const AUDIENCES = [
@@ -11,32 +11,40 @@ const AUDIENCES = [
 /** Home hero: the thesis, one line on what we do, actions, and the two audiences. */
 export default function Thesis() {
   return (
-    <section>
-      <Container className="pb-12 pt-16 sm:pb-16 sm:pt-24">
-        <Label>{TAGLINE}</Label>
-        <h1 className="font-display mt-8 max-w-5xl text-balance text-[2.6rem] leading-[1.06] text-cream sm:text-7xl lg:text-[5.25rem]">
-          Your insurance wasn&apos;t written for AI. <span className="block-mark my-[0.08em] inline-block whitespace-nowrap leading-[1.1]">We fix that.</span>
+    <section className="relative overflow-hidden">
+      <BlockField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
+      <Container className="relative pb-20 pt-12 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+        <div data-field-avoid className="anim-in inline-block">
+          <Label live>{TAGLINE}</Label>
+        </div>
+        <h1 data-field-avoid="text" className="wipe font-display t-display anim-in mt-8 max-w-[15em] text-balance text-cream sm:mt-10" style={{ animationDelay: "80ms" }}>
+          Your insurance <br className="hidden md:inline" />
+          wasn&apos;t written for AI.{" "}
+          <span className="block-mark my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-cream-muted sm:text-xl">
+        <p data-field-avoid="text" className="t-lead anim-in mt-8 max-w-[34rem] text-pretty text-cream-muted" style={{ animationDelay: "180ms" }}>
           We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Button href={BOOKING_URL} external>
+        <div data-field-avoid className="anim-in mt-10 flex w-fit flex-wrap items-center gap-3" style={{ animationDelay: "260ms" }}>
+          <Button href={BOOKING_URL} external size="lg">
             Talk to us
           </Button>
-          <Button href={CHECKER_URL} external variant="outline">
+          <Button href={CHECKER_URL} external variant="outline" size="lg">
             Check your AI coverage
           </Button>
         </div>
-        <div className="mt-14 flex flex-wrap gap-x-10 gap-y-4 border-t border-line-dark pt-6">
-          {AUDIENCES.map((a) => (
+        <div data-field-avoid className="anim-in mt-16 grid max-w-[38rem] gap-3 sm:mt-20 sm:grid-cols-2" style={{ animationDelay: "340ms" }}>
+          {AUDIENCES.map((a, i) => (
             <Link
               key={a.href}
               href={a.href}
-              className="group inline-flex items-center gap-2 text-base text-cream underline decoration-signal decoration-2 underline-offset-[6px]"
+              className="wipe-hover group flex items-center justify-between gap-4 border border-line-dark px-5 py-[18px] text-cream shadow-[var(--shadow-card)]"
             >
-              {a.label}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span className="flex items-center gap-4">
+                <span className="font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-base font-medium tracking-[-0.015em]">{a.label}</span>
+              </span>
+              <SwapArrow />
             </Link>
           ))}
         </div>

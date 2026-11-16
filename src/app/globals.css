@@ -1,48 +1,65 @@
 @import "tailwindcss";
 
 /* ============================================================
-   VizCo — The AI & Emerging Risk Specialty Broker
-   Black on white, taken from the logo: "Viz" plus "Co" reversed out of a solid black block.
+   VizCo: the AI & Emerging Risk Specialty Broker
+   "Underwriter grade". Paper and ink, with orange used only as a signal.
+   The logo's reversed "Co" block is the core device: highlights, buttons,
+   active states and markers are all square blocks.
    ============================================================ */
 :root {
-  /* Backgrounds */
-  --ink: #ffffff;
-  --ink-2: #f6f6f6;
-  --ink-3: #ececec;
+  /* Paper (backgrounds). Variable names are historical: "ink" is the page. */
+  --ink: #fafaf8;
+  --ink-2: #f3f3f0;
+  --ink-3: #e9e9e5;
+  --surface: #ffffff;
 
-  /* Text, and the solid "Co" block */
-  --cream: #000000;
-  --cream-muted: #5c5c5c;
+  /* Ink (text, and the solid "Co" block) */
+  --cream: #0a0a0a;
+  --cream-muted: #55554f;
+  --subtle: #8b8b85;
 
-  --line-dark: #e2e2e2;
+  --line-dark: #e2e2dd;
+  --line-strong: #cfcfc9;
 
-  /* The logo has no colour: the "accent" is pure black, used as a solid block */
-  --accent: #000000;
-  --accent-deep: #2a2a2a;
-  --accent-glow: #000000;
+  --accent: #0a0a0a;
+  --accent-deep: #262626;
+  --accent-glow: #0a0a0a;
 
-  /* One signature accent, used for small marks and tags only (never body text) */
+  /* The signal: small marks, live states and progress only. Never body text. */
   --signal: #ff5a1f;
-  --signal-ink: #000000;
+  --signal-ink: #0a0a0a;
 
   --ok: #1e8a62;
   --warn: #b5791c;
 
-  /* Light surfaces, used only for paper-style objects (e.g. a certificate) */
+  /* Paper objects (certificates, product cards) */
   --paper: #ffffff;
-  --paper-3: #e6e6e6;
-  --text: #000000;
-  --muted: #5f5f5f;
-  --line: #dcdcdc;
+  --paper-3: #e6e6e1;
+  --text: #0a0a0a;
+  --muted: #5f5f5a;
+  --line: #e2e2dd;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.18, 1);
+
+  --shadow-card: 0 1px 0 rgba(10, 10, 10, 0.04), 0 1px 2px rgba(10, 10, 10, 0.04), 0 8px 24px -12px rgba(10, 10, 10, 0.12);
+  --shadow-lift: 0 1px 0 rgba(10, 10, 10, 0.04), 0 2px 4px rgba(10, 10, 10, 0.04), 0 24px 48px -20px rgba(10, 10, 10, 0.22);
+  --shadow-paper: 0 1px 1px rgba(10, 10, 10, 0.04), 0 4px 8px rgba(10, 10, 10, 0.04), 0 16px 32px -8px rgba(10, 10, 10, 0.08),
+    0 48px 80px -32px rgba(10, 10, 10, 0.18);
+
+  interpolate-size: allow-keywords;
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
+  --color-surface: var(--surface);
   --color-cream: var(--cream);
   --color-cream-muted: var(--cream-muted);
+  --color-subtle: var(--subtle);
   --color-line-dark: var(--line-dark);
+  --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-accent-glow: var(--accent-glow);
@@ -56,104 +73,430 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-display);
+  --font-serif: var(--font-inter);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.25rem;
+  scroll-padding-top: 6.5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--ink);
   color: var(--cream);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-feature-settings: "cv11", "ss01";
+  font-optical-sizing: auto;
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #000000;
-  color: #ffffff;
-}
-
-.font-display {
-  font-family: var(--font-display), Verdana, "DejaVu Sans", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-/* The logo's "Co" block, used for emphasis */
-.block-mark {
   background: var(--cream);
   color: var(--ink);
-  padding: 0 0.14em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
 
-.eyebrow {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
 }
 
-.grid-texture {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at top, black 15%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at top, black 15%, transparent 70%);
+html {
+  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-width: thin;
 }
 
-.no-scrollbar { scrollbar-width: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
+@layer components {
+  /* ---------- Type ---------- */
 
-/* Scroll reveal */
+  .font-display {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.028em;
+    font-optical-sizing: auto;
+  }
+
+  /* Fluid type scale. Sizes are set by the viewport, so headlines break well at every width. */
+  .t-display {
+    font-size: clamp(2.75rem, 1.1rem + 5.2vw, 6.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+  .t-h1 {
+    font-size: clamp(2.5rem, 1.25rem + 4vw, 5.25rem);
+    line-height: 1;
+    letter-spacing: -0.038em;
+  }
+  .t-h2 {
+    font-size: clamp(2.125rem, 1.35rem + 2.5vw, 3.875rem);
+    line-height: 1.04;
+    letter-spacing: -0.034em;
+  }
+  .t-h3 {
+    font-size: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+  .t-lead {
+    font-size: clamp(1.125rem, 1rem + 0.42vw, 1.375rem);
+    line-height: 1.5;
+    letter-spacing: -0.016em;
+  }
+
+  .eyebrow {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- The block ---------- */
+
+  /* The logo's "Co" block, used for emphasis */
+  .block-mark {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /*
+   * Wipe-in for the block: the block draws across the words from the left.
+   * A white layer in "difference" mode turns paper to ink and ink to paper, so the
+   * finished state matches .block-mark exactly. The span isolates its own blend,
+   * so ancestors with transforms or opacity can't break it.
+   */
+  .wipe .block-mark {
+    position: relative;
+    isolation: isolate;
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .wipe .block-mark::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    mix-blend-mode: difference;
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: block-wipe 1.05s var(--ease-in-out) 0.45s forwards;
+    pointer-events: none;
+  }
+  .reveal.wipe .block-mark::after {
+    animation-play-state: paused;
+  }
+  .reveal.wipe.is-visible .block-mark::after {
+    animation-play-state: running;
+    animation-delay: 0.35s;
+  }
+  @keyframes block-wipe {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Small square signal, with an optional live pulse */
+  .signal-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--signal);
+    flex-shrink: 0;
+  }
+  .signal-dot.is-live::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--signal);
+    animation: signal-ping 2.2s var(--ease-out) infinite;
+  }
+  @keyframes signal-ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    70%,
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  /* Faint drafting grid, used inside dark panels */
+  .grid-texture {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at top right, black 10%, transparent 65%);
+    -webkit-mask-image: radial-gradient(ellipse at top right, black 10%, transparent 65%);
+  }
+  .grid-texture-ink {
+    background-image:
+      linear-gradient(to right, rgba(10, 10, 10, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ---------- Links ---------- */
+
+  /* Underline that draws in from the left on hover */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s var(--ease-out);
+  }
+  .link-draw:hover,
+  .group:hover .link-draw {
+    background-size: 100% 1px;
+  }
+
+  /* A persistent signal underline that thickens on hover */
+  .link-signal {
+    text-decoration: underline;
+    text-decoration-color: var(--signal);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    transition: text-underline-offset 0.3s var(--ease-out);
+  }
+  .link-signal:hover,
+  .group:hover .link-signal {
+    text-underline-offset: 8px;
+  }
+}
+
+/* ---------- Motion ---------- */
+
 .reveal {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* A rule that draws across when its section arrives */
+.rule-draw {
+  position: relative;
+}
+.rule-draw::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--cream);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 1.2s var(--ease-out) 0.1s;
+}
+.is-visible.rule-draw::before,
+.is-visible .rule-draw::before {
+  transform: scaleX(1);
+}
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.anim-in { animation: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-in {
+  animation: fade-up 0.7s var(--ease-out) both;
+}
 
 @keyframes word-in {
-  from { opacity: 0; transform: translateY(0.35em); filter: blur(4px); }
-  to { opacity: 1; transform: none; filter: none; }
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
-.word-in { display: inline-block; animation: word-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .anim-in, .word-in { animation: none; }
+.word-in {
+  display: inline-block;
+  animation: word-in 0.65s var(--ease-out) both;
 }
-
-details > summary { list-style: none; cursor: pointer; }
-details > summary::-webkit-details-marker { display: none; }
-details[open] .chev { transform: rotate(45deg); }
-.chev { transition: transform 0.2s ease; }
 
 /* "How AI goes wrong": auto-advancing groups */
 @keyframes group-progress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
-.group-progress { transform-origin: left; animation: group-progress 5s linear forwards; }
+.group-progress {
+  transform-origin: left;
+  animation: group-progress 5s linear forwards;
+}
 @keyframes slide-in {
-  from { opacity: 0; transform: translateX(32px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.slide-in { animation: slide-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.slide-in {
+  animation: slide-in 0.7s var(--ease-out) both;
+}
+
+/* A pulse that travels along a connector */
+@keyframes travel {
+  0% {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(var(--travel, 48px));
+    opacity: 0;
+  }
+}
+.travel {
+  animation: travel 1.8s var(--ease-in-out) infinite;
+}
+
+/* Header entrance */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.menu-in {
+  animation: menu-in 0.6s var(--ease-out) both;
+}
+
+/* ---------- FAQ ---------- */
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .chev {
+  transform: rotate(45deg);
+}
+.chev {
+  transition:
+    transform 0.35s var(--ease-out),
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+/* Smooth open and close where the browser supports animating details */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.45s var(--ease-out),
+    content-visibility 0.45s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .slide-in { animation: none; }
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .anim-in,
+  .word-in,
+  .slide-in,
+  .menu-in {
+    animation: none;
+  }
+  .wipe .block-mark::after {
+    animation: none;
+    transform: none;
+  }
+  .rule-draw::before {
+    transform: none;
+    transition: none;
+  }
+  .signal-dot.is-live::after,
+  .travel {
+    animation: none;
+    opacity: 0;
+  }
+  details::details-content {
+    transition: none;
+  }
+}
+
+@layer components {
+  /*
+   * A card that inverts on hover: an ink block wipes across from the left and the
+   * content flips to paper. Same "difference" technique as the headline block, so
+   * text, icons and borders all invert together. Keep orange out of these cards.
+   */
+  .wipe-hover {
+    position: relative;
+    isolation: isolate;
+    background: var(--surface);
+  }
+  .wipe-hover::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: #fff;
+    mix-blend-mode: difference;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.6s var(--ease-out);
+    pointer-events: none;
+  }
+  .wipe-hover:hover::after,
+  .wipe-hover:focus-visible::after {
+    transform: scaleX(1);
+  }
 }

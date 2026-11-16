@@ -31,7 +31,7 @@ export default function Reveal({
           }
         }
       },
-      { rootMargin: "0px 0px 12% 0px", threshold: 0 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -42,7 +42,7 @@ export default function Reveal({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ref={ref as any}
       className={`reveal ${className}`}
-      style={delay ? { transitionDelay: `${Math.min(delay, 120)}ms` } : undefined}
+      style={delay ? { transitionDelay: `${Math.min(delay, 480)}ms` } : undefined}
     >
       {children}
     </Tag>

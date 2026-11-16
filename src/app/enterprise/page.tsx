@@ -69,20 +69,20 @@ export default function EnterprisePage() {
       <Section id="approach">
         <Container>
           <SectionHeader number="02" kicker="What we cover" title="The AI you run, and the AI you buy." />
-          <div className="mt-12 grid gap-12 lg:grid-cols-2">
-            <Reveal className="flex h-full flex-col border-t border-line-dark pt-6">
-              <Building2 className="h-6 w-6 text-cream" strokeWidth={1.5} />
-              <h3 className="font-display mt-5 text-3xl text-cream">Your own AI</h3>
-              <p className="mt-2 text-cream-muted">We map it, find the gaps, and cover them.</p>
-              <div className="mt-8">
+          <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-10">
+            <Reveal className="rule-draw flex h-full flex-col pt-8">
+              <span className="flex h-12 w-12 items-center justify-center border border-line-strong text-cream"><Building2 className="h-5 w-5" strokeWidth={1.5} /></span>
+              <h3 className="font-display t-h3 mt-8 text-cream">Your own AI</h3>
+              <p className="mt-2 text-lg tracking-[-0.015em] text-cream-muted">We map it, find the gaps, and cover them.</p>
+              <div className="mt-10">
                 <InventoryCard />
               </div>
             </Reveal>
-            <Reveal delay={90} className="flex h-full flex-col border-t border-line-dark pt-6">
-              <Boxes className="h-6 w-6 text-cream" strokeWidth={1.5} />
-              <h3 className="font-display mt-5 text-3xl text-cream">Your vendors&apos; AI</h3>
-              <p className="mt-2 text-cream-muted">See which vendors are covered, and where you&apos;re exposed.</p>
-              <div className="mt-8">
+            <Reveal delay={90} className="rule-draw flex h-full flex-col pt-8">
+              <span className="flex h-12 w-12 items-center justify-center border border-line-strong text-cream"><Boxes className="h-5 w-5" strokeWidth={1.5} /></span>
+              <h3 className="font-display t-h3 mt-8 text-cream">Your vendors&apos; AI</h3>
+              <p className="mt-2 text-lg tracking-[-0.015em] text-cream-muted">See which vendors are covered, and where you&apos;re exposed.</p>
+              <div className="mt-10">
                 <VendorStack />
               </div>
             </Reveal>

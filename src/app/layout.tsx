@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { SITE_URL, TAGLINE } from "@/content/site";
@@ -7,21 +7,18 @@ import JsonLd from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/* Inter with its optical-size axis: Inter Display at headline sizes, Inter Text for body. */
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  axes: ["opsz"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  preload: false,
-});
-
-const displaySans = Noto_Sans({
-  variable: "--font-display",
-  weight: ["600", "700", "800"],
-  subsets: ["latin"],
+  display: "swap",
 });
 
 const description =
@@ -51,11 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${displaySans.variable} bg-ink text-cream antialiased`}
+        className={`${inter.variable} ${geistMono.variable} bg-ink text-cream antialiased`}
       >
         <JsonLd data={organizationSchema()} />
         <SiteHeader />
-        <div className="h-[6.25rem]" aria-hidden />
+        <div className="h-[6.5rem]" aria-hidden />
         {children}
         <SiteFooter />
       </body>

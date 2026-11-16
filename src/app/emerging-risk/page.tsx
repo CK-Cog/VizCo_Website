@@ -73,9 +73,9 @@ export default function EmergingRiskPage() {
             title="Physical AI. Real-world risk."
             sub="Physical AI moves, lifts and drives. When it fails, the harm is physical, and most policies weren't written for machines that decide for themselves."
           />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {AREAS.map(({ Icon, title, body }, i) => (
-              <Card key={title} icon={<Icon className="h-7 w-7" strokeWidth={1.5} />} title={title} delay={i * 60} highlight={i === AREAS.length - 1}>
+              <Card key={title} icon={<Icon className="h-5 w-5" strokeWidth={1.5} />} title={title} delay={i * 60} highlight={i === AREAS.length - 1}>
                 {body}
               </Card>
             ))}

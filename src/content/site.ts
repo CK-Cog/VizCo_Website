@@ -4,6 +4,7 @@ export const TAGLINE = "The AI & Emerging Risk Specialty Broker";
 export const BOOKING_URL = "https://calendar.app.google/UUfjxJN178KsGvCGA";
 export const CONTACT_EMAIL = "info@vizco.co";
 export const CHECKER_URL = "https://platform.vizco.app/";
+export const LOGIN_URL = "https://platform.vizco.app/";
 
 export type NavLink = { label: string; href: string; external?: boolean };
 export type NavItem = NavLink & { items?: NavLink[] };

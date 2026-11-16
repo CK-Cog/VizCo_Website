@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+import Reveal from "@/components/Reveal";
 import { Button, Container } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL } from "@/content/site";
 
-/** Closing call to action, editorial: headline left, actions right. */
+/** Closing call to action: a large statement, with the actions beside it. */
 export default function FinalCta({
   title = (
     <>
@@ -19,24 +20,26 @@ export default function FinalCta({
   checker?: boolean;
 }) {
   return (
-    <section className="pb-20 pt-8 sm:pb-28">
+    <section className="pb-24 pt-12 sm:pb-32 sm:pt-16">
       <Container>
-        <div className="flex flex-col gap-8 border-t border-cream pt-10 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal className="wipe rule-draw flex flex-col gap-10 pt-12 lg:flex-row lg:items-end lg:justify-between lg:gap-16 lg:pt-16">
           <div>
-            <h2 className="font-display max-w-2xl text-balance text-4xl leading-[1.12] text-cream sm:text-6xl">{title}</h2>
-            {sub ? <p className="mt-4 max-w-xl text-balance text-lg text-cream-muted">{sub}</p> : null}
+            <h2 className="font-display t-h1 max-w-3xl text-balance text-cream [&_.block-mark]:inline-block [&_.block-mark]:leading-[1.06]">
+              {title}
+            </h2>
+            {sub ? <p className="t-lead mt-6 max-w-xl text-pretty text-cream-muted">{sub}</p> : null}
           </div>
-          <div className="flex shrink-0 flex-wrap items-center gap-4">
-            <Button href={BOOKING_URL} external>
+          <div className="flex shrink-0 flex-wrap items-center gap-3">
+            <Button href={BOOKING_URL} external size="lg">
               {cta}
             </Button>
             {checker ? (
-              <Button href={CHECKER_URL} external variant="outline">
+              <Button href={CHECKER_URL} external variant="outline" size="lg">
                 Check your AI coverage
               </Button>
             ) : null}
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

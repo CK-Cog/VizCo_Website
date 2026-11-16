@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import FinalCta from "@/components/FinalCta";
 import JsonLd from "@/components/JsonLd";
-import { Container, Label } from "@/components/ui";
+import Reveal from "@/components/Reveal";
+import { Container, Label, SwapArrow } from "@/components/ui";
 import { INSIGHTS, type Insight } from "@/content/insights";
 import { SOURCES, type SourceKey } from "@/content/sources";
 import { articleSchema, breadcrumbSchema } from "@/lib/seo";
@@ -31,27 +32,35 @@ export default function Article({ post, sources, children }: { post: Insight; so
       />
       <article>
         <header>
-          <Container className="pb-10 pt-12 sm:pb-14 sm:pt-16">
-            <Link href="/insights" className="group inline-flex items-center gap-2 text-sm text-cream-muted hover:text-cream">
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-              All insights
+          <Container className="pb-12 pt-12 sm:pb-16 sm:pt-16">
+            <Link href="/insights" className="group inline-flex items-center gap-2 text-sm font-medium text-cream-muted transition-colors hover:text-cream">
+              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+              <span className="link-draw pb-px">All insights</span>
             </Link>
-            <Label className="mt-10">{post.tag}</Label>
-            <h1 className="font-display mt-6 max-w-4xl text-balance text-[2.5rem] leading-[1.08] text-cream sm:text-6xl">{post.title}</h1>
-            <p className="mt-6 max-w-2xl text-balance text-lg text-cream-muted sm:text-xl">{post.dek}</p>
-            <p className="mt-8 font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">
-              <time dateTime={post.updated}>{post.dateLabel}</time> · {post.minutes} min read · {sources.length} sources
+            <Label className="anim-in mt-12">{post.tag}</Label>
+            <h1 className="font-display t-h1 anim-in mt-7 max-w-[16em] text-balance text-cream" style={{ animationDelay: "80ms" }}>
+              {post.title}
+            </h1>
+            <p className="t-lead anim-in mt-7 max-w-2xl text-pretty text-cream-muted" style={{ animationDelay: "160ms" }}>
+              {post.dek}
+            </p>
+            <p className="eyebrow anim-in mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 text-cream-muted" style={{ animationDelay: "220ms" }}>
+              <time dateTime={post.updated}>{post.dateLabel}</time>
+              <span aria-hidden className="h-1 w-1 bg-line-strong" />
+              {post.minutes} min read
+              <span aria-hidden className="h-1 w-1 bg-line-strong" />
+              {sources.length} sources
             </p>
           </Container>
         </header>
         <Container>
-          <div className="border-t border-cream pt-10 sm:pt-14">
+          <div className="border-t border-cream pt-12 sm:pt-16">
             <div
-              className="max-w-2xl text-lg leading-relaxed text-cream-muted
-                [&_h2]:font-display [&_h2]:mt-14 [&_h2]:text-3xl [&_h2]:leading-tight [&_h2]:text-cream [&_h2:first-child]:mt-0
-                [&_p]:mt-5 [&_strong]:font-medium [&_strong]:text-cream
-                [&_ul]:mt-5 [&_ul]:space-y-3 [&_li]:relative [&_li]:pl-5
-                [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-[0.7em] [&_li]:before:h-1.5 [&_li]:before:w-1.5 [&_li]:before:bg-signal"
+              className="max-w-[42rem] text-[17px] leading-[1.75] tracking-[-0.012em] text-cream/75 sm:text-[18.5px]
+                [&_h2]:font-display [&_h2]:mt-16 [&_h2]:text-[2rem] [&_h2]:leading-[1.1] [&_h2]:tracking-[-0.035em] [&_h2]:text-cream [&_h2:first-child]:mt-0
+                [&_p]:mt-6 [&_strong]:font-semibold [&_strong]:text-cream
+                [&_ul]:mt-6 [&_ul]:space-y-4 [&_li]:relative [&_li]:pl-6
+                [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-[0.72em] [&_li]:before:h-1.5 [&_li]:before:w-1.5 [&_li]:before:bg-signal"
             >
               {children}
             </div>
@@ -59,29 +68,40 @@ export default function Article({ post, sources, children }: { post: Insight; so
         </Container>
       </article>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-20 sm:py-28">
         <Container>
-          <div className="border-t border-cream pt-6">
+          <Reveal className="rule-draw pt-7">
             <Label>Keep reading</Label>
-            <ul className="mt-8 grid gap-8 md:grid-cols-3">
+            <ul className="mt-10 grid gap-4 md:grid-cols-3">
               <li>
-                <Link href="/the-problem" className="group block border-t-2 border-signal pt-5">
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">Guide</p>
-                  <p className="font-display mt-3 text-2xl leading-tight text-cream">The AI insurance problem, with sources</p>
-                  <ArrowRight className="mt-4 h-4 w-4 text-cream transition-transform group-hover:translate-x-1" />
+                <Link
+                  href="/the-problem"
+                  className="group relative flex h-full flex-col gap-8 border border-line-dark bg-surface p-7 shadow-[var(--shadow-card)] transition-[border-color,box-shadow,translate] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)]"
+                >
+                  <span aria-hidden className="absolute inset-x-0 -top-px h-[2px] bg-signal" />
+                  <div>
+                    <p className="eyebrow text-cream-muted">Guide</p>
+                    <p className="font-display mt-4 text-2xl leading-tight tracking-[-0.03em] text-cream">The AI insurance problem, with sources</p>
+                  </div>
+                  <SwapArrow className="mt-auto h-4 w-4 text-cream" />
                 </Link>
               </li>
               {related.map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/insights/${r.slug}`} className="group block border-t border-line-dark pt-5">
-                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream-muted">{r.tag}</p>
-                    <p className="font-display mt-3 text-2xl leading-tight text-cream">{r.title}</p>
-                    <ArrowRight className="mt-4 h-4 w-4 text-cream transition-transform group-hover:translate-x-1" />
+                  <Link
+                    href={`/insights/${r.slug}`}
+                    className="group flex h-full flex-col gap-8 border border-line-dark bg-surface p-7 shadow-[var(--shadow-card)] transition-[border-color,box-shadow,translate] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)]"
+                  >
+                    <div>
+                      <p className="eyebrow text-cream-muted">{r.tag}</p>
+                      <p className="font-display mt-4 text-2xl leading-tight tracking-[-0.03em] text-cream">{r.title}</p>
+                    </div>
+                    <SwapArrow className="mt-auto h-4 w-4 text-cream" />
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
