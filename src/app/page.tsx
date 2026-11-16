@@ -7,7 +7,7 @@ import PolicyLine from "@/components/home/PolicyLine";
 import Reading from "@/components/home/Reading";
 import FinalCta from "@/components/FinalCta";
 import { Block, Faq, Steps } from "@/components/ui";
-import ExposureList from "@/components/ExposureList";
+import ExposureGroups from "@/components/ExposureGroups";
 
 export const metadata: Metadata = pageMeta({
   title: "VizCo | AI Liability Insurance & Emerging Risk Broker",
@@ -62,7 +62,7 @@ export default function Home() {
         title="How AI goes wrong."
         sub="Real examples of what AI liability is there for."
       >
-        <ExposureList />
+        <ExposureGroups />
       </Block>
 
       <Block
