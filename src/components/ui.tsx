@@ -195,21 +195,6 @@ export function ListPanel({ items, className = "" }: { items: string[]; classNam
   );
 }
 
-/** Numbered process rows, used for every "how it works" on the site. */
-export function Steps({ steps, className = "mt-10" }: { steps: { title: string; body: string }[]; className?: string }) {
-  return (
-    <ol className={`border-b border-line-dark ${className}`}>
-      {steps.map((s, i) => (
-        <li key={s.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-t border-line-dark py-5 sm:grid-cols-[3rem_12rem_1fr] sm:items-baseline">
-          <span className="font-mono text-xs text-cream-muted">{String(i + 1).padStart(2, "0")}</span>
-          <h3 className="font-display text-2xl text-cream">{s.title}</h3>
-          <p className="col-start-2 mt-1 text-sm leading-relaxed text-cream-muted sm:col-start-3 sm:mt-0 sm:text-base">{s.body}</p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
 export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a: ReactNode }[]; className?: string }) {
   return (
     <div className={`divide-y divide-line-dark border-y border-line-dark ${className}`}>

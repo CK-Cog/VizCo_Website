@@ -26,7 +26,9 @@ npm run build      # production build
 | `src/app/emerging-risk/` | Physical AI: humanoid robots, robots at work, autonomous systems |
 | `src/app/about/`, `src/app/contact/` | Team and contact |
 | `src/app/sitemap.ts`, `src/app/robots.ts` | Sitemap and robots.txt (AI crawlers allowed) |
-| `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Steps`, `Faq`, `Button`, `Em` |
+| `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Faq`, `Button`, `Em` |
+| `src/content/process.ts`, `src/components/Process.tsx` | The five-step process (Assess, Mitigate, Place, Monitor, Report), used on every page |
+| `src/components/RiskChanges.tsx` | "AI risk can change overnight" panel: why we keep monitoring after the policy is bound |
 | `src/components/home/` | Home-only sections (`Thesis`, `PolicyLine`, `Reading`, `Backers`) |
 | `src/components/PageHero.tsx`, `FinalCta.tsx`, `CoverageGap.tsx` | Hero, closing call to action, black feature panel |
 | `src/components/DoesItPay.tsx` | The problem as one claim ("Does your insurance pay?" Yes / Maybe / No), used on home and the-problem |

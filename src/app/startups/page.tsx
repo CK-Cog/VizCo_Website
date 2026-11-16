@@ -4,8 +4,9 @@ import FinalCta from "@/components/FinalCta";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import { CertificateCard } from "@/components/pages/Visuals";
-import { Block, Card, Container, Em, ListPanel, Section, SectionHeader, Steps } from "@/components/ui";
-import { pageMeta, serviceSchema } from "@/lib/seo";
+import { Block, Card, Container, Em, Faq, ListPanel, Section, SectionHeader } from "@/components/ui";
+import Process from "@/components/Process";
+import { faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Liability Insurance for Startups",
@@ -14,16 +15,24 @@ export const metadata: Metadata = pageMeta({
   path: "/startups",
 });
 
-const STEPS = [
-  { title: "Review", body: "Your AI, and the contract you're about to sign." },
-  { title: "Prove", body: "We test your AI and put the results on record." },
-  { title: "Place", body: "We negotiate cover with the right insurers." },
-  { title: "Defend", body: "We argue your claim for you." },
+const FAQ = [
+  { q: "We're pre-revenue. Is it too early?", a: "Not if a pilot contract is coming. We size cover to that first deal." },
+  { q: "What do insurers want to see?", a: "Your evaluations, monitoring and controls. We help you build that evidence." },
+  { q: "Can you work to our deal timeline?", a: "Tell us the date on the first call. We plan the work back from it." },
+  {
+    q: "Our AI runs on someone else's model. Who's liable?",
+    a: "Your customer will look to you, whoever built the model. We make sure your cover is written with that in mind.",
+  },
+  {
+    q: "What happens when we ship a new model or feature?",
+    a: "We assess the change and update your insurers, so your cover and certificates stay current.",
+  },
 ];
 
 export default function StartupsPage() {
   return (
     <main>
+      <JsonLd data={faqSchema(FAQ)} />
       <JsonLd
         data={serviceSchema({
           name: "AI liability insurance for AI startups",
@@ -45,7 +54,12 @@ export default function StartupsPage() {
 
       <Section id="problem">
         <Container>
-          <SectionHeader number="01" kicker="The problem" title="Your deal stalls in procurement." />
+          <SectionHeader
+            number="01"
+            kicker="The problem"
+            title="Your deal stalls in procurement."
+            sub="Enterprise contracts make you liable if your AI gets something wrong. Procurement, legal and security each want proof you can pay."
+          />
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <Card icon={<FileCheck className="h-6 w-6" strokeWidth={1.5} />} label="Procurement" title="“Send us your certificate.”" />
             <Card icon={<Gavel className="h-6 w-6" strokeWidth={1.5} />} label="Legal" title="“Who pays if it's wrong?”" delay={80} />
@@ -66,6 +80,7 @@ export default function StartupsPage() {
                 "A record of your AI, written for insurers",
                 "Attack testing, with results on record",
                 "AI liability cover, placed and negotiated",
+                "Monitoring, with updates to your insurers",
                 "Certificates in your buyer's format",
               ]}
             />
@@ -74,8 +89,15 @@ export default function StartupsPage() {
         </Container>
       </Section>
 
-      <Block id="process" number="03" label="How we work" title="From review to claim.">
-        <Steps steps={STEPS} />
+      <Section id="process">
+        <Container>
+          <SectionHeader number="03" kicker="How we work" title="Insured for the deal, and after it." />
+          <Process />
+        </Container>
+      </Section>
+
+      <Block id="faq" number="04" label="Questions" title="What founders ask us.">
+        <Faq items={FAQ} className="mt-10 max-w-3xl" />
       </Block>
 
       <FinalCta title="Show us the deal you're closing." sub="We'll tell you what it takes to get it insured." />

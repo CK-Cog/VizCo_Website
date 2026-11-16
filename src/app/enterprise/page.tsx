@@ -6,8 +6,10 @@ import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { InventoryCard, VendorStack } from "@/components/pages/Visuals";
-import { Block, Container, Em, Section, SectionHeader, Steps } from "@/components/ui";
-import { pageMeta, serviceSchema } from "@/lib/seo";
+import { Block, Container, Em, Faq, Section, SectionHeader } from "@/components/ui";
+import Process from "@/components/Process";
+import RiskChanges from "@/components/RiskChanges";
+import { faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Liability Insurance for Enterprise",
@@ -16,16 +18,27 @@ export const metadata: Metadata = pageMeta({
   path: "/enterprise",
 });
 
-const STEPS = [
-  { title: "Review", body: "Every AI system you run and buy, against your policies." },
-  { title: "Prove", body: "We put the evidence on record for insurers." },
-  { title: "Place", body: "We negotiate cover for the gaps." },
-  { title: "Defend", body: "We argue your claim, and recheck every renewal." },
+const FAQ = [
+  { q: "Do we need many AI deployments for this to matter?", a: "No. One customer-facing or money-moving system is enough." },
+  {
+    q: "Do you need access to our systems?",
+    a: "Not for the assessment: a questionnaire and a working session per major system. Monitoring works from the signals you choose to share.",
+  },
+  {
+    q: "What about AI inside software we buy?",
+    a: "We include it. Vendor AI acts in your name, so we assess it and check what your vendors' own cover leaves exposed.",
+  },
+  {
+    q: "How do you keep our cover current?",
+    a: "We monitor for changes like model updates, new data and new uses, and report them to your insurers.",
+  },
+  { q: "We already have a broker.", a: "Keep them. Many clients appoint us for the AI line only." },
 ];
 
 export default function EnterprisePage() {
   return (
     <main>
+      <JsonLd data={faqSchema(FAQ)} />
       <JsonLd
         data={serviceSchema({
           name: "AI liability insurance for enterprises",
@@ -42,7 +55,7 @@ export default function EnterprisePage() {
             <span className="sm:block">The AI you run.</span> <span className="sm:block">The AI you buy.</span> <Em>Both covered.</Em>
           </>
         }
-        sub="We review your AI, check your vendors' AI, and place the cover."
+        sub="We assess your AI and your vendors' AI, reduce the risk, place the cover, and keep monitoring."
       />
 
       <Section id="problem">
@@ -76,8 +89,17 @@ export default function EnterprisePage() {
         </Container>
       </Section>
 
-      <Block id="process" number="03" label="How we work" title="From inventory to covered.">
-        <Steps steps={STEPS} />
+      <Section id="process">
+        <Container>
+          <SectionHeader number="03" kicker="How we work" title="From inventory to covered, and kept covered." />
+          <Process />
+        </Container>
+      </Section>
+
+      <RiskChanges />
+
+      <Block id="faq" number="04" label="Questions" title="What risk teams ask us.">
+        <Faq items={FAQ} className="mt-10 max-w-3xl" />
       </Block>
 
       <FinalCta title="Send us your AI inventory." sub="We'll send back your gaps." />
