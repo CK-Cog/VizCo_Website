@@ -1,184 +1,56 @@
-import { ArrowRight, Bot, ShieldCheck } from "lucide-react";
-import { Container, Section } from "@/components/ui";
+import Link from "next/link";
+import { ArrowRight, Building2, Rocket } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import { Container, Section, SectionHeader } from "@/components/ui";
 
-const paths = [
+const AUDIENCES = [
   {
-    audience: "For AI providers",
-    label: "AI Guarantee readiness",
-    title: "Support the outcome you promise.",
-    body: "Give customers clearer evidence that the AI product or service you deliver has been assessed against an agreed performance commitment.",
-    source: "AI product",
-    sourceDetail: "You deliver",
-    target: "Agreed outcome",
-    targetDetail: "Customer expects",
-    response: "Evidence for performance backing",
-    dark: false,
+    href: "/startups",
+    Icon: Rocket,
+    label: "AI startups",
+    title: "Companies that build and sell AI",
+    body: "Enterprise buyers want proof your AI is insured before they sign. We make it insurable, place the cover, and hand procurement the answer.",
+    cta: "For startups",
   },
   {
-    audience: "For enterprises",
-    label: "AI Liability readiness",
-    title: "Prepare AI risk for underwriting.",
-    body: "Give insurers a clearer view of the liability created by what an AI deployment says and does.",
-    source: "AI deployment",
-    sourceDetail: "You operate",
-    target: "Liability exposure",
-    targetDetail: "Measured and verified",
-    response: "Evidence for liability underwriting",
-    dark: true,
+    href: "/enterprise",
+    Icon: Building2,
+    label: "Enterprises",
+    title: "Companies running AI, built or bought",
+    body: "Your AI, and your vendors' AI, act in your name. We find where your insurance falls short and close the gap.",
+    cta: "For enterprise",
   },
 ];
 
 export default function WhoItsFor() {
   return (
-    <Section id="cover" className="bg-paper !py-16">
+    <Section id="who">
       <Container>
-        <div className="mx-auto max-w-5xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
-            Who it is for
-          </p>
-          <h2 className="font-editorial mt-4 max-w-4xl text-balance text-4xl leading-[1] tracking-[-0.02em] text-ink-900 sm:text-5xl lg:text-6xl">
-            Evidence for the AI you sell and{" "}
-            <span className="italic">operate.</span>
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-700">
-            Two insurance pathways, built on the same deployment-level
-            evidence.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
-          {paths.map((path) => {
-            const dark = path.dark;
-
-            return (
-            <article
-              key={path.label}
-              className={`flex flex-col border p-6 sm:p-7 ${
-                dark
-                  ? "border-ink-900 bg-ink-900 text-paper"
-                  : "border-border-strong bg-surface text-ink-900"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-4">
-                <span
-                  className={`font-mono text-[10px] uppercase tracking-[0.16em] ${
-                    dark ? "text-paper/55" : "text-ink-500"
-                  }`}
-                >
-                  {path.audience}
+        <SectionHeader kicker="Who it's for" title="Both sides of the AI deal." sub="Whether you build AI or buy it, the exposure is real. And it's insurable." />
+        <div className="mx-auto mt-14 grid max-w-4xl gap-4 md:grid-cols-2">
+          {AUDIENCES.map((a, i) => (
+            <Reveal key={a.href} delay={i * 90}>
+              <Link
+                href={a.href}
+                className="group flex h-full flex-col rounded-md border border-line-dark bg-ink-2/80 p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50"
+              >
+                <a.Icon className="h-6 w-6 text-accent-glow" strokeWidth={1.6} />
+                <p className="eyebrow mt-6 text-cream-muted">{a.label}</p>
+                <h3 className="font-display mt-2 text-3xl leading-tight text-cream">{a.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream-muted">{a.body}</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm text-cream">
+                  {a.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
-                <span
-                  className={`flex h-9 w-9 items-center justify-center rounded-full ${
-                    dark
-                      ? "bg-paper/10 text-accent"
-                      : "bg-surface-subtle text-ink-900"
-                  }`}
-                >
-                  <Bot className="h-4 w-4" />
-                </span>
-              </div>
-
-              <p
-                className={`mt-7 font-mono text-[10px] uppercase tracking-[0.16em] ${
-                  dark ? "text-paper/55" : "text-ink-500"
-                }`}
-              >
-                {path.label}
-              </p>
-              <h3 className="mt-2 max-w-md text-3xl font-semibold leading-[1.08] tracking-[-0.025em]">
-                {path.title}
-              </h3>
-              <p
-                className={`mt-3 max-w-md text-base leading-relaxed ${
-                  dark ? "text-paper/65" : "text-ink-700"
-                }`}
-              >
-                {path.body}
-              </p>
-
-              <div
-                className={`mt-8 border ${
-                  dark
-                    ? "border-paper/15 bg-paper/[0.04]"
-                    : "border-border bg-paper"
-                }`}
-              >
-                <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 p-4">
-                  <CoverageNode
-                    title={path.source}
-                    detail={path.sourceDetail}
-                    dark={dark}
-                  />
-                  <ArrowRight
-                    className={`h-4 w-4 ${
-                      dark ? "text-accent" : "text-ink-300"
-                    }`}
-                  />
-                  <CoverageNode
-                    title={path.target}
-                    detail={path.targetDetail}
-                    dark={dark}
-                  />
-                </div>
-
-                <div
-                  className={`flex items-center gap-3 border-t px-4 py-3 ${
-                    dark
-                      ? "border-paper/15"
-                      : "border-border bg-surface-subtle"
-                  }`}
-                >
-                  <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
-                      dark
-                        ? "bg-accent text-ink-900"
-                        : "bg-ink-900 text-paper"
-                    }`}
-                  >
-                    <ShieldCheck className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <p
-                      className={`font-mono text-[9px] uppercase tracking-[0.14em] ${
-                        dark ? "text-paper/50" : "text-ink-500"
-                      }`}
-                    >
-                      {path.label}
-                    </p>
-                    <p className="mt-0.5 text-xs font-semibold">
-                      {path.response}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            );
-          })}
+              </Link>
+            </Reveal>
+          ))}
         </div>
+        <Reveal className="mx-auto mt-6 max-w-4xl rounded-md border border-line-dark px-6 py-5 text-center text-sm text-cream-muted">
+          <span className="text-cream">Beyond AI:</span> any risk new enough that your policies haven&apos;t caught up. That&apos;s what
+          emerging risk means, and it&apos;s our specialty.
+        </Reveal>
       </Container>
     </Section>
-  );
-}
-
-function CoverageNode({
-  title,
-  detail,
-  dark,
-}: {
-  title: string;
-  detail: string;
-  dark: boolean;
-}) {
-  return (
-    <div className="min-w-0">
-      <p className="text-xs font-semibold leading-tight">{title}</p>
-      <p
-        className={`mt-1 text-[10px] leading-tight ${
-          dark ? "text-paper/50" : "text-ink-500"
-        }`}
-      >
-        {detail}
-      </p>
-    </div>
   );
 }

@@ -1,23 +1,16 @@
 import Link from "next/link";
 
-export default function Wordmark({
-  className = "",
-  size = "md",
-}: {
-  className?: string;
-  size?: "sm" | "md";
-}) {
-  const text = size === "sm" ? "text-lg" : "text-xl";
+/** The VizCo logo in code: "Viz" in type, "Co" reversed out of a solid block. */
+export default function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
       aria-label="VizCo home"
-      className={`group inline-flex items-center font-semibold tracking-tight text-ink-900 ${text} ${className}`}
+      className={`inline-flex items-center text-[22px] font-bold leading-none tracking-[-0.01em] ${className}`}
+      style={{ fontFamily: 'Verdana, "DejaVu Sans", var(--font-display), sans-serif' }}
     >
-      Viz
-      <span className="ml-[0.12em] rounded-[3px] bg-ink-900 px-[0.22em] py-[0.02em] text-paper transition-colors group-hover:bg-accent group-hover:text-ink-900">
-        Co
-      </span>
+      <span className="text-cream">Viz</span>
+      <span className="ml-[0.14em] bg-cream px-[0.16em] pb-[0.12em] pt-[0.1em] text-ink">Co</span>
     </Link>
   );
 }

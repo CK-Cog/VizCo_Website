@@ -1,168 +1,207 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
-/* Shared typography — keep page and section titles consistent site-wide */
-export const pageTitleClass =
-  "text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl lg:leading-[1.05]";
-
-export const sectionTitleClass =
-  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:text-4xl lg:leading-[1.1]";
-
-export const leadTitleClass =
-  "text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl lg:leading-snug";
-
-export function PageTitle({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <h1 className={`text-balance ${pageTitleClass} ${className}`}>{children}</h1>
-  );
-}
-
-export function SectionTitle({
-  children,
-  className = "",
-  as: Tag = "h2",
-}: {
-  children: ReactNode;
-  className?: string;
-  as?: "h2" | "h3";
-}) {
-  return (
-    <Tag className={`text-balance ${sectionTitleClass} ${className}`}>
-      {children}
-    </Tag>
-  );
-}
+/* ---------- Layout ---------- */
 
 export function Container({
   children,
   className = "",
+  size = "lg",
 }: {
   children: ReactNode;
   className?: string;
+  size?: "md" | "lg";
 }) {
-  return (
-    <div className={`mx-auto w-full max-w-6xl px-6 sm:px-8 ${className}`}>
-      {children}
-    </div>
-  );
+  const max = size === "md" ? "max-w-3xl" : "max-w-6xl";
+  return <div className={`mx-auto w-full ${max} px-6 sm:px-8 ${className}`}>{children}</div>;
 }
 
 export function Section({
   children,
-  className = "",
   id,
+  className = "",
+  border = true,
 }: {
   children: ReactNode;
-  className?: string;
   id?: string;
+  className?: string;
+  border?: boolean;
 }) {
   return (
-    <section id={id} className={`py-20 sm:py-28 ${className}`}>
+    <section id={id} className={`relative py-20 sm:py-28 ${border ? "border-t border-line-dark/70" : ""} ${className}`}>
       {children}
     </section>
   );
 }
 
-/* A solid marker block that keeps its label readable. The redaction motif. */
-export function Mark({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return <span className={`mark ${className}`}>{children}</span>;
-}
+/* ---------- Headings ---------- */
 
-/* Mono eyebrow with a leading redaction tick. Recurring brand signature. */
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Kicker({ children, center = true }: { children: ReactNode; center?: boolean }) {
   return (
-    <span className="label inline-flex items-center gap-2 text-ink-500">
-      <span
-        aria-hidden
-        className="inline-block h-3 w-5 rounded-[2px] bg-ink-900"
-      />
+    <p className={`eyebrow flex items-center gap-3 text-accent-glow ${center ? "justify-center" : ""}`}>
+      <span aria-hidden className="h-px w-6 bg-accent/60" />
       {children}
-    </span>
+      <span aria-hidden className="h-px w-6 bg-accent/60" />
+    </p>
   );
 }
 
-export function SectionHeading({
-  eyebrow,
+export function Em({ children }: { children: ReactNode }) {
+  return <span className="block-mark">{children}</span>;
+}
+
+export function SectionHeader({
+  kicker,
+  number,
   title,
-  subtitle,
-  align = "center",
+  sub,
+  className = "",
 }: {
-  eyebrow?: string;
+  kicker?: ReactNode;
+  number?: string;
   title: ReactNode;
-  subtitle?: ReactNode;
-  align?: "center" | "left";
+  sub?: ReactNode;
+  className?: string;
 }) {
-  const alignment = align === "center" ? "text-center mx-auto" : "text-left";
-  return (
-    <div className={`max-w-3xl ${alignment}`}>
-      {eyebrow && (
-        <div className="mb-3">
-          <Eyebrow>{eyebrow}</Eyebrow>
+  if (number) {
+    return (
+      <div className={`max-w-3xl ${className}`}>
+        <div className="flex items-baseline gap-4">
+          <span className="font-mono text-sm text-accent-glow">{number}</span>
+          <h2 className="font-display text-balance text-4xl leading-[1.14] text-cream sm:text-5xl">{title}</h2>
         </div>
-      )}
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && (
-        <p className="mt-3 text-base leading-relaxed text-ink-500 sm:text-lg">
-          {subtitle}
-        </p>
-      )}
+        {sub ? <p className="mt-4 text-pretty text-base text-cream-muted sm:text-lg">{sub}</p> : null}
+      </div>
+    );
+  }
+  return (
+    <div className={`mx-auto max-w-3xl text-center ${className}`}>
+      {kicker ? <Kicker>{kicker}</Kicker> : null}
+      <h2 className={`font-display text-balance text-4xl leading-[1.14] text-cream sm:text-5xl ${kicker ? "mt-5" : ""}`}>
+        {title}
+      </h2>
+      {sub ? <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-cream-muted sm:text-lg">{sub}</p> : null}
     </div>
   );
 }
 
-type ButtonProps = {
-  children: ReactNode;
-  href: string;
-  variant?: "primary" | "secondary";
-  external?: boolean;
-  className?: string;
-};
+/* ---------- Buttons ---------- */
 
 export function Button({
-  children,
   href,
+  children,
   variant = "primary",
   external = false,
   className = "",
-}: ButtonProps) {
+  arrow = true,
+}: {
+  href: string;
+  children: ReactNode;
+  variant?: "primary" | "outline";
+  external?: boolean;
+  className?: string;
+  arrow?: boolean;
+}) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200";
-  const styles =
+    "group inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink";
+  const v =
     variant === "primary"
-      ? "bg-ink-900 text-paper hover:bg-black"
-      : "border border-border-strong bg-transparent text-ink-900 hover:bg-surface-muted";
-
+      ? "bg-cream text-ink hover:bg-accent-deep"
+      : "border border-line-dark text-cream hover:border-cream/40 hover:bg-cream/5";
+  const content = (
+    <>
+      {children}
+      {arrow ? <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /> : null}
+    </>
+  );
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${base} ${styles} ${className}`}
-      >
-        {children}
+      <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${v} ${className}`}>
+        {content}
       </a>
     );
   }
   return (
-    <Link href={href} className={`${base} ${styles} ${className}`}>
-      {children}
+    <Link href={href} className={`${base} ${v} ${className}`}>
+      {content}
     </Link>
   );
 }
 
-export const BOOKING_URL = "https://calendar.app.google/UUfjxJN178KsGvCGA";
-/** @deprecated Use BOOKING_URL */
-export const CALENDLY_URL = BOOKING_URL;
+/* ---------- Cards & panels ---------- */
+
+export function Card({
+  label,
+  title,
+  children,
+  icon,
+  highlight = false,
+  className = "",
+  delay = 0,
+}: {
+  label?: ReactNode;
+  title?: ReactNode;
+  children?: ReactNode;
+  icon?: ReactNode;
+  highlight?: boolean;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <Reveal
+      delay={delay}
+      className={`flex h-full flex-col rounded-md border p-6 sm:p-7 ${
+        highlight
+          ? "border-cream/50 bg-gradient-to-b from-cream/[0.06] to-ink-2 shadow-[0_0_60px_-30px_rgba(255,255,255,0.12)]"
+          : "border-line-dark bg-ink-2/80"
+      } ${className}`}
+    >
+      {icon ? <div className="mb-5 text-accent-glow">{icon}</div> : null}
+      {label ? <p className={`eyebrow ${highlight ? "text-accent-glow" : "text-cream-muted"}`}>{label}</p> : null}
+      {title ? <h3 className={`font-display text-2xl leading-tight text-cream ${label ? "mt-3" : ""}`}>{title}</h3> : null}
+      {children ? <div className="mt-3 text-sm leading-relaxed text-cream-muted">{children}</div> : null}
+    </Reveal>
+  );
+}
+
+export function ListPanel({ items, title, className = "" }: { items: string[]; title?: string; className?: string }) {
+  return (
+    <Reveal className={`rounded-md border border-line-dark bg-ink-2/80 ${className}`}>
+      {title ? <p className="eyebrow border-b border-line-dark px-6 py-4 text-center text-accent-glow">{title}</p> : null}
+      <ul className="divide-y divide-line-dark">
+        {items.map((it) => (
+          <li key={it} className="flex items-center gap-3 px-6 py-4 text-sm text-cream/90">
+            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-glow" />
+            {it}
+          </li>
+        ))}
+      </ul>
+    </Reveal>
+  );
+}
+
+export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
+  return (
+    <div className="mx-auto max-w-3xl divide-y divide-line-dark border-y border-line-dark">
+      {items.map((item) => (
+        <details key={item.q} className="group py-5">
+          <summary className="flex items-start justify-between gap-6 text-left text-base font-medium text-cream sm:text-lg">
+            <span>{item.q}</span>
+            <span aria-hidden className="chev mt-0.5 text-xl leading-none text-accent-glow">+</span>
+          </summary>
+          <div className="mt-3 max-w-2xl text-sm leading-relaxed text-cream-muted sm:text-base">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+export function LinkedinIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.785-1.75-1.75s.784-1.75 1.75-1.75 1.75.785 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z" />
+    </svg>
+  );
+}
