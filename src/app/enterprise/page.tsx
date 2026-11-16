@@ -9,7 +9,7 @@ import { InventoryCard, VendorStack } from "@/components/pages/Visuals";
 import { Block, Container, Em, Faq, Section, SectionHeader } from "@/components/ui";
 import Process from "@/components/Process";
 import RiskChanges from "@/components/RiskChanges";
-import { faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Liability Insurance for Enterprise",
@@ -38,6 +38,7 @@ const FAQ = [
 export default function EnterprisePage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema([{ name: "For enterprise", path: "/enterprise" }])} />
       <JsonLd data={faqSchema(FAQ)} />
       <JsonLd
         data={serviceSchema({

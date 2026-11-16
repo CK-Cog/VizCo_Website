@@ -8,7 +8,7 @@ const post = insight("ai-exclusions-at-renewal");
 
 export const metadata: Metadata = pageMeta({
   title: "AI exclusions at renewal: what they say and what to check",
-  description: post.dek,
+  description: post.description,
   path: `/insights/${post.slug}`,
   type: "article",
 });

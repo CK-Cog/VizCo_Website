@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 import { Factory, PersonStanding, Radar, Sparkles } from "lucide-react";
 import PageHero from "@/components/PageHero";
@@ -40,6 +40,7 @@ const FAQ = [
 export default function EmergingRiskPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema([{ name: "Emerging risk", path: "/emerging-risk" }])} />
       <JsonLd data={faqSchema(FAQ)} />
       <JsonLd
         data={serviceSchema({

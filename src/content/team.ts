@@ -19,7 +19,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Daniel Kharitonov, Ph.D.",
     role: "Co-Founder & CTO",
-    prev: "Previously Stanford, Interative",
+    prev: "Previously Stanford, Iterative",
     img: "/Daniel.png",
     email: "daniel@vizco.co",
     linkedin: "https://www.linkedin.com/in/danielkharitonov/",

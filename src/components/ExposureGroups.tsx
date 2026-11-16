@@ -103,31 +103,33 @@ export default function ExposureGroups({ className = "mt-10" }: { className?: st
         })}
       </div>
 
-      <ol
+      <div
         key={active}
         role="tabpanel"
         id="exposure-panel"
         aria-labelledby={`exposure-tab-${active}`}
         aria-live={playing ? "off" : "polite"}
-        className="mt-4 grid gap-4 overflow-x-clip sm:grid-cols-3"
+        className="mt-4"
       >
-        {group.items.map((e, j) => (
-          <li
-            key={e.headline}
-            className="slide-in flex min-h-[13rem] flex-col justify-between bg-cream p-6 text-ink sm:min-h-[16rem]"
-            style={{ animationDelay: `${j * 90}ms` }}
-          >
-            <p className="flex items-center gap-2.5 font-mono text-xs text-ink/60">
-              <span aria-hidden className="h-2.5 w-2.5 bg-signal" />
-              {pad(STARTS[active] + j)}
-            </p>
-            <div className="mt-8">
-              <h3 className="font-display text-2xl leading-[1.1] sm:text-[1.7rem]">{e.headline}</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink/70">{e.line}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+        <ol className="grid gap-4 overflow-x-clip sm:grid-cols-3">
+          {group.items.map((e, j) => (
+            <li
+              key={e.headline}
+              className="slide-in flex min-h-[13rem] flex-col justify-between bg-cream p-6 text-ink sm:min-h-[16rem]"
+              style={{ animationDelay: `${j * 90}ms` }}
+            >
+              <p className="flex items-center gap-2.5 font-mono text-xs text-ink/60">
+                <span aria-hidden className="h-2.5 w-2.5 bg-signal" />
+                {pad(STARTS[active] + j)}
+              </p>
+              <div className="mt-8">
+                <h3 className="font-display text-2xl leading-[1.1] sm:text-[1.7rem]">{e.headline}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink/70">{e.line}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
 
       <div className="mt-5 flex items-center justify-between gap-4">
         <button

@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMeta({
   title: "VizCo | AI Liability Insurance & Emerging Risk Broker",
   absoluteTitle: true,
   description:
-    "AI liability insurance for enterprises and AI startups. VizCo finds where your policies are silent on or exclude AI, proves your AI to insurers and places the cover.",
+    "AI liability insurance for enterprises and AI startups. We find where your policies are silent on or exclude AI, prove your AI to insurers and place the cover.",
   path: "/",
 });
 

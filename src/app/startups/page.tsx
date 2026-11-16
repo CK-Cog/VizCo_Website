@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import { CertificateCard } from "@/components/pages/Visuals";
 import { Block, Card, Container, Em, Faq, ListPanel, Section, SectionHeader } from "@/components/ui";
 import Process from "@/components/Process";
-import { faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, pageMeta, serviceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "AI Liability Insurance for Startups",
@@ -32,6 +32,7 @@ const FAQ = [
 export default function StartupsPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema([{ name: "For AI startups", path: "/startups" }])} />
       <JsonLd data={faqSchema(FAQ)} />
       <JsonLd
         data={serviceSchema({

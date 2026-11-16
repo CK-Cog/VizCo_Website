@@ -2,7 +2,7 @@
 
 > VizCo is the AI & emerging risk specialty broker. It makes AI insurable and places AI liability insurance for enterprises and for the AI startups that sell to them. It also helps companies insure physical AI, such as humanoid robots, robots at work and autonomous systems.
 
-VizCo is an insurance broker. It represents its clients, not insurers. Policies are underwritten by third-party insurers, and VizCo does not underwrite or bear insurance risk. VizCo was founded by AI researchers from Stanford and MIT.
+VizCo is an insurance broker. It represents its clients, not insurers. Policies are underwritten by third-party insurers, and VizCo does not underwrite or bear insurance risk. VizCo was founded by AI researchers and engineers from Stanford, MIT and UC Berkeley.
 
 How VizCo works:
 1. Assess: maps every AI system a client runs and buys, how it can fail, and where their policies are covered, silent or excluded.
@@ -22,8 +22,16 @@ How VizCo works:
 - [For AI startups](https://vizco.co/startups): getting AI through enterprise procurement with AI liability insurance and certificates.
 - [For enterprise](https://vizco.co/enterprise): covering the AI an enterprise runs and the AI it buys from vendors.
 - [Emerging risk](https://vizco.co/emerging-risk): insuring humanoid robots, robots at work and autonomous systems.
-- [About](https://vizco.co/about): the team and advisors.
+- [About](https://vizco.co/about): the founding team and advisors.
 - [Contact](https://vizco.co/contact): book a call or email info@vizco.co.
+
+## Team
+
+- Chris Kelly, PhD: Co-Founder & CEO. Previously Stanford, MIT.
+- Daniel Kharitonov, PhD: Co-Founder & CTO. Previously Stanford, Iterative.
+- Tanay Baswa: Co-Founder & Head of Product. Previously UC Berkeley, Enkrypt AI.
+- Mark Farrelly: Founding GTM Lead. Previously HBAN, Microsoft, Enterprise Ireland.
+- Advisors: Alan Boehme, Junaid Islam and Carlos Colombo.
 
 ## Definitions
 

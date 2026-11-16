@@ -6,7 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import { Container, Label } from "@/components/ui";
 import { INSIGHTS, type Insight } from "@/content/insights";
 import { SOURCES, type SourceKey } from "@/content/sources";
-import { articleSchema } from "@/lib/seo";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo";
 
 /** Layout for an insight post: header, prose, related posts and a closing call to action. */
 export default function Article({ post, sources, children }: { post: Insight; sources: SourceKey[]; children: ReactNode }) {
@@ -16,12 +16,18 @@ export default function Article({ post, sources, children }: { post: Insight; so
       <JsonLd
         data={articleSchema({
           headline: post.title,
-          description: post.dek,
+          description: post.description,
           path: `/insights/${post.slug}`,
           datePublished: post.published,
           dateModified: post.updated,
           citations: sources.map((k) => SOURCES[k]),
         })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Insights", path: "/insights" },
+          { name: post.title, path: `/insights/${post.slug}` },
+        ])}
       />
       <article>
         <header>

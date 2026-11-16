@@ -8,7 +8,7 @@ const post = insight("silent-ai");
 
 export const metadata: Metadata = pageMeta({
   title: "Silent AI: the problem with a policy that says nothing",
-  description: post.dek,
+  description: post.description,
   path: `/insights/${post.slug}`,
   type: "article",
 });

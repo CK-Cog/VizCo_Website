@@ -7,7 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import { Container, Em, QuestionMark, Section, SectionHeader } from "@/components/ui";
 import { SOURCES, type SourceKey } from "@/content/sources";
-import { articleSchema, pageMeta } from "@/lib/seo";
+import { articleSchema, breadcrumbSchema, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "The AI Insurance Problem: Exclusions and Silent AI",
@@ -75,13 +75,15 @@ export default function TheProblemPage() {
       <JsonLd
         data={articleSchema({
           headline: "The AI insurance problem: exclusions and silent AI",
-          description: "Most business insurance says nothing about AI, and more of it now excludes AI.",
+          description:
+            "Most business insurance says nothing about AI, and more of it now excludes AI. What that means for you, why it's happening, and how AI liability is growing.",
           path: "/the-problem",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
           citations: USED.map((k) => SOURCES[k]),
         })}
       />
+      <JsonLd data={breadcrumbSchema([{ name: "The AI insurance problem", path: "/the-problem" }])} />
       <PageHero
         kicker="The AI insurance problem"
         title={

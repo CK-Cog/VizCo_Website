@@ -8,7 +8,7 @@ const post = insight("ai-liability-trends-2026");
 
 export const metadata: Metadata = pageMeta({
   title: "Five trends reshaping AI liability in 2026",
-  description: post.dek,
+  description: post.description,
   path: `/insights/${post.slug}`,
   type: "article",
 });

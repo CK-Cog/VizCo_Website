@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/seo";
+import { aboutPageSchema, breadcrumbSchema, pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import PersonCard from "@/components/PersonCard";
 import FinalCta from "@/components/FinalCta";
@@ -7,15 +8,18 @@ import { Container, Em, Section, SectionHeader } from "@/components/ui";
 import { ADVISORS, TEAM } from "@/content/team";
 
 export const metadata: Metadata = pageMeta({
-  title: "About",
+  title: "About VizCo: The AI Researchers Making AI Insurable",
+  absoluteTitle: true,
   description:
-    "The people behind VizCo, the AI & emerging risk specialty broker: AI researchers from Stanford and MIT working on AI liability insurance.",
+    "Meet the team behind VizCo, the AI & emerging risk specialty broker: AI researchers and engineers from Stanford, MIT and UC Berkeley making AI insurable.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <main>
+      <JsonLd data={aboutPageSchema({ team: TEAM, advisors: ADVISORS })} />
+      <JsonLd data={breadcrumbSchema([{ name: "About", path: "/about" }])} />
       <PageHero
         kicker="About VizCo"
         title={

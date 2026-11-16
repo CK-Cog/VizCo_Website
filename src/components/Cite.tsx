@@ -13,7 +13,7 @@ export default function Cite({ s }: { s: SourceKey | SourceKey[] }) {
           target="_blank"
           rel="noopener noreferrer"
           title={src.label}
-          className="inline-flex items-center gap-0.5 whitespace-nowrap font-mono text-[0.7em] font-normal uppercase tracking-wide underline decoration-1 underline-offset-2 opacity-60 transition-opacity hover:opacity-100"
+          className="inline-flex items-center gap-0.5 whitespace-nowrap font-mono text-[0.7em] font-normal uppercase tracking-wide underline decoration-1 underline-offset-2 opacity-90 transition-opacity hover:opacity-100"
         >
           {src.short}
           <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" />

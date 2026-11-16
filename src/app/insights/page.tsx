@@ -5,7 +5,8 @@ import PageHero from "@/components/PageHero";
 import FinalCta from "@/components/FinalCta";
 import { Container, Em, Section } from "@/components/ui";
 import { INSIGHTS } from "@/content/insights";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { blogSchema, breadcrumbSchema, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Insights: AI Liability, Silent AI and Emerging Risk",
@@ -16,6 +17,8 @@ export const metadata: Metadata = pageMeta({
 export default function InsightsPage() {
   return (
     <main>
+      <JsonLd data={blogSchema(INSIGHTS)} />
+      <JsonLd data={breadcrumbSchema([{ name: "Insights", path: "/insights" }])} />
       <PageHero
         kicker="Insights"
         title={

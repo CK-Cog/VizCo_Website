@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, contactPageSchema, pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import { ArrowUpRight, Calendar, Mail } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Container } from "@/components/ui";
 import { BOOKING_URL, CONTACT_EMAIL } from "@/content/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Contact",
+  title: "Contact: Talk to an AI Insurance Broker",
   description:
-    "Talk to VizCo about AI liability insurance and emerging risk. Book a thirty-minute call or email us.",
+    "Talk to VizCo, the AI & emerging risk specialty broker, about AI liability insurance. Book a thirty-minute call or email info@vizco.co.",
   path: "/contact",
 });
 
@@ -20,6 +21,8 @@ const ROUTES = [
 export default function ContactPage() {
   return (
     <main>
+      <JsonLd data={contactPageSchema()} />
+      <JsonLd data={breadcrumbSchema([{ name: "Contact", path: "/contact" }])} />
       <PageHero kicker="Contact" title="Talk to us." sub="Tell us what you run or sell. We'll tell you where you stand." />
       <Container className="pb-28">
         <div className="grid gap-8 sm:grid-cols-2">
