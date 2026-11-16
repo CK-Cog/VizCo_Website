@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { articleSchema, pageMeta } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import { ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import FinalCta from "@/components/FinalCta";
+import DoesItPay from "@/components/DoesItPay";
 import { Block, Button, Container, Em, QuestionMark, Section, SectionHeader, Steps } from "@/components/ui";
 import { CHECKER_URL } from "@/content/site";
 
@@ -95,46 +96,6 @@ function Cite({ n }: { n: number | number[] }) {
 const PUBLISHED = "2026-11-15";
 const UPDATED = "2026-11-16";
 const UPDATED_LABEL = "16 November 2026";
-
-/* ---------- 1. The line ---------- */
-
-const STATES = [
-  { key: "covered", label: "Covered", line: "AI is named, and covered.", Icon: Check },
-  { key: "silent", label: "Silent", line: "AI is never mentioned. It's decided at claim time.", Icon: QuestionMark },
-  { key: "excluded", label: "Excluded", line: "AI is written out of the policy.", Icon: X },
-] as const;
-
-function CoverScale() {
-  return (
-    <div className="mt-14">
-      <ol className="relative grid grid-cols-3">
-        <span aria-hidden className="absolute left-0 right-[16.67%] top-7 h-px bg-line-dark" />
-        {STATES.map(({ key, label, line, Icon }) => {
-          const covered = key === "covered";
-          return (
-            <li key={key} className="relative flex flex-col pr-3 sm:pr-8">
-              <span
-                className={`relative z-10 flex h-14 w-14 items-center justify-center ${
-                  covered ? "bg-signal text-signal-ink" : "border border-cream bg-ink text-cream"
-                }`}
-              >
-                <Icon className="h-6 w-6" strokeWidth={2} />
-              </span>
-              <h3 className="font-display mt-5 text-lg sm:text-3xl">
-                <span className="text-cream">{label}</span>
-              </h3>
-              <p className="mt-2 max-w-[16rem] text-[13px] leading-snug text-cream-muted sm:text-base sm:leading-relaxed">{line}</p>
-            </li>
-          );
-        })}
-      </ol>
-      <p className="mt-12 max-w-2xl text-balance text-cream-muted">
-        Most business insurance sits at <span className="font-medium text-cream">Silent</span>, and more is moving to{" "}
-        <span className="font-medium text-cream">Excluded</span>.<Cite n={[1, 2]} />
-      </p>
-    </div>
-  );
-}
 
 /* ---------- 2. The two problems ---------- */
 
@@ -334,8 +295,18 @@ export default function TheProblemPage() {
 
       <Section id="scale">
         <Container>
-          <SectionHeader number="01" kicker="Where you stand" title="Every policy sits on this line." />
-          <CoverScale />
+          <div className="border-t border-cream pt-6">
+            <DoesItPay
+              number="01"
+              kicker="Where you stand"
+              note={
+                <>
+                  Most business insurance sits at <span className="font-medium text-cream">Maybe</span>, and more is moving to{" "}
+                  <span className="font-medium text-cream">No</span>.<Cite n={[1, 2]} />
+                </>
+              }
+            />
+          </div>
         </Container>
       </Section>
 
@@ -397,7 +368,7 @@ export default function TheProblemPage() {
         label="How we fix it"
         title={
           <>
-            We move you to <Em>Covered.</Em>
+            We get you to <Em>Yes.</Em>
           </>
         }
       >

@@ -27,6 +27,7 @@ npm run build      # production build
 | `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Steps`, `Faq`, `Button`, `Em` |
 | `src/components/home/` | Home-only sections (`Thesis`, `PolicyLine`, `Reading`, `Backers`) |
 | `src/components/PageHero.tsx`, `FinalCta.tsx`, `CoverageGap.tsx` | Hero, closing call to action, black feature panel |
+| `src/components/DoesItPay.tsx` | The problem as one claim ("Does your insurance pay?" Yes / Maybe / No), used on home and the-problem |
 | `src/components/pages/Visuals.tsx` | Illustrations (AI inventory, vendor stack, certificate) |
 | `src/content/site.ts` | Navigation, footer links, booking/checker URLs, disclaimer |
 | `src/content/team.ts` | Team and advisors |
@@ -39,7 +40,7 @@ npm run build      # production build
 
 - **Look:** editorial, black on white, from the logo ("Viz" plus "Co" reversed out of a black block). Left-aligned headings, a rule above each section, numbered section labels, square buttons.
 - **Colour tokens are inverted. Read this before styling.** In `globals.css`, `ink` is **white** (backgrounds) and `cream` is **black** (text and blocks). So `bg-cream text-ink` is a black block with white text.
-- **Accent:** one signal colour, `--signal` (currently orange `#ff5a1f`), used only for small marks: label squares, link underlines, the "Covered" box, one reading card. Never for body text. Changing the colour is a one-line edit in `globals.css`.
+- **Accent:** one signal colour, `--signal` (currently orange `#ff5a1f`), used only for small marks: label squares, link underlines, the "Yes" box in the claim example, one reading card. Never for body text. Changing the colour is a one-line edit in `globals.css`.
 - **Emphasis:** `<Em>` / `.block-mark` gives the black "Co"-style highlight.
 - **Fonts:** Noto Sans 700 for headings (`font-display`), Geist for body, Geist Mono for labels.
 - `.eyebrow` is plain (unlayered) CSS and overrides Tailwind size utilities. Use explicit utilities when you need a different size.
