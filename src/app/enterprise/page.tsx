@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Boxes, Building2, FileWarning, Gavel, Network } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Expertise from "@/components/Expertise";
-import ExposureList from "@/components/ExposureList";
+import ExposureGroups from "@/components/ExposureGroups";
 import FinalCta from "@/components/FinalCta";
 import Reveal from "@/components/Reveal";
 import { InventoryCard, VendorStack } from "@/components/pages/Visuals";
@@ -59,10 +59,10 @@ export default function EnterprisePage() {
           <SectionHeader
             number="01"
             kicker="The problem"
-            title="Thirteen ways enterprise AI goes wrong."
+            title="Twelve ways enterprise AI goes wrong."
             sub="Whether you built it or bought it, each one can end in a claim against you, a loss of your own, or both."
           />
-          <ExposureList className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3" />
+          <ExposureGroups className="mt-12" />
         </Container>
       </Section>
 

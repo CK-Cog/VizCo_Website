@@ -99,7 +99,7 @@ export function Block({
           <Label number={number} className="self-start lg:pt-3">
             {label}
           </Label>
-          <div>
+          <div className="min-w-0">
             {title ? <h2 className="font-display max-w-3xl text-balance text-4xl leading-[1.08] text-cream sm:text-5xl">{title}</h2> : null}
             {sub ? <p className="mt-4 max-w-2xl text-balance text-base text-cream-muted sm:text-lg">{sub}</p> : null}
             {children}

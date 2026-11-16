@@ -21,6 +21,8 @@ npm run build      # production build
 | `src/app/page.tsx` | Home page |
 | `src/app/the-problem/` | Sourced guide to silent AI and AI exclusions (every claim cited) |
 | `src/app/startups/`, `src/app/enterprise/` | Audience pages |
+| `src/app/insights/` | Insights index and one folder per post. Post list and dates live in `src/content/insights.ts` |
+| `src/content/sources.ts`, `src/components/Cite.tsx` | Every cited source, and the inline source link used beside each claim in posts |
 | `src/app/emerging-risk/` | Physical AI: humanoid robots, robots at work, autonomous systems |
 | `src/app/about/`, `src/app/contact/` | Team and contact |
 | `src/app/sitemap.ts`, `src/app/robots.ts` | Sitemap and robots.txt (AI crawlers allowed) |
@@ -31,7 +33,7 @@ npm run build      # production build
 | `src/components/pages/Visuals.tsx` | Illustrations (AI inventory, vendor stack, certificate) |
 | `src/content/site.ts` | Navigation, footer links, booking/checker URLs, disclaimer |
 | `src/content/team.ts` | Team and advisors |
-| `src/content/exposures.ts` | "How AI goes wrong" list |
+| `src/content/exposures.ts`, `src/components/ExposureGroups.tsx` | "How AI goes wrong": 12 failure modes in four groups, shown as tabs of black cards (home and enterprise) |
 | `src/lib/seo.ts`, `src/components/JsonLd.tsx` | Per-page metadata helper and structured data |
 | `public/llms.txt` | Plain-text summary for AI answer engines |
 | `public/investors/` | Investor logos (black on transparent) |
@@ -70,6 +72,7 @@ The only expected hits are in `the-problem` (the 2017 UK cyber-risk precedent an
 - Each page sets its metadata with `pageMeta({ title, description, path })` from `src/lib/seo.ts`. That gives the title, description, canonical address and share preview.
 - Structured data: Organization and WebSite on every page (in `layout.tsx`); FAQPage on home, startups and enterprise; Service on startups, enterprise and emerging risk; Article with citations on the-problem.
 - **When you add a page:** add it to `src/app/sitemap.ts`, give it `pageMeta`, and add a line to `public/llms.txt`.
+- **When you add an insight:** add it to `src/content/insights.ts` (it then appears on /insights, in related posts and in the sitemap automatically), create `src/app/insights/<slug>/page.tsx` using `<Article>` and `<Cite s="...">`, add any new source to `src/content/sources.ts`, and add a line to `public/llms.txt`. Every claim needs a source beside it.
 - **When you edit the-problem:** update `UPDATED` and `UPDATED_LABEL` at the top of the page. The visible "Updated" date and the article's `dateModified` both come from them.
 
 ## Still to do

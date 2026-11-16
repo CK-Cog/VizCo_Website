@@ -11,6 +11,7 @@ export type NavItem = NavLink & { items?: NavLink[] };
 export const NAV: NavItem[] = [
   { label: "What we cover", href: "/#coverage" },
   { label: "The problem", href: "/the-problem" },
+  { label: "Insights", href: "/insights" },
   { label: "For startups", href: "/startups" },
   { label: "For enterprise", href: "/enterprise" },
   { label: "Emerging risk", href: "/emerging-risk" },
@@ -38,6 +39,7 @@ export const FOOTER_GROUPS: { title: string; links: NavLink[] }[] = [
     title: "Company",
     links: [
       { label: "The problem", href: "/the-problem" },
+      { label: "Insights", href: "/insights" },
       { label: "Emerging risk", href: "/emerging-risk" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },

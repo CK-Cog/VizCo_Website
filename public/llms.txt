@@ -14,6 +14,10 @@ How VizCo works:
 
 - [Home](https://vizco.co/): what VizCo does, the ways AI goes wrong that AI liability insurance is for, and FAQs.
 - [The AI insurance problem](https://vizco.co/the-problem): a sourced guide to silent AI and AI exclusions in business insurance, why insurers are pulling back, growing AI liability, and a five-point renewal checklist.
+- [Insights](https://vizco.co/insights): short, sourced posts on AI liability.
+  - [The problem with silence](https://vizco.co/insights/silent-ai): why a policy that says nothing about AI is a risk, and the 2017 to 2019 UK regulatory precedent.
+  - [AI exclusions are arriving at renewal](https://vizco.co/insights/ai-exclusions-at-renewal): what the standard AI exclusion says, how far it reaches, and five things to check.
+  - [Five trends reshaping AI liability](https://vizco.co/insights/ai-liability-trends-2026): rising AI incidents, falling transparency, court rulings, EU rules, and shrinking cover.
 - [For AI startups](https://vizco.co/startups): getting AI through enterprise procurement with AI liability insurance and certificates.
 - [For enterprise](https://vizco.co/enterprise): covering the AI an enterprise runs and the AI it buys from vendors.
 - [Emerging risk](https://vizco.co/emerging-risk): insuring humanoid robots, robots at work and autonomous systems.

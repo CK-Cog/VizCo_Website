@@ -4,33 +4,33 @@ import { Container, Label } from "@/components/ui";
 
 const ITEMS = [
   {
-    href: "/the-problem#explained",
+    href: "/the-problem",
     tag: "Guide",
-    tile: "Silent AI, explained",
-    title: "What silent and excluded mean for your policies.",
+    tile: "The AI insurance problem",
+    title: "Exclusions and silent AI, with every source.",
     accent: true,
   },
   {
-    href: "/the-problem#checklist",
-    tag: "Checklist",
-    tile: "Five things to check at renewal",
-    title: "The pages, definitions and triggers to look for.",
+    href: "/insights/silent-ai",
+    tag: "Silent AI",
+    tile: "The problem with silence",
+    title: "A policy that says nothing about AI isn't a promise.",
   },
   {
-    href: "/startups",
-    tag: "For AI startups",
-    tile: "Get through AI procurement",
-    title: "Enterprise buyers want proof your AI is insured. Here's how to give it.",
+    href: "/insights/ai-exclusions-at-renewal",
+    tag: "AI exclusions",
+    tile: "Exclusions at renewal",
+    title: "What the wording says, and five things to check before you sign.",
   },
   {
-    href: "/emerging-risk",
-    tag: "Emerging risk",
-    tile: "Beyond AI",
-    title: "Any risk new enough that your policies haven't caught up.",
+    href: "/insights/ai-liability-trends-2026",
+    tag: "Emerging trends",
+    tile: "Five trends in AI liability",
+    title: "More incidents, courts and regulators moving in, cover moving out.",
   },
 ];
 
-/** AIUC-style reading cards that route visitors to the deeper pages. */
+/** Reading cards: the guide and the latest insights. */
 export default function Reading() {
   return (
     <section id="reading" className="py-16 sm:py-24">
@@ -40,6 +40,13 @@ export default function Reading() {
             <Label number="03">Read</Label>
             <h2 className="font-display mt-6 text-4xl leading-[1.08] text-cream sm:text-5xl">Before you renew.</h2>
           </div>
+          <Link
+            href="/insights"
+            className="group inline-flex items-center gap-2 text-sm text-cream underline decoration-signal decoration-2 underline-offset-[6px]"
+          >
+            All insights
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
         <ul className="mt-10 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {ITEMS.map((it) => (
