@@ -51,7 +51,7 @@ export default function LifeCaption({ className = "" }: { className?: string }) 
             Four rules, yet gliders, oscillators and sudden collapse emerge that no one can predict by reading them. You only find out by running it.
           </p>
           <p className="mt-3 text-[14px] leading-relaxed tracking-[-0.012em] text-cream">
-            AI works the same way: behaviour emerges that no one designed. That emergent risk is what we assess, place and keep monitoring.
+            Just like Conway&apos;s Game of Life, AI and agents can behave in ways no one designed. That emergent risk is what we assess, place and keep monitoring.
           </p>
           <p className="mt-5 flex items-center gap-2 border-t border-line-dark pt-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-subtle">
             Move to seed
