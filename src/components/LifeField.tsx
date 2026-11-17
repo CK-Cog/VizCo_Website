@@ -22,12 +22,12 @@ import { useEffect, useRef } from "react";
  */
 
 const AGE_STOPS: [number, [number, number, number]][] = [
-  [0, [255, 90, 31]],
-  [1, [255, 124, 72]],
-  [2, [244, 156, 122]],
-  [4, [228, 189, 170]],
-  [7, [212, 203, 193]],
-  [12, [196, 190, 182]],
+  [0, [252, 128, 84]],
+  [1, [245, 156, 124]],
+  [2, [236, 183, 160]],
+  [4, [226, 207, 194]],
+  [7, [218, 212, 204]],
+  [12, [210, 205, 198]],
 ];
 const MAX_AGE = 12;
 
@@ -133,7 +133,7 @@ export default function LifeField({
       if (!ctx) return;
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const ramp = ageRamp();
-      const CELL = pitch - 6;
+      const CELL = pitch - 8;
       const DOT = 1.6;
       const PERIOD = 260;
       const LENS = 96;
@@ -272,7 +272,7 @@ export default function LifeField({
           dctx.fillStyle = "#0a0a0a";
           for (let k = 0; k < live.length; k++) {
             const i = live[k];
-            dctx.globalAlpha = mask[i] * 0.13;
+            dctx.globalAlpha = mask[i] * 0.08;
             const c = i % cols;
             const r = (i / cols) | 0;
             dctx.fillRect(c * pitch + pitch / 2 - DOT / 2, r * pitch + pitch / 2 - DOT / 2, DOT, DOT);
@@ -282,7 +282,7 @@ export default function LifeField({
       };
 
       const seed = () => {
-        const density = quiet ? 0.1 : 0.15;
+        const density = quiet ? 0.07 : 0.1;
         for (let k = 0; k < core.length; k++) {
           const i = core[k];
           if (Math.random() < density * mask[i]) {
@@ -290,7 +290,7 @@ export default function LifeField({
             age[i] = MAX_AGE;
           }
         }
-        for (let s = 0; s < (quiet ? 1 : 3) && core.length; s++) {
+        for (let s = 0; s < (quiet ? 1 : 2) && core.length; s++) {
           const i = core[(Math.random() * core.length) | 0];
           place(R_PENTOMINO, i % cols, (i / cols) | 0);
         }
@@ -354,9 +354,9 @@ export default function LifeField({
         gen++;
 
         // New entries keep the piece moving, never crowding it
-        const cap = core.length * (quiet ? 0.1 : 0.16);
+        const cap = core.length * (quiet ? 0.07 : 0.1);
         if (pop < cap) {
-          if (gen % (quiet ? 26 : 16) === 0) glideInward();
+          if (gen % (quiet ? 34 : 24) === 0) glideInward();
           if (pop < cap * 0.35 && gen % 45 === 0 && core.length) {
             const i = core[(Math.random() * core.length) | 0];
             place(Math.random() < 0.5 ? R_PENTOMINO : ACORN, i % cols, (i / cols) | 0);
@@ -381,7 +381,7 @@ export default function LifeField({
         ctx.clearRect(0, 0, W, H);
         ctx.drawImage(dots, 0, 0, W, H);
         const lens = ptr.inside && !reduce;
-        const strength = quiet ? 0.75 : 1;
+        const strength = quiet ? 0.5 : 0.62;
         for (let k = 0; k < live.length; k++) {
           const i = live[k];
           const target = alive[i];
@@ -399,7 +399,7 @@ export default function LifeField({
             const d = Math.hypot(x - ptr.x, y - ptr.y);
             if (d < LENS) {
               const f = 1 - d / LENS;
-              s *= 1 + 0.38 * f * f;
+              s *= 1 + 0.25 * f * f;
             }
           }
           ctx.globalAlpha = mask[i] * (0.3 + 0.7 * v) * strength;
@@ -525,7 +525,7 @@ export default function LifeField({
           if (ptr.down) {
             setAlive(c, r);
             setAlive(c + (Math.random() < 0.5 ? 1 : -1), r);
-          } else if (Math.random() < 0.55) {
+          } else if (Math.random() < 0.4) {
             setAlive(c + ((Math.random() * 3) | 0) - 1, r + ((Math.random() * 3) | 0) - 1);
             if (Math.random() < 0.5) setAlive(c + ((Math.random() * 3) | 0) - 1, r + ((Math.random() * 3) | 0) - 1);
           }
