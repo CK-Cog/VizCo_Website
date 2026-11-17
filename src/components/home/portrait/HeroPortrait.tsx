@@ -11,16 +11,16 @@ import PlateNote from "./PlateNote";
  * rim. Paper and ink, with the signal orange only in the eyes and the live marks.
  *
  * Intro (once, when the plate is in view): a rose-engine sweep draws the medallion, then
- * the engraving develops outward from the eyes in WebGL (see engraving.ts). Afterwards
- * the medallion's two rings turn slowly against each other, the plate leans a few pixels
- * toward the pointer, and a mouse over the portrait warms the strokes it passes.
+ * the engraving develops outward from the eyes in WebGL (see engraving.ts), and hands
+ * over to the full-resolution <img>. Afterwards the medallion's two rings turn slowly
+ * against each other and the plate leans a few pixels toward the pointer.
  *
  * States, on `data-intro` (CSS keys off them):
  * - none: server render or no JS. The CSS fallback reveal runs on its own.
  * - "late": JS arrived after the fallback started; let it finish.
  * - "wait": hidden until the plate is in view and the image is decoded.
  * - "run": WebGL intro playing. "css": no WebGL, so the CSS reveal plays instead.
- * - "done": settled.
+ * - "done": settled on the <img>.
  * Reduced motion gets the finished plate, still.
  */
 
@@ -28,9 +28,13 @@ import PlateNote from "./PlateNote";
 const EYES: [number, number] = [0.5646, 0.1947];
 /** The asset's paper tone. The image was graded to this; keep it in step with --ink. */
 const PAPER = "#fafaf8";
-const MICROPRINT = "VIZCO · THE AI & EMERGING RISK SPECIALTY BROKER · ";
+/* Non-breaking spaces around the dots, so the seam where the text meets itself keeps its spacing. */
+const NB = String.fromCharCode(160);
+const MICROPRINT = `VIZCO${NB}\u00b7${NB}THE AI & EMERGING RISK SPECIALTY BROKER${NB}\u00b7${NB}`;
 const LATE_MS = 1100;
 const INTRO_DELAY = 380;
+/** How long the intro canvas takes to fade into the <img> (matches .plate-gl in CSS). */
+const HANDOVER_MS = 700;
 
 const ALT = "Engraved portrait of a wolfhound in a suit and tie";
 
@@ -40,7 +44,6 @@ export default function HeroPortrait({ className = "" }: { className?: string })
   const gl = useRef<HTMLCanvasElement>(null);
   const ringA = useRef<HTMLCanvasElement>(null);
   const ringB = useRef<HTMLCanvasElement>(null);
-  const figure = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = root.current;
@@ -48,8 +51,7 @@ export default function HeroPortrait({ className = "" }: { className?: string })
     const glc = gl.current;
     const a = ringA.current;
     const b = ringB.current;
-    const fig = figure.current;
-    if (!el || !pic || !glc || !a || !b || !fig) return;
+    if (!el || !pic || !glc || !a || !b) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const late = performance.now() > LATE_MS;
@@ -59,6 +61,17 @@ export default function HeroPortrait({ className = "" }: { className?: string })
     let eng: Engraving | null = null;
     const timers: number[] = [];
     const cleanups: (() => void)[] = [];
+
+    const release = () => {
+      glc.removeEventListener("webglcontextlost", onLost);
+      eng?.dispose();
+      eng = null;
+    };
+    const onLost = () => {
+      eng = null;
+      el.dataset.intro = "done";
+    };
+    glc.addEventListener("webglcontextlost", onLost);
 
     /* ---------- Medallion ---------- */
 
@@ -95,10 +108,18 @@ export default function HeroPortrait({ className = "" }: { className?: string })
 
     /* ---------- Engraving ---------- */
 
+    // Hand over to the <img>, then free the GPU once the canvas has faded out.
     const settle = () => {
       if (disposed) return;
       el.dataset.intro = "done";
-      eng?.finish();
+      timers.push(window.setTimeout(release, HANDOVER_MS + 100));
+    };
+    const settleAfterReveal = () => {
+      const onEnd = (e: AnimationEvent) => {
+        if (e.target === pic) settle();
+      };
+      pic.addEventListener("animationend", onEnd);
+      cleanups.push(() => pic.removeEventListener("animationend", onEnd));
     };
 
     const startIntro = () => {
@@ -108,15 +129,20 @@ export default function HeroPortrait({ className = "" }: { className?: string })
         timers.push(window.setTimeout(() => eng?.intro(settle), INTRO_DELAY));
       } else {
         el.dataset.intro = "css";
-        const onEnd = (e: AnimationEvent) => {
-          if (e.target === pic) settle();
-        };
-        pic.addEventListener("animationend", onEnd);
-        cleanups.push(() => pic.removeEventListener("animationend", onEnd));
+        settleAfterReveal();
       }
     };
 
     const ready = async () => {
+      if (el.dataset.intro === "done") return;
+      if (el.dataset.intro === "late") {
+        // The CSS fallback is already revealing the image; let it land.
+        const running = pic.getAnimations?.().some((x) => x.playState === "running") ?? false;
+        if (running) settleAfterReveal();
+        else settle();
+        return;
+      }
+
       try {
         if (!pic.complete || !pic.naturalWidth) await pic.decode();
       } catch {
@@ -126,23 +152,6 @@ export default function HeroPortrait({ className = "" }: { className?: string })
       if (pic.naturalWidth) {
         const signal = getComputedStyle(document.documentElement).getPropertyValue("--signal") || "#ff5a1f";
         eng = createEngraving(glc, pic, { eye: EYES, paper: PAPER, signal });
-      }
-
-      if (el.dataset.intro === "done") {
-        eng?.finish();
-        return;
-      }
-      if (el.dataset.intro === "late") {
-        // The CSS fallback is already revealing the image; take over once it lands.
-        const running = pic.getAnimations?.().some((x) => x.playState === "running") ?? false;
-        if (running) {
-          const onEnd = (e: AnimationEvent) => {
-            if (e.target === pic) settle();
-          };
-          pic.addEventListener("animationend", onEnd);
-          cleanups.push(() => pic.removeEventListener("animationend", onEnd));
-        } else settle();
-        return;
       }
 
       // Play once, when at least a third of the plate is on screen.
@@ -159,43 +168,9 @@ export default function HeroPortrait({ className = "" }: { className?: string })
     };
     ready();
 
-    const onLost = () => {
-      eng = null;
-      if (el.dataset.intro !== "done") el.dataset.intro = "done";
-      el.setAttribute("data-gl-lost", "");
-    };
-    glc.addEventListener("webglcontextlost", onLost);
-    cleanups.push(() => glc.removeEventListener("webglcontextlost", onLost));
-
-    /* ---------- Pointer: warmth on the strokes, and a slight lean ---------- */
+    /* ---------- Pointer: a slight lean toward it ---------- */
 
     if (!reduce) {
-      let lx = 0;
-      let ly = 0;
-      let lt = 0;
-      const onFigMove = (e: PointerEvent) => {
-        if (e.pointerType !== "mouse" || !eng) return;
-        const r = glc.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        const now = e.timeStamp;
-        const dt = Math.max(1, now - lt);
-        const speed = lt ? (Math.hypot(e.clientX - lx, e.clientY - ly) / dt) * 1000 : 0;
-        lx = e.clientX;
-        ly = e.clientY;
-        lt = now;
-        eng.warm(x, y, speed);
-      };
-      const onFigLeave = () => {
-        lt = 0;
-      };
-      fig.addEventListener("pointermove", onFigMove);
-      fig.addEventListener("pointerleave", onFigLeave);
-      cleanups.push(() => {
-        fig.removeEventListener("pointermove", onFigMove);
-        fig.removeEventListener("pointerleave", onFigLeave);
-      });
-
       const host = el.closest("section") ?? el;
       let tx = 0;
       let ty = 0;
@@ -236,8 +211,7 @@ export default function HeroPortrait({ className = "" }: { className?: string })
       disposed = true;
       timers.forEach((t) => window.clearTimeout(t));
       cleanups.forEach((fn) => fn());
-      eng?.dispose();
-      eng = null;
+      release();
     };
   }, []);
 
@@ -259,17 +233,17 @@ export default function HeroPortrait({ className = "" }: { className?: string })
             </text>
           </svg>
         </div>
-        <div ref={figure} className="plate-figure">
+        <div className="plate-figure">
           {/* A plain <img>: the WebGL layer reads this exact file as its texture. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             ref={img}
             className="plate-img"
             src="/hero/wolfhound-1200.webp"
-            srcSet="/hero/wolfhound-760.webp 760w, /hero/wolfhound-1200.webp 1200w"
-            sizes="(min-width: 1024px) 36vw, 26rem"
-            width={1199}
-            height={1312}
+            srcSet="/hero/wolfhound-800.webp 800w, /hero/wolfhound-1200.webp 1200w, /hero/wolfhound-1600.webp 1600w"
+            sizes="(min-width: 1024px) min(36vw, 31rem), min(calc(100vw - 3rem), 26rem)"
+            width={1200}
+            height={1313}
             alt={ALT}
             fetchPriority="high"
             decoding="async"

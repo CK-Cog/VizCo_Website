@@ -615,7 +615,7 @@ details[open]::details-content {
     position: absolute;
     inset: 15.6%;
     border-radius: 50%;
-    background: repeating-linear-gradient(to bottom, rgba(10, 10, 10, 0.1) 0 1px, transparent 1px 3px);
+    background: repeating-linear-gradient(to bottom, rgba(10, 10, 10, 0.112) 0 1px, transparent 1px 3px);
     mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.25) 40%, #000 100%);
     -webkit-mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.25) 40%, #000 100%);
   }
@@ -630,7 +630,7 @@ details[open]::details-content {
   }
   .plate-microprint {
     overflow: visible;
-    fill: rgba(10, 10, 10, 0.5);
+    fill: rgba(10, 10, 10, 0.56);
     font-family: var(--font-geist-mono), ui-monospace, monospace;
     font-size: 12.5px;
     letter-spacing: 0.04em;
@@ -664,8 +664,10 @@ details[open]::details-content {
     -webkit-mask-image: radial-gradient(circle at 56.5% 19.5%, #000 calc(var(--develop) - 24%), transparent var(--develop));
     animation: plate-develop 1.8s var(--ease-out) 1.2s both;
   }
+  /* The intro canvas, which fades into the <img> once the engraving has printed */
   .plate-gl {
     opacity: 0;
+    transition: opacity 0.7s var(--ease-out);
   }
   .plate-caption {
     transition:
@@ -694,12 +696,9 @@ details[open]::details-content {
   .plate[data-intro="done"] .plate-img {
     animation: none;
   }
-  .plate[data-intro="run"] .plate-gl,
-  .plate[data-intro="done"] .plate-gl {
+  .plate[data-intro="run"] .plate-gl {
     opacity: 1;
-  }
-  .plate[data-gl-lost] .plate-gl {
-    opacity: 0;
+    transition: none;
   }
   .plate[data-intro="wait"] .plate-caption,
   .plate[data-intro="run"] .plate-caption,

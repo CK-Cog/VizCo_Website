@@ -1,14 +1,12 @@
 /**
- * The portrait as live ink, in WebGL.
+ * The portrait's intro, in WebGL: the engraving develops outward from the eyes. Inside
+ * the advancing front the darkest strokes print first and the fine light hatching last,
+ * and each stroke lands in the signal orange and cools to ink behind the front. The
+ * paper inside the silhouette arrives with the ink, so the medallion behind is covered as
+ * the portrait prints.
  *
- * Intro: the engraving develops outward from the eyes. Inside the advancing front the
- * darkest strokes print first and the fine light hatching last, and each stroke lands
- * in the signal orange and cools to ink behind the front, the way the hero's cells used
- * to cool as they aged. The paper inside the silhouette arrives with the ink, so the
- * medallion behind is covered as the portrait prints.
- *
- * After the intro, a mouse moving over the portrait warms the strokes it passes and the
- * warmth fades back to ink. Nothing renders while nothing is changing.
+ * The layer exists only for the intro. Once it finishes, the plate shows the <img>, which
+ * the browser draws at the screen's full resolution, and this context is released.
  *
  * The image is redrawn into a canvas at exactly the canvas's pixel size before upload, so
  * the shader samples it 1:1 and the fine hatching never aliases.
@@ -26,7 +24,6 @@ const FRAG = `
 precision mediump float;
 varying vec2 v_uv;
 uniform sampler2D u_img;
-uniform sampler2D u_heat;
 uniform float u_front;
 uniform vec2 u_eye;
 uniform float u_aspect;
@@ -51,8 +48,8 @@ void main() {
   float vis = smoothstep(th, th + 0.3, k);
   float paperA = s.a * smoothstep(0.1, 0.75, local);
 
+  // New strokes land warm and cool to ink.
   float warm = 1.0 - smoothstep(0.0, 0.9, local);
-  warm = clamp(warm + texture2D(u_heat, v_uv).r, 0.0, 1.0);
   vec3 col = mix(inkC, u_signal, warm * 0.92);
 
   float ka = k * vis * s.a;
@@ -60,12 +57,9 @@ void main() {
   gl_FragColor = vec4(col * ka + u_paper * paperA * (1.0 - ka), a);
 }`;
 
-/** Front travels this far (in portrait widths) to clear the far corners. */
+/** The front travels this far (in portrait widths) to clear the far corners. */
 const FRONT_END = 1.5;
 const INTRO_MS = 2600;
-const HEAT_W = 64;
-const HEAT_DECAY = 0.75; // s, time constant for warmth to fade
-const HEAT_RADIUS = 0.065; // portrait widths
 
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -93,10 +87,6 @@ export type Engraving = {
   resize: () => void;
   /** Play the develop-in. `onDone` fires once the last stroke has cooled. */
   intro: (onDone: () => void) => void;
-  /** Show the finished engraving at once. */
-  finish: () => void;
-  /** A mouse position over the portrait, in canvas CSS pixels. */
-  warm: (x: number, y: number, speed: number) => void;
   dispose: () => void;
 };
 
@@ -129,46 +119,24 @@ export function createEngraving(
   const uFront = u("u_front");
   const uAspect = u("u_aspect");
   gl.uniform1i(u("u_img"), 0);
-  gl.uniform1i(u("u_heat"), 1);
   gl.uniform2f(u("u_eye"), opts.eye[0], opts.eye[1]);
   gl.uniform3fv(u("u_paper"), hexToRgb(opts.paper));
   gl.uniform3fv(u("u_signal"), hexToRgb(opts.signal));
 
-  const makeTex = (unit: number) => {
-    const t = gl.createTexture();
-    gl.activeTexture(gl.TEXTURE0 + unit);
-    gl.bindTexture(gl.TEXTURE_2D, t);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, unit === 0 ? gl.NEAREST : gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, unit === 0 ? gl.NEAREST : gl.LINEAR);
-    return t;
-  };
-  const imgTex = makeTex(0);
-  const heatTex = makeTex(1);
+  const tex = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
 
-  let heatH = HEAT_W;
-  let heat = new Float32Array(HEAT_W * heatH);
-  let heatBytes = new Uint8Array(HEAT_W * heatH);
-  let heatMax = 0;
-
-  let cssW = 0;
-  let cssH = 0;
   let front = 0;
   let raf = 0;
-  let last = 0;
-  let introStart = -1;
-  let introDone: (() => void) | null = null;
+  let start = -1;
+  let done: (() => void) | null = null;
   let disposed = false;
   const scratch = document.createElement("canvas");
-
-  const uploadHeat = () => {
-    for (let i = 0; i < heat.length; i++) heatBytes[i] = Math.min(255, heat[i] * 255) | 0;
-    gl.activeTexture(gl.TEXTURE1);
-    gl.bindTexture(gl.TEXTURE_2D, heatTex);
-    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, HEAT_W, heatH, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, heatBytes);
-  };
 
   const draw = () => {
     gl.uniform1f(uFront, front);
@@ -180,58 +148,33 @@ export function createEngraving(
   const frame = (now: number) => {
     raf = 0;
     if (disposed) return;
-    const dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
-    last = now;
-    let more = false;
-
-    if (introStart >= 0) {
-      if (introStart === 0) introStart = now;
-      const p = Math.min(1, (now - introStart) / INTRO_MS);
-      front = easeInOut(p) * FRONT_END;
-      if (p < 1) more = true;
-      else {
-        introStart = -1;
-        const cb = introDone;
-        introDone = null;
-        cb?.();
-      }
-    }
-
-    if (heatMax > 0.003) {
-      const f = Math.exp(-dt / HEAT_DECAY);
-      for (let i = 0; i < heat.length; i++) heat[i] *= f;
-      heatMax *= f;
-      if (heatMax <= 0.003) {
-        heat.fill(0);
-        heatMax = 0;
-      }
-      uploadHeat();
-      more = true;
-    }
-
+    if (start < 0) start = now;
+    const p = Math.min(1, (now - start) / INTRO_MS);
+    front = easeInOut(p) * FRONT_END;
     draw();
-    if (more) raf = requestAnimationFrame(frame);
-    else last = 0;
-  };
-
-  const kick = () => {
-    if (!raf && !disposed) raf = requestAnimationFrame(frame);
+    if (p < 1) {
+      raf = requestAnimationFrame(frame);
+      return;
+    }
+    const cb = done;
+    done = null;
+    cb?.();
   };
 
   const resize = () => {
+    if (disposed) return;
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 2 || rect.height < 2) return;
-    cssW = rect.width;
-    cssH = rect.height;
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const w = Math.round(cssW * dpr);
-    const h = Math.round(cssH * dpr);
+    // Full device resolution (up to 3x), so the intro is as crisp as the image it hands over to.
+    const dpr = Math.min(3, window.devicePixelRatio || 1);
+    const w = Math.round(rect.width * dpr);
+    const h = Math.round(rect.height * dpr);
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
     }
     gl.viewport(0, 0, w, h);
-    gl.uniform1f(uAspect, cssH / cssW);
+    gl.uniform1f(uAspect, rect.height / rect.width);
 
     // Downsample with the browser's high-quality filter, then sample 1:1.
     scratch.width = w;
@@ -242,45 +185,10 @@ export function createEngraving(
     c2.imageSmoothingQuality = "high";
     c2.clearRect(0, 0, w, h);
     c2.drawImage(img, 0, 0, w, h);
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, imgTex);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, scratch);
-
-    const hh = Math.max(8, Math.round(HEAT_W * (cssH / cssW)));
-    if (hh !== heatH) {
-      heatH = hh;
-      heat = new Float32Array(HEAT_W * heatH);
-      heatBytes = new Uint8Array(HEAT_W * heatH);
-      heatMax = 0;
-    }
-    uploadHeat();
     draw();
-  };
-
-  const warm = (x: number, y: number, speed: number) => {
-    if (introStart >= 0 || !cssW) return;
-    const amt = Math.min(0.5, speed / 2600) + 0.02;
-    const cx = (x / cssW) * HEAT_W;
-    const cy = (y / cssW) * HEAT_W; // same scale on both axes
-    const r = HEAT_RADIUS * HEAT_W;
-    const r2 = r * r * 2;
-    const x0 = Math.max(0, Math.floor(cx - r * 2.5));
-    const x1 = Math.min(HEAT_W - 1, Math.ceil(cx + r * 2.5));
-    const y0 = Math.max(0, Math.floor(cy - r * 2.5));
-    const y1 = Math.min(heatH - 1, Math.ceil(cy + r * 2.5));
-    for (let j = y0; j <= y1; j++) {
-      for (let i = x0; i <= x1; i++) {
-        const dx = i + 0.5 - cx;
-        const dy = j + 0.5 - cy;
-        const g = Math.exp(-(dx * dx + dy * dy) / r2);
-        const idx = j * HEAT_W + i;
-        const v = Math.min(0.85, heat[idx] + amt * g);
-        heat[idx] = v;
-        if (v > heatMax) heatMax = v;
-      }
-    }
-    kick();
   };
 
   const onLost = (e: Event) => {
@@ -296,20 +204,16 @@ export function createEngraving(
     resize,
     intro(onDone) {
       front = 0;
-      introStart = 0;
-      introDone = onDone;
-      kick();
+      start = -1;
+      done = onDone;
+      if (!raf && !disposed) raf = requestAnimationFrame(frame);
     },
-    finish() {
-      introStart = -1;
-      front = FRONT_END;
-      draw();
-    },
-    warm,
     dispose() {
+      if (disposed) return;
       disposed = true;
       cancelAnimationFrame(raf);
       canvas.removeEventListener("webglcontextlost", onLost);
+      scratch.width = scratch.height = 0;
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     },
   };

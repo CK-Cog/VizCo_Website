@@ -8,7 +8,9 @@
  */
 
 const TAU = Math.PI * 2;
-const INK = "10,10,10";
+/** Overall strength of the line work. 1 is the original weight; raise it to darken the medallion. */
+const TONE = 1.12;
+const ink = (a: number) => `rgba(10,10,10,${Math.min(1, a * TONE).toFixed(3)})`;
 
 type Ctx = CanvasRenderingContext2D;
 
@@ -57,16 +59,16 @@ export function drawOuter(canvas: HTMLCanvasElement, size: number) {
   const c = size / 2;
   const R = size / 2 - 1;
 
-  ctx.strokeStyle = `rgba(${INK},0.42)`;
+  ctx.strokeStyle = ink(0.42);
   circle(ctx, c, R);
-  ctx.strokeStyle = `rgba(${INK},0.2)`;
+  ctx.strokeStyle = ink(0.2);
   circle(ctx, c, R * 0.988);
   circle(ctx, c, R * 0.902);
-  ctx.strokeStyle = `rgba(${INK},0.34)`;
+  ctx.strokeStyle = ink(0.34);
   circle(ctx, c, R * 0.895);
 
   // Milled edge: radial ticks just inside the microprint ring.
-  ctx.strokeStyle = `rgba(${INK},0.2)`;
+  ctx.strokeStyle = ink(0.2);
   ctx.beginPath();
   const ticks = 360;
   for (let i = 0; i < ticks; i++) {
@@ -82,7 +84,7 @@ export function drawOuter(canvas: HTMLCanvasElement, size: number) {
   // Woven band: one wave, turned sixteen times through a single lobe.
   const n = 18;
   const K = 16;
-  ctx.strokeStyle = `rgba(${INK},0.15)`;
+  ctx.strokeStyle = ink(0.15);
   for (let k = 0; k < K; k++) {
     const ph = (k / K) * TAU;
     polar(ctx, c, (t) => R * (0.8 + 0.068 * Math.sin(n * t + ph) * (0.78 + 0.22 * Math.cos(3 * t))), 900);
@@ -99,7 +101,7 @@ export function drawInner(canvas: HTMLCanvasElement, size: number) {
   const c = size / 2;
   const R = size / 2 - 1;
 
-  ctx.strokeStyle = `rgba(${INK},0.1)`;
+  ctx.strokeStyle = ink(0.1);
   const n = 19;
   const K = 12;
   for (let k = 0; k < K; k++) {
@@ -107,8 +109,8 @@ export function drawInner(canvas: HTMLCanvasElement, size: number) {
     polar(ctx, c, (t) => R * (0.79 + 0.05 * Math.sin(n * t - ph)), 900);
   }
 
-  ctx.strokeStyle = `rgba(${INK},0.24)`;
+  ctx.strokeStyle = ink(0.24);
   circle(ctx, c, R * 0.705);
-  ctx.strokeStyle = `rgba(${INK},0.12)`;
+  ctx.strokeStyle = ink(0.12);
   circle(ctx, c, R * 0.69);
 }
