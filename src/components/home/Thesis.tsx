@@ -20,6 +20,8 @@ export default function Thesis() {
         <h1 className="wipe font-display t-display anim-in relative z-10 max-w-[15em] text-balance text-cream" style={{ animationDelay: "40ms" }}>
           Your insurance <br className="hidden md:inline" />
           wasn&apos;t written for AI.{" "}
+          {/* On desktop the portrait sits to the right, so the note always takes its own line. */}
+          <br className="hidden lg:inline" />
           <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</FixNote>
         </h1>
         <p
