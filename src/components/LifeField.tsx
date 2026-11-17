@@ -127,6 +127,24 @@ export default function LifeField({
     let cleanup: (() => void) | null = null;
     let cancel: (() => void) | null = null;
 
+    // The caption (LifeCaption) shows briefly once the field appears, then only while
+    // the pointer is over the field. CSS keys off these attributes on the section.
+    let introTimer = 0;
+    let lingerTimer = 0;
+    let introShown = false;
+    const showCaption = (on: boolean) => {
+      if (on) {
+        window.clearTimeout(lingerTimer);
+        lingerTimer = 0;
+        host.setAttribute("data-life-active", "");
+      } else if (host.hasAttribute("data-life-active") && !lingerTimer) {
+        lingerTimer = window.setTimeout(() => {
+          lingerTimer = 0;
+          host.removeAttribute("data-life-active");
+        }, 1500);
+      }
+    };
+
     const init = () => {
       if (disposed) return;
       const ctx = canvas.getContext("2d");
@@ -413,6 +431,11 @@ export default function LifeField({
         for (let k = 0; k < live.length; k++) vis[live[k]] = alive[live[k]];
         render(1);
         canvas.style.opacity = "1";
+        if (!introShown) {
+          introShown = true;
+          host.setAttribute("data-life-intro", "");
+          introTimer = window.setTimeout(() => host.removeAttribute("data-life-intro"), 6500);
+        }
       };
 
       if (!measureStart()) return;
@@ -515,6 +538,8 @@ export default function LifeField({
           ptr.x = p.x;
           ptr.y = p.y;
           ptr.inside = p.inside && !blocked(ev.target);
+          const cell = p.inside ? Math.floor(p.y / pitch) * cols + Math.floor(p.x / pitch) : -1;
+          showCaption(ptr.inside && cell >= 0 && mask[cell] > 0.2);
           if (!ptr.inside) return;
           ptr.travel += Math.hypot(dx, dy);
           const gap = ptr.down ? pitch * 0.6 : pitch * 1.1;
@@ -545,6 +570,7 @@ export default function LifeField({
         const onLeave = () => {
           ptr.inside = false;
           ptr.down = false;
+          showCaption(false);
         };
         const onVis = () => (document.hidden ? stop() : start());
 
@@ -581,6 +607,10 @@ export default function LifeField({
       disposed = true;
       cancel?.();
       cleanup?.();
+      window.clearTimeout(introTimer);
+      window.clearTimeout(lingerTimer);
+      host.removeAttribute("data-life-intro");
+      host.removeAttribute("data-life-active");
     };
   }, [quiet, fadeFrom, fadeTo, pitch]);
 

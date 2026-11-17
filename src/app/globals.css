@@ -547,3 +547,25 @@ details[open]::details-content {
   user-select: none !important;
   -webkit-user-select: none !important;
 }
+
+@layer components {
+  /* Game of Life caption: shown briefly after load, then only while the field is hovered */
+  .life-caption {
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition:
+      opacity 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+  }
+  [data-life-intro] .life-caption,
+  [data-life-active] .life-caption,
+  .life-caption:hover,
+  .life-caption:focus-within,
+  .life-caption:has(details[open]) {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition-duration: 0.4s;
+  }
+}

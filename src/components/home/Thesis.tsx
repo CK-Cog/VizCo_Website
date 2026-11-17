@@ -38,7 +38,7 @@ export default function Thesis() {
               </Button>
             </div>
           </div>
-          <div className="anim-in relative z-20 hidden lg:block" style={{ animationDelay: "520ms" }}>
+          <div className="relative z-20 hidden lg:block">
             <LifeCaption />
           </div>
         </div>

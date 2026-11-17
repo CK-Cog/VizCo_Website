@@ -15,12 +15,14 @@ const CELL = {
 
 /**
  * A quiet label for the hero's Game of Life (LifeField fills in the generation and
- * population). "Why?" opens a short note on the rules and how they relate to AI risk,
- * over the field, so nothing on the page moves.
+ * population). It appears for a few seconds once the field fades in, then only while the
+ * pointer is over the field, or while it is hovered or its note is open. "Why?" opens a
+ * short note on the rules and how they relate to AI risk, over the field, so nothing on
+ * the page moves.
  */
 export default function LifeCaption({ className = "" }: { className?: string }) {
   return (
-    <div data-field-avoid data-life-ui className={`relative text-right ${className}`}>
+    <div data-field-avoid data-life-ui className={`life-caption relative text-right ${className}`}>
       <p className="eyebrow flex items-center justify-end gap-2 !text-[10px] text-subtle">
         <span aria-hidden className="h-1.5 w-1.5 bg-[#fc8054]" />
         Conway&apos;s Game of Life
