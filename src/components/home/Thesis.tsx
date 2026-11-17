@@ -2,7 +2,7 @@ import Link from "next/link";
 import LifeField from "@/components/LifeField";
 import FixNote from "@/components/home/FixNote";
 import LifeCaption from "@/components/home/LifeCaption";
-import { Button, Container, Label, SwapArrow } from "@/components/ui";
+import { Button, Container, SwapArrow } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL, TAGLINE } from "@/content/site";
 
 const AUDIENCES = [
@@ -15,16 +15,21 @@ export default function Thesis() {
   return (
     <section className="relative">
       <LifeField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
-      <Container className="relative pb-20 pt-12 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
-        <div data-field-avoid className="anim-in inline-block">
-          <Label live>{TAGLINE}</Label>
-        </div>
-        <h1 data-field-avoid="text" className="wipe font-display t-display anim-in mt-8 max-w-[15em] text-balance text-cream sm:mt-10" style={{ animationDelay: "80ms" }}>
+      <Container className="relative pb-20 pt-14 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-28">
+        <h1 data-field-avoid="text" className="wipe font-display t-display anim-in max-w-[15em] text-balance text-cream" style={{ animationDelay: "40ms" }}>
           Your insurance <br className="hidden md:inline" />
           wasn&apos;t written for AI.{" "}
           <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</FixNote>
         </h1>
-        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
+        <p
+          data-field-avoid="text"
+          className="anim-in mt-9 flex items-center gap-4 text-[clamp(1.125rem,0.9rem+0.8vw,1.625rem)] font-medium leading-tight tracking-[-0.028em] text-cream sm:mt-10"
+          style={{ animationDelay: "140ms" }}
+        >
+          <span aria-hidden className="h-[2px] w-8 shrink-0 bg-signal sm:w-10" />
+          {TAGLINE}
+        </p>
+        <div className="mt-5 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
           <div>
             <p data-field-avoid="text" className="t-lead anim-in max-w-[34rem] text-pretty text-cream-muted" style={{ animationDelay: "180ms" }}>
               We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
