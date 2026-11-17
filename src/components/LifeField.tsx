@@ -127,7 +127,7 @@ export default function LifeField({
     let cleanup: (() => void) | null = null;
     let cancel: (() => void) | null = null;
 
-    // The caption (LifeCaption) shows briefly once the field appears, then only while
+    // A caption, if the page has one, shows briefly once the field appears, then only while
     // the pointer is over the field. CSS keys off these attributes on the section.
     let introTimer = 0;
     let lingerTimer = 0;

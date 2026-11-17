@@ -548,24 +548,188 @@ details[open]::details-content {
   -webkit-user-select: none !important;
 }
 
-@layer components {
-  /* Game of Life caption: shown briefly after load, then only while the field is hovered */
-  .life-caption {
-    opacity: 0;
-    transform: translateY(6px);
-    pointer-events: none;
-    transition:
-      opacity 0.7s var(--ease-out),
-      transform 0.7s var(--ease-out);
+/* ---------- Hero portrait plate (see HeroPortrait) ---------- */
+
+@property --sweep {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 360deg;
+}
+@property --develop {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 160%;
+}
+
+@keyframes plate-sweep {
+  from {
+    --sweep: -16deg;
   }
-  [data-life-intro] .life-caption,
-  [data-life-active] .life-caption,
-  .life-caption:hover,
-  .life-caption:has(:focus-visible),
-  .life-caption.is-open {
+  to {
+    --sweep: 360deg;
+  }
+}
+@keyframes plate-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+/* Fallback reveal when WebGL is unavailable: a soft circle opening from the eyes */
+@keyframes plate-develop {
+  from {
+    --develop: 0%;
+    opacity: 0.2;
+  }
+  to {
+    --develop: 160%;
     opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    transition-duration: 0.4s;
+  }
+}
+
+@layer components {
+  .plate-stage {
+    position: relative;
+    aspect-ratio: 1199 / 1312;
+  }
+
+  /* Centred behind the head. Margins in % resolve against the width, so this stays square. */
+  .plate-medallion {
+    position: absolute;
+    left: 3%;
+    width: 95%;
+    aspect-ratio: 1;
+    margin-top: -16%;
+    mask-image: conic-gradient(#000 var(--sweep), transparent calc(var(--sweep) + 16deg));
+    -webkit-mask-image: conic-gradient(#000 var(--sweep), transparent calc(var(--sweep) + 16deg));
+    translate: calc(var(--px, 0) * -9px) calc(var(--py, 0) * -6px);
+    animation: plate-sweep 2s var(--ease-in-out) 0.9s both;
+  }
+  .plate-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  /* The ruled ground inside the medallion, as behind a banknote portrait */
+  .plate-hatch {
+    position: absolute;
+    inset: 15.6%;
+    border-radius: 50%;
+    background: repeating-linear-gradient(to bottom, rgba(10, 10, 10, 0.1) 0 1px, transparent 1px 3px);
+    mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.25) 40%, #000 100%);
+    -webkit-mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.25) 40%, #000 100%);
+  }
+  .plate-ring-a {
+    animation: plate-spin 240s linear infinite;
+  }
+  .plate-ring-b {
+    animation: plate-spin 330s linear infinite reverse;
+  }
+  .plate[data-offscreen] .plate-ring {
+    animation-play-state: paused;
+  }
+  .plate-microprint {
+    overflow: visible;
+    fill: rgba(10, 10, 10, 0.5);
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+  }
+
+  /* The suit dissolves into the paper instead of stopping at the image edges */
+  .plate-figure {
+    position: absolute;
+    inset: 0;
+    mask-image:
+      linear-gradient(to bottom, #000 71%, transparent 97%),
+      linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      linear-gradient(to bottom, #000 71%, transparent 97%),
+      linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+    -webkit-mask-composite: source-in;
+    translate: calc(var(--px, 0) * 5px) calc(var(--py, 0) * 3px);
+  }
+  .plate-img,
+  .plate-gl {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .plate-img {
+    mask-image: radial-gradient(circle at 56.5% 19.5%, #000 calc(var(--develop) - 24%), transparent var(--develop));
+    -webkit-mask-image: radial-gradient(circle at 56.5% 19.5%, #000 calc(var(--develop) - 24%), transparent var(--develop));
+    animation: plate-develop 1.8s var(--ease-out) 1.2s both;
+  }
+  .plate-gl {
+    opacity: 0;
+  }
+  .plate-caption {
+    transition:
+      opacity 0.8s var(--ease-out),
+      translate 0.8s var(--ease-out);
+  }
+
+  /* Intro states (see HeroPortrait) */
+  .plate[data-intro="wait"] .plate-medallion {
+    animation: none;
+    --sweep: -16deg;
+  }
+  .plate[data-intro="run"] .plate-medallion,
+  .plate[data-intro="css"] .plate-medallion {
+    animation: plate-sweep 2.2s var(--ease-in-out) both;
+  }
+  .plate[data-intro="wait"] .plate-img,
+  .plate[data-intro="run"] .plate-img {
+    animation: none;
+    opacity: 0;
+  }
+  .plate[data-intro="css"] .plate-img {
+    animation: plate-develop 1.8s var(--ease-out) 0.35s both;
+  }
+  .plate[data-intro="done"] .plate-medallion,
+  .plate[data-intro="done"] .plate-img {
+    animation: none;
+  }
+  .plate[data-intro="run"] .plate-gl,
+  .plate[data-intro="done"] .plate-gl {
+    opacity: 1;
+  }
+  .plate[data-gl-lost] .plate-gl {
+    opacity: 0;
+  }
+  .plate[data-intro="wait"] .plate-caption,
+  .plate[data-intro="run"] .plate-caption,
+  .plate[data-intro="css"] .plate-caption {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+
+/*
+ * Desktop: the plate sits to the right of the headline. It may bleed into the page gutter
+ * on wide screens, because the headline keeps growing until 1585px and the medallion must
+ * clear "AI." at every width.
+ */
+@media (min-width: 1024px) {
+  .plate-hero {
+    position: absolute;
+    top: 8rem;
+    right: calc(-1 * clamp(0px, (100vw - 1280px) / 2 - 24px, 120px));
+    width: clamp(21rem, 36vw, 31rem);
+    max-width: none;
+    margin: 0;
+    z-index: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate-medallion,
+  .plate-img,
+  .plate-ring {
+    animation: none !important;
   }
 }

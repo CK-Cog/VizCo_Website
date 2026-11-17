@@ -6,12 +6,11 @@ const AUTO_CLOSE = 8000; // ms
 const AFTER_LEAVE = 3000; // ms, once the pointer leaves the open note
 
 /**
- * A quiet "Game of Life" label for the hero field. Clicking it shows one line on why it
- * matters for AI. The note closes by itself after a few seconds (paused while hovered),
- * on any click outside it, and on Escape. The label itself appears briefly once the field
- * fades in, then only while the field is hovered (see LifeField and .life-caption).
+ * The portrait's legend. Clicking it shows one line on why there is a dog in a suit on an
+ * insurance broker's home page. The note closes by itself after a few seconds (paused
+ * while hovered), on any click outside it, and on Escape.
  */
-export default function LifeCaption({ className = "" }: { className?: string }) {
+export default function PlateNote({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const timer = useRef(0);
@@ -42,33 +41,30 @@ export default function LifeCaption({ className = "" }: { className?: string }) 
   return (
     <div
       ref={root}
-      data-field-avoid
-      data-life-ui
-      className={`life-caption relative text-right ${open ? "is-open" : ""} ${className}`}
+      className={`relative ${className}`}
       onMouseEnter={() => open && window.clearTimeout(timer.current)}
       onMouseLeave={() => open && closeIn(AFTER_LEAVE)}
     >
       <button
         type="button"
         aria-expanded={open}
-        aria-controls="life-note"
+        aria-controls="plate-note"
         onClick={() => setOpen((o) => !o)}
         className="group eyebrow inline-flex items-center gap-2.5 !text-[10.5px] text-cream-muted transition-colors hover:text-cream"
       >
-        <span aria-hidden className="h-1.5 w-1.5 bg-signal" />
-        <span className="link-draw pb-px">Game of Life</span>
+        <span aria-hidden className="signal-dot is-live !h-1.5 !w-1.5" />
+        <span className="link-draw pb-px">On watch</span>
       </button>
       <div
-        id="life-note"
+        id="plate-note"
         role="note"
         aria-hidden={!open}
-        className={`absolute right-0 top-full z-10 mt-3 w-[21rem] border border-line-dark bg-surface p-5 text-left shadow-[var(--shadow-lift)] transition-[opacity,translate] duration-300 ${
+        className={`absolute bottom-full left-1/2 z-10 mb-3 -translate-x-1/2 w-[min(21rem,calc(100vw-3rem))] border border-line-dark bg-surface p-5 text-left shadow-[var(--shadow-lift)] transition-[opacity,translate] duration-300 ${
           open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
         }`}
       >
         <p className="text-[14.5px] leading-relaxed tracking-[-0.012em] text-cream">
-          Just like Conway&apos;s Game of Life, AI and agents can behave in ways no one designed. That emergent risk is what we assess, place and keep
-          monitoring.
+          A good broker is a watchdog. We keep watching your AI after the policy is bound, and argue your claim when it counts.
         </p>
       </div>
     </div>
