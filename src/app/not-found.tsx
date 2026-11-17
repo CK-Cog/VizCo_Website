@@ -1,10 +1,10 @@
-import BlockField from "@/components/BlockField";
+import LifeField from "@/components/LifeField";
 import { Container, Label } from "@/components/ui";
 
 export default function NotFound() {
   return (
     <main className="relative overflow-hidden">
-      <BlockField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" fadeFrom={0.35} fadeTo={0.8} />
+      <LifeField quiet className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" fadeFrom={0.4} fadeTo={0.8} />
       <Container className="relative flex min-h-[70vh] flex-col justify-center py-24">
         <div data-field-avoid className="w-fit">
           <Label>404</Label>

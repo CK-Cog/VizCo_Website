@@ -500,3 +500,48 @@ details[open]::details-content {
     transform: scaleX(1);
   }
 }
+
+@layer components {
+  /* "We fix that." as a note you can peel off (see FixNote) */
+  .note-slot {
+    cursor: grab;
+    transition:
+      transform 0.45s var(--ease-out),
+      box-shadow 0.45s var(--ease-out);
+  }
+  .note-slot:not(.is-ghost):hover {
+    transform: translateY(-3px) rotate(-1.2deg);
+    box-shadow: 0 18px 32px -16px rgba(10, 10, 10, 0.45);
+  }
+  .block-mark.is-ghost,
+  .wipe .block-mark.is-ghost {
+    background: transparent;
+    color: transparent;
+    outline: 1.5px dashed var(--line-strong);
+    outline-offset: -1.5px;
+    cursor: default;
+    box-shadow: none;
+    transform: none;
+  }
+  /* Hide the wipe layer without resetting its animation, so the block returns already drawn */
+  .wipe .block-mark.is-ghost::after {
+    opacity: 0;
+  }
+  .note-float {
+    cursor: grab;
+    outline: 1px solid rgba(255, 255, 255, 0.16);
+    outline-offset: -1px;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+}
+
+.is-dragging-note,
+.is-dragging-note * {
+  cursor: grabbing !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import BlockField from "@/components/BlockField";
+import LifeField from "@/components/LifeField";
 import { Button, Container, Label } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL } from "@/content/site";
 
@@ -21,7 +21,7 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <BlockField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" density={0.7} fadeFrom={0.42} fadeTo={0.85} />
+      <LifeField quiet className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" fadeFrom={0.46} fadeTo={0.86} />
       <Container className="relative pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pt-24">
         <div data-field-avoid className="anim-in inline-block">
           <Label>{kicker}</Label>

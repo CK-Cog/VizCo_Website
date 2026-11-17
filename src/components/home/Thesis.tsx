@@ -1,5 +1,6 @@
 import Link from "next/link";
-import BlockField from "@/components/BlockField";
+import LifeField from "@/components/LifeField";
+import FixNote from "@/components/home/FixNote";
 import { Button, Container, Label, SwapArrow } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL, TAGLINE } from "@/content/site";
 
@@ -12,7 +13,7 @@ const AUDIENCES = [
 export default function Thesis() {
   return (
     <section className="relative overflow-hidden">
-      <BlockField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
+      <LifeField caption className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
       <Container className="relative pb-20 pt-12 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
         <div data-field-avoid className="anim-in inline-block">
           <Label live>{TAGLINE}</Label>
@@ -20,7 +21,7 @@ export default function Thesis() {
         <h1 data-field-avoid="text" className="wipe font-display t-display anim-in mt-8 max-w-[15em] text-balance text-cream sm:mt-10" style={{ animationDelay: "80ms" }}>
           Your insurance <br className="hidden md:inline" />
           wasn&apos;t written for AI.{" "}
-          <span className="block-mark my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</span>
+          <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</FixNote>
         </h1>
         <p data-field-avoid="text" className="t-lead anim-in mt-8 max-w-[34rem] text-pretty text-cream-muted" style={{ animationDelay: "180ms" }}>
           We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
