@@ -22,9 +22,9 @@ import { useEffect, useRef } from "react";
  */
 
 const AGE_STOPS: [number, [number, number, number]][] = [
-  [0, [252, 128, 84]],
-  [1, [245, 156, 124]],
-  [2, [236, 183, 160]],
+  [0, [255, 90, 31]],
+  [1, [255, 124, 72]],
+  [2, [244, 156, 122]],
   [4, [226, 207, 194]],
   [7, [218, 212, 204]],
   [12, [210, 205, 198]],
@@ -420,7 +420,10 @@ export default function LifeField({
               s *= 1 + 0.25 * f * f;
             }
           }
-          ctx.globalAlpha = mask[i] * (0.3 + 0.7 * v) * strength;
+          // Young cells keep the full signal orange; older ones settle back to the quiet stone
+          const a = age[i];
+          const weight = a >= 4 ? strength : 1 + (strength - 1) * (a / 4);
+          ctx.globalAlpha = mask[i] * (0.3 + 0.7 * v) * weight;
           ctx.fillStyle = ramp[age[i]];
           ctx.fillRect(x - s / 2, y - s / 2, s, s);
         }

@@ -10,7 +10,7 @@ const RULES: { cell: "dead" | "alive" | "born"; text: string }[] = [
 const CELL = {
   dead: "border border-line-strong",
   alive: "bg-[#d2cdc6]",
-  born: "bg-[#fc8054]",
+  born: "bg-signal",
 } as const;
 
 /**
@@ -24,7 +24,7 @@ export default function LifeCaption({ className = "" }: { className?: string }) 
   return (
     <div data-field-avoid data-life-ui className={`life-caption relative text-right ${className}`}>
       <p className="eyebrow flex items-center justify-end gap-2 !text-[10px] text-subtle">
-        <span aria-hidden className="h-1.5 w-1.5 bg-[#fc8054]" />
+        <span aria-hidden className="h-1.5 w-1.5 bg-signal" />
         Conway&apos;s Game of Life
         <span aria-hidden>·</span>
         <span>
