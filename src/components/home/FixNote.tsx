@@ -51,6 +51,8 @@ export default function FixNote({ children, className = "" }: { children: string
   const note = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);
   const [floating, setFloating] = useState(false);
+  // The headline's size depends on its layout, so the floating copy takes it from the slot
+  const [fontSize, setFontSize] = useState<string>();
   const s = useRef<Phys>({
     cx: 0,
     cy: 0,
@@ -190,8 +192,9 @@ export default function FixNote({ children, className = "" }: { children: string
     e.preventDefault();
     const p = s.current;
     if (!floating) {
-      const r = slot.current?.getBoundingClientRect();
-      if (!r) return;
+      const el = slot.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
       p.w = r.width;
       p.h = r.height;
       p.cx = r.left + r.width / 2 + window.scrollX;
@@ -199,6 +202,7 @@ export default function FixNote({ children, className = "" }: { children: string
       p.th = 0;
       p.om = 0;
       p.lift = 0;
+      setFontSize(getComputedStyle(el).fontSize);
       setFloating(true);
     }
     // Where on the note it was grabbed, in the note's own frame
@@ -300,7 +304,7 @@ export default function FixNote({ children, className = "" }: { children: string
               onPointerDown={grab}
               onDoubleClick={sendHome}
               className="note-float font-display t-display block-mark absolute left-0 top-0 z-40 whitespace-nowrap leading-[1.06]"
-              style={{ transform: `translate3d(${s.current.cx - s.current.w / 2}px, ${s.current.cy - s.current.h / 2}px, 0)` }}
+              style={{ fontSize, transform: `translate3d(${s.current.cx - s.current.w / 2}px, ${s.current.cy - s.current.h / 2}px, 0)` }}
             >
               {children}
             </div>,

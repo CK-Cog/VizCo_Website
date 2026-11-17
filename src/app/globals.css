@@ -707,19 +707,32 @@ details[open]::details-content {
 }
 
 /*
- * Desktop: the plate sits to the right of the headline. It may bleed into the page gutter
- * on wide screens, because the headline keeps growing until 1585px and the medallion must
- * clear "AI." at every width.
+ * Desktop hero: text in the left column, the plate in its own column on the right, both
+ * inside the page frame. The headline scales to its column ("wasn't written for AI." is
+ * about 8.4em wide), so it can never reach the plate at any width or zoom.
  */
 @media (min-width: 1024px) {
-  .plate-hero {
-    position: absolute;
-    top: 8rem;
-    right: calc(-1 * clamp(0px, (100vw - 1280px) / 2 - 24px, 120px));
-    width: clamp(21rem, 36vw, 31rem);
+  .hero-grid {
+    --plate-w: clamp(20rem, 32vw, 28rem);
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--plate-w);
+    column-gap: 3rem;
+    align-items: start;
+  }
+  .hero-grid > * {
+    grid-column: 1;
+  }
+  .hero-grid > h1 {
+    font-size: min(clamp(2.75rem, 1.1rem + 5.2vw, 6.25rem), (100cqi - 3rem - var(--plate-w)) / 8.6);
+  }
+  .hero-grid > .plate-hero {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: center;
+    width: 100%;
     max-width: none;
     margin: 0;
-    z-index: 0;
   }
 }
 
