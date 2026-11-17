@@ -561,8 +561,8 @@ details[open]::details-content {
   [data-life-intro] .life-caption,
   [data-life-active] .life-caption,
   .life-caption:hover,
-  .life-caption:focus-within,
-  .life-caption:has(details[open]) {
+  .life-caption:has(:focus-visible),
+  .life-caption.is-open {
     opacity: 1;
     transform: none;
     pointer-events: auto;
