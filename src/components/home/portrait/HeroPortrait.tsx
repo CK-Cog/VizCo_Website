@@ -13,7 +13,7 @@ import PlateNote from "./PlateNote";
  * Intro (once, when the plate is in view): a rose-engine sweep draws the medallion, then
  * the engraving develops outward from the eyes in WebGL (see engraving.ts), and hands
  * over to the full-resolution <img>. Afterwards the medallion's two rings turn slowly
- * against each other and the plate leans a few pixels toward the pointer.
+ * against each other. The portrait itself stays still: it does not follow the pointer.
  *
  * States, on `data-intro` (CSS keys off them):
  * - none: server render or no JS. The CSS fallback reveal runs on its own.
@@ -167,45 +167,6 @@ export default function HeroPortrait({ className = "" }: { className?: string })
       cleanups.push(() => io.disconnect());
     };
     ready();
-
-    /* ---------- Pointer: a slight lean toward it ---------- */
-
-    if (!reduce) {
-      const host = el.closest("section") ?? el;
-      let tx = 0;
-      let ty = 0;
-      let px = 0;
-      let py = 0;
-      let raf = 0;
-      const step = () => {
-        raf = 0;
-        px += (tx - px) * 0.08;
-        py += (ty - py) * 0.08;
-        el.style.setProperty("--px", px.toFixed(4));
-        el.style.setProperty("--py", py.toFixed(4));
-        if (Math.abs(tx - px) > 0.001 || Math.abs(ty - py) > 0.001) raf = requestAnimationFrame(step);
-      };
-      const lean = (x: number, y: number) => {
-        tx = x;
-        ty = y;
-        if (!raf) raf = requestAnimationFrame(step);
-      };
-      const onHostMove = (e: PointerEvent) => {
-        if (e.pointerType !== "mouse") return;
-        const r = el.getBoundingClientRect();
-        const cx = r.left + r.width / 2;
-        const cy = r.top + r.height * 0.35;
-        lean(Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth / 2))), Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight / 2))));
-      };
-      const onHostLeave = () => lean(0, 0);
-      host.addEventListener("pointermove", onHostMove as EventListener);
-      host.addEventListener("pointerleave", onHostLeave);
-      cleanups.push(() => {
-        host.removeEventListener("pointermove", onHostMove as EventListener);
-        host.removeEventListener("pointerleave", onHostLeave);
-        cancelAnimationFrame(raf);
-      });
-    }
 
     return () => {
       disposed = true;

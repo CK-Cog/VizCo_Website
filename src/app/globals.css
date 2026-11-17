@@ -601,7 +601,6 @@ details[open]::details-content {
     margin-top: -16%;
     mask-image: conic-gradient(#000 var(--sweep), transparent calc(var(--sweep) + 16deg));
     -webkit-mask-image: conic-gradient(#000 var(--sweep), transparent calc(var(--sweep) + 16deg));
-    translate: calc(var(--px, 0) * -9px) calc(var(--py, 0) * -6px);
     animation: plate-sweep 2s var(--ease-in-out) 0.9s both;
   }
   .plate-ring {
@@ -648,7 +647,6 @@ details[open]::details-content {
       linear-gradient(to bottom, #000 71%, transparent 97%),
       linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
     -webkit-mask-composite: source-in;
-    translate: calc(var(--px, 0) * 5px) calc(var(--py, 0) * 3px);
   }
   .plate-img,
   .plate-gl {
