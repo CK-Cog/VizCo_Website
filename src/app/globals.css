@@ -85,6 +85,8 @@ html {
 }
 
 body {
+  /* A note dragged near the right edge must never cause sideways scrolling */
+  overflow-x: clip;
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;

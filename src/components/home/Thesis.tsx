@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LifeField from "@/components/LifeField";
 import FixNote from "@/components/home/FixNote";
+import LifeCaption from "@/components/home/LifeCaption";
 import { Button, Container, Label, SwapArrow } from "@/components/ui";
 import { BOOKING_URL, CHECKER_URL, TAGLINE } from "@/content/site";
 
@@ -12,8 +13,8 @@ const AUDIENCES = [
 /** Home hero: the thesis, one line on what we do, actions, and the two audiences. */
 export default function Thesis() {
   return (
-    <section className="relative overflow-hidden">
-      <LifeField caption className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
+    <section className="relative">
+      <LifeField className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
       <Container className="relative pb-20 pt-12 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
         <div data-field-avoid className="anim-in inline-block">
           <Label live>{TAGLINE}</Label>
@@ -23,16 +24,23 @@ export default function Thesis() {
           wasn&apos;t written for AI.{" "}
           <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</FixNote>
         </h1>
-        <p data-field-avoid="text" className="t-lead anim-in mt-8 max-w-[34rem] text-pretty text-cream-muted" style={{ animationDelay: "180ms" }}>
-          We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
-        </p>
-        <div data-field-avoid className="anim-in mt-10 flex w-fit flex-wrap items-center gap-3" style={{ animationDelay: "260ms" }}>
-          <Button href={BOOKING_URL} external size="lg">
-            Talk to us
-          </Button>
-          <Button href={CHECKER_URL} external variant="outline" size="lg">
-            Check your AI coverage
-          </Button>
+        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
+          <div>
+            <p data-field-avoid="text" className="t-lead anim-in max-w-[34rem] text-pretty text-cream-muted" style={{ animationDelay: "180ms" }}>
+              We assess and reduce your AI risk, place the cover, and keep monitoring your AI so your cover keeps up.
+            </p>
+            <div data-field-avoid className="anim-in mt-10 flex w-fit flex-wrap items-center gap-3" style={{ animationDelay: "260ms" }}>
+              <Button href={BOOKING_URL} external size="lg">
+                Talk to us
+              </Button>
+              <Button href={CHECKER_URL} external variant="outline" size="lg">
+                Check your AI coverage
+              </Button>
+            </div>
+          </div>
+          <div className="anim-in relative z-20 hidden lg:block" style={{ animationDelay: "520ms" }}>
+            <LifeCaption />
+          </div>
         </div>
         <div data-field-avoid className="anim-in mt-16 grid max-w-[38rem] gap-3 sm:mt-20 sm:grid-cols-2" style={{ animationDelay: "340ms" }}>
           {AUDIENCES.map((a, i) => (

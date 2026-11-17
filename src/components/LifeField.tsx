@@ -104,15 +104,12 @@ function whenIdle(cb: (d: Deadline) => void): () => void {
 
 export default function LifeField({
   className = "",
-  caption = false,
   quiet = false,
   fadeFrom = 0.36,
   fadeTo = 0.74,
   pitch = 16,
 }: {
   className?: string;
-  /** Show the small "Conway's Game of Life" annotation in the corner. */
-  caption?: boolean;
   /** Sparser, for page heroes. */
   quiet?: boolean;
   fadeFrom?: number;
@@ -120,7 +117,6 @@ export default function LifeField({
   pitch?: number;
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
-  const genRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const canvas = ref.current;
@@ -144,6 +140,15 @@ export default function LifeField({
 
       const dots = document.createElement("canvas");
       const dctx = dots.getContext("2d");
+
+      // Live readouts anywhere in the same section (see LifeCaption)
+      const genEls = Array.from(host.querySelectorAll<HTMLElement>("[data-life-gen]"));
+      const popEls = Array.from(host.querySelectorAll<HTMLElement>("[data-life-pop]"));
+      const readout = () => {
+        const g = String(gen).padStart(4, "0");
+        for (const el of genEls) el.textContent = g;
+        for (const el of popEls) el.textContent = String(pop);
+      };
 
       let W = 0;
       let H = 0;
@@ -357,7 +362,7 @@ export default function LifeField({
             place(Math.random() < 0.5 ? R_PENTOMINO : ACORN, i % cols, (i / cols) | 0);
           }
         }
-        if (genRef.current) genRef.current.textContent = String(gen).padStart(4, "0");
+        readout();
       };
 
       const ptr = {
@@ -497,7 +502,7 @@ export default function LifeField({
             inside: cx >= r.left && cx <= r.right && cy >= r.top && cy <= r.bottom,
           };
         };
-        const blocked = (t: EventTarget | null) => t instanceof Element && !!t.closest("a, button, input, textarea, [data-note]");
+        const blocked = (t: EventTarget | null) => t instanceof Element && !!t.closest("a, button, input, textarea, summary, [data-note], [data-life-ui]");
 
         const onMove = (ev: PointerEvent) => {
           const p = local(ev.clientX, ev.clientY);
@@ -579,28 +584,5 @@ export default function LifeField({
     };
   }, [quiet, fadeFrom, fadeTo, pitch]);
 
-  return (
-    <>
-      <canvas ref={ref} aria-hidden className={`opacity-0 transition-opacity duration-[1800ms] ease-out ${className}`} />
-      {caption ? (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden md:block">
-          <div className="mx-auto flex w-full max-w-7xl justify-end px-6 pb-8 sm:px-8 lg:px-10">
-            <div data-field-avoid className="text-right">
-              <p className="eyebrow flex items-center justify-end gap-2.5 !text-[10.5px] text-cream-muted">
-                <span aria-hidden className="h-1.5 w-1.5 bg-signal" />
-                Conway&apos;s Game of Life
-                <span aria-hidden className="text-line-strong">
-                  ·
-                </span>
-                <span>
-                  Gen <span ref={genRef}>0000</span>
-                </span>
-              </p>
-              <p className="mt-1.5 text-[12.5px] tracking-[-0.01em] text-subtle">Simple rules, emergent behaviour. Click to add life.</p>
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </>
-  );
+  return <canvas ref={ref} aria-hidden className={`opacity-0 transition-opacity duration-[1800ms] ease-out ${className}`} />;
 }

@@ -7,9 +7,10 @@ import { createPortal } from "react-dom";
  * "We fix that." as a note you can peel off the headline and stick anywhere on screen.
  *
  * Grab it anywhere and it hangs from that point under gravity: pick it up by the right
- * edge and the left side swings down. Let go and it presses flat at a slight tilt and
- * stays put on screen while the page scrolls beneath it. A dashed outline marks its
- * home; drop it near there, or double-click it, and it snaps back into the headline.
+ * edge and the left side swings down. Let go and it presses flat at a slight tilt, stuck
+ * to the page at that spot, so it scrolls away with the content like anything else on
+ * the page. A dashed outline marks its home; drop it near there, or double-click it, and
+ * it snaps back into the headline. All positions are in page coordinates.
  *
  * Mouse and trackpad only, so touch scrolling is never hijacked. The words stay in the
  * headline for screen readers and search; the floating copy is decorative.
@@ -89,6 +90,8 @@ export default function FixNote({ children, className = "" }: { children: string
     if (!el) return;
     const scale = 1 + 0.035 * p.lift;
     el.style.transform = `translate3d(${p.cx - p.w / 2}px, ${p.cy - p.h / 2}px, 0) rotate(${p.th}rad) scale(${scale})`;
+    // Above everything while held; once placed it sits with the page, under the header
+    el.style.zIndex = p.mode === "drag" ? "60" : "40";
     const a = 0.16 + 0.22 * p.lift;
     const y = 8 + 26 * p.lift;
     const b = 18 + 40 * p.lift;
@@ -97,7 +100,7 @@ export default function FixNote({ children, className = "" }: { children: string
 
   const homeCentre = () => {
     const r = slot.current?.getBoundingClientRect();
-    return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
+    return r ? { x: r.left + r.width / 2 + window.scrollX, y: r.top + r.height / 2 + window.scrollY } : null;
   };
 
   const tick = (now: number) => {
@@ -191,32 +194,42 @@ export default function FixNote({ children, className = "" }: { children: string
       if (!r) return;
       p.w = r.width;
       p.h = r.height;
-      p.cx = r.left + r.width / 2;
-      p.cy = r.top + r.height / 2;
+      p.cx = r.left + r.width / 2 + window.scrollX;
+      p.cy = r.top + r.height / 2 + window.scrollY;
       p.th = 0;
       p.om = 0;
       p.lift = 0;
       setFloating(true);
     }
     // Where on the note it was grabbed, in the note's own frame
-    const dx = e.clientX - p.cx;
-    const dy = e.clientY - p.cy;
+    const dx = e.pageX - p.cx;
+    const dy = e.pageY - p.cy;
     const c = Math.cos(-p.th);
     const sn = Math.sin(-p.th);
     p.rx = dx * c - dy * sn;
     p.ry = dx * sn + dy * c;
-    p.px = p.lpx = e.clientX;
-    p.py = p.lpy = e.clientY;
+    p.px = p.lpx = e.pageX;
+    p.py = p.lpy = e.pageY;
+    let clientX = e.clientX;
+    let clientY = e.clientY;
     p.pvx = p.pvy = p.ax = p.ay = 0;
     p.vxs = p.vys = 0;
     p.mode = "drag";
     document.documentElement.classList.add("is-dragging-note");
 
     const move = (ev: PointerEvent) => {
-      p.px = ev.clientX;
-      p.py = ev.clientY;
+      clientX = ev.clientX;
+      clientY = ev.clientY;
+      p.px = ev.pageX;
+      p.py = ev.pageY;
+    };
+    // Scrolling mid-drag keeps the note under the pointer
+    const scroll = () => {
+      p.px = clientX + window.scrollX;
+      p.py = clientY + window.scrollY;
     };
     const up = () => {
+      window.removeEventListener("scroll", scroll);
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerup", up);
       window.removeEventListener("pointercancel", up);
@@ -230,6 +243,7 @@ export default function FixNote({ children, className = "" }: { children: string
       run();
     };
     window.addEventListener("pointermove", move);
+    window.addEventListener("scroll", scroll, { passive: true });
     window.addEventListener("pointerup", up);
     window.addEventListener("pointercancel", up);
     run();
@@ -241,13 +255,13 @@ export default function FixNote({ children, className = "" }: { children: string
     run();
   };
 
-  // Keep a placed note on screen if the window shrinks
+  // Keep a placed note within the page if the window narrows
   useEffect(() => {
     if (!floating) return;
     const onResize = () => {
       const p = s.current;
-      p.cx = Math.min(window.innerWidth - 24, Math.max(24, p.cx));
-      p.cy = Math.min(window.innerHeight - 24, Math.max(24, p.cy));
+      p.cx = Math.min(document.documentElement.clientWidth - 24, Math.max(24, p.cx));
+      p.cy = Math.max(24, p.cy);
       paint();
     };
     window.addEventListener("resize", onResize);
@@ -285,7 +299,7 @@ export default function FixNote({ children, className = "" }: { children: string
               aria-hidden
               onPointerDown={grab}
               onDoubleClick={sendHome}
-              className="note-float font-display t-display block-mark fixed left-0 top-0 z-[60] whitespace-nowrap leading-[1.06]"
+              className="note-float font-display t-display block-mark absolute left-0 top-0 z-40 whitespace-nowrap leading-[1.06]"
               style={{ transform: `translate3d(${s.current.cx - s.current.w / 2}px, ${s.current.cy - s.current.h / 2}px, 0)` }}
             >
               {children}

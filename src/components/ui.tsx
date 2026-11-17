@@ -248,9 +248,9 @@ export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a:
             </span>
             <span
               aria-hidden
-              className="chev flex h-9 w-9 shrink-0 items-center justify-center border border-line-strong text-cream group-hover:border-cream group-open:border-cream group-open:bg-cream group-open:text-ink"
+              className="flex h-9 w-9 shrink-0 items-center justify-center border border-line-strong text-cream transition-colors duration-300 group-hover:border-cream group-open:border-cream group-open:bg-cream group-open:text-ink"
             >
-              <Plus className="h-4 w-4" strokeWidth={1.75} />
+              <Plus className="chev h-4 w-4" strokeWidth={1.75} />
             </span>
           </summary>
           <div className="max-w-2xl pb-7 pr-14 text-base leading-relaxed text-cream-muted sm:text-[17px]">{item.a}</div>
