@@ -22,7 +22,9 @@ export default function Thesis() {
           wasn&apos;t written for AI.{" "}
           {/* On desktop the portrait sits to the right, so the note always takes its own line. */}
           <br className="hidden lg:inline" />
-          <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06]">We fix that.</FixNote>
+          {/* From md up the note starts its own line, so it hangs left by the block's 0.12em
+              padding: the letters line up with "Your" and the black block sits in the margin. */}
+          <FixNote className="my-[0.05em] inline-block whitespace-nowrap leading-[1.06] md:-ml-[0.12em]">We fix that.</FixNote>
         </h1>
         <p
           className="anim-in relative z-10 mt-9 flex items-center gap-4 text-[clamp(1.125rem,0.9rem+0.8vw,1.625rem)] font-medium leading-tight tracking-[-0.028em] text-cream sm:mt-10"
