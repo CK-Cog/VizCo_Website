@@ -45,7 +45,7 @@ export default function InsightsPage() {
                 </p>
                 <p className="font-display t-h2 mt-6 max-w-3xl text-balance">The AI insurance problem: exclusions and silent AI</p>
                 <p className="t-lead mt-5 max-w-2xl text-ink/65">The full picture, with every source.</p>
-                <span className="mt-10 inline-flex h-12 items-center gap-2.5 bg-ink px-6 text-[15px] font-medium text-cream">
+                <span className="mt-10 inline-flex h-12 items-center gap-2.5 bg-ink px-6 text-[0.9375rem] font-medium text-cream">
                   Read the guide
                   <SwapArrow />
                 </span>
@@ -66,7 +66,7 @@ export default function InsightsPage() {
                       <h2 className="font-display text-[1.75rem] leading-tight tracking-[-0.035em] text-cream sm:text-[2.125rem]">
                         <span className="link-draw pb-1">{p.title}</span>
                       </h2>
-                      <p className="mt-3 max-w-2xl text-base leading-relaxed text-cream-muted sm:text-[17px]">{p.dek}</p>
+                      <p className="mt-3 max-w-2xl text-base leading-relaxed text-cream-muted sm:text-[1.0625rem]">{p.dek}</p>
                       <p className="eyebrow mt-5 flex items-center gap-3 text-subtle">
                         <time dateTime={p.updated}>{p.dateLabel}</time>
                         <span aria-hidden className="h-1 w-1 bg-line-strong" />

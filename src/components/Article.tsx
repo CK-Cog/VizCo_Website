@@ -56,7 +56,7 @@ export default function Article({ post, sources, children }: { post: Insight; so
         <Container>
           <div className="border-t border-cream pt-12 sm:pt-16">
             <div
-              className="max-w-[42rem] text-[17px] leading-[1.75] tracking-[-0.012em] text-cream/75 sm:text-[18.5px]
+              className="max-w-[42rem] text-[1.0625rem] leading-[1.75] tracking-[-0.012em] text-cream/75 sm:text-[1.15625rem]
                 [&_h2]:font-display [&_h2]:mt-16 [&_h2]:text-[2rem] [&_h2]:leading-[1.1] [&_h2]:tracking-[-0.035em] [&_h2]:text-cream [&_h2:first-child]:mt-0
                 [&_p]:mt-6 [&_strong]:font-semibold [&_strong]:text-cream
                 [&_ul]:mt-6 [&_ul]:space-y-4 [&_li]:relative [&_li]:pl-6

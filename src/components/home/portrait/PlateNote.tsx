@@ -50,7 +50,7 @@ export default function PlateNote({ className = "" }: { className?: string }) {
         aria-expanded={open}
         aria-controls="plate-note"
         onClick={() => setOpen((o) => !o)}
-        className="group eyebrow inline-flex items-center gap-2.5 !text-[10.5px] text-cream-muted transition-colors hover:text-cream"
+        className="group eyebrow inline-flex items-center gap-2.5 !text-[0.65625rem] text-cream-muted transition-colors hover:text-cream"
       >
         <span aria-hidden className="signal-dot is-live !h-1.5 !w-1.5" />
         <span className="link-draw pb-px">On watch</span>
@@ -63,7 +63,7 @@ export default function PlateNote({ className = "" }: { className?: string }) {
           open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
         }`}
       >
-        <p className="text-[14.5px] leading-relaxed tracking-[-0.012em] text-cream">
+        <p className="text-[0.90625rem] leading-relaxed tracking-[-0.012em] text-cream">
           A good broker is a watchdog. We keep watching your AI after the policy is bound, and argue your claim when it counts.
         </p>
       </div>

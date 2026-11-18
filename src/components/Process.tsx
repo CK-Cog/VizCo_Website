@@ -99,11 +99,11 @@ export default function Process({ className = "mt-12" }: { className?: string })
                 >
                   <h3 className="font-display text-[2.5rem] leading-none tracking-[-0.045em] lg:text-[3.5rem]">{s.title}</h3>
                   <p className="mt-5 text-xl font-medium tracking-[-0.025em] lg:text-2xl">{s.short}</p>
-                  <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink/65 lg:text-base">{s.detail}</p>
-                  <p className="mt-6 inline-flex items-start gap-3 border border-ink/20 px-4 py-3 text-[15px]">
-                    <span aria-hidden className="mt-[7px] h-2 w-2 shrink-0 bg-signal" />
+                  <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-ink/65 lg:text-base">{s.detail}</p>
+                  <p className="mt-6 inline-flex items-start gap-3 border border-ink/20 px-4 py-3 text-[0.9375rem]">
+                    <span aria-hidden className="mt-[0.4375rem] h-2 w-2 shrink-0 bg-signal" />
                     <span>
-                      <span className="eyebrow mr-1.5 !text-[10.5px] text-ink/55">You get </span>
+                      <span className="eyebrow mr-1.5 !text-[0.65625rem] text-ink/55">You get </span>
                       {s.get}
                     </span>
                   </p>
@@ -180,11 +180,11 @@ export default function Process({ className = "mt-12" }: { className?: string })
             </div>
             <h3 className="font-display mt-10 text-[2.25rem] leading-none tracking-[-0.045em]">{s.title}</h3>
             <p className="mt-4 text-lg font-medium tracking-[-0.02em]">{s.short}</p>
-            <p className={`mt-2 text-[15px] leading-relaxed ${i === 0 ? "text-ink/65" : "text-cream-muted"}`}>{s.detail}</p>
-            <p className={`mt-auto flex items-start gap-3 border-t pt-4 text-[14px] ${i === 0 ? "border-ink/20" : "border-line-dark"}`}>
-              <span aria-hidden className="mt-[6px] h-2 w-2 shrink-0 bg-signal" />
+            <p className={`mt-2 text-[0.9375rem] leading-relaxed ${i === 0 ? "text-ink/65" : "text-cream-muted"}`}>{s.detail}</p>
+            <p className={`mt-auto flex items-start gap-3 border-t pt-4 text-[0.875rem] ${i === 0 ? "border-ink/20" : "border-line-dark"}`}>
+              <span aria-hidden className="mt-[0.375rem] h-2 w-2 shrink-0 bg-signal" />
               <span>
-                <span className={`eyebrow mr-1.5 !text-[10px] ${i === 0 ? "text-ink/55" : "text-cream-muted"}`}>You get </span>
+                <span className={`eyebrow mr-1.5 !text-[0.625rem] ${i === 0 ? "text-ink/55" : "text-cream-muted"}`}>You get </span>
                 {s.get}
               </span>
             </p>

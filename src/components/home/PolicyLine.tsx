@@ -16,7 +16,7 @@ export default function PolicyLine() {
               tone="dark"
               kicker="The problem"
               footer={
-                <Link href="/the-problem" className="group inline-flex items-center gap-2.5 text-[15px] font-medium text-ink">
+                <Link href="/the-problem" className="group inline-flex items-center gap-2.5 text-[0.9375rem] font-medium text-ink">
                   <span className="link-signal">Read the evidence, with sources</span>
                   <SwapArrow />
                 </Link>

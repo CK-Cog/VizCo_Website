@@ -50,9 +50,9 @@ export function InventoryCard() {
             <span className="flex items-center gap-3">
               <span className="hidden text-xs text-cream-muted sm:inline">{r.tag}</span>
               {r.gap ? (
-                <span className="bg-signal px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-signal-ink">Gap</span>
+                <span className="bg-signal px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-signal-ink">Gap</span>
               ) : (
-                <span className="border border-line-dark px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cream-muted">OK</span>
+                <span className="border border-line-dark px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-cream-muted">OK</span>
               )}
             </span>
           </li>
@@ -84,7 +84,7 @@ export function CertificateCard() {
             <p className="eyebrow text-muted">Certificate of insurance</p>
             <p className="font-display mt-2.5 text-2xl tracking-[-0.03em]">Your AI startup</p>
           </div>
-          <span className="flex h-16 w-16 -rotate-12 items-center justify-center border-2 border-signal text-center font-mono text-[9px] font-medium uppercase leading-tight tracking-wider text-signal transition-transform duration-700 group-hover:-rotate-6">
+          <span className="flex h-16 w-16 -rotate-12 items-center justify-center border-2 border-signal text-center font-mono text-[0.5625rem] font-medium uppercase leading-tight tracking-wider text-signal transition-transform duration-700 group-hover:-rotate-6">
             Placed
             <br />
             by VizCo
@@ -135,7 +135,7 @@ export function VendorStack() {
               <p className="text-sm font-medium text-cream">{v.name}</p>
               <p className="text-xs text-cream-muted">{v.use}</p>
             </div>
-            <span className={`shrink-0 border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider ${badge[v.state].cls}`}>
+            <span className={`shrink-0 border px-2.5 py-1 font-mono text-[0.625rem] uppercase tracking-wider ${badge[v.state].cls}`}>
               {badge[v.state].label}
             </span>
           </li>

@@ -41,7 +41,7 @@ export default function SectionRail({ children }: { children: ReactNode }) {
       {children}
       <div aria-hidden className="relative mt-7 hidden h-32 w-px bg-line-dark lg:block">
         <span className="absolute inset-0 origin-top bg-cream" style={{ transform: "scaleY(var(--p))" }} />
-        <span className="absolute -left-[3.5px] h-2 w-2 -translate-y-1/2 bg-signal" style={{ top: "calc(var(--p) * 100%)" }} />
+        <span className="absolute -left-[calc(0.25rem-0.5px)] h-2 w-2 -translate-y-1/2 bg-signal" style={{ top: "calc(var(--p) * 100%)" }} />
       </div>
     </div>
   );

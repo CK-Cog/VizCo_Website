@@ -59,7 +59,7 @@ function Facts({ facts }: { facts: { text: string; s: SourceKey | SourceKey[] }[
   return (
     <ul className="mt-6 space-y-4">
       {facts.map((f) => (
-        <li key={f.text} className="flex gap-3 text-[15px] leading-relaxed text-cream-muted sm:text-base">
+        <li key={f.text} className="flex gap-3 text-[0.9375rem] leading-relaxed text-cream-muted sm:text-base">
           <span aria-hidden className="mt-[0.62em] h-1.5 w-1.5 shrink-0 bg-cream" />
           <span>
             {f.text}
@@ -156,11 +156,11 @@ export default function TheProblemPage() {
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-signal transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
                 />
-                <p className="font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</p>
+                <p className="font-mono text-[0.6875rem] text-subtle">{String(i + 1).padStart(2, "0")}</p>
                 <p className="font-display mt-10 text-[3.5rem] leading-none tracking-[-0.05em] text-cream sm:text-[4.5rem]">
                   <CountUp value={st.value} />
                 </p>
-                <p className="mt-4 max-w-[17rem] text-[15px] leading-relaxed text-cream-muted">
+                <p className="mt-4 max-w-[17rem] text-[0.9375rem] leading-relaxed text-cream-muted">
                   {st.label}
                   <Cite s={st.s} />
                 </p>
@@ -179,12 +179,12 @@ export default function TheProblemPage() {
               <li key={l.date} className="relative pb-12 pl-8 last:pb-0 sm:pl-12">
                 <span
                   aria-hidden
-                  className={`absolute -left-[5px] top-[0.55rem] h-[9px] w-[9px] ${i === LIABILITY.length - 1 ? "bg-signal" : "bg-cream"}`}
+                  className={`absolute -left-[calc(0.28125rem+0.5px)] top-[0.55rem] h-[0.5625rem] w-[0.5625rem] ${i === LIABILITY.length - 1 ? "bg-signal" : "bg-cream"}`}
                 />
                 <p className="eyebrow text-cream-muted sm:absolute sm:-left-[10.5rem] sm:top-[0.6rem] sm:w-36 sm:text-right">{l.date}</p>
                 <Reveal delay={i * 60}>
                   <h3 className="font-display mt-2 text-2xl tracking-[-0.03em] text-cream sm:mt-0 sm:text-[1.75rem]">{l.title}</h3>
-                  <p className="mt-2 max-w-2xl text-base leading-relaxed text-cream-muted sm:text-[17px]">
+                  <p className="mt-2 max-w-2xl text-base leading-relaxed text-cream-muted sm:text-[1.0625rem]">
                     {l.body}
                     <Cite s={l.s} />
                   </p>

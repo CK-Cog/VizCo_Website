@@ -38,8 +38,8 @@ export default function PersonCard({ m, delay = 0 }: { m: TeamMember; delay?: nu
           />
         </div>
         <h3 className="font-display mt-6 text-[1.375rem] leading-tight tracking-[-0.03em] text-cream">{m.name}</h3>
-        <p className="eyebrow mt-2 !text-[10.5px] text-cream">{m.role}</p>
-        {m.prev ? <p className="mt-2.5 text-[15px] leading-snug text-cream-muted">{m.prev}</p> : null}
+        <p className="eyebrow mt-2 !text-[0.65625rem] text-cream">{m.role}</p>
+        {m.prev ? <p className="mt-2.5 text-[0.9375rem] leading-snug text-cream-muted">{m.prev}</p> : null}
         {m.email || m.linkedin ? (
           <div className="mt-auto flex items-center gap-2 pt-6">
             {m.email ? (

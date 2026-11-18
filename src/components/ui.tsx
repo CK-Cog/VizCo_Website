@@ -154,7 +154,7 @@ export function Button({
 }) {
   const base =
     "group relative inline-flex select-none items-center justify-center gap-2.5 overflow-hidden whitespace-nowrap font-medium tracking-[-0.012em] transition-[background-color,border-color,color,scale] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.985]";
-  const s = size === "lg" ? "h-[52px] px-7 text-base" : "h-11 px-5 text-[15px]";
+  const s = size === "lg" ? "h-[3.25rem] px-7 text-base" : "h-11 px-5 text-[0.9375rem]";
   const v =
     variant === "primary"
       ? "bg-cream text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-accent-deep"
@@ -215,7 +215,7 @@ export function Card({
         ) : null}
         {label ? <p className="eyebrow text-cream-muted">{label}</p> : null}
         {title ? <h3 className={`font-display t-h3 text-cream ${label ? "mt-3" : ""}`}>{title}</h3> : null}
-        {children ? <div className="mt-3 text-[15px] leading-relaxed text-cream-muted sm:text-base">{children}</div> : null}
+        {children ? <div className="mt-3 text-[0.9375rem] leading-relaxed text-cream-muted sm:text-base">{children}</div> : null}
       </div>
     </Reveal>
   );
@@ -227,7 +227,7 @@ export function ListPanel({ items, className = "" }: { items: string[]; classNam
       {items.map((it, i) => (
         <li key={it} className="border-b border-line-dark">
           <Reveal delay={i * 60} className="group flex items-center gap-4 py-5">
-            <span className="w-6 shrink-0 font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</span>
+            <span className="w-6 shrink-0 font-mono text-[0.6875rem] text-subtle">{String(i + 1).padStart(2, "0")}</span>
             <span aria-hidden className="h-2 w-2 shrink-0 bg-signal transition-transform duration-300 group-hover:scale-125" />
             <span className="text-base text-cream transition-transform duration-300 group-hover:translate-x-1 sm:text-lg">{it}</span>
           </Reveal>
@@ -243,7 +243,7 @@ export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a:
       {items.map((item) => (
         <details key={item.q} className="group border-b border-line-dark">
           <summary className="flex items-center justify-between gap-6 py-6 text-left">
-            <span className="text-[17px] font-medium tracking-[-0.02em] text-cream transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 sm:text-xl">
+            <span className="text-[1.0625rem] font-medium tracking-[-0.02em] text-cream transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 sm:text-xl">
               {item.q}
             </span>
             <span
@@ -253,7 +253,7 @@ export function Faq({ items, className = "max-w-3xl" }: { items: { q: string; a:
               <Plus className="chev h-4 w-4" strokeWidth={1.75} />
             </span>
           </summary>
-          <div className="max-w-2xl pb-7 pr-14 text-base leading-relaxed text-cream-muted sm:text-[17px]">{item.a}</div>
+          <div className="max-w-2xl pb-7 pr-14 text-base leading-relaxed text-cream-muted sm:text-[1.0625rem]">{item.a}</div>
         </details>
       ))}
     </div>

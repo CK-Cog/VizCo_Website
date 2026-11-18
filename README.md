@@ -50,7 +50,8 @@ npm run build      # production build
 - **Emphasis:** `<Em>` / `.block-mark` gives the black "Co"-style highlight.
 - **Fonts:** Noto Sans 700 for headings (`font-display`), Geist for body, Geist Mono for labels.
 - `.eyebrow` is plain (unlayered) CSS and overrides Tailwind size utilities. Use explicit utilities when you need a different size.
-- Check every change at 1280px, 1024px and 375px. No page should scroll sideways on a phone.
+- **Size things in rem, not px.** The root font size grows from 100% at 1440px wide to 110% at 1800px and wider (`html` in `globals.css`), so the whole page scales up on big screens the way browser zoom would. Anything in px won't grow with it. Keep px only for hairlines, borders and shadows.
+- Check every change at 1280px, 1024px and 375px, and at 1800px for the scaled-up size. No page should scroll sideways on a phone.
 
 ## Content rules (agreed, keep to them)
 

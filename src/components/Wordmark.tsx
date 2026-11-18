@@ -21,7 +21,7 @@ export default function Wordmark({
       <span className={`ml-[0.14em] px-[0.16em] pb-[0.12em] pt-[0.1em] ${block}`}>Co</span>
     </>
   );
-  const cls = `inline-flex items-center text-[22px] font-bold leading-none tracking-[-0.01em] ${className}`;
+  const cls = `inline-flex items-center text-[1.375rem] font-bold leading-none tracking-[-0.01em] ${className}`;
   const style = { fontFamily: 'Verdana, "DejaVu Sans", var(--font-inter), sans-serif' };
   if (href === null) {
     return (

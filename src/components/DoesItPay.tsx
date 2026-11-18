@@ -126,10 +126,10 @@ export default function DoesItPay({
               </span>
               <div className={`transition-opacity duration-500 ${dim ? "opacity-40" : ""}`}>
                 <h3 className={`font-display text-[1.75rem] leading-none tracking-[-0.035em] sm:text-4xl ${t.title}`}>{answer}</h3>
-                <p className={`eyebrow mt-2 !text-[10.5px] ${t.tag}`}>{tag}</p>
+                <p className={`eyebrow mt-2 !text-[0.65625rem] ${t.tag}`}>{tag}</p>
               </div>
               <p
-                className={`col-start-2 text-[15px] leading-relaxed transition-[color,opacity] duration-500 sm:col-start-3 sm:text-[17px] ${on ? t.lineOn : t.line} ${
+                className={`col-start-2 text-[0.9375rem] leading-relaxed transition-[color,opacity] duration-500 sm:col-start-3 sm:text-[1.0625rem] ${on ? t.lineOn : t.line} ${
                   dim ? "opacity-40" : ""
                 }`}
               >
@@ -149,7 +149,7 @@ export default function DoesItPay({
         })}
       </ol>
 
-      {note ? <p className={`mt-6 max-w-2xl text-[15px] ${t.line}`}>{note}</p> : null}
+      {note ? <p className={`mt-6 max-w-2xl text-[0.9375rem] ${t.line}`}>{note}</p> : null}
 
       <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <p className={`font-display text-3xl tracking-[-0.035em] sm:text-5xl ${t.title}`}>

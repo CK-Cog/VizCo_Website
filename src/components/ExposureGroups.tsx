@@ -110,10 +110,10 @@ export default function ExposureGroups({ className = "mt-12" }: { className?: st
                 selected ? `border-cream text-ink ${box ? "" : "bg-cream"}` : "border-line-dark bg-surface/60 text-cream hover:border-line-strong hover:bg-surface"
               }`}
             >
-              <span className={`font-mono text-[11px] tracking-[0.12em] transition-colors ${selected ? "text-ink/55" : "text-subtle"}`}>
+              <span className={`font-mono text-[0.6875rem] tracking-[0.12em] transition-colors ${selected ? "text-ink/55" : "text-subtle"}`}>
                 {pad(start)}–{pad(start + g.items.length - 1)}
               </span>
-              <span className="text-[15px] font-medium leading-snug tracking-[-0.015em]">{g.name}</span>
+              <span className="text-[0.9375rem] font-medium leading-snug tracking-[-0.015em]">{g.name}</span>
               {selected && playing ? (
                 <span
                   key={`progress-${active}`}
@@ -147,7 +147,7 @@ export default function ExposureGroups({ className = "mt-12" }: { className?: st
                 </p>
                 <div className="relative mt-10">
                   <h3 className="font-display text-[1.6rem] leading-[1.08] tracking-[-0.035em] sm:text-[1.85rem]">{e.headline}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-ink/65">{e.line}</p>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink/65">{e.line}</p>
                 </div>
               </div>
             </li>
@@ -165,7 +165,7 @@ export default function ExposureGroups({ className = "mt-12" }: { className?: st
           {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
           {playing ? "Pause" : "Play"}
         </button>
-        <button type="button" onClick={() => choose(active + 1)} className="group text-[15px] font-medium text-cream">
+        <button type="button" onClick={() => choose(active + 1)} className="group text-[0.9375rem] font-medium text-cream">
           <span className="link-signal">Next: {EXPOSURE_GROUPS[(active + 1) % COUNT].name} →</span>
         </button>
       </div>

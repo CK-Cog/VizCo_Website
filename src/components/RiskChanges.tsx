@@ -37,9 +37,9 @@ export default function RiskChanges() {
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-signal transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
                   />
-                  <p className="font-mono text-[11px] text-ink/40">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="font-mono text-[0.6875rem] text-ink/40">{String(i + 1).padStart(2, "0")}</p>
                   <h3 className="font-display mt-8 text-xl tracking-[-0.03em] sm:text-[1.375rem]">{t.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-ink/60">{t.line}</p>
+                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink/60">{t.line}</p>
                 </li>
               ))}
             </ul>
@@ -50,7 +50,7 @@ export default function RiskChanges() {
                   <Fragment key={step}>
                     <li>
                       <span
-                        className={`inline-flex h-11 items-center px-4 text-[15px] font-medium tracking-[-0.01em] ${
+                        className={`inline-flex h-11 items-center px-4 text-[0.9375rem] font-medium tracking-[-0.01em] ${
                           i === LOOP.length - 1 ? "bg-signal text-signal-ink" : "border border-ink/35 text-ink"
                         }`}
                       >
@@ -60,7 +60,7 @@ export default function RiskChanges() {
                     {i < LOOP.length - 1 ? (
                       <li aria-hidden className="relative ml-6 h-6 w-px bg-ink/25 sm:ml-0 sm:h-px sm:w-16 lg:w-24">
                         <span
-                          className="travel absolute left-0 top-0 hidden h-[5px] w-[5px] -translate-y-[2px] bg-signal [--travel:59px] sm:block lg:[--travel:91px]"
+                          className="travel absolute left-0 top-0 hidden h-[0.3125rem] w-[0.3125rem] -translate-y-[calc(0.15625rem-0.5px)] bg-signal [--travel:calc(4rem-0.3125rem)] sm:block lg:[--travel:calc(6rem-0.3125rem)]"
                           style={{ animationDelay: `${i * 0.9}s` }}
                         />
                       </li>

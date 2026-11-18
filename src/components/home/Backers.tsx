@@ -6,9 +6,9 @@ import { Container } from "@/components/ui";
 /** Black-on-transparent versions of each investor's logo live in /public/investors. */
 const BACKERS = [
   { name: "NextGen Venture Partners", src: "/investors/ngvp.png", width: 1024, height: 254, className: "h-6 sm:h-7" },
-  { name: "XRC Ventures", src: "/investors/xrc-ventures.png", width: 1238, height: 186, className: "h-[18px] sm:h-[22px]" },
+  { name: "XRC Ventures", src: "/investors/xrc-ventures.png", width: 1238, height: 186, className: "h-[1.125rem] sm:h-[1.375rem]" },
   { name: "Entrepreneurs First", src: "/investors/entrepreneurs-first.png", width: 154, height: 76, className: "h-9 sm:h-10" },
-  { name: "Transpose Platform", src: "/investors/transpose.png", width: 2338, height: 300, className: "h-[18px] sm:h-[22px]" },
+  { name: "Transpose Platform", src: "/investors/transpose.png", width: 2338, height: 300, className: "h-[1.125rem] sm:h-[1.375rem]" },
 ];
 
 /** A quiet proof band at the foot of the home page. */

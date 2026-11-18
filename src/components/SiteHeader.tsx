@@ -64,7 +64,7 @@ export default function SiteHeader() {
         href={CHECKER_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex h-9 items-center justify-center gap-3 bg-cream px-4 text-[13px] font-medium tracking-[-0.005em] text-ink"
+        className="group flex h-9 items-center justify-center gap-3 bg-cream px-4 text-[0.8125rem] font-medium tracking-[-0.005em] text-ink"
       >
         <span aria-hidden className="signal-dot is-live !h-1.5 !w-1.5" />
         <span className="link-draw pb-px">Check your AI insurance coverage for free</span>
@@ -79,7 +79,7 @@ export default function SiteHeader() {
             : "border-transparent bg-ink"
         }`}
       >
-        <div className="mx-auto flex h-[68px] w-full max-w-7xl items-center justify-between gap-6 px-6 sm:px-8 lg:px-10">
+        <div className="mx-auto flex h-[4.25rem] w-full max-w-7xl items-center justify-between gap-6 px-6 sm:px-8 lg:px-10">
           <Wordmark />
 
           <nav
@@ -109,7 +109,7 @@ export default function SiteHeader() {
               href={LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden h-10 items-center px-3 text-[14px] font-medium text-cream sm:inline-flex"
+              className="group hidden h-10 items-center px-3 text-[0.875rem] font-medium text-cream sm:inline-flex"
             >
               <span className="link-draw pb-px">Log in</span>
             </a>
@@ -117,7 +117,7 @@ export default function SiteHeader() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex h-10 items-center gap-2 overflow-hidden bg-cream px-4 text-[14px] font-medium text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] transition-[background-color,scale] duration-300 hover:bg-accent-deep active:scale-[0.985]"
+              className="group relative inline-flex h-10 items-center gap-2 overflow-hidden bg-cream px-4 text-[0.875rem] font-medium text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] transition-[background-color,scale] duration-300 hover:bg-accent-deep active:scale-[0.985]"
             >
               Talk to us
               <SwapArrow className="h-3.5 w-3.5" />
@@ -134,7 +134,7 @@ export default function SiteHeader() {
               aria-label={open ? "Close menu" : "Open menu"}
               className="relative inline-flex h-10 w-10 items-center justify-center border border-line-strong text-cream transition-colors hover:border-cream xl:hidden"
             >
-              <span aria-hidden className="relative block h-3 w-[18px]">
+              <span aria-hidden className="relative block h-3 w-[1.125rem]">
                 <span
                   className={`absolute left-0 h-[1.5px] w-full bg-current transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"}`}
                 />
@@ -164,7 +164,7 @@ export default function SiteHeader() {
                       .filter((s) => s.href !== item.href)
                       .map((s) => (
                         <li key={s.href}>
-                          <Link href={s.href} className="block py-1.5 text-[15px] text-cream-muted">
+                          <Link href={s.href} className="block py-1.5 text-[0.9375rem] text-cream-muted">
                             {s.label}
                           </Link>
                         </li>
@@ -179,7 +179,7 @@ export default function SiteHeader() {
               href={LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-[52px] items-center justify-center border border-line-strong bg-surface text-base font-medium text-cream"
+              className="flex h-[3.25rem] items-center justify-center border border-line-strong bg-surface text-base font-medium text-cream"
             >
               Log in
             </a>
@@ -187,7 +187,7 @@ export default function SiteHeader() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-[52px] items-center justify-center gap-2.5 bg-cream text-base font-medium text-ink"
+              className="group flex h-[3.25rem] items-center justify-center gap-2.5 bg-cream text-base font-medium text-ink"
             >
               Talk to us
               <SwapArrow />
@@ -208,7 +208,7 @@ function DesktopItem({
   active: boolean;
   onPoint: (e: MouseEvent<HTMLElement> | FocusEvent<HTMLElement>) => void;
 }) {
-  const cls = `relative z-10 inline-flex h-9 items-center gap-1 whitespace-nowrap px-3.5 text-[14px] font-medium tracking-[-0.01em] transition-colors duration-200 ${
+  const cls = `relative z-10 inline-flex h-9 items-center gap-1 whitespace-nowrap px-3.5 text-[0.875rem] font-medium tracking-[-0.01em] transition-colors duration-200 ${
     active ? "text-cream" : "text-cream-muted hover:text-cream"
   }`;
   const marker = active ? <span aria-hidden className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 bg-signal" /> : null;
@@ -222,7 +222,7 @@ function DesktopItem({
           {marker}
         </Link>
         <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-[opacity,visibility] duration-200 group-focus-within/menu:visible group-focus-within/menu:opacity-100 group-hover/menu:visible group-hover/menu:opacity-100">
-          <ul className="min-w-[240px] border border-line-dark bg-surface p-2 shadow-[var(--shadow-lift)]">
+          <ul className="min-w-[15rem] border border-line-dark bg-surface p-2 shadow-[var(--shadow-lift)]">
             {item.items.map((s) => (
               <li key={s.href}>
                 <Link href={s.href} className="block px-3 py-2.5 text-sm text-cream-muted transition-colors hover:bg-ink-2 hover:text-cream">
@@ -256,8 +256,8 @@ function DesktopItem({
 function MobileLink({ item, index, active }: { item: NavItem; index: number; active: boolean }) {
   const inner = (
     <>
-      <span className="w-7 shrink-0 font-mono text-[11px] text-subtle">{String(index + 1).padStart(2, "0")}</span>
-      <span className="font-display flex-1 text-[28px] leading-none tracking-[-0.035em] sm:text-[32px]">{item.label}</span>
+      <span className="w-7 shrink-0 font-mono text-[0.6875rem] text-subtle">{String(index + 1).padStart(2, "0")}</span>
+      <span className="font-display flex-1 text-[1.75rem] leading-none tracking-[-0.035em] sm:text-[2rem]">{item.label}</span>
       {active ? <span aria-hidden className="h-2 w-2 bg-signal" /> : <SwapArrow className="h-5 w-5 text-subtle" />}
     </>
   );

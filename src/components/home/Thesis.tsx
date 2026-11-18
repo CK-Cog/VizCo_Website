@@ -50,10 +50,10 @@ export default function Thesis() {
             <Link
               key={a.href}
               href={a.href}
-              className="wipe-hover group flex items-center justify-between gap-4 border border-line-dark px-5 py-[18px] text-cream shadow-[var(--shadow-card)]"
+              className="wipe-hover group flex items-center justify-between gap-4 border border-line-dark px-5 py-[1.125rem] text-cream shadow-[var(--shadow-card)]"
             >
               <span className="flex items-center gap-4">
-                <span className="font-mono text-[11px] text-subtle">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-[0.6875rem] text-subtle">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-base font-medium tracking-[-0.015em]">{a.label}</span>
               </span>
               <SwapArrow />
