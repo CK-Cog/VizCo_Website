@@ -28,8 +28,7 @@ How VizCo works:
 ## Team
 
 - Chris Kelly, PhD: Co-Founder & CEO. Previously Stanford, MIT.
-- Daniel Kharitonov, PhD: Co-Founder & CTO. Previously Stanford, Iterative.
-- Tanay Baswa: Co-Founder & Head of Product. Previously UC Berkeley, Enkrypt AI.
+- Tanay Baswa: Co-Founder & CTO. Previously UC Berkeley, Enkrypt AI.
 - Mark Farrelly: Founding GTM Lead. Previously HBAN, Microsoft, Enterprise Ireland.
 - Advisors: Alan Boehme, Junaid Islam and Carlos Colombo.
 

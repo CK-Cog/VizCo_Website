@@ -17,16 +17,8 @@ export const TEAM: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/christopherkellyphd/",
   },
   {
-    name: "Daniel Kharitonov, Ph.D.",
-    role: "Co-Founder & CTO",
-    prev: "Previously Stanford, Iterative",
-    img: "/Daniel.png",
-    email: "daniel@vizco.co",
-    linkedin: "https://www.linkedin.com/in/danielkharitonov/",
-  },
-  {
     name: "Tanay Baswa",
-    role: "Co-Founder & Head of Product",
+    role: "Co-Founder & CTO",
     prev: "Previously UC Berkeley, Enkrypt AI",
     img: "/Tanay.png",
     email: "tanay@vizco.co",
