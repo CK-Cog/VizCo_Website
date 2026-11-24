@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { faqSchema, pageMeta } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 import Thesis from "@/components/home/Thesis";
+import Affiliations from "@/components/home/Affiliations";
 import Backers from "@/components/home/Backers";
 import PolicyLine from "@/components/home/PolicyLine";
 import FinalCta from "@/components/FinalCta";
@@ -54,6 +55,7 @@ export default function Home() {
     <main>
       <JsonLd data={faqSchema(FAQ)} />
       <Thesis />
+      <Affiliations />
       <PolicyLine />
 
       <Block id="coverage" number="01" label="What we cover" title="How AI goes wrong.">

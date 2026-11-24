@@ -16,7 +16,7 @@ const AUDIENCES = [
 export default function Thesis() {
   return (
     <section className="relative isolate">
-      <Container className="hero-grid relative pb-20 pt-14 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-28">
+      <Container className="hero-grid relative pb-14 pt-14 sm:pb-16 sm:pt-20 lg:pb-20 lg:pt-28">
         <h1 className="wipe font-display t-display anim-in relative z-10 max-w-[15em] text-balance text-cream" style={{ animationDelay: "40ms" }}>
           Your insurance <br className="hidden md:inline" />
           wasn&apos;t written for AI.{" "}
@@ -47,7 +47,7 @@ export default function Thesis() {
           </div>
         </div>
         <HeroPortrait className="plate-hero mx-auto mt-20 w-full max-w-[26rem] sm:mt-24" />
-        <div className="anim-in relative z-10 mt-16 grid max-w-[38rem] gap-3 sm:mt-20 sm:grid-cols-2" style={{ animationDelay: "340ms" }}>
+        <div className="anim-in relative z-10 mt-16 grid max-w-[38rem] gap-3 sm:mt-20 sm:grid-cols-2 lg:mt-14" style={{ animationDelay: "340ms" }}>
           {AUDIENCES.map((a, i) => (
             <Link
               key={a.href}

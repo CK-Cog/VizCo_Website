@@ -29,7 +29,7 @@ npm run build      # production build
 | `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Faq`, `Button`, `Em` |
 | `src/content/process.ts`, `src/components/Process.tsx` | The five-step process (Assess, Mitigate, Place, Monitor, Report), used on every page |
 | `src/components/RiskChanges.tsx` | "AI risk can change overnight" panel: why we keep monitoring after the policy is bound |
-| `src/components/home/` | Home-only sections (`Thesis`, `PolicyLine`, `Reading`, `Backers`) |
+| `src/components/home/` | Home-only sections (`Thesis`, `Affiliations`, `PolicyLine`, `Reading`, `Backers`) |
 | `src/components/PageHero.tsx`, `FinalCta.tsx`, `CoverageGap.tsx` | Hero, closing call to action, black feature panel |
 | `src/components/DoesItPay.tsx` | The problem as one claim ("Does your insurance pay?" Yes / Maybe / No), used on home and the-problem |
 | `src/components/pages/Visuals.tsx` | Illustrations (AI inventory, vendor stack, certificate) |
@@ -39,7 +39,8 @@ npm run build      # production build
 | `src/lib/seo.ts`, `src/components/JsonLd.tsx` | Per-page metadata helper and structured data |
 | `public/llms.txt` | Plain-text summary for AI answer engines |
 | `public/investors/` | Investor logos (black on transparent) |
-| `docs/` | How the hero portrait (`hero-portrait.md`) and the favicon (`favicon.md`) were made, and how to rebuild them |
+| `src/content/affiliations.ts`, `public/affiliations/` | The logo band under the home hero ("Expertise from"): where the team and advisors studied and worked, and our investors. See `docs/affiliations.md` before adding one |
+| `docs/` | How the hero portrait (`hero-portrait.md`), the favicon (`favicon.md`) and the affiliation logos (`affiliations.md`) were made, and how to rebuild them |
 | `design/` | Source art and build scripts for those images. Not served; `public/` and `src/app/` hold the generated files |
 
 ## Design system
@@ -61,6 +62,7 @@ npm run build      # production build
 - No MGA mentions and no competitor comparisons. Don't cite competitor brokers' research.
 - The call to action is always **"Talk to us"**, never "Talk to a broker".
 - No performance guarantees.
+- Logos only for real ties (a degree, a job, an investment), as wordmarks, never university seals. See `docs/affiliations.md`.
 - Keep copy short and visual. Home hero copy makes statements, not questions.
 - Educational content must be researched and relevant to the buyer, with every figure or claim linked to a real source beside it. Never invent data.
 
