@@ -2,7 +2,7 @@
 
 The band under the home hero, "Expertise from": one slow, endless row of grey logos for where our team and advisors studied and worked, and the firms that invested in us. Hovering pauses it. With reduced motion turned on, it is one still, centred row that wraps. Added in November 2026.
 
-Nine are shown: Stanford, Microsoft, MIT, ING, XRC Ventures, UC Berkeley, NextGen Venture Partners, Yale and Entrepreneurs First. Every other logo in the table below is built and ready; to swap one in, add or replace its entry in `src/content/affiliations.ts`. Coca-Cola was tried and taken out as too consumer-facing for our buyers.
+Nine are shown: Stanford, Microsoft, MIT, ING, XRC Ventures, UC Berkeley, NextGen Venture Partners, UCL and Entrepreneurs First. Every other logo in the table below is built and ready; to swap one in, add or replace its entry in `src/content/affiliations.ts`. Coca-Cola was tried and taken out as too consumer-facing for our buyers.
 
 The row is drawn three times side by side and slides left by one copy before starting over, so it never shows a gap. That only holds while two copies are wider than the widest screen; with nine logos one copy is already wider than the page frame. If the list ever gets much shorter, raise `COPIES` in `Affiliations.tsx`.
 
