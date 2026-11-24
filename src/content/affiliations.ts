@@ -31,6 +31,6 @@ export const AFFILIATIONS: Affiliation[] = [
   { name: "XRC Ventures", src: "/investors/xrc-ventures.png", width: 1238, height: 186, h: 1.3, basis: "investor" },
   { name: "University of California, Berkeley", src: "/affiliations/berkeley.svg", width: 213, height: 66, h: 2.125, basis: "education" },
   { name: "NextGen Venture Partners", src: "/investors/ngvp.png", width: 1024, height: 254, h: 1.45, basis: "investor" },
-  { name: "Yale University", src: "/affiliations/yale.svg", width: 500, height: 216, h: 1.95, basis: "education" },
+  { name: "University College London", src: "/affiliations/ucl.svg", width: 1393, height: 391, h: 1.5, basis: "education" },
   { name: "Entrepreneurs First", src: "/investors/entrepreneurs-first.png", width: 154, height: 76, h: 2.5, basis: "investor" },
 ];
