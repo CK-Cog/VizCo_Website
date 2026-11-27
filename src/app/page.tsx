@@ -9,7 +9,7 @@ import FinalCta from "@/components/FinalCta";
 import { Block, Container, Faq, Section, SectionHeader } from "@/components/ui";
 import Process from "@/components/Process";
 import RiskChanges from "@/components/RiskChanges";
-import ExposureGroups from "@/components/ExposureGroups";
+import RiskMap from "@/components/home/RiskMap";
 
 export const metadata: Metadata = pageMeta({
   title: "VizCo | AI Liability Insurance & Emerging Risk Broker",
@@ -58,9 +58,7 @@ export default function Home() {
       <Affiliations />
       <PolicyLine />
 
-      <Block id="coverage" number="01" label="What we cover" title="How AI goes wrong.">
-        <ExposureGroups />
-      </Block>
+      <RiskMap />
 
       <Section id="process">
         <Container>
