@@ -1,6 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // The AI liability survey is one static file, public/survey.html, served at /survey.
+  // It is unlisted: not in the nav or the sitemap, and marked noindex here and in the file.
+  async rewrites() {
+    return [{ source: "/survey", destination: "/survey.html" }];
+  },
+  async headers() {
+    return ["/survey", "/survey.html"].map((source) => ({
+      source,
+      headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+    }));
+  },
   async redirects() {
     return [
       {

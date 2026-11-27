@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="https://vizco.co/favicon.ico">
+<title>AI Liability Insurability Survey 2026 | VizCo (team review)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: VizCo's web vernacular. A logo bar with a hairline progress line, a headline with one
+   phrase set in a black block, and questions as a ruled ledger of square rows. The chosen row
+   inverts to black, the same device as the headline. One light look, as on vizco.co. */
+:root{
+  --paper:#fafaf8; --surface:#ffffff; --tint:#f3f3f0; --ink:#0a0a0a; --muted:#5f5f5a; --subtle:#8b8b85;
+  --line:#e2e2dd; --line-strong:#cfcfc9; --signal:#ff5a1f;
+  --font-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.5;letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+.gut{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.shell{max-width:1040px;margin:0 auto}
+.col{max-width:720px}
+.mono{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
+.dot{display:inline-block;width:6px;height:6px;background:var(--signal);flex:none}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.logo{display:inline-flex;align-items:center;font-weight:700;font-size:20px;letter-spacing:-.04em;color:var(--ink);text-decoration:none}
+.logo span{background:var(--ink);color:var(--paper);padding:1px 5px 2px;margin-left:3px}
+.top .meta{display:flex;align-items:center;gap:8px;color:var(--muted);white-space:nowrap}
+.prog{max-width:1040px;margin:0 auto -1px;height:2px}
+.prog i{display:block;height:100%;width:0;background:var(--signal);transition:width .35s cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion: reduce){.prog i{transition:none}}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:end;padding-block:56px 44px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(36px,6.4vw,62px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0;text-wrap:balance}
+.hl{background:var(--ink);color:var(--paper);padding:0 .14em .04em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.kicker{display:flex;align-items:center;gap:14px;font-size:19px;font-weight:500;letter-spacing:-.028em;margin:30px 0 0}
+.kicker::before{content:"";width:40px;height:2px;background:var(--signal);flex:none}
+.lede{color:var(--muted);font-size:17px;line-height:1.55;max-width:60ch;margin:14px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0 0;padding:0;list-style:none}
+.facts li{display:flex;align-items:center;gap:8px}
+.dog{margin:0}
+.dog img{display:block;width:100%;height:auto}
+.dog figcaption{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:6px;color:var(--muted)}
+.notice{border:1px solid var(--line-strong);background:var(--tint);padding:12px 16px;font-size:14px;margin-top:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips button{font:500 13px var(--font-sans);padding:8px 12px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:0;cursor:pointer}
+
+main{padding-block:8px 72px}
+h2{font-size:clamp(26px,3.6vw,34px);font-weight:600;letter-spacing:-.035em;line-height:1.08;margin:44px 0 0;text-wrap:balance}
+.aud{color:var(--subtle);margin-top:10px}
+.q{border-top:1px solid var(--line);padding-top:22px;margin-top:30px;scroll-margin-top:84px}
+.q .id{display:flex;align-items:center;gap:14px;color:var(--subtle)}
+.q .req{display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
+.q h3{font-size:18px;font-weight:500;letter-spacing:-.018em;line-height:1.38;margin:8px 0 16px;max-width:64ch}
+.q .hint{font-size:13.5px;color:var(--muted);margin:-8px 0 14px}
+.q.miss .id{color:var(--ink)}
+.q.miss{border-top-color:var(--signal)}
+
+.opts{display:flex;flex-direction:column}
+.opt{position:relative;display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border:1px solid var(--line-strong);background:var(--surface);cursor:pointer;font-size:15.5px;line-height:1.4;margin-top:-1px}
+.opt:first-child{margin-top:0}
+.opt:hover{border-color:var(--ink);z-index:1}
+.opt input,.scale input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.mk{flex:none;display:grid;place-items:center;width:16px;height:16px;border:1.5px solid var(--ink);margin-top:3px}
+.mk.r{border-radius:50%}
+.opt.sel{background:var(--ink);color:var(--paper);border-color:var(--ink);z-index:2}
+.opt.sel .mk{border-color:var(--paper)}
+.opt.sel .mk::after{content:"";width:8px;height:8px;background:var(--signal);border-radius:inherit}
+.opt input:focus-visible + .mk{outline:2px solid var(--signal);outline-offset:3px}
+
+.scale{display:flex}
+.scale label{position:relative;flex:1 1 0;min-width:0;text-align:center;padding:14px 0;border:1px solid var(--line-strong);background:var(--surface);margin-left:-1px;cursor:pointer;font-family:var(--font-mono);font-size:15px}
+.scale label:first-child{margin-left:0}
+.scale label:hover{border-color:var(--ink);z-index:1}
+.scale label.sel{background:var(--ink);color:var(--paper);border-color:var(--ink);z-index:2}
+.scale label:focus-within{outline:2px solid var(--signal);outline-offset:2px;z-index:3}
+.scale-ends{display:flex;justify-content:space-between;gap:16px;font-size:13.5px;color:var(--muted);margin-top:8px}
+
+.gridwrap{overflow-x:auto}
+table.grid{border-collapse:collapse;width:100%;min-width:580px;font-size:14.5px;background:var(--surface);border:1px solid var(--line-strong)}
+table.grid th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:400;color:var(--muted);text-align:center;padding:12px 6px;vertical-align:bottom;line-height:1.35}
+table.grid td{border-top:1px solid var(--line);padding:0;text-align:center}
+table.grid td.rl{text-align:left;padding:11px 12px 11px 16px;font-weight:500}
+table.grid td label{display:block;padding:12px 6px;cursor:pointer}
+table.grid input{accent-color:var(--ink);width:16px;height:16px;margin:0;vertical-align:middle}
+table.grid .cl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+textarea,input[type=email],input[type=text]{display:block;width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line-strong);border-radius:0;background:var(--surface);color:var(--ink);-webkit-appearance:none;appearance:none}
+textarea{min-height:110px;resize:vertical}
+input.other{margin-top:-1px;position:relative}
+textarea:focus,input[type=email]:focus,input[type=text]:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;font:500 16px var(--font-sans);letter-spacing:-.011em;border:1px solid var(--line-strong);border-radius:0;background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.chips button:focus-visible,.logo:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.err{display:flex;align-items:flex-start;gap:10px;margin-top:22px;font-size:15px;font-weight:500}
+.err .dot{margin-top:8px}
+.done h2{font-size:clamp(34px,5.6vw,54px);letter-spacing:-.04em;line-height:1.02;margin-top:56px}
+.done p{color:var(--muted);font-size:17px;max-width:56ch;margin:20px 0 0}
+.summary pre{background:var(--surface);border:1px solid var(--line-strong);padding:16px;font-family:var(--font-mono);font-size:12.5px;white-space:pre-wrap;word-break:break-word;max-height:420px;overflow:auto;margin:24px 0 0}
+footer{border-top:1px solid var(--line);padding-block:22px 34px;color:var(--muted)}
+footer .shell{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+footer a{color:var(--ink)}
+
+@media (min-width:560px){.hl{white-space:nowrap}}
+@media (max-width:860px){
+  .hero{grid-template-columns:minmax(0,1fr);padding-block:36px 32px}
+  .dog{display:none}
+}
+@media (max-width:640px){
+  .top .bar{height:54px}
+  .q h3{font-size:17px}
+  .gridwrap{overflow:visible}
+  table.grid{min-width:0;border:0;background:transparent}
+  table.grid thead{display:none}
+  table.grid,table.grid tbody,table.grid tr,table.grid td{display:block;width:100%}
+  table.grid tr{margin-top:14px}
+  table.grid tr:first-child{margin-top:0}
+  table.grid td{border:1px solid var(--line-strong);border-top:0;text-align:left;background:var(--surface)}
+  table.grid td.rl{border-top:1px solid var(--line-strong);background:var(--tint);padding:10px 14px}
+  table.grid td label{display:flex;align-items:center;gap:12px;padding:11px 14px}
+  table.grid .cl{position:static;width:auto;height:auto;clip:auto;white-space:normal}
+  .btn{padding:0 22px}
+}
+</style>
+</head>
+<body>
+<div class="top gut"><div class="shell bar">
+  <a class="logo" href="https://vizco.co" target="_blank" rel="noopener" aria-label="VizCo">Viz<span>Co</span></a>
+  <div class="meta mono"><i class="dot" aria-hidden="true"></i><span id="count">Step 1</span></div>
+</div><div class="prog" aria-hidden="true"><i id="fill"></i></div></div>
+
+<div class="gut" id="heroWrap"><header class="shell hero">
+  <div>
+    <h1>How will AI liability be insured? <span class="hl">Tell us what you see.</span></h1>
+    <p class="kicker">AI Liability Insurability Survey 2026</p>
+    <p class="lede" id="intro"></p>
+    <ul class="facts mono">
+      <li><i class="dot" aria-hidden="true"></i>About 12 minutes</li>
+      <li><i class="dot" aria-hidden="true"></i>Anonymous by default</li>
+      <li><i class="dot" aria-hidden="true"></i>Reported in aggregate only</li>
+    </ul>
+    <div class="notice" id="notice" hidden>Review version. Answers are not recorded. At the end you can copy your answers and add comments to send back.</div>
+    <div class="chips" id="chips" hidden></div>
+  </div>
+  <figure class="dog" id="dog"><img src="https://vizco.co/hero/wolfhound-1200.webp" alt="Engraved portrait of a wolfhound in a suit" width="416" height="416" onerror="document.getElementById('dog').hidden=true"><figcaption class="mono"><i class="dot" aria-hidden="true"></i>On watch</figcaption></figure>
+</header></div>
+
+<div class="gut"><div class="shell"><main class="col" id="main"></main></div></div>
+<footer class="gut"><div class="shell mono"><span>VizCo. The AI &amp; Emerging Risk Specialty Broker</span><span id="foot"></span></div></footer>
+
+<script id="spec" type="application/json">{"title": "AI Liability Insurability Survey 2026", "intro": "VizCo is gathering the views of carriers, brokers, enterprise risk leaders, board members and founders on one question: how will liability arising from AI systems be insured? Your answers are anonymous unless you choose to leave contact details at the end. Results are reported in aggregate only: no person or firm is identified unless they ask to be acknowledged. The survey takes about 12 minutes.", "segments": {"carrier": "Carriers, MGAs and reinsurers", "broker": "Retail and wholesale brokers", "enterprise": "Enterprise risk, finance, legal, security and technology leaders", "board": "Board directors and audit or risk committee members", "startup": "Startups, scale-ups and AI builders", "other": "Legal, consulting, vendors, academics and others"}, "sections": [{"id": "A", "title": "About you", "audience": "all", "questions": [{"id": "A1", "type": "single", "required": true, "text": "Which best describes your primary role? This decides which questions you see.", "options": [{"label": "Insurer or carrier (primary underwriting)", "route": "carrier"}, {"label": "MGA, MGU or program administrator", "route": "carrier"}, {"label": "Reinsurer", "route": "carrier"}, {"label": "Retail broker or agent", "route": "broker"}, {"label": "Wholesale broker or specialty intermediary", "route": "broker"}, {"label": "Risk manager or insurance buyer at an enterprise", "route": "enterprise"}, {"label": "Other enterprise executive (CFO, GC, CISO, CRO, CIO, CTO)", "route": "enterprise"}, {"label": "Board director, audit committee or risk committee member", "route": "board"}, {"label": "Founder or executive at a startup or scale-up", "route": "startup"}, {"label": "AI product vendor or builder", "route": "startup"}, {"label": "Legal, consulting, governance or security vendor, academic, other", "route": "other"}]}, {"id": "A2", "type": "single", "text": "Where are you primarily based?", "options": ["North America", "United Kingdom and Ireland", "Continental Europe", "Asia-Pacific", "Middle East and Africa", "Latin America"]}]}, {"id": "B", "title": "The market view", "audience": "all", "questions": [{"id": "B1", "type": "single", "required": true, "text": "Three years from now, how will most AI liability exposure be insured?", "options": ["Standalone AI liability policies", "Affirmative AI coverage written into existing lines (cyber, tech E&O, D&O, GL)", "Both in parallel: standalone for high-exposure uses, endorsements for the rest", "Mostly unaddressed: AI stays silent in existing wordings", "Mostly excluded, with limited capacity anywhere", "Don't know"]}, {"id": "B2", "type": "grid", "audience": ["carrier", "broker", "other"], "text": "Today, how is AI-related loss treated in typical policy wordings (forms) for each line?", "rows": ["Cyber", "Technology E&O", "Professional liability / E&O (non-technology)", "Directors & officers", "General liability", "Product liability"], "columns": ["Silent: not mentioned", "Partly addressed by some endorsements or exclusions", "Explicitly excluded", "Affirmatively covered", "Don't know"]}, {"id": "B3", "type": "scale", "text": "How likely is silent AI (AI neither excluded nor affirmed in the policy) to produce coverage disputes on the scale of silent cyber? Silent cyber was the wave of disputes over whether property and liability policies that never mentioned cyber had to pay cyber losses.", "min": 1, "max": 5, "min_label": "Very unlikely", "max_label": "Very likely"}, {"id": "B4", "type": "single", "audience": ["carrier", "broker", "other"], "text": "When will most carriers be required or pressured (by regulators, Lloyd's, rating agencies or reinsurers) to affirm or exclude AI explicitly?", "options": ["Within 12 months", "In 1 to 2 years", "In 3 to 5 years", "Only after a major AI loss event", "Never: the market will sort itself out", "Don't know"]}, {"id": "B5", "type": "multi", "max_select": 3, "text": "Which AI loss scenarios concern you most? Pick up to three.", "options": ["AI output error causing third-party financial loss (wrong advice, price, or decision)", "An AI agent taking an unauthorized action (a commitment, payment, data change or communication)", "Copyright or IP infringement from training data or outputs", "Discrimination or bias in AI-driven decisions (hiring, lending, insurance, housing)", "Privacy breach or confidential data leakage through AI tools", "Deepfake or AI-enabled fraud and social engineering", "Defamation or harmful content generated by AI", "Failure of a third-party model or AI vendor affecting many customers at once", "Regulatory fines and enforcement (EU AI Act, state AI laws, FTC or SEC)", "Bodily injury or property damage from AI in physical systems", "Securities claims against directors over AI disclosures or oversight", "Professional negligence where a professional relied on AI", "Other"]}, {"id": "B6", "type": "single", "text": "When an AI system causes a loss, who should carry primary liability?", "options": ["The deployer (the company using the AI)", "The foundation model provider", "The application vendor that built on the model", "Shared by contract, in proportion to control", "It depends entirely on the use case", "Don't know"]}, {"id": "B7", "type": "multi", "max_select": 3, "text": "What makes AI risk hard to insure? Pick up to three.", "options": ["Lack of loss history and actuarial data", "Aggregation risk from shared foundation models and vendors", "Pace of change and model drift between underwriting and loss", "Unclear legal allocation of liability", "Inability to verify controls beyond self-reported questionnaires", "Correlation with cyber and other existing exposures", "Regulatory uncertainty", "Moral hazard: cover reduces care", "Difficulty defining the trigger, or what counts as an AI loss", "Nothing fundamental: it is insurable with the right information"]}, {"id": "B8", "type": "grid", "text": "How much would each of the following raise an underwriter's confidence in an insured's AI risk? Your best judgment is fine: we compare buyers' views with underwriters' answers.", "rows": ["An AI inventory with a named owner for each AI workflow", "Human review before AI output is acted upon", "Independent audit or certification (ISO 42001, NIST AI RMF)", "Continuous monitoring evidence shared with the insurer (controls, change frequency, drift)", "Red-teaming and adversarial testing records", "Contractual indemnities and limits with AI vendors", "An AI incident response plan and a tested kill switch", "Model documentation (model cards, data lineage)", "An AI governance committee that reports to the board"], "columns": ["Not at all", "A little", "Moderately", "A lot", "Don't know"]}, {"id": "B9", "type": "single", "audience": ["carrier", "broker", "other"], "text": "Which best reflects how AI exposure should be underwritten?", "options": ["A point-in-time questionnaire at bind or renewal is sufficient", "A questionnaire plus an independent assessment at bind", "Continuous observed evidence, refreshed on each material change to the AI system", "Don't know"]}, {"id": "B10", "type": "single", "audience": ["carrier", "broker", "other"], "text": "By 2029, how insurable will AI liability be compared with cyber today?", "options": ["More insurable than cyber", "About the same", "Less insurable", "Largely uninsurable except through captives or self-insurance", "Don't know"]}, {"id": "B11", "type": "single", "text": "When do you expect the first AI-caused insured loss of more than $100 million?", "options": ["It has already happened", "Within 12 months", "In 1 to 2 years", "In 3 to 5 years", "Later than 5 years, or never", "Don't know"]}, {"id": "B12", "type": "single", "audience": ["carrier", "broker", "other"], "text": "Do the wordings you write or place today respond to a loss caused by an AI agent acting without human approval?", "options": ["Yes, across the lines we write or place", "Yes, but only in some lines", "No: excluded, or the trigger is not met", "It depends on the facts of each claim", "Don't know"]}, {"id": "B13", "type": "single", "text": "If you had to pick one: by premium volume in 2029, where will most AI liability cover sit?", "options": ["Standalone AI liability policies", "Affirmative coverage inside existing lines", "Still silent inside existing wordings", "Captives and self-insurance", "Don't know"]}]}, {"id": "C", "title": "Underwriting and capacity", "audience": ["carrier"], "questions": [{"id": "C1", "type": "multi", "text": "Which lines do you underwrite or reinsure? Select all that apply.", "options": ["Cyber", "Technology E&O", "Professional liability / E&O (non-technology)", "Directors & officers", "General liability", "Product liability", "Media liability", "Employment practices", "Other"]}, {"id": "C2", "type": "multi", "required": true, "text": "What does your organization offer today on AI? Select all that apply.", "options": ["Affirmative AI endorsement on existing lines", "Standalone AI liability product", "AI performance or warranty-type product", "AI-specific exclusion", "Nothing specific: AI is handled under existing wording", "Something in development for launch within 12 months"]}, {"id": "C3", "type": "single", "required": true, "text": "What is your appetite for AI exposure over the next 12 months?", "options": ["Expand significantly", "Expand cautiously", "Hold", "Reduce", "Exit or exclude", "Not decided"]}, {"id": "C4", "type": "multi", "text": "Have you added or tightened AI exclusions in the last 24 months? Select all lines where you have.", "options": ["No, none", "Cyber", "Technology E&O", "Professional liability", "Directors & officers", "General or product liability", "Other lines"]}, {"id": "C5", "type": "single", "text": "How many AI-related claims or notifications has your organization seen?", "options": ["None", "1 to 5", "6 to 20", "More than 20", "Prefer not to say"]}, {"id": "C6", "type": "multi", "text": "How were those claims handled? Select all that apply.", "options": ["Covered under silent existing wording", "Covered under affirmative AI wording", "Declined under an exclusion", "Disputed or unresolved", "Not applicable"]}, {"id": "C7", "type": "single", "text": "What is the single biggest barrier to writing more AI liability?", "options": ["No loss data", "Aggregation and systemic risk", "Cannot verify the insured's controls", "Reinsurance support", "Pricing uncertainty", "Unclear legal liability", "Limited demand: buyers will not pay for it", "Internal expertise", "No significant barrier"]}, {"id": "C8", "type": "multi", "text": "What information do you ask for today on an insured's AI exposure? Select all that apply.", "options": ["Nothing specific", "Questions inside the existing application", "A supplemental AI application", "An interview with the insured's AI or security team", "A third-party assessment report", "Technical evidence (logs, monitoring, test results)", "Other"]}, {"id": "C9", "type": "single", "text": "Would you accept an independent AI risk assessment, from a broker or third party, in place of or alongside your own questionnaire?", "options": ["Yes, in place of our questionnaire", "Yes, alongside it", "Only from an assessor we approve", "No", "Don't know"]}, {"id": "C10", "type": "single", "text": "Would you give premium credit for independently verified AI controls? If so, how much?", "options": ["No credit", "Up to 5%", "5% to 10%", "10% to 20%", "More than 20%", "Better terms or capacity, but not price", "Don't know"]}, {"id": "C11", "type": "single", "text": "What limit would you typically deploy for standalone AI liability on a single insured?", "options": ["We do not write standalone AI cover", "Under $1M", "$1M to $5M", "$5M to $10M", "$10M to $25M", "More than $25M"]}, {"id": "C12", "type": "multi", "text": "How do you manage aggregation from shared foundation models? Select all that apply.", "options": ["Not yet managed", "Sub-limits or aggregate caps", "Event definitions or hours clauses", "Tracking vendor and model concentration across the book", "Reinsurance", "Exclusions for widespread events", "Don't know"]}, {"id": "C13", "type": "single", "text": "Do you have AI-specific rating factors?", "options": ["Yes, in use", "In development", "No, we rely on existing cyber or E&O rating", "Don't know"]}, {"id": "C14", "type": "single", "text": "Are reinsurers asking about your AI exposure?", "options": ["Yes, in detail", "Yes, at a high level", "Not yet", "Not applicable: I am a reinsurer"]}, {"id": "C15", "type": "single", "text": "Where do your AI wordings come from?", "options": ["Market model clauses (for example LMA or ISO)", "Drafted in house", "A mix of both", "We have no AI-specific wording", "Don't know"]}]}, {"id": "D", "title": "Placement and advice", "audience": ["broker"], "questions": [{"id": "D1", "type": "multi", "text": "Which lines do you place? Select all that apply.", "options": ["Cyber", "Technology E&O", "Professional liability / E&O (non-technology)", "Directors & officers", "General liability", "Product liability", "Media liability", "Employment practices", "Other"]}, {"id": "D2", "type": "single", "text": "How often do clients raise questions about AI coverage?", "options": ["Never", "A few times a year", "Monthly", "Weekly", "In most client conversations"]}, {"id": "D3", "type": "multi", "max_select": 3, "text": "What are they asking? Pick up to three.", "options": ["Is AI covered under my current policies?", "Do I need a standalone AI policy?", "Why am I getting an AI exclusion at renewal?", "My customer's contract requires AI liability cover or a certificate", "How do I answer the carrier's AI questions?", "What are my peers doing?", "How do I insure an AI product we sell?", "Other"]}, {"id": "D4", "type": "multi", "text": "How do you currently advise clients on AI exposure? Select all that apply.", "options": ["Map existing policies for silent, excluded or affirmed AI", "Negotiate affirmative endorsements", "Place a standalone AI product", "Recommend contractual risk transfer (vendor indemnities)", "Recommend governance improvements before approaching markets", "We have not developed an approach yet"]}, {"id": "D5", "type": "single", "required": true, "text": "How often are you seeing AI exclusions at renewal?", "options": ["Not seen", "Occasionally", "Frequently", "On most renewals in at least one line"]}, {"id": "D5b", "type": "multi", "text": "In which lines are you seeing AI exclusions? Select all that apply.", "options": ["None seen", "Cyber", "Technology E&O", "Professional liability / E&O (non-technology)", "Directors & officers", "General or product liability", "Other lines"]}, {"id": "D6", "type": "single", "text": "When you push back on an AI exclusion, how often do you succeed?", "options": ["Usually", "Sometimes", "Rarely", "We have not tried", "Not applicable"]}, {"id": "D7", "type": "single", "required": true, "text": "How many markets will currently quote affirmative or standalone AI cover for a mid-size client (roughly $100M to $1B revenue)?", "options": ["None that I know of", "1 or 2", "3 to 5", "6 to 10", "More than 10", "Don't know"]}, {"id": "D8", "type": "multi", "max_select": 3, "text": "What do you most lack to place AI risk well? Pick up to three.", "options": ["The client's AI inventory", "Evidence of the client's controls", "Clear carrier appetite", "Standard wording and definitions", "Pricing benchmarks", "Technical expertise in house", "Time or compensation for the advisory work", "Nothing significant"]}, {"id": "D9", "type": "single", "text": "Would an independent AI risk assessment help placement, and who should pay for it?", "options": ["Yes, the client should pay", "Yes, the carrier should pay", "Yes, the broker should absorb it", "Yes, the cost should be split", "No, it would not help", "Don't know"]}, {"id": "D10", "type": "single", "text": "How do clients want AI addressed?", "options": ["A standalone policy", "Endorsements on existing lines", "Just confirmation that existing cover applies", "They do not know", "It varies widely"]}, {"id": "D11", "type": "single", "text": "Are your clients being asked by their own customers to carry AI liability cover or give AI indemnities?", "options": ["Yes, often", "Occasionally", "Not yet", "Don't know"]}]}, {"id": "E", "title": "Your organization's AI exposure", "audience": ["enterprise"], "questions": [{"id": "E1", "type": "single", "text": "Which function are you in?", "options": ["Risk management or insurance", "Finance or treasury", "Legal", "Security", "Technology or data", "Compliance or internal audit", "Other"]}, {"id": "E2", "type": "single", "text": "Which industry is your organization in?", "options": ["Financial services", "Healthcare and life sciences", "Technology and software", "Manufacturing and industrial", "Retail and consumer", "Professional services", "Energy and utilities", "Public sector", "Other"]}, {"id": "E3", "type": "single", "text": "How far has your organization deployed AI?", "options": ["Exploring or running pilots", "In production for internal use only", "In production in customer-facing products or decisions", "Agentic workflows that take actions (transactions, communications, system changes)", "Don't know"]}, {"id": "E4", "type": "single", "required": true, "text": "Do you know whether your current insurance covers AI-related losses?", "options": ["Yes, confirmed in writing with our broker or carrier", "We assume yes, but have not confirmed", "We know some AI exposure is excluded", "Don't know", "We have not considered it"]}, {"id": "E5", "type": "single", "text": "Has your broker proactively raised AI coverage with you?", "options": ["Yes, with a detailed review", "Yes, briefly", "No", "We raised it and they could not answer well"]}, {"id": "E6", "type": "multi", "text": "At your most recent renewal, did you encounter any of the following? Select all that apply.", "options": ["An AI questionnaire or supplemental application", "An AI exclusion", "An affirmative AI endorsement offered", "A premium increase attributed to AI", "Nothing AI-related"]}, {"id": "E7", "type": "single", "text": "How would you prefer AI exposure to be insured?", "options": ["A standalone AI policy", "Affirmative endorsements on existing lines", "Confirmation that existing cover applies, with no new product", "Self-insure or captive", "Don't know"]}, {"id": "E8", "type": "single", "text": "What would you pay for affirmative AI coverage, as a share of your current cyber premium?", "options": ["Nothing extra", "Up to 10%", "10% to 25%", "25% to 50%", "More than 50%", "We do not buy cyber", "Don't know"]}, {"id": "E9", "type": "single", "text": "Do your customers' contracts require AI liability cover or AI-specific indemnities from you?", "options": ["Yes, already", "Starting to appear", "Not yet", "Don't know"]}, {"id": "E10", "type": "multi", "text": "Which of these does your organization have in place? Select all that apply.", "options": ["An AI inventory or registry", "A named owner for each AI workflow", "An AI governance committee", "A framework adopted (NIST AI RMF, ISO 42001)", "EU AI Act readiness program", "An incident response plan for AI failures", "Monitoring of AI outputs in production", "None of these"]}, {"id": "E11", "type": "single", "text": "Would you share continuous evidence (controls, change frequency, monitoring) with insurers in exchange for better terms?", "options": ["Yes, readily", "Yes, with confidentiality safeguards", "Only summary attestations", "No", "Don't know"]}, {"id": "E12", "type": "single", "text": "Who owns AI risk in your organization?", "options": ["CISO", "General counsel", "Chief risk officer", "CFO", "CTO or CIO", "Chief AI or data officer", "An AI committee", "No clear owner"]}, {"id": "E13", "type": "single", "text": "What is the most valuable thing an insurance partner could offer you on AI?", "options": ["Clear confirmation of what is covered", "Risk assessment and mitigation advice", "Access to standalone capacity", "Benchmarking against peers", "Help meeting customer contract requirements", "Incident response support"]}, {"id": "E14", "type": "single", "text": "Do you rely on your AI vendor's indemnity (for example a model provider's copyright indemnity) as your primary protection against AI liability?", "options": ["Yes, it is our primary protection", "Partly, alongside insurance", "No, we do not rely on it", "We have not checked what it covers", "Don't know"]}, {"id": "E15", "type": "single", "text": "Would you undergo an independent AI risk assessment if it improved your insurance terms, and what would you pay for it?", "options": ["Yes, but only at no cost to us", "Yes, up to $10,000", "Yes, $10,000 to $50,000", "Yes, more than $50,000 if the terms justified it", "No", "Don't know"]}, {"id": "E16", "type": "multi", "max_select": 3, "text": "What would affirmative AI liability cover actually let your organization do? Pick up to three.", "options": ["Deploy AI into customer-facing or agentic uses faster than we otherwise would", "Satisfy customer contract requirements and close deals", "Lower premium or higher limits by showing evidence of our controls", "Remove AI exclusions or get written confirmation of cover", "Satisfy the board, audit committee or regulators", "Protect the balance sheet from a single large AI loss", "Nothing: it would not change what we do", "Other"]}, {"id": "E17", "type": "text", "text": "In a sentence or two, what would the business case for AI liability cover look like at your organization?"}, {"id": "E18", "type": "single", "text": "Has your organization had an AI-related incident, claim or near miss in the last 24 months?", "options": ["Yes, and it led to a claim or notification to insurers", "Yes, handled without involving insurers", "A near miss only", "No", "Don't know or prefer not to say"]}]}, {"id": "F", "title": "Board oversight", "audience": ["board"], "questions": [{"id": "F1", "type": "single", "text": "Where does AI risk oversight sit on your board?", "options": ["The full board", "Audit committee", "Risk committee", "Technology committee", "Not formally assigned"]}, {"id": "F2", "type": "single", "text": "How often does AI risk appear on the agenda?", "options": ["Every meeting", "Quarterly", "Annually", "Ad hoc", "Never"]}, {"id": "F3", "type": "single", "required": true, "text": "Has management reported to the board on whether AI-related losses are insured?", "options": ["Yes, clearly", "Yes, but vaguely", "No", "Don't know"]}, {"id": "F4", "type": "scale", "required": true, "text": "How confident are you that your organization's AI exposure is adequately insured?", "min": 1, "max": 5, "min_label": "Not confident", "max_label": "Very confident"}, {"id": "F5", "type": "grid", "text": "How concerned are you about each of the following?", "rows": ["AI-related securities litigation or disclosure claims", "Claims that directors failed in their oversight duty", "Regulatory enforcement over AI use", "Operational loss from an AI error", "Reputational harm from an AI incident", "Third-party liability from AI in our products or services"], "columns": ["Not concerned", "Slightly", "Moderately", "Very concerned"]}, {"id": "F6", "type": "multi", "max_select": 3, "text": "What assurance would you want on AI risk? Pick up to three.", "options": ["An independent AI risk assessment", "Written coverage confirmation from the broker or carrier", "A management attestation", "An internal audit review", "External audit or certification", "An AI insurability score or benchmark", "Scenario and loss-estimate analysis"]}, {"id": "F7", "type": "single", "text": "Should boards require management to obtain affirmative AI coverage?", "options": ["Yes, now", "Yes, once products mature", "No, treat it like other risks", "Don't know"]}, {"id": "F8", "type": "single", "text": "Has your board reviewed its D&O coverage specifically for AI-related claims?", "options": ["Yes, in detail", "Somewhat", "No", "Don't know"]}, {"id": "F9", "type": "single", "text": "Does your board have a director with hands-on AI expertise?", "options": ["Yes, more than one", "Yes, one", "No, but we use outside advisers", "No", "Don't know"]}]}, {"id": "G", "title": "Selling and buying with AI", "audience": ["startup"], "questions": [{"id": "G1", "type": "single", "text": "Which describes your company?", "options": ["We build AI products or services for customers", "We use AI heavily in our own operations", "Both"]}, {"id": "G2", "type": "single", "text": "What stage are you at?", "options": ["Pre-seed or seed", "Series A or B", "Series C or later", "Bootstrapped or profitable"]}, {"id": "G3", "type": "multi", "required": true, "text": "Do your customers ask you for any of the following? Select all that apply.", "options": ["An insurance certificate showing AI coverage", "Contractual indemnity for AI errors", "Performance guarantees or SLAs on AI accuracy", "Liability limits above your standard terms", "Security or AI governance questionnaires", "None of these"]}, {"id": "G4", "type": "single", "text": "How often do these requirements slow down or block deals?", "options": ["Never", "Occasionally", "Often", "We have lost deals over them"]}, {"id": "G5", "type": "multi", "text": "Which insurance do you carry today? Select all that apply.", "options": ["Technology E&O", "Cyber", "Directors & officers", "General liability", "None"]}, {"id": "G6", "type": "single", "required": true, "text": "Does your current cover explicitly address AI?", "options": ["Yes, affirmatively covered", "It is silent", "AI is excluded", "Don't know"]}, {"id": "G7", "type": "single", "text": "How interested would you be in an AI performance guarantee product that pays your customer if your AI underperforms its contractual commitment?", "options": ["Very interested", "Somewhat interested", "Not interested", "Don't know"]}, {"id": "G8", "type": "multi", "text": "What stops you buying more or better AI coverage? Select all that apply.", "options": ["Price", "Availability: no one will quote it", "Questionnaire burden", "No one has asked us to", "We do not know where to start", "Our current cover is fine"]}, {"id": "G9", "type": "single", "text": "Would you share telemetry or evidence from your AI system with an insurer to get coverage?", "options": ["Yes", "Yes, with safeguards", "No", "Don't know"]}, {"id": "G10", "type": "single", "text": "Would AI coverage be a differentiator in your sales process?", "options": ["A significant one", "A minor one", "Not at all", "Don't know"]}, {"id": "G11", "type": "single", "text": "In your customer contracts, how do you handle liability for AI errors?", "options": ["We cap liability tightly", "We give AI-specific indemnities", "Negotiated case by case", "We have not addressed it"]}, {"id": "G12", "type": "single", "text": "Do you rely on your model provider's indemnity (for example a copyright indemnity) as your primary protection against AI liability?", "options": ["Yes, it is our primary protection", "Partly, alongside insurance", "No, we do not rely on it", "We have not checked what it covers", "Don't know"]}, {"id": "G13", "type": "single", "text": "Would you undergo an independent AI risk assessment if it improved your insurance terms or unblocked a deal, and what would you pay for it?", "options": ["Yes, but only if free", "Yes, up to $5,000", "Yes, $5,000 to $25,000", "Yes, more than $25,000 if it closed the deal", "No", "Don't know"]}, {"id": "G14", "type": "multi", "max_select": 3, "text": "What would affirmative AI liability cover actually let your company do? Pick up to three.", "options": ["Deploy AI into customer-facing or agentic uses faster than we otherwise could", "Satisfy customer contract requirements and close deals", "Lower premium or higher limits by showing evidence of our controls", "Remove AI exclusions or get written confirmation of cover", "Satisfy investors, the board or regulators", "Protect the balance sheet from a single large AI loss", "Nothing: it would not change what we do", "Other"]}, {"id": "G15", "type": "text", "text": "In a sentence or two, what would the business case for AI liability cover look like at your company?"}, {"id": "G16", "type": "single", "text": "Which best describes your AI stack?", "options": ["Third-party models via API (for example OpenAI, Anthropic, Google)", "Open-weight models we host ourselves", "Models we trained ourselves", "A mix", "Don't know"]}, {"id": "G17", "type": "single", "text": "Has your company had an AI-related incident, claim or near miss in the last 24 months?", "options": ["Yes, and it led to a claim or notification to insurers", "Yes, handled without involving insurers", "A near miss only", "No", "Don't know or prefer not to say"]}]}, {"id": "I", "title": "Your vantage point", "audience": ["other"], "questions": [{"id": "I1", "type": "single", "text": "Which best describes your work?", "options": ["Coverage or insurance lawyer", "Corporate, technology or privacy lawyer", "Management, risk or actuarial consultant", "AI governance, security or assurance vendor", "Academic or researcher", "Regulator or policy", "Other"]}, {"id": "I2", "type": "single", "text": "Which side do you mostly advise or serve on AI liability?", "options": ["Insurers and reinsurers", "Brokers", "Enterprises deploying AI", "Companies building AI", "A mix of both sides", "Neither directly"]}]}, {"id": "H", "title": "Final questions", "audience": "all", "questions": [{"id": "H1", "type": "text", "text": "What is the one thing the market gets most wrong about AI liability?"}, {"id": "H2", "type": "text", "text": "What would make AI liability insurable at scale?"}, {"id": "H3", "type": "single", "text": "May we quote your written answers anonymously in the published report?", "options": ["Yes", "Yes, with my segment named (for example, 'a wholesale broker')", "No"]}, {"id": "H4", "type": "single", "text": "Would you take part in a 30-minute follow-up interview?", "options": ["Yes", "No"]}, {"id": "H5", "type": "single", "text": "Would you like a copy of the results report?", "options": ["Yes", "No"]}, {"id": "H6", "type": "single", "text": "If you leave your details, how would you like to appear in the published report?", "options": ["Acknowledge me by name and organization in the contributors list", "Acknowledge my organization only", "Keep me fully anonymous"]}, {"id": "H6b", "type": "short", "text": "If you asked to be acknowledged: your name and organization, as you would like them to appear. Leave blank to stay anonymous."}, {"id": "H7", "type": "single", "text": "Would you be interested in upcoming podcasts or online panels on AI liability and insurability?", "options": ["Yes, as a speaker or panelist", "Yes, as a listener or attendee", "No"]}, {"id": "H8", "type": "email", "text": "Email (optional, only if you said yes to any of the above). Stored with your answers and used only to send you the report, arrange an interview, acknowledge you or invite you to events. Never quoted, published or shared."}]}]}</script>
+<script>
+(function(){
+  const SPEC = JSON.parse(document.getElementById('spec').textContent);
+  const MODE = 'preview';            // 'live' posts answers to the Google Form; 'preview' records nothing
+  const FORM_URL = '';
+  const ENTRY = null;            // live form field ids, keyed by form page
+  const PAGES = {"carrier": 1, "broker": 2, "enterprise": 3, "board": 4, "startup": 5, "other": 6};            // route -> form page
+  const CLOSING = 7;        // form page of the final questions
+  const LIVE = MODE === 'live';
+  const KEY = 'vizco-ai-liability-survey-2026';
+
+  document.getElementById('intro').textContent = SPEC.intro;
+  document.getElementById('notice').hidden = LIVE;
+  document.getElementById('chips').hidden = LIVE;
+  document.getElementById('foot').innerHTML = LIVE ? '<a href="https://vizco.co" target="_blank" rel="noopener">vizco.co</a>' : 'Review version, not recording';
+  const main = document.getElementById('main');
+  let answers = {};
+  let route = null;
+  let sent = false;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const lbl = o => typeof o === 'string' ? o : o.label;
+  // An option labelled exactly "Other" is Google Forms' free-text Other choice on the live form.
+  const hasOther = q => (q.type === 'single' || q.type === 'multi') && q.options.some(o => lbl(o) === 'Other');
+
+  const common = SPEC.sections.filter(s => s.audience === 'all' && s.id !== 'H');
+  const segs = SPEC.sections.filter(s => s.audience !== 'all');
+  const closing = SPEC.sections.find(s => s.id === 'H');
+
+  function renderQuestion(q){
+    let inner = '';
+    if (q.type === 'single' || q.type === 'multi'){
+      const t = q.type === 'single' ? 'radio' : 'checkbox';
+      inner = '<div class="opts">' + q.options.map((o,i) =>
+        `<label class="opt"><input type="${t}" name="${q.id}" value="${esc(lbl(o))}" data-i="${i}"><span class="mk${t==='radio'?' r':''}" aria-hidden="true"></span><span>${esc(lbl(o))}</span></label>`).join('') + '</div>';
+      if (hasOther(q)) inner += `<input type="text" class="other" id="${q.id}__other" name="${q.id}__other" placeholder="Please specify" aria-label="Other, please specify" autocomplete="off" hidden>`;
+      if (q.max_select && !/pick up to/i.test(q.text)) inner = `<p class="hint">Pick up to ${q.max_select}.</p>` + inner;
+    } else if (q.type === 'scale'){
+      let s = '<div class="scale">';
+      for (let v=q.min; v<=q.max; v++) s += `<label><input type="radio" name="${q.id}" value="${v}">${v}</label>`;
+      inner = s + '</div>' + `<div class="scale-ends"><span>${q.min} = ${esc(q.min_label)}</span><span>${q.max} = ${esc(q.max_label)}</span></div>`;
+    } else if (q.type === 'grid'){
+      let s = '<div class="gridwrap"><table class="grid"><thead><tr><th></th>' + q.columns.map(c=>`<th scope="col">${esc(c)}</th>`).join('') + '</tr></thead><tbody>';
+      q.rows.forEach((r,ri) => { s += `<tr><td class="rl">${esc(r)}</td>` + q.columns.map(c=>`<td><label><input type="radio" name="${q.id}_${ri+1}" value="${esc(c)}"><span class="cl">${esc(c)}</span></label></td>`).join('') + '</tr>'; });
+      inner = s + '</tbody></table></div>';
+    } else if (q.type === 'text'){
+      inner = `<textarea id="${q.id}" name="${q.id}" aria-label="${esc(q.text)}"></textarea>`;
+    } else if (q.type === 'short'){
+      inner = `<input type="text" id="${q.id}" name="${q.id}" aria-label="${esc(q.text)}" autocomplete="off">`;
+    } else if (q.type === 'email'){
+      inner = `<input type="email" id="${q.id}" name="${q.id}" placeholder="name@company.com" aria-label="Email" autocomplete="email">`;
+    }
+    return `<div class="q" data-q="${q.id}"><div class="id mono"><span>${q.id}</span>${q.required?'<span class="req"><i class="dot" aria-hidden="true"></i>Required</span>':''}</div><h3>${esc(q.text)}</h3>${inner}</div>`;
+  }
+
+  const restricted = q => Array.isArray(q.audience);
+  function renderSection(s, qs, audNote, title){
+    const list = qs || s.questions;
+    const aud = audNote || (s.audience==='all' ? 'All respondents' : s.audience.map(a=>SPEC.segments[a]).join(', '));
+    return `<h2>${esc(title || s.title)}</h2>` + (LIVE ? '' : `<div class="aud mono">${esc(aud)}</div>`) + list.map(renderQuestion).join('');
+  }
+
+  // Steps: [A + shared B], [insider B, only on some routes], [segment], [H], [done]
+  const steps = [];
+  steps.push({name:'Sections A and B', html: common.map(s => renderSection(s, s.questions.filter(q => !restricted(q)))).join('')});
+  common.forEach(s => {
+    const groups = {};
+    s.questions.filter(restricted).forEach(q => { const k = q.audience.join('|'); (groups[k] = groups[k] || []).push(q); });
+    Object.keys(groups).forEach(k => {
+      const aud = k.split('|');
+      steps.push({name:'Section '+s.id+' (continued)', aud, html: renderSection(s, groups[k], aud.map(a=>SPEC.segments[a]).join(', ') + ' only', s.title + ', continued')});
+    });
+  });
+  segs.forEach(s => steps.push({name:'Section '+s.id, seg:s, html: renderSection(s)}));
+  steps.push({name:'Section H', html: renderSection(closing)});
+  steps.push({name:'Done', html: LIVE
+    ? '<div class="done"><h2>Thank you. <span class="hl">Your view is in.</span></h2><p>If you asked for the results report or an interview, we will be in touch at the email you gave.</p><div class="nav"><a class="btn primary" href="https://vizco.co" target="_blank" rel="noopener">Visit vizco.co <span aria-hidden="true">&rarr;</span></a></div></div>'
+    : '<h2>Thank you</h2><p class="lede">Below is a transcript of your answers. Copy it, add any comments on wording, missing options or length, and send it back.</p><div class="summary"><pre id="out"></pre></div><div class="nav"><button class="btn" id="copy">Copy answers</button><button class="btn" id="restart">Start over</button></div>'});
+  const LAST = steps.length - 1, FINAL = steps.length - 2;
+
+  main.innerHTML = steps.map((st,i) => `<section class="step" data-i="${i}" hidden>${st.html}${i < LAST ? `<div class="err" id="err${i}" role="alert" hidden><i class="dot" aria-hidden="true"></i><span></span></div><div class="nav"><button class="btn" data-back ${i===0?'disabled':''}>Back</button><button class="btn primary" data-next>${i===FINAL ? (LIVE ? 'Submit answers' : 'Finish') : 'Continue'} <span aria-hidden="true">&rarr;</span></button></div>` : ''}</section>`).join('');
+
+  function findQ(id){ for (const s of SPEC.sections) for (const q of s.questions) if (q.id===id) return q; return null; }
+  function group(name){ return Array.prototype.filter.call(main.querySelectorAll('input'), el => el.name === name); }
+  function paint(name){ group(name).forEach(el => { const l = el.closest('label'); if (l && !el.closest('table')) l.classList.toggle('sel', el.checked); }); }
+  function syncOther(id){
+    const box = document.getElementById(id + '__other'); if (!box) return;
+    const v = answers[id]; box.hidden = !(Array.isArray(v) ? v.indexOf('Other') >= 0 : v === 'Other');
+  }
+  function save(){ if (!LIVE || sent) return; try { localStorage.setItem(KEY, JSON.stringify({answers, route, cur})); } catch(e){} }
+
+  main.addEventListener('change', e => {
+    const el = e.target; if (!el.name) return;
+    if (el.type === 'checkbox'){
+      const set = answers[el.name] || [];
+      if (el.checked) set.push(el.value); else set.splice(set.indexOf(el.value),1);
+      answers[el.name] = set;
+      const q = findQ(el.name);
+      if (q && q.max_select && set.length > q.max_select){ el.checked = false; set.pop(); }
+    } else if (el.type === 'radio') answers[el.name] = el.value;
+    if (el.type === 'radio' || el.type === 'checkbox'){ paint(el.name); syncOther(el.name); }
+    if (el.name === 'A1'){ route = findQ('A1').options[+el.dataset.i].route; rail(); }
+    const qel = el.closest('.q'); if (qel) qel.classList.remove('miss');
+    save();
+  });
+  main.addEventListener('input', e => { const el = e.target; if (el.tagName==='TEXTAREA' || el.type==='email' || el.type==='text'){ answers[el.name] = el.value; save(); } });
+
+  let cur = 0;
+  const order = () => {
+    const seq = [0];
+    steps.forEach((st,i) => { if (st.aud && route && st.aud.includes(route)) seq.push(i); });
+    const segIdx = steps.findIndex(st => st.seg && st.seg.audience.includes(route));
+    if (segIdx > 0) seq.push(segIdx);
+    seq.push(FINAL, LAST);
+    return seq;
+  };
+  function rail(){
+    const seq = order(); const pos = seq.indexOf(cur); const n = seq.length - 1;
+    document.getElementById('count').textContent = cur === LAST ? 'Complete' : (pos < 0 ? '' : (route ? `Step ${pos+1} of ${n}` : 'Step 1'));
+    document.getElementById('fill').style.width = (cur === LAST ? 100 : Math.max(0,pos)/n*100) + '%';
+  }
+  function show(i, keepScroll){
+    cur = i;
+    main.querySelectorAll('section.step').forEach(s => { s.hidden = +s.dataset.i !== i; });
+    document.getElementById('heroWrap').hidden = i !== 0;
+    rail();
+    if (!LIVE && i === LAST) document.getElementById('out').textContent = transcript();
+    if (!keepScroll) window.scrollTo(0,0);
+    save();
+  }
+  function fail(i, msg){ const box = document.getElementById('err'+i); box.querySelector('span').textContent = msg; box.hidden = false; }
+  function check(i){
+    const sec = main.querySelector(`section.step[data-i="${i}"]`);
+    document.getElementById('err'+i).hidden = true;
+    let first = null;
+    sec.querySelectorAll('.q').forEach(qel => {
+      const q = findQ(qel.dataset.q); const v = answers[q.id];
+      const empty = !v || (Array.isArray(v) && !v.length);
+      let bad = q.required && empty;
+      if (q.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v).trim())) bad = true;
+      qel.classList.toggle('miss', !!bad);
+      if (bad && !first) first = {qel, q};
+    });
+    if (!first) return true;
+    fail(i, first.q.type === 'email' ? 'That email address does not look right. Correct it or leave it blank.' : 'Please answer the questions marked Required.');
+    first.qel.scrollIntoView({block:'start'});
+    return false;
+  }
+
+  function payload(){
+    const p = new URLSearchParams();
+    const pages = [0, PAGES[route], CLOSING];
+    pages.forEach(pg => { const map = ENTRY[pg]; Object.keys(map).forEach(id => {
+      const q = findQ(id), e = map[id];
+      if (q.type === 'grid'){ e.forEach((eid,ri) => { const v = answers[`${id}_${ri+1}`]; if (v) p.append('entry.'+eid, v); }); return; }
+      const v = answers[id];
+      const put = x => {
+        if (x === 'Other' && hasOther(q)){
+          p.append('entry.'+e, '__other_option__');
+          p.append('entry.'+e+'.other_option_response', String(answers[id+'__other'] || '').trim() || 'Other');
+        } else p.append('entry.'+e, x);
+      };
+      if (Array.isArray(v)) v.forEach(put);
+      else if (v != null && String(v).trim() !== '') put(String(v).trim());
+    }); });
+    p.append('pageHistory', pages.join(','));
+    return p;
+  }
+  function submit(btn){
+    const label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Sending';
+    fetch(FORM_URL, {method:'POST', mode:'no-cors', body: payload()}).then(() => {
+      sent = true; try { localStorage.removeItem(KEY); } catch(e){}
+      show(LAST);
+    }).catch(() => {
+      btn.disabled = false; btn.innerHTML = label;
+      fail(FINAL, 'We could not send your answers. Check your connection and try again. Your answers are still here.');
+    });
+  }
+
+  main.addEventListener('click', e => {
+    const next = e.target.closest('[data-next]'), back = e.target.closest('[data-back]');
+    if (next){
+      if (!check(cur)) return;
+      if (LIVE && cur === FINAL){ submit(next); return; }
+      const seq = order(); show(seq[seq.indexOf(cur)+1]);
+    } else if (back){
+      const seq = order(); show(seq[Math.max(0, seq.indexOf(cur)-1)]);
+    } else if (e.target.id === 'restart'){ location.reload(); }
+    else if (e.target.id === 'copy'){
+      const t = transcript();
+      navigator.clipboard.writeText(t).then(()=>{ e.target.textContent='Copied'; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById('out')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); });
+    }
+  });
+  function transcript(){
+    const lines = [SPEC.title + ' (preview transcript)', 'Route: ' + (route ? SPEC.segments[route] : 'not chosen'), ''];
+    for (const s of SPEC.sections) for (const q of s.questions){
+      if (q.type === 'grid'){ q.rows.forEach((r,ri) => { const v = answers[`${q.id}_${ri+1}`]; if (v) lines.push(`${q.id}.${ri+1} ${r}: ${v}`); }); continue; }
+      const v = answers[q.id]; if (v && (!Array.isArray(v) || v.length)) lines.push(`${q.id}: ${Array.isArray(v) ? v.join(' | ') : v}` + (answers[q.id+'__other'] ? ` (Other: ${answers[q.id+'__other']})` : ''));
+    }
+    lines.push('', 'Comments on the survey:', '');
+    return lines.join('\n');
+  }
+
+  // Reviewer shortcuts (preview only): jump straight to a segment section
+  if (!LIVE){
+    const chips = document.getElementById('chips');
+    segs.forEach(s => { const b = document.createElement('button'); b.textContent = 'Jump to ' + s.id + ': ' + s.title; b.addEventListener('click', ()=>{ route = s.audience[0]; show(steps.findIndex(st=>st.seg===s)); }); chips.appendChild(b); });
+  }
+
+  // Live only: bring back an unfinished response after a reload or a closed tab
+  let start = 0;
+  if (LIVE){
+    try {
+      const d = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (d && d.answers){
+        answers = d.answers; route = d.route || null;
+        main.querySelectorAll('input,textarea').forEach(el => {
+          const v = answers[el.name]; if (v == null) return;
+          if (el.type === 'radio') el.checked = String(v) === el.value;
+          else if (el.type === 'checkbox') el.checked = Array.isArray(v) && v.indexOf(el.value) >= 0;
+          else el.value = v;
+          if (el.type === 'radio' || el.type === 'checkbox'){ const l = el.closest('label'); if (l && !el.closest('table')) l.classList.toggle('sel', el.checked); }
+        });
+        SPEC.sections.forEach(s => s.questions.forEach(q => syncOther(q.id)));
+        if (order().indexOf(d.cur) >= 0 && d.cur !== LAST) start = d.cur;
+      }
+    } catch(e){}
+  }
+  show(start, true);
+})();
+</script>
+</body>
+</html>

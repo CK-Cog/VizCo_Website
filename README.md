@@ -38,6 +38,7 @@ npm run build      # production build
 | `src/content/exposures.ts`, `src/components/home/RiskMap.tsx`, `src/components/ExposureGroups.tsx` | "How AI goes wrong": 12 failure modes in four groups, with what we check at each depth. Home shows them as the interactive risk map (`RiskMap`); enterprise as tabs of black cards (`ExposureGroups`) |
 | `src/lib/seo.ts`, `src/components/JsonLd.tsx` | Per-page metadata helper and structured data |
 | `public/llms.txt` | Plain-text summary for AI answer engines |
+| `public/survey.html`, served at `/survey` | The AI Liability Insurability Survey 2026. One self-contained file, generated in the separate survey project (`build_survey_assets.py`); replace the whole file, don't edit it by hand. Unlisted: no nav link, not in the sitemap or `llms.txt`, noindex in the file and in `next.config.ts`. It is a research survey for the insurance market, so it names policy types and asks about premiums; the content rules below are for the site's own copy and do not apply to it |
 | `public/investors/` | Investor logos (black on transparent) |
 | `src/content/affiliations.ts`, `public/affiliations/` | The logo band under the home hero ("Expertise from"): where the team and advisors studied and worked, and our investors. See `docs/affiliations.md` before adding one |
 | `docs/` | How the hero portrait (`hero-portrait.md`), the favicon (`favicon.md`) and the affiliation logos (`affiliations.md`) were made, and how to rebuild them |
