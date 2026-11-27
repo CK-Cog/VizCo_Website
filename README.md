@@ -29,13 +29,13 @@ npm run build      # production build
 | `src/components/ui.tsx` | Shared building blocks: `Container`, `Section`, `SectionHeader`, `Block`, `Label`, `Card`, `Faq`, `Button`, `Em` |
 | `src/content/process.ts`, `src/components/Process.tsx` | The five-step process (Assess, Mitigate, Place, Monitor, Report), used on every page |
 | `src/components/RiskChanges.tsx` | "AI risk can change overnight" panel: why we keep monitoring after the policy is bound |
-| `src/components/home/` | Home-only sections (`Thesis`, `Affiliations`, `PolicyLine`, `Reading`, `Backers`) |
+| `src/components/home/` | Home-only sections (`Thesis`, `Affiliations`, `PolicyLine`, `RiskMap`, `Reading`, `Backers`) |
 | `src/components/PageHero.tsx`, `FinalCta.tsx`, `CoverageGap.tsx` | Hero, closing call to action, black feature panel |
 | `src/components/DoesItPay.tsx` | The problem as one claim ("Does your insurance pay?" Yes / Maybe / No), used on home and the-problem |
 | `src/components/pages/Visuals.tsx` | Illustrations (AI inventory, vendor stack, certificate) |
 | `src/content/site.ts` | Navigation, footer links, booking/checker URLs, disclaimer |
 | `src/content/team.ts` | Team and advisors |
-| `src/content/exposures.ts`, `src/components/ExposureGroups.tsx` | "How AI goes wrong": 12 failure modes in four groups, shown as tabs of black cards (home and enterprise) |
+| `src/content/exposures.ts`, `src/components/home/RiskMap.tsx`, `src/components/ExposureGroups.tsx` | "How AI goes wrong": 12 failure modes in four groups, with what we check at each depth. Home shows them as the interactive risk map (`RiskMap`); enterprise as tabs of black cards (`ExposureGroups`) |
 | `src/lib/seo.ts`, `src/components/JsonLd.tsx` | Per-page metadata helper and structured data |
 | `public/llms.txt` | Plain-text summary for AI answer engines |
 | `public/investors/` | Investor logos (black on transparent) |
